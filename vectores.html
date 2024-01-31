@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Fundamentos de Matemática - 2&nbsp; Vectores en el plano</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./trigo.html" rel="next">
+<link href="./aritmetica.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./vectores.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores en el plano</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Fundamentos de Matemática</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prefacio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./aritmetica.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de aritmética</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./vectores.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores en el plano</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./trigo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Elementos de la trigonometría</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./lug_geo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Lugares geométricos</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Observaciones…</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#aritmética-vectorial" id="toc-aritmética-vectorial" class="nav-link active" data-scroll-target="#aritmética-vectorial"><span class="header-section-number">2.1</span> Aritmética vectorial</a>
+  <ul class="collapse">
+  <li><a href="#productos-interior-y-exterior" id="toc-productos-interior-y-exterior" class="nav-link" data-scroll-target="#productos-interior-y-exterior"><span class="header-section-number">2.1.1</span> Productos interior y exterior</a></li>
+  <li><a href="#proyección-de-un-vector" id="toc-proyección-de-un-vector" class="nav-link" data-scroll-target="#proyección-de-un-vector"><span class="header-section-number">2.1.2</span> Proyección de un vector</a></li>
+  <li><a href="#producto-exterior" id="toc-producto-exterior" class="nav-link" data-scroll-target="#producto-exterior"><span class="header-section-number">2.1.3</span> Producto exterior</a></li>
+  <li><a href="#áreas-y-centros-de-triángulos" id="toc-áreas-y-centros-de-triángulos" class="nav-link" data-scroll-target="#áreas-y-centros-de-triángulos"><span class="header-section-number">2.1.4</span> Áreas y centros de triángulos</a></li>
+  <li><a href="#área-de-un-triángulo" id="toc-área-de-un-triángulo" class="nav-link" data-scroll-target="#área-de-un-triángulo"><span class="header-section-number">2.1.5</span> Área de un triángulo</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Vectores en el plano</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div style="text-align: justify">
+
+
+<section id="aritmética-vectorial" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="aritmética-vectorial"><span class="header-section-number">2.1</span> Aritmética vectorial</h2>
+<div id="def-line" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.1 </strong></span><em>Un vector es un arreglo o una lista de números reales, Los vectores los identificamos con una letra mayúscula o minúscula y en este ultimo caso con una flecha encima de esta. Los números en el vector son llamados componentes y se enumeran de izquierda a derecha empezando en uno, el número de componentes del vector se conoce como la dimensión del vector</em></p>
+</div>
+<p>Un vector de dimensión dos es pareja de números reales <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> dispuestos en una fila o una columna. Cada uno de estos números recibe el nombre de coordenada o componente del vector.</p>
+<p>El conjunto de todos los vectores en el plano se denota <span class="math inline">\(\mathbb{R}^2\)</span>. Los vectores se representan con una letra mayúscula, o con una letra minúscula y una flecha en la parte superior de esta, es decir: <span class="math display">\[
+A = (a_1, a_2), \quad \overrightarrow{a} = (a_1, a_2).
+\]</span></p>
+<div id="def-line" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.2 </strong></span><em>Dos vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de <span class="math inline">\(\mathbb{R}^2\)</span> son iguales siempre y cuando sus componentes coincidan. Es decir, si <span class="math inline">\(A = (a_1, a_2)\)</span> y <span class="math inline">\(B = (b_1, b_2),\)</span> diremos que <span class="math inline">\(A = B\)</span> si <span class="math inline">\(a_{1} = b_{1}\)</span> y <span class="math inline">\(a_2 = b_2\)</span>.</em></p>
+</div>
+<div id="def-suma_vectores" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.3 </strong></span><em>La suma de los vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de la misma dimensión, se define como el vector que se obtiene de sumar componente a componente de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> es decir</em> <span class="math display">\[
+A + B = (a_1 + b_1, a_2 + b_2).
+\]</span></p>
+</div>
+<p>También se puede representar geométricamente la suma de los vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> realizando el siguiente procedimiento, trazamos una linea punteada desde el vector <span class="math inline">\(A\)</span> paralela al vector <span class="math inline">\(B\)</span> y trazamos desde el extremo de <span class="math inline">\(B\)</span> una linea punteada paralela al vector <span class="math inline">\(A\)</span>, el punto de corte entre estas lineas coincide con el extremo del vector <span class="math inline">\(A+B\)</span>, esto se muestra en la siguiente figura.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="g192.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<div id="def-escalar_vector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.4 </strong></span><em>Si <span class="math inline">\(\alpha\)</span> es un número real (escalar), se define <span class="math inline">\(\alpha A\)</span> como el vector que se obtiene al multiplicar <span class="math inline">\(\alpha\)</span> por cada componente de <span class="math inline">\(A,\)</span></em> <span class="math display">\[
+\alpha A = (\alpha a_1, \alpha a_2).
+\]</span></p>
+</div>
+<p>Note que la suma de vectores es conmutativa y asociativa. Se sigue también que la multiplicación por escalares es asociativa y verifica dos leyes distributivas, esto es <span class="math display">\[
+\alpha(A + B) = \alpha A + \alpha B, \quad (\alpha + \beta)A = \alpha A + \beta A,
+\]</span> con <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> elementos de <span class="math inline">\(\mathbb{R}^2,\)</span> <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> escalares.</p>
+<div id="def-vector_nulo" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.5 </strong></span><em>El vector cuyas componentes son <span class="math inline">\(\mathcal{O}\)</span> se conoce como el vector nulo y se representa como <span class="math inline">\(\mathcal{O},\)</span> es decir <span class="math inline">\(\mathcal{O} = (0, 0).\)</span></em></p>
+</div>
+<p>El vector nulo verifica <span class="math inline">\(A + \mathcal{O} = A.\)</span> El vector <span class="math inline">\((-1)A\)</span> se representa por <span class="math inline">\(-A\)</span> y comúnmente se conoce como el opuesto de <span class="math inline">\(A\)</span> el cual satisface <span class="math inline">\(-A + A = \mathcal{O}.\)</span> Se acostumbra a escribir <span class="math inline">\(A - B\)</span> en lugar de <span class="math inline">\(A + (-1)B.\)</span></p>
+<p>Existe una identificación natural entre el vector <span class="math inline">\(A = (a_1, a_2)\)</span> y el punto <span class="math inline">\(A(a_1, a_2)\)</span> del plano cartesiano, lo cual permite interpretar geométricamente el vector como el segmento de recta dirigido del origen al punto. Esta identificación nos permitirá referirnos en ciertos contextos a puntos y vectores de manera indistinta.</p>
+<p>En general un par de puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> del plano cartesiano se denomina vector geometríco si un punto es el punto inicial del vector (suponga <span class="math inline">\(A\)</span>) y el otro punto es el extremo final del vector (suponga <span class="math inline">\(B\)</span>). Este vector se representa como <span class="math inline">\(\overrightarrow{AB}\)</span> y se entiende como el segmento de recta dirigido del punto <span class="math inline">\(A\)</span> al punto <span class="math inline">\(B.\)</span> Más aún, si <span class="math inline">\(A(a_1, a_2)\)</span> y <span class="math inline">\(B(b_1, b_2),\)</span> entonces <span class="math inline">\(\overrightarrow{AB}\)</span> tiene componentes <span class="math inline">\((b_1 - a_1, b_2 - a_2)\)</span>.</p>
+<div id="def-vector_paralelo" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.6 </strong></span><em>Dos vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de <span class="math inline">\(\mathbb{R}^2\)</span> son paralelos si <span class="math inline">\(B = \alpha A\)</span> para un cierto escalar <span class="math inline">\(\alpha\)</span> no nulo. Si <span class="math inline">\(\alpha\)</span> es positivo, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> tienen la misma dirección. Si <span class="math inline">\(\alpha\)</span> es negativo, <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> tienen direcciones opuestas.</em></p>
+</div>
+<section id="productos-interior-y-exterior" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="productos-interior-y-exterior"><span class="header-section-number">2.1.1</span> Productos interior y exterior</h3>
+<div id="def-producto" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.7 </strong></span><em>Sean <span class="math inline">\(A = (a_1, a_2)\)</span> y <span class="math inline">\(B = (b_1, b_2)\)</span> dos vectores de <span class="math inline">\(\mathbb{R}^2.\)</span> El producto interior o producto punto entre <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> representado por <span class="math inline">\(A \cdot B\)</span> se define como:</em> <span class="math display">\[
+A \cdot B = a_1 b_1 + a_2 b_2.  
+\]</span></p>
+</div>
+<p>Note que <span class="math inline">\(A \cdot B = B \cdot A\)</span></p>
+<div id="thm-vector_escalar" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.1 </strong></span>Sean <span class="math inline">\(A,\)</span> <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> vectores de <span class="math inline">\(\mathbb{R}^2.\)</span> Para cualquier escalar <span class="math inline">\(\alpha\)</span> se verifican las siguientes propiedades:</p>
+<ul>
+<li><p><span class="math inline">\(i.\)</span> <span class="math inline">\(A \cdot B = B \cdot A.\)</span></p></li>
+<li><p><span class="math inline">\(ii.\)</span> <span class="math inline">\(A \cdot ( B + C) = A \cdot B + A \cdot C.\)</span></p></li>
+<li><p><span class="math inline">\(iii.\)</span> <span class="math inline">\(\alpha (A \cdot B) = (\alpha A) \cdot B = A \cdot (\alpha B).\)</span></p></li>
+<li><p><span class="math inline">\(iv.\)</span> <span class="math inline">\(A \cdot A &gt; 0\)</span> si <span class="math inline">\(A \neq O.\)</span> <span class="math inline">\(\quad\)</span> <span class="math inline">\(A \cdot A = 0\)</span> si y sólo si <span class="math inline">\(A = O.\)</span></p></li>
+</ul>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>La propiedad <span class="math inline">\(i.\)</span> es consecuencia de la propiedad conmutativa de las operaciones de los números reales. Demostraremos la propiedad <span class="math inline">\(ii.\)</span> Las propiedades <span class="math inline">\(iii.\)</span> y <span class="math inline">\(iv.\)</span> se proponen como ejercicio.</p>
+<p>Considere los vectores <span class="math inline">\(A = (a_1, a_2),\)</span> <span class="math inline">\(B = (b_1, b_2)\)</span> y <span class="math inline">\(C = (c_1, c_2).\)</span> <span class="math display">\[\begin{align*}
+    A \cdot (B + C) &amp; = a_1 (b_1 + c_1) + a_2 (b_2 +  c_2)
+    \\
+    &amp;= a_1 b_1 + a_2 b_2 + a_1c_1 + a_2c_2
+    \\
+    &amp;= A \cdot B + A \cdot C
+    \end{align*}\]</span></p>
+</div>
+<div id="def-ortogonal" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.8 </strong></span><em>Diremos que dos vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> de <span class="math inline">\(\mathbb{R}^2\)</span> son ortogonales o perpendiculares si <span class="math inline">\(A \cdot B = 0.\)</span></em></p>
+</div>
+<p>En el plano es muy sencillo encontrar vectores perpendiculares a un cierto vector <span class="math inline">\(A,\)</span> y estos corresponden a la rotación <span class="math inline">\(\pi/2\)</span> radianes de <span class="math inline">\(A\)</span> a favor o en contra de las manecillas del reloj. De acuerdo con esto si tengo un vector en el plano y busco un vector perpendicular a este a favor de las manecillas del reloj, permuto las componentes y la segunda la multiplico por <span class="math inline">\(-1,\)</span> y si tengo un vector en el plano y busco un vector perpendicular a este, en sentido contrario al reloj permuto las componentes y la primera la multiplico por <span class="math inline">\(-1.\)</span></p>
+<div id="def-norma" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.9 </strong></span><em>La longitud o norma de un vector <span class="math inline">\(A\)</span> se representa como <span class="math inline">\(\vert \vert A \vert \vert\)</span> y corresponde al número real</em> <span class="math display">\[
+\vert \vert A \vert \vert = \sqrt{A \cdot A}.
+\]</span></p>
+</div>
+<p>En particular si <span class="math inline">\(A = (a_1, a_2)\)</span> entonces <span class="math inline">\(\vert \vert A \vert \vert = \sqrt{a_1^2 + a_2^2}\)</span> y <span class="math inline">\(\vert \vert A \vert \vert^2 = a_1^2 + a_2^2.\)</span> Note que <span class="math inline">\(\vert \vert A \vert \vert\)</span> es la distancia del punto <span class="math inline">\(A(a_1, a_2)\)</span> al origen de coordenadas.</p>
+<div id="def-distancia_dos_puntos" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.10 </strong></span><em>La cantidad <span class="math inline">\(\vert \vert A-B \vert \vert\)</span> es igual a la cantidad <span class="math inline">\(\vert \vert B-A \vert \vert\)</span> y corresponde con la distancia entre el punto <span class="math inline">\(A\)</span> y el punto <span class="math inline">\(B\)</span> <span class="math inline">\((d(A,B))\)</span></em> <span class="math display">\[
+d(A,B) = \sqrt{(x_-x_0)^2 +(y_1-y_0)^2}.
+\]</span></p>
+</div>
+<div id="thm-norma" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.2 </strong></span>Sea <span class="math inline">\(A\)</span> es un vector de <span class="math inline">\(\mathbb{R}^2\)</span> y <span class="math inline">\(\alpha\)</span> un escalar, entonces se cumplen las siguientes propiedades:</p>
+<ul>
+<li><span class="math inline">\(i.\)</span> <span class="math inline">\(\vert \vert A \vert \vert &gt; 0\)</span> si <span class="math inline">\(A \neq 0.\)</span> <span class="math inline">\(\quad\)</span> <span class="math inline">\(\vert \vert A \vert \vert = 0\)</span> si y sólo si <span class="math inline">\(A = O.\)</span></li>
+<li><span class="math inline">\(ii.\)</span> <span class="math inline">\(\vert \vert \alpha A \vert \vert = \vert \alpha \vert \, \vert \vert A \vert \vert.\)</span></li>
+</ul>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Demostraremos la propiedad <span class="math inline">\(ii.\)</span> La propiedad <span class="math inline">\(i.\)</span> se propone como ejercicio.</p>
+<p>Sean <span class="math inline">\(A = (a_1, a_2)\)</span> y un escalar <span class="math inline">\(\alpha.\)</span> Entonces, <span class="math display">\[\begin{align*}
+    \vert \vert \alpha A \vert \vert &amp; = \sqrt{ \alpha^2 a_1^2 + \alpha^2 a_2^2 }
+    \\
+    &amp;= \sqrt{\alpha^2 ( a_1^2 + a_2^2 )}
+    \\
+    &amp;= \sqrt{\alpha^2} \sqrt{a_1^2 + a_2^2}
+    \\
+    &amp;= \vert \alpha \vert \, \vert \vert A \vert \vert.
+\end{align*}\]</span></p>
+</div>
+<div id="def-unitario" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.11 </strong></span><em>Un vector <span class="math inline">\(A\)</span> de <span class="math inline">\(\mathbb{R}^2\)</span> es llamado vector unitario si <span class="math inline">\(\vert \vert A \vert \vert = 1.\)</span></em></p>
+</div>
+<p>Un vector unitario <span class="math inline">\(A\)</span> comúnmente es denotado como <span class="math inline">\(\widehat{A}.\)</span> Todo vector <span class="math inline">\(A\)</span> no nulo de <span class="math inline">\(\mathbb{R}^2\)</span> puede multiplicarse por un escalar <span class="math inline">\(\alpha\)</span> de manera que la norma de este nuevo vector <span class="math inline">\(\alpha A\)</span> sea uno, este escalar es <span class="math inline">\(1/\vert \vert A \vert \vert.\)</span> En efecto, si <span class="math inline">\(A = (a_1, a_2)\)</span> la norma del vector <span class="math inline">\(\frac{1}{\vert \vert A \vert \vert} A,\)</span> de acuerdo con la propiedad <span class="math inline">\(ii.\)</span> en el <a href="#thm-norma">Teorema&nbsp;<span>2.2</span></a>, es: <span class="math display">\[
+\Big\vert \Big\vert \frac{1}{\vert \vert A \vert \vert } A \Big\vert \Big\vert = \frac{1}{\vert \vert A \vert \vert} \vert \vert A \vert \vert = 1.
+\]</span></p>
+<p>El proceso mediante el cual se multiplica un vector no nulo por un escalar para que el nuevo vector resultante tenga norma igual a uno se conoce como normalización vectorial o simplemente normalizar un vector.</p>
+<p>A lo largo de este libro, identificaremos con <span class="math inline">\(e_1\)</span> y con <span class="math inline">\(e_2\)</span> a los vectores de norma <span class="math inline">\(1\)</span>, paralelos a los ejes <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> respectivamente, <span id="eq-base_canonica"><span class="math display">\[
+e_1 = (1,0), \quad e_2 = (0,1).
+\tag{2.1}\]</span></span></p>
+<div id="exm-line" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2.1 </strong></span>Los puntos <span class="math inline">\(A(-1,0)\)</span> y <span class="math inline">\(B(3,2)\)</span> son dos vértices que coinciden con los extremos del lado de un rectángulo, cuyo lado mas corto es la tercer parte de su lado mas largo, encuentre los otros vértices del rectángulo.</p>
+</div>
+<p><strong>Solución</strong> (Este problema puede tener varias soluciones)</p>
+<p>Vamos a suponer que el segmento <span class="math inline">\(\overline{AB}\)</span> es el de la longitud mas corta, y como se trata de un rectángulo el ángulo entre los segmentos debe ser de <span class="math inline">\(90^{\circ}\)</span>.</p>
+<p>Podríamos encontrar un vértice <span class="math inline">\(A'\)</span> del rectángulo desplazando tres veces la longitud del segmento <span class="math inline">\(\overline{AB}\)</span> en una dirección perpendicular a <span class="math inline">\(B-A\)</span>. Como <span class="math inline">\(B-A=(4,2)\)</span> entonces una dirección posible perpendicular a esta sería <span class="math inline">\(D=(-2,4),\)</span> de acuerdo con esto <span class="math display">\[\begin{align*}
+A'&amp;= A+3\vert \vert B-A \vert \vert \widehat{D}
+\\
+&amp;= (-1,0)+3(-2,4)
+\\
+&amp;=(-7,12).
+\end{align*}\]</span> De forma similar desplazando el punto <span class="math inline">\(B\)</span> podríamos encontrar otro vértice del rectángulo, digamos <span class="math inline">\(B'\)</span>, es decir<br>
+<span class="math display">\[
+B' = B+ 3 \vert \vert B-A \vert \vert \widehat{D}.
+\]</span></p>
+<p>Un calculo directo muestra que <span class="math inline">\(B'= (-3,14).\)</span></p>
+<div id="thm-pitagoras" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.3 (Teorema de Pitágoras) </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos vectores perpendiculares, entonces <span class="math display">\[
+\vert \vert A - B \vert \vert^2 = \vert \vert A \vert \vert^2 + \vert \vert B \vert \vert^2.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Note que <span class="math display">\[\begin{align*}
+          \vert \vert A - B \vert \vert^2 &amp; = (A - B) \cdot (A - B)
+          \\
+          &amp; = \vert \vert A \vert \vert^2 + 2 A \cdot B + \vert \vert B \vert \vert^2
+\end{align*}\]</span> y la prueba finaliza al emplear la hipótesis de la perpendicularidad de <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> pues esto implica que <span class="math inline">\(A \cdot B = 0.\)</span></p>
+</div>
+<div id="thm-Cauchy-Schwarz" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.4 (Desigualdad de Cauchy-Schwarz) </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos vectores de <span class="math inline">\(\mathbb{R}^2,\)</span> entonces, <span class="math display">\[
+(A \cdot B)^2 \leq  \vert  \vert A \vert \vert^2  \, \vert \vert B \vert \vert^2.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Sean <span class="math inline">\(A = (a_1, a_2)\)</span> y <span class="math inline">\(B = (b_1, b_2).\)</span> Para cualquier n'umero real <span class="math inline">\(\alpha\)</span> se verifica que: <span class="math display">\[
+0 \leq  (a_1 - \alpha b_1)^2 + (a_2 - \alpha b_2)^2 = \vert \vert A \vert \vert^2 - 2 \alpha A \cdot B + \alpha^2 \vert \vert B \vert \vert^2.
+\]</span> Si <span class="math inline">\(\vert \vert B \vert \vert = 0\)</span> entonces por la propiedad <span class="math inline">\(i.\)</span> del <a href="#thm-norma">Teorema&nbsp;<span>2.2</span></a> se tiene que <span class="math inline">\(b_i = 0\)</span> para <span class="math inline">\(i = 1,2,\)</span> y la desigualdad se verifica de manera evidente.</p>
+<p>Si <span class="math inline">\(\vert \vert B \vert \vert \neq 0\)</span> tome <span class="math inline">\(\alpha = (A \cdot B)/ \vert \vert B \vert \vert^2,\)</span> y al remplazar en la desigualdad anterior se tiene que: <span class="math display">\[
+0 \leq \vert \vert A \vert \vert^2 - 2 \frac{(A \cdot B)^2}{\vert \vert B \vert \vert^2} + \frac{(A \cdot B)^2}{\vert \vert B \vert \vert^2} =  \vert \vert A \vert \vert^2 - \frac{(A \cdot B)^2}{\vert \vert B \vert \vert^2},
+\]</span> lo que finaliza la prueba.</p>
+</div>
+<p>Otra manera de presentar la desigualdad de Cauchy–Schwarz, con <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> vectores de <span class="math inline">\(\mathbb{R}^2,\)</span> es <span class="math inline">\(\vert A \cdot B \vert \leq \vert \vert A \vert \vert \, \vert \vert B \vert \vert.\)</span></p>
+<div id="cor-des_triangular" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolario 2.1 (Desigualdad triangular) </strong></span>Si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos vectores de <span class="math inline">\(\mathbb{R}^2,\)</span> entonces <span class="math display">\[
+\vert \vert A + B \vert \vert \leq \vert \vert A \vert \vert + \vert \vert B \vert \vert.
+\]</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span><span class="math display">\[
+    \vert \vert A + B \vert \vert^2 = (A + B)\cdot (A + B) =  \vert \vert A \vert \vert^2 + 2 A \cdot B + \vert \vert B \vert \vert^2,
+\]</span> al aplicar la desigualdad de Cauchy–Schwarz a esta última expresión se obtiene: <span class="math display">\[
+    \vert \vert A + B \vert \vert^2 \leq  \vert \vert A \vert \vert^2 + 2 \vert \vert A \vert \vert \, \vert \vert B \vert \vert + \vert \vert B \vert \vert^2 = ( \vert \vert A \vert \vert + \vert \vert B \vert \vert)^2
+\]</span> lo que finaliza la prueba.</p>
+</div>
+<p>El <a href="#cor-des_triangular">Corolario&nbsp;<span>2.1</span></a> tiene una interesante interpretación geométrica que se puede enunciar de la siguiente manera: <em>en todo triángulo la suma de las longitudes de dos lados arbitrarios siempre es mayor a la longitud del lado restante.</em></p>
+</section>
+<section id="proyección-de-un-vector" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="proyección-de-un-vector"><span class="header-section-number">2.1.2</span> Proyección de un vector</h3>
+<p>Considere dos vectores <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> ortogonales y un vector <span class="math display">\[
+P = A + t \ B.
+\]</span> Note que <span class="math inline">\(P\)</span> es el resultado de sumar <span class="math inline">\(A\)</span> más <span class="math inline">\(t\)</span> escalar veces <span class="math inline">\(B\)</span>. El vector <span class="math inline">\(tB\)</span> se conoce como la proyección de <span class="math inline">\(P\)</span> sobre <span class="math inline">\(B.\)</span> Para encontrar el valor de <span class="math inline">\(t\)</span> multiplicamos la ecuación tal por <span class="math inline">\(B,\)</span> es fácil comprobar que: <span class="math display">\[
+t = \frac{P \cdot B}{\vert \vert B \vert \vert^2}.
+\]</span></p>
+<p>Si quiero proyectar el vector <span class="math inline">\(A\)</span> sobre el vector <span class="math inline">\(B\)</span> entonces extiendo la recta que contiene el vector <span class="math inline">\(B\)</span> y desde el extremo de <span class="math inline">\(A\)</span> trazo una perpendicular a la recta extendida, el punto resultante es el extremo del vector <span class="math inline">\(Proy_B A.\)</span></p>
+<p>¿Que significa <span class="math inline">\(\vert \vert Proy_B A \vert \vert\)</span>? El tamaño de la sombra que produce <span class="math inline">\(A\)</span> sobre la dirección de <span class="math inline">\(B\)</span></p>
+<p>Podemos aplicar la proyección de un vector para encontrar la distancia de un punto a una recta. En efecto considere la recta <span class="math inline">\(l\)</span> y <span class="math inline">\(D\)</span> un vector perpendicular a <span class="math inline">\(B,\)</span> sea <span class="math inline">\(F\)</span> un punto que no pertenece a la recta <span class="math inline">\(l_{A;B}\)</span> y <span class="math inline">\(Q\)</span> un punto que pertenece a la recta <span class="math inline">\(l_{A;B},\)</span> esto último quiere decir que existe un escalar <span class="math inline">\(\alpha\)</span> tal que <span class="math inline">\(Q = A + \alpha B.\)</span></p>
+<p>En la Figura <span class="math inline">\(\ref{fig::proy}\)</span>, <span class="math inline">\(tD\)</span> será la proyección del vector <span class="math inline">\(Q - F\)</span> siendo <span class="math display">\[
+t =  \frac{(Q - F) \cdot D}{\vert \vert D \vert \vert^2},
+\]</span></p>
+<p>Como la distancia de <span class="math inline">\(F\)</span> a la recta <span class="math inline">\(l_{A;B}\)</span> es <span class="math inline">\(\vert t \vert \vert \vert D \vert \vert\)</span> se tiene que: <span class="math display">\[
+d(F, l) = \frac{ \vert (Q - F) \cdot D\vert }{\vert \vert D \vert \vert } \quad \text{o} \quad d(F,l) = \vert  (Q - F) \cdot \widehat{D} \vert.
+\]</span> Note que <span class="math inline">\((Q - F)\cdot D = A \cdot D - F \cdot D,\)</span> esto muestra que la elección de <span class="math inline">\(Q\)</span> es irrelevante para calcular la distancia del punto a la recta, más aún, esto sugiere que en la ecuación podemos cambiar <span class="math inline">\(Q\)</span> por <span class="math inline">\(A\)</span> y el resultado es el mismo.</p>
+</section>
+<section id="producto-exterior" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="producto-exterior"><span class="header-section-number">2.1.3</span> Producto exterior</h3>
+<div id="def-prod_ext" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.12 </strong></span>Sean <span class="math inline">\(A = (a_1, a_2)\)</span> y <span class="math inline">\(B = (b_1, b_2)\)</span> dos vectores de <span class="math inline">\(\mathbb{R}^2.\)</span> El producto exterior de <span class="math inline">\(A\)</span> con <span class="math inline">\(B\)</span> se representa <span class="math inline">\(A \times B\)</span> y corresponde con <span class="math display">\[
+A \times B = a_1 b_2 - a_2 b_1
+\]</span> El producto exterior de <span class="math inline">\(B\)</span> con <span class="math inline">\(A\)</span> sería entonces <span class="math display">\[
+B \times A = b_1 a_2 - b_2 a_1.
+\]</span> Note que <span class="math inline">\(A \times B = - B \times A.\)</span></p>
+</div>
+<p>Se desprende directamente de la definición de producto exterior, que si <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> son dos vectores paralelos entonces <span class="math display">\[
+A \times B = 0.
+\]</span></p>
+<div id="thm-regla_cramer" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2.5 (Regla de Cramer) </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos vectores, tales que $A B . $ Entonces para todo punto <span class="math inline">\(P\)</span> del plano, existen escalares <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> tales que <span class="math display">\[
+P = \alpha A + \beta B.
+\]</span></p>
+</div>
+<p>::: {.proof}</p>
+<p>Sea <span class="math inline">\(r_1\)</span> un escalar tal que el vector <span class="math inline">\(P - r_1A\)</span> sea paralelo al vector <span class="math inline">\(B,\)</span> De acuerdo con esto <span class="math display">\[
+r_1 = \frac{P \times B}{A \times B},
+\]</span> y sea <span class="math inline">\(r_2\)</span> un escalar tal que el vector <span class="math inline">\(P - r_2B\)</span> sea paralelo al vector <span class="math inline">\(A,\)</span> De acuerdo con esto <span class="math display">\[
+r_2 = - \frac{P \times A}{A \times B},
+\]</span> Note que <span class="math inline">\(r_1\)</span> y <span class="math inline">\(r_2\)</span> son los escalares <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> que se están buscando respectivamente.</p>
+</section>
+<section id="áreas-y-centros-de-triángulos" class="level3" data-number="2.1.4">
+<h3 data-number="2.1.4" class="anchored" data-anchor-id="áreas-y-centros-de-triángulos"><span class="header-section-number">2.1.4</span> Áreas y centros de triángulos</h3>
+</section>
+<section id="área-de-un-triángulo" class="level3" data-number="2.1.5">
+<h3 data-number="2.1.5" class="anchored" data-anchor-id="área-de-un-triángulo"><span class="header-section-number">2.1.5</span> Área de un triángulo</h3>
+<div id="def-altura_triangulo_base" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.13 </strong></span><em>La altura de un triángulo es el segmento perpendicular que va de un vértice a la recta que contiene al lado opuesto de dicho vértice.</em></p>
+<p><em>La base es la longitud del lado opuesto al vértice que se ha seleccionado para determinar la altura.</em></p>
+</div>
+<div id="exm-area" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2.2 </strong></span>Los punto <span class="math inline">\(A(-1,1)\)</span>, <span class="math inline">\(B(2,3)\)</span> y <span class="math inline">\(C(5,-2)\)</span> son los vértices del triángulo <span class="math inline">\(\triangle ABC\)</span> encuentre <span class="math inline">\(\vert {\triangle ABC } \vert.\)</span></p>
+</div>
+<p><strong>Solución</strong></p>
+<p>Tomemos como base del tríangulo al segmento <span class="math inline">\(\overline{AC}\)</span>, note que <span class="math inline">\(\vert {\overline{AC}} \vert = \vert \vert A-C \vert \vert,\)</span> y un cálculo directo muestra que <span class="math display">\[
+\vert \vert A-C \vert \vert= \sqrt{45}.
+\]</span> Encontraremos ahora el vector asociado a la altura <span class="math inline">\(Proy_D( B-A )= ((B-A) \cdot \widehat{D}) \widehat{D}\)</span> <span class="math display">\[
+\widehat{D} = \left(\frac{3}{\sqrt{45}}, \frac{6}{\sqrt{45}} \right)
+\]</span> <span class="math display">\[
+B-A= (3,2)
+\]</span> <span class="math display">\[
+(B-A) \cdot \widehat{D} = (3,2) \cdot \left(\frac{3}{\sqrt{45}}, \frac{6}{\sqrt{45}} \right) = \frac{21}{\sqrt{45}}
+\]</span> por consiguiente la proyección seria <span class="math display">\[
+Proy_D (B-A) =  \frac{21}{\sqrt{45}}  \left(\frac{3}{\sqrt{45}}, \frac{6}{\sqrt{45}} \right) =  \left(\frac{63}{45}, \frac{126}{45} \right)
+\]</span> Recuerde que la altura seria <span class="math display">\[
+\vert \vert Proy_D (B-A)  \vert \vert = \vert {B} \vert \cdot \widehat{D}= \frac{21}{\sqrt{45}}
+\]</span> De acuerdo con esto <span class="math display">\[
+\vert {\triangle ABC} \vert = \frac{21}{2}
+\]</span></p>
+<section id="centros-de-un-triángulo" class="level4" data-number="2.1.5.1">
+<h4 data-number="2.1.5.1" class="anchored" data-anchor-id="centros-de-un-triángulo"><span class="header-section-number">2.1.5.1</span> Centros de un triángulo</h4>
+<p>Las medidas que se pueden encontrar en el triángulo de vértices <span class="math inline">\(P,\)</span> <span class="math inline">\(Q\)</span> y <span class="math inline">\(R,\)</span> son equivalentes a las medidas presentes en el triángulo de vértices <span class="math inline">\(\mathcal{O},\)</span> <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> en donde <span class="math inline">\(\mathcal{O} = P - P,\)</span> <span class="math inline">\(A = Q - P\)</span> y <span class="math inline">\(B = R - P.\)</span></p>
+<p>Por otro lado, si encontramos un punto <span class="math inline">\(H\)</span> asociado al triángulo <span class="math inline">\(\triangle \mathcal{O} A B,\)</span> este puede ser enviado al punto <span class="math inline">\(H'\)</span> en el triángulo <span class="math inline">\(\triangle P Q R,\)</span> haciendo <span class="math inline">\(H ' = H + P.\)</span></p>
+<div id="def-mediana" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.14 </strong></span><em>Una mediana de un triángulo es el segmento de recta que une un vértice con el punto medio del lado opuesto. Las tres medianas de un triángulo se cortan en un punto interior al mismo llamado baricentro, que a lo largo del documento denotaremos <span class="math inline">\(B_C\)</span></em></p>
+</div>
+<div id="exm-baricentro" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2.3 </strong></span>Encuentre el baricentro del triángulo <span class="math inline">\(\triangle \mathcal{O} A B.\)</span></p>
+<p><strong>Solución</strong></p>
+<p>El punto medio del segmento <span class="math inline">\(\overline{AB}\)</span> corresponde con <span class="math inline">\(\frac{1}{2} \left( A + B\right),\)</span> mientras que el punto medio del segmento <span class="math inline">\(\overline{\mathcal{O}A}\)</span> corresponde con <span class="math inline">\(\frac{1}{2}A.\)</span> De acuerdo con esto el baricentro del triángulo se debe encontrar en el punto de corte de los segmentos <span class="math display">\[
+\alpha (A + B) \quad \text{ y } \quad B + \beta \left( \frac{1}{2} A - B\right)
+\]</span> Vamos a encontrar dicho punto al encontrar el valor de <span class="math inline">\(\alpha\)</span> en la siguiente ecuación vectorial <span class="math display">\[
+\alpha (A + B) = B + \beta \left( \frac{1}{2} A - B\right).
+\]</span> Con este propósito hagamos el producto punto entre esta ecuación con el vector <span class="math inline">\(\frac{1}{2}A_\perp - B_\perp\)</span> es decir<br>
+<span class="math display">\[
+\alpha (A + B) \cdot \left( \frac{1}{2}A_\perp - B_\perp \right) = B \cdot \left( \frac{1}{2}A_\perp - B_\perp \right)
+\]</span> y por lo tanto el baricentro del triángulo es el punto <span class="math display">\[
+B_C = \frac{B \cdot \left( \dfrac{1}{2} A_\perp - B_\perp\right)}{(A + B)\cdot \left( \dfrac{1}{2} A_\perp - B_\perp\right) } (A + B).
+\]</span></p>
+</div>
+<div id="def-bisectriz" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.15 </strong></span><em>La bisectriz de un ángulo es el segmento con origen en el vértice del ángulo que lo divide en dos ángulos de igual medida. Las tres bisectrices de un triángulo se cortan en un punto llamado incentro, que a lo largo del documento denotaremos con <span class="math inline">\(I_C.\)</span></em></p>
+</div>
+<div id="def-incentro" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2.16 </strong></span>Encuentre el incentro del triángulo <span class="math inline">\(\triangle \mathcal{O} A B.\)</span></p>
+</div>
+<p><strong>Solución</strong></p>
+<p>Note que el segmento <span class="math inline">\(\alpha (\hat{A} + \hat{B})\)</span> con <span class="math inline">\(\alpha &gt; 0\)</span> biseca el ángulo <span class="math inline">\(\angle A \mathcal{O}B,\)</span> al igual que el segmento <span class="math display">\[
+B + \beta \left( \hat{(A - B)} - \hat{B} \right)  \text{ con } \beta &gt; 0
+\]</span> biseca al ángulo <span class="math inline">\(\angle \mathcal{O}BA.\)</span></p>
+<p>Vamos a encontrar el incentro del triángulo al encontrar el valor de <span class="math inline">\(\alpha\)</span> de la siguiente ecuación vectorial. <span class="math display">\[
+\alpha (\hat{A} + \hat{B}) = B + \beta \left( \hat{(A - B)} - \hat{B} \right)
+\]</span> Con este propósito hagamos el producto punto entre esta ecuación con el vector <span class="math inline">\(\hat{(A - B)}_\perp - \hat{B}_\perp,\)</span> es decir <span class="math display">\[
+\alpha (\hat{A} + \hat{B}) \cdot \left( \hat{(A - B)}_\perp - \hat{B}_\perp, \right) = B \cdot \left( \hat{(A - B)}_\perp - \hat{B}_\perp, \right)
+\]</span> y por lo tanto el incentro del triángulo es el punto <span class="math display">\[
+I_C = \frac{ B \cdot \left( \hat{(A - B)}_\perp - \hat{B}_\perp, \right) }{(\hat{A} + \hat{B}) \cdot \left( \hat{(A - B)}_\perp - \hat{B}_\perp, \right)} (\hat{A} + \hat{B})
+\]</span></p>
+
+
+</section>
+</section>
+</section>
+
+</div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./aritmetica.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentos de aritmética</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./trigo.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Elementos de la trigonometría</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
