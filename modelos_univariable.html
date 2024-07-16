@@ -286,7 +286,7 @@ a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
 </div>
 </div>
 </div>
-<p>COn el siguiente código graficamos un conjunto de <span class="math inline">\(20\)</span> puntos cuyo comportamiento es exponencial, se ha tomado <span class="math inline">\(r=1.05\)</span> y <span class="math inline">\(a_0 = 2\)</span></p>
+<p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(20\)</span> puntos cuyo comportamiento es exponencial, aquí se ha tomado <span class="math inline">\(r=1.05\)</span> y <span class="math inline">\(a_0 = 2\)</span></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -311,15 +311,15 @@ a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
 <p><img src="modelos_univariable_files/figure-html/cell-2-output-1.png" width="347" height="357"></p>
 </div>
 </div>
-<p>Si en la ecuación <a href="#eq-com_expo">3</a> tomamos <span class="math inline">\(r = 1 + t\)</span> podemos escribir la relación de recurrencia como <span id="eq-int_comp0"><span class="math display">\[
+<p>Si en la ecuación <a href="#eq-com_expo">3</a> hacemos <span class="math inline">\(r = 1 + t\)</span> podemos escribir la relación de recurrencia como <span id="eq-int_comp0"><span class="math display">\[
 \begin{cases}
 a_n - a_{n-1} = t a_{n-1}
 \\
 a_0 = j
 \end{cases}
-\tag{4}\]</span></span> y en este caso entenderiamos un comportamiento exponencial de un conjunto de datos, como aquel en donde la diferencia entre la información presente y pasada es proporcional a la pasado. Note que la solución de <a href="#eq-int_comp0">4</a> es <span id="eq-int_comp1"><span class="math display">\[
-a_n = (1 + t)^n j,
-\tag{5}\]</span></span> que para el caso en que <span class="math inline">\(0 &lt; t \leq 1\)</span> coincide con la fórmula de interés compuesto, aquí <span class="math inline">\(t\)</span> es la tasa de interés, <span class="math inline">\(j\)</span> es el capital inicial, <span class="math inline">\(n\)</span> es el número de períodos y <span class="math inline">\(a_n\)</span> es el capital al final del <span class="math inline">\(n-\)</span>ésimo período.</p>
+\tag{4}\]</span></span> en cuyo caso entenderiamos un comportamiento exponencial de un conjunto de datos, como aquel en donde la diferencia entre la información presente y pasada es proporcional a la pasada. Note que la solución de <a href="#eq-int_comp0">4</a> es <span id="eq-int_comp1"><span class="math display">\[
+a_n = (1 + t)^n j.
+\tag{5}\]</span></span> En el caso en que <span class="math inline">\(0 &lt; t \leq 1\)</span> esta expresión coincide con la fórmula de interés compuesto, en done <span class="math inline">\(t\)</span> es la tasa de interés, <span class="math inline">\(j\)</span> es el capital inicial, <span class="math inline">\(n\)</span> es el número de períodos y <span class="math inline">\(a_n\)</span> es el capital al final del <span class="math inline">\(n-\)</span>ésimo período.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -339,7 +339,7 @@ a_0 = p.
 \end{cases}
 \]</span> Con <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> dos números reales. Note que <span class="math display">\[
 a_0 = p, \quad a_1 = \dfrac{p  + q}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots  \, ,a_n = \dfrac{p + (2^n - 1)q}{2^n}
-\]</span> Numéricamente se puede evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más y más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca poco a poco al número <span class="math inline">\(q.\)</span></p>
+\]</span> Numéricamente se puede evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más y más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca al número <span class="math inline">\(q.\)</span></p>
 </div>
 </div>
 </div>
@@ -362,7 +362,7 @@ a_0 = p.
 \end{cases}
 \]</span> con <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> números reales. Note que <span class="math display">\[
 a_0 = p, \quad a_1 = \dfrac{3q  - p}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots  \, ,a_n = \dfrac{p + (2^n - 1)q}{2^n}
-\]</span> Es interesante evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más y más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca de forma oscilante poco a poco al número <span class="math inline">\(q.\)</span></p>
+\]</span> Es interesante evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más y más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca de forma oscilante a <span class="math inline">\(q.\)</span></p>
 </div>
 </div>
 </div>
