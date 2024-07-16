@@ -175,7 +175,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#convergencia-de-sucesiones" id="toc-convergencia-de-sucesiones" class="nav-link" data-scroll-target="#convergencia-de-sucesiones">Convergencia de sucesiones</a></li>
   <li><a href="#sucesión-de-sumas-parciales" id="toc-sucesión-de-sumas-parciales" class="nav-link" data-scroll-target="#sucesión-de-sumas-parciales">Sucesión de sumas parciales</a>
   <ul class="collapse">
-  <li><a href="#la-serie-armónica" id="toc-la-serie-armónica" class="nav-link" data-scroll-target="#la-serie-armónica"><strong><em>La serie armónica</em></strong></a></li>
+  <li><a href="#la-serie-armónica" id="toc-la-serie-armónica" class="nav-link" data-scroll-target="#la-serie-armónica"><strong>La serie armónica</strong></a></li>
   </ul></li>
   </ul></li>
   <li><a href="#continuidad-de-funciones" id="toc-continuidad-de-funciones" class="nav-link" data-scroll-target="#continuidad-de-funciones">Continuidad de funciones</a>
@@ -238,7 +238,7 @@ P \to Q \quad \text{y} \quad Q \to PQ,
     &amp; 5: \quad QPQPQQPQ
 \end{align*}\]</span></p>
 <p>Si contamos las letras en cada etapa del proceso, o iteración como le llamaremos a partir de este momento, se obtienen los siguientes valores: <span class="math inline">\(1,\)</span> <span class="math inline">\(1,\)</span> <span class="math inline">\(2,\)</span> <span class="math inline">\(3,\)</span> <span class="math inline">\(5,\)</span> <span class="math inline">\(8, \dots\)</span> secuencia de números conocida como la sucesión de Fibonacci. En esta el término presente, digamos <span class="math inline">\(a_n,\)</span> se obtiene al realizar la suma de los dos términos anteriores <span class="math inline">\(a_{n-1}\)</span> y <span class="math inline">\(a_{n-2}.\)</span> Esto se puede representar matemáticamente en la forma <span id="eq-fibon"><span class="math display">\[
-    a_n = a_{n-1} + a_{n-2}.
+a_n = a_{n-1} + a_{n-2}.
 \tag{1}\]</span></span> Una expresión de esta forma recibe el nombre de relación de recurrencia, y es muy útil para describir procesos en los que la información presente depende de la información pasada. En el caso de la ecuación <a href="#eq-fibon">1</a> los valores correspondientes con <span class="math inline">\(a_0\)</span> y <span class="math inline">\(a_1\)</span> se conocen como los valores iniciales de la relación de recurrencia.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -317,9 +317,9 @@ a_n - a_{n-1} = t a_{n-1}
 \\
 a_0 = j
 \end{cases}
-\tag{4}\]</span></span> en cuyo caso entenderiamos un comportamiento exponencial de un conjunto de datos, como aquel en donde la diferencia entre la información presente y pasada es proporcional a la pasada. Note que la solución de <a href="#eq-int_comp0">4</a> es <span id="eq-int_comp1"><span class="math display">\[
+\tag{4}\]</span></span> en cuyo caso entenderíamos un comportamiento exponencial de un conjunto de datos como aquel en donde la diferencia entre la información presente y pasada es proporcional a la pasada. Note que la solución de <a href="#eq-int_comp0">4</a> es <span id="eq-int_comp1"><span class="math display">\[
 a_n = (1 + t)^n j.
-\tag{5}\]</span></span> En el caso en que <span class="math inline">\(0 &lt; t \leq 1\)</span> esta expresión coincide con la fórmula de interés compuesto, en done <span class="math inline">\(t\)</span> es la tasa de interés, <span class="math inline">\(j\)</span> es el capital inicial, <span class="math inline">\(n\)</span> es el número de períodos y <span class="math inline">\(a_n\)</span> es el capital al final del <span class="math inline">\(n-\)</span>ésimo período.</p>
+\tag{5}\]</span></span> En el caso en que <span class="math inline">\(0 &lt; t \leq 1\)</span> esta expresión coincide con la fórmula de interés compuesto, en donde <span class="math inline">\(t\)</span> es la tasa de interés, <span class="math inline">\(j\)</span> es el capital inicial, <span class="math inline">\(n\)</span> es el número de períodos y <span class="math inline">\(a_n\)</span> es el capital al final del <span class="math inline">\(n-\)</span>ésimo período.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -339,7 +339,7 @@ a_0 = p.
 \end{cases}
 \]</span> Con <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> dos números reales. Note que <span class="math display">\[
 a_0 = p, \quad a_1 = \dfrac{p  + q}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots  \, ,a_n = \dfrac{p + (2^n - 1)q}{2^n}
-\]</span> Numéricamente se puede evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más y más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca al número <span class="math inline">\(q.\)</span></p>
+\]</span> Numéricamente se puede evidenciar que a medida que <span class="math inline">\(n\)</span> toma valores cada vez más grandes, el valor de <span class="math inline">\(a_n\)</span> se acerca al número <span class="math inline">\(q.\)</span></p>
 </div>
 </div>
 </div>
@@ -366,7 +366,7 @@ a_0 = p, \quad a_1 = \dfrac{3q  - p}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots 
 </div>
 </div>
 </div>
-<p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(10\)</span> puntos cuyo comportamiento se acerca de forma oscilante a <span class="math inline">\(q=5\)</span>. Se ha tomado <span class="math inline">\(a_0 = 24.\)</span></p>
+<p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(10\)</span> puntos cuyo comportamiento se acerca de forma oscilante a <span class="math inline">\(q=5\)</span>. Aquí se ha tomado <span class="math inline">\(a_0 = 24.\)</span></p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -392,11 +392,11 @@ a_0 = p, \quad a_1 = \dfrac{3q  - p}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots 
 </div>
 <section id="convergencia-de-sucesiones" class="level2">
 <h2 class="anchored" data-anchor-id="convergencia-de-sucesiones">Convergencia de sucesiones</h2>
-<p>En los dos últimos ejemplos al inicio de este capítulo presentamos algunas sucesiones en la que sus términos se acercan a un cierto valor. Esa será precisamente nuestra labor a partir de este momento, determinar matemáticamente que se entiende que un conjunto de números se acerque a otro.</p>
+<p>En los dos últimos de la sección anterior presentamos unas sucesiones en la que sus términos se acercan a un cierto valor. Esta será precisamente nuestra labor a partir de este momento, determinar matemáticamente que se entiende que un conjunto de números se acerque a otro.</p>
 <p>A lo largo de nuestras discusiones representaremos con <span class="math inline">\(V_r(p)\)</span> al intervalo abierto de radio <span class="math inline">\(r\)</span> cuyo centro es el punto <span class="math inline">\(p.\)</span> Una forma matemática de representar este conjunto de números reales es la siguiente <span class="math display">\[
 V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 \]</span> De manera intuitiva podríamos decir que un conjunto de números se acerca a un punto <span class="math inline">\(p\)</span> de la recta, si a medida que hacemos más y más pequeño el radio <span class="math inline">\(r\)</span> de <span class="math inline">\(V_r(p)\)</span>, seguimos encontrando al menos un elemento del mencionado conjunto.</p>
-<p>Para esclarecer un poco más lo que hemos mencionado, es necesario entrar en algunos detalles que nos permitirán entender algunas propiedades geométricas de los puntos en la recta.</p>
+<p>Para esclarecer un poco más lo que hemos mencionado, es necesario entrar en algunos detalles que nos permitirán entender ciertas propiedades geométricas de los puntos sobre la recta numérica.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -921,19 +921,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 <pre><code>2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274</code></pre>
 </div>
 </div>
-<p>Para las series podemos identificar dos situaciones que nos permiten determinar su convergencia. Verificaremos esto a partir del comportamiento exponencial de un conjunto de datos. ::: {.callout-warning icon=“false”} ## ::: {#exm-cociente} ## Cociente dos a dos De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
-\frac{a_{n+1}}{a_n} = r
-\]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
-\begin{align*}
-\sum_{k = 0}^{n} a_{k} &amp; = a_0 + a_1 + a_2 + \cdots + a_n
-\\
-&amp; = a_0( 1 + r + r^2 + \cdots r^n )
-\\
-&amp; = a_0 \frac{1 - r^{n+1}}{1 - r}
-\end{align*}
-\]</span> y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">13</a> entonces <span class="math display">\[
-\sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
-\]</span> ::: :::</p>
+<p>Para las series podemos identificar algunas propiedades que nos permiten determinar su convergencia. Verificaremos esto a partir del comportamiento exponencial de un conjunto de datos.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -945,7 +933,34 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 10 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 10 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
+\frac{a_{n+1}}{a_n} = r
+\]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
+\begin{align*}
+\sum_{k = 0}^{n} a_{k} &amp; = a_0 + a_1 + a_2 + \cdots + a_n
+\\
+&amp; = a_0( 1 + r + r^2 + \cdots r^n )
+\\
+&amp; = a_0 \frac{1 - r^{n+1}}{1 - r}
+\end{align*}
+\]</span> y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">13</a> obtenemos que <span class="math display">\[
+\sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-cociente" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 11 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
 a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 \]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span>ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
 \sqrt[n]{a_n} = r , \text{ con } 0 &lt; r &lt; 1
@@ -955,7 +970,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 </div>
 </div>
-<p>Aunque los dos últimos ejemplos se han construido haciendo referencia al comportamiento exponencial de un conjunto de datos. Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie <span class="math inline">\(\sum_{n = 1}^{\infty}a_n\)</span> que verifica <span class="math display">\[
+<p>Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie <span class="math inline">\(\sum_{n = 1}^{\infty}a_n\)</span> que verifica <span class="math display">\[
 \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = r,
 \]</span> Entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección existe un entero <span class="math inline">\(N\)</span> tal que <span class="math display">\[
 \Big\vert \frac{a_{n+1}}{a_n} - r \Big\vert &lt; \epsilon \text{ para todo } n &gt; N
@@ -979,7 +994,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-Telescopia" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 11 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 12 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_{n} = b_{n+1} - b_{n}
 \]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
 \begin{align*}
@@ -1005,7 +1020,7 @@ a_{n} = b_{n+1} - b_{n}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-binomio" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 12 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 13 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
 a_n = n - n^{p}(n - q )^{1 - p},
 \tag{18}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
 a_n \to q(1 - p) \text{ cuando } n \to \infty
@@ -1093,8 +1108,8 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 </div>
 </div>
 <section id="la-serie-armónica" class="level3">
-<h3 class="anchored" data-anchor-id="la-serie-armónica"><strong><em>La serie armónica</em></strong></h3>
-<p>Una serie conocida por su lento crecimiento y que no es convergente, es la serie armónica, definida como <span class="math display">\[
+<h3 class="anchored" data-anchor-id="la-serie-armónica"><strong>La serie armónica</strong></h3>
+<p>Una serie conocida por su lento crecimiento y que no es convergente, es la serie armónica, definida como <span class="math inline">\(\zeta(1)\)</span> es decir <span class="math display">\[
 \sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots
 \]</span></p>
 <div class="cell" data-execution_count="7">
@@ -1219,7 +1234,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-contseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 13 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
 \vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
 \]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
 </div>
@@ -1236,7 +1251,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-hip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
 <p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
 \delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
 \]</span> y <span class="math display">\[
@@ -1384,7 +1399,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ejemplo" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la función <span class="math inline">\(f(x) = \floor{x}\)</span> definida en el intervalo <span class="math inline">\(S = [0,10],\)</span> y consideremos una partición de dicho intervalo</p>
+<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Considere la función <span class="math inline">\(f(x) = \floor{x}\)</span> definida en el intervalo <span class="math inline">\(S = [0,10],\)</span> y consideremos una partición de dicho intervalo</p>
 </div>
 </div>
 </div>
@@ -1489,7 +1504,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_constante" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
 <p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
 \frac{d}{dx}f(p) = 0,
 \]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
@@ -1507,7 +1522,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_xn" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
 <p>Note que <span class="math display">\[\begin{align*}
     \phi(x) &amp; = \frac{x^n - p^n }{x - p}
     \\
