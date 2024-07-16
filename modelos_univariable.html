@@ -396,9 +396,36 @@ a_0 = p, \, a_1 = \dfrac{3q  - p}{2}, \, a_2 = \dfrac{3q + p}{4} , \ldots ,a_n =
 <section id="convergencia-de-sucesiones" class="level2">
 <h2 class="anchored" data-anchor-id="convergencia-de-sucesiones">Convergencia de sucesiones</h2>
 <p>En los dos últimos ejemplos de la sección anterior presentamos sucesiones cuyos términos se acercan a un cierto valor. Esta será nuestra labor a partir de este momento, comprender matemáticamente como un conjunto de números se aproxima tanto como se desee a otro.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-nalp" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+a_n =  \frac{1}{n^s},
+\]</span> con <span class="math inline">\(s &gt; 0.\)</span></p>
+<p>Para un <span class="math inline">\(s\)</span> fijo podemos verificar asignando valores a <span class="math inline">\(n\)</span> cada vez más y más grandes que <span class="math inline">\(a_n\)</span> toma valores cercanos a cero. De acuerdo con esto, todo parece indicar que la distancia entre el término <span class="math inline">\(a_n\)</span> a cero es cada vez más pequeña.</p>
+<p>Supongamos entonces que damos un número <span class="math inline">\(\epsilon &gt; 0\)</span> y queremos determinar los valores de <span class="math inline">\(n\)</span> tales que <span class="math inline">\(\vert a_n \vert &lt; \epsilon,\)</span> es decir <span class="math display">\[
+\frac{1}{n^s} &lt; \epsilon.
+\]</span> De acuerdo con esto, es claro que <span class="math display">\[
+\left(\frac{1}{\epsilon} \right)^{1/s} &lt; n.
+\]</span> Aquí es importante mencionar que si <span class="math inline">\(N\)</span> es un entero tal que <span class="math display">\[
+\left(\frac{1}{\epsilon} \right)^{1/s} \leq N,
+\]</span> entonces para todo <span class="math inline">\(n &gt; N\)</span> se tiene que <span class="math inline">\(\vert a_n \vert &lt; \epsilon\)</span>. Note que dicho <span class="math inline">\(N,\)</span> para un <span class="math inline">\(s\)</span> fijo, depende del valor de <span class="math inline">\(\epsilon,\)</span> por ejemplo si <span class="math inline">\(s = 0.3\)</span> y <span class="math inline">\(\epsilon = 0.01\)</span> tenemos que para todo <span class="math inline">\(n &gt; 4641589\)</span> se cumple que <span class="math inline">\(\vert a_n \vert &lt; 0.01\)</span> en efecto, si <span class="math inline">\(n = 4641590\)</span> entonces <span class="math display">\[
+\frac{1}{4641590^{0.3}} \approx 0.009 &lt; 0.01
+\]</span></p>
+</div>
+</div>
+</div>
 <p>A lo largo de nuestras discusiones identificaremos con <span class="math inline">\(V_r(p)\)</span> al intervalo abierto de radio <span class="math inline">\(r\)</span> cuyo centro es el punto <span class="math inline">\(p.\)</span> Una forma matemática de representar este conjunto de números reales es la siguiente <span class="math display">\[
 V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
-\]</span> De manera intuitiva podríamos decir que un conjunto de números se acerca a un punto <span class="math inline">\(p\)</span> de la recta, si a medida que hacemos más pequeño el radio <span class="math inline">\(r\)</span> de <span class="math inline">\(V_r(p)\)</span>, seguimos encontrando al menos un elemento del mencionado conjunto.</p>
+\]</span> De manera intuitiva podríamos decir que un conjunto de números se acerca a un punto <span class="math inline">\(p\)</span> de la recta, si a medida que hacemos más pequeño el radio <span class="math inline">\(r\)</span> de <span class="math inline">\(V_r(p)\)</span>, seguimos encontrando al menos un elemento del mencionado conjunto. Esto se hace evidente en el ejemplo anterior, cuando tomamos <span class="math inline">\(s = 0.3\)</span> y <span class="math inline">\(\epsilon = 0.01\)</span> pudimos encontrar al menos un <span class="math inline">\(a_n\)</span> con <span class="math inline">\(n = 4641590\)</span> tal que <span class="math inline">\(a_n \in V_{0.01}(0).\)</span></p>
 <p>Para esclarecer un poco más lo que hemos mencionado, es necesario entrar en algunos detalles que nos permitirán entender ciertas propiedades geométricas de los puntos sobre la recta numérica.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -410,23 +437,8 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<div id="def-p_interior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 1 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <div id="def-p_acumula" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 2 (Punto de acumulación) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto de acumulación de un conjunto <span class="math inline">\(S\)</span> si para cualquier <span class="math inline">\(r &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(V_r(p) \setminus \{p\} \cap S \neq \emptyset\)</span>.</p>
+<p><span class="theorem-title"><strong>Definición 1 (Punto de acumulación) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto de acumulación de un conjunto <span class="math inline">\(S\)</span> si para cualquier <span class="math inline">\(r &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(V_r(p) \setminus \{p\} \cap S \neq \emptyset\)</span>.</p>
 </div>
 </div>
 </div>
@@ -441,7 +453,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-acotado" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 3 (Conjunto acotado de números reales) </strong></span>Sea <span class="math inline">\(S\)</span> un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante <span class="math inline">\(M\)</span> tal que <span class="math inline">\(\vert {x} \vert &lt; M\)</span> para todo <span class="math inline">\(x \in S.\)</span></p>
+<p><span class="theorem-title"><strong>Definición 2 (Conjunto acotado de números reales) </strong></span>Sea <span class="math inline">\(S\)</span> un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante <span class="math inline">\(M\)</span> tal que <span class="math inline">\(\vert {x} \vert &lt; M\)</span> para todo <span class="math inline">\(x \in S.\)</span></p>
 <p>En particular, si <span class="math inline">\(x &lt; M\)</span> para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado superiormente, y si <span class="math inline">\(M &lt; x\)</span> para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado inferiormente.</p>
 </div>
 </div>
@@ -473,11 +485,72 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limite" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 4 (Límite de una sucesión) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> de números reales converge a un número <span class="math inline">\(p,\)</span> si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 3 (Límite de una sucesión) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> de números reales converge a un número <span class="math inline">\(p,\)</span> si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span class="math display">\[
 \vert a_n - p \vert &lt; \epsilon \text{ para todo } n &gt; N.
 \]</span> Esto se puede escribir como <span class="math display">\[
 \lim_{n \to \infty} a_n = p, \text{ o bien, } a_n \to p \text{ cuando } n \to \infty
 \]</span> que se lee respectivamente como: <strong>“el límite de <span class="math inline">\(a_n\)</span> cuando <span class="math inline">\(n\)</span> tiende a infinito es igual a <span class="math inline">\(p\)</span>” o “<span class="math inline">\(a_n\)</span> tiende a <span class="math inline">\(p\)</span> cuando <span class="math inline">\(n\)</span> tiende a infinito”</strong>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-suc_cre_decre" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 4 (Sucesiones crecientes y decrecientes) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> es creciente si <span class="math inline">\(a_n \leq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span> y es decreciente si <span class="math inline">\(a_n \geq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span>.</p>
+<p>En general diremos que una sucesión es monótona si esta es crecientes o decreciente.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-conv_suc_mon" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2 </strong></span>Si <span class="math inline">\(\{ a_n \}\)</span> es una sucesión monótona y acotada, entonces es convergente.</p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Supongamos sin pérdida de generalidad que la sucesión es creciente. Como el conjunto <span class="math inline">\(\{ a_n \}\)</span> es acotado, la menor de las cotas superiores de este conjunto, digamos <span class="math inline">\(p\)</span>, verifica que <span class="math inline">\(a_n &lt; p\)</span> para todo <span class="math inline">\(n\)</span> y que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección existe al menos un elemento <span class="math inline">\(a_N\)</span> tal que <span class="math display">\[
+p - \epsilon &lt; a_N,
+\]</span> como la sucesión es creciente entonces la desigualdad anterior es válidad para todo <span class="math inline">\(n &gt; N\)</span> con lo que <span class="math display">\[
+p - \epsilon &lt; a_n &lt; p
+\]</span> o equivalentemente <span class="math display">\[
+\vert a_n - p  \vert &lt; \epsilon
+\]</span> para todo <span class="math inline">\(n &gt; N,\)</span> y de acuerdo con esto <span class="math inline">\(\{a_n \}\)</span> es convergente a <span class="math inline">\(p\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-promedio2" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>En el <a href="#exm-promedio">Ejemplo&nbsp;3</a> si suponemos que <span class="math inline">\(a_n &lt; a_{n+1}\)</span> entonces al sumar <span class="math inline">\(q\)</span> a ambos lados de la desigualdad y dividir por <span class="math inline">\(2\)</span> obtendríamos que <span class="math inline">\(a_{n+1} &lt; a_{n}.\)</span> De acuerdo con esto si <span class="math inline">\(p &lt; q\)</span> entonces la sucesión <span class="math inline">\(\{ a_n \}\)</span> asociada a la recurrencia del ejemplo sería creciente ya que <span class="math display">\[
+a_0 = p &lt; \frac{p + q}{2} = a_{1}.
+\]</span><br>
+Por otro lado, note que si <span class="math inline">\(a_n \leq q\)</span> entonces <span class="math display">\[
+a_{n + 1} = \frac{a_n + q}{2} \leq q,
+\]</span> y como <span class="math inline">\(a_0 = p &lt; q\)</span> entonces <span class="math inline">\(a_n &lt; q\)</span> para todo <span class="math inline">\(n.\)</span></p>
+<p>Lo anterior quiere decir que la sucesión <span class="math inline">\(\{ a_n \}\)</span> es creciente y acotada, y de acuerdo con el <a href="#thm-conv_suc_mon">Teorema&nbsp;2</a> es convergente.</p>
 </div>
 </div>
 </div>
@@ -493,7 +566,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-unilimite" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 2 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces su límite es único.</p>
+<p><span class="theorem-title"><strong>Teorema 3 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces su límite es único.</p>
 </div>
 </div>
 </div>
@@ -503,6 +576,32 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 \]</span> para todo <span class="math inline">\(n &gt; N.\)</span> De acuerdo con la desigualdad triangular <span class="math display">\[
 \vert p - p' \vert \leq \vert a_n - p \vert + \vert a_n - p' \vert &lt; 2 \epsilon
 \]</span> con lo que <span class="math inline">\(p = p'.\)</span></p>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-seccaucy" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+a_n =  \frac{n}{1 + k n},
+\]</span> para <span class="math inline">\(k \neq 0.\)</span></p>
+<p>Para un <span class="math inline">\(k\)</span> fijo se puede verificar asignando valores de <span class="math inline">\(n\)</span> cada vez más grandes, que la sucesión se acerca al valor <span class="math inline">\(1/k.\)</span> Lo interesante sería determinar el valor del <span class="math inline">\(n\)</span> para el cual, a partir de ese valor, se consigue una aproximación deseada. Note que <span class="math display">\[
+\Big\vert  \frac{n}{1 + kn} - \frac{1}{k}  \Big\vert = \frac{1}{\vert  k + k^2 n \vert}.
+\]</span> De manera que <span class="math inline">\(\vert a_n - 1/k\vert &lt; \epsilon\)</span> sería equivalente a <span class="math display">\[
+\frac{1}{\epsilon} \leq \vert k + k^2 n \vert \leq \vert k \vert + k^2 n
+\]</span> con lo que <span class="math display">\[
+\frac{1}{k^2} \left( \frac{1}{\epsilon} - \vert k \vert \right) \leq n.
+\]</span> De acuerdo con esto, si <span class="math inline">\(k = 0.1\)</span> y queremos conseguir una aproximación en la forma <span class="math inline">\(\vert a_n - 10 \vert &lt; 0.001\)</span> basta tomar <span class="math inline">\(n &gt; 99990.\)</span> Además note que si tomamos <span class="math inline">\(m = 125000\)</span> y <span class="math inline">\(n = 100000\)</span> entonces <span class="math display">\[
+\vert a_m - a_n \vert =  0.00019 &lt; 0.002
+\]</span> verificándose la relación presente en la ecuación <a href="#eq-cauchy">6</a>. Aquí de nuevo es importante mencionar que la escogencia de <span class="math inline">\(\epsilon\)</span> es arbitraria.</p>
+</div>
+</div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -532,7 +631,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-cauchy" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 3 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces satisface la condición de Cauchy.</p>
+<p><span class="theorem-title"><strong>Teorema 4 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces satisface la condición de Cauchy.</p>
 </div>
 </div>
 </div>
@@ -555,7 +654,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-sucacotada" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 4 </strong></span>Toda sucesión <span class="math inline">\(\{a_n\}\)</span> que satisface la condición de Cauchy es acotada.</p>
+<p><span class="theorem-title"><strong>Teorema 5 </strong></span>Toda sucesión <span class="math inline">\(\{a_n\}\)</span> que satisface la condición de Cauchy es acotada.</p>
 </div>
 </div>
 </div>
@@ -578,55 +677,7 @@ B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-sucacotada2" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 5 </strong></span>Toda sucesión que satisface la condición de Cauchy es convergente en los números reales.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div id="exm-seccaucy" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
-a_n =  \frac{n}{1 + k n},
-\]</span> para <span class="math inline">\(k \neq 0.\)</span></p>
-<p>Para un <span class="math inline">\(k\)</span> fijo se puede verificar asignando valores de <span class="math inline">\(n\)</span> cada vez más grandes, que la sucesión se acerca al valor <span class="math inline">\(1/k.\)</span> Lo interesante sería determinar el valor del <span class="math inline">\(n\)</span> para el cual, a partir de ese valor, se consigue una aproximación deseada. Note que <span class="math display">\[
-\Big\vert  \frac{n}{1 + kn} - \frac{1}{k}  \Big\vert = \frac{1}{\vert  k + k^2 n \vert}.
-\]</span> De manera que <span class="math inline">\(\vert a_n - 1/k\vert &lt; \epsilon\)</span> sería equivalente a <span class="math display">\[
-\frac{1}{\epsilon} \leq \vert k + k^2 n \vert \leq \vert k \vert + k^2 n
-\]</span> con lo que <span class="math display">\[
-\frac{1}{k^2} \left( \frac{1}{\epsilon} - \vert k \vert \right) \leq n.
-\]</span> De acuerdo con esto, si <span class="math inline">\(k = 0.1\)</span> y queremos conseguir una aproximación en la forma <span class="math inline">\(\vert a_n - 10 \vert &lt; 0.001\)</span> basta tomar <span class="math inline">\(n &gt; 99990.\)</span> Además note que si tomamos <span class="math inline">\(m = 125000\)</span> y <span class="math inline">\(n = 100000\)</span> entonces <span class="math display">\[
-\vert a_m - a_n \vert =  0.00019 &lt; 0.002
-\]</span> verificándose la relación presente en la ecuación <a href="#eq-cauchy">6</a>. Aquí de nuevo es importante mencionar que la escogencia de <span class="math inline">\(\epsilon\)</span> es arbitraria.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div id="exm-nalp" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
-a_n =  \frac{1}{n^r},
-\]</span> con <span class="math inline">\(r &gt; 0.\)</span></p>
-<p>Para un <span class="math inline">\(r\)</span> fijo podemos verificar asignando valores a <span class="math inline">\(n\)</span> cada vez más y más grandes que <span class="math inline">\(a_n\)</span> toma valores cercanos a cero. De acuerdo con esto, para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección queremos encontrar un <span class="math inline">\(N\)</span> para el cual se verifique <span class="math display">\[
-\frac{1}{n^r} &lt; \epsilon \quad \text{ para todo } \quad n &gt; N.
-\]</span> En efecto, basta tomar <span class="math inline">\(N\)</span> como un entero tal que <span class="math display">\[
-\left(\frac{1}{\epsilon} \right)^{1/r} &lt; N
-\]</span></p>
+<p><span class="theorem-title"><strong>Teorema 6 </strong></span>Toda sucesión que satisface la condición de Cauchy es convergente en los números reales.</p>
 </div>
 </div>
 </div>
@@ -641,7 +692,7 @@ a_n =  \frac{1}{n^r},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ejemplo_geo" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
 a_n = \left( \frac{1}{a - \delta} \right)^n
 \]</span> para <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta\)</span> un número real tal que <span class="math inline">\(a - \delta &gt; 1.\)</span></p>
 <p>La experimentación numérica indica que para una escogencia arbitraria de valores <span class="math inline">\(a\)</span> y <span class="math inline">\(\delta\)</span> que verifiquen las condiciones dadas, a medida que se asignen valores de <span class="math inline">\(n\)</span> cada vez más grandes, la sucesión toma valores cercanos a 0.</p>
@@ -664,7 +715,7 @@ n &gt; -\frac{\ln{\epsilon}}{ \ln{(a - \delta)}},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-coseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 9 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_n= \cos{\left(\frac{1}{n} \right)}
 \]</span> De acuerdo con la definición de funciones trigonométricas es fácil notar que <span class="math display">\[
 1 - \frac{1}{n} &lt; \cos{\left(\frac{1}{n} \right)} &lt; 1
@@ -683,14 +734,14 @@ a_n= \cos{\left(\frac{1}{n} \right)}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-seno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 9 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 10 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n \}\)</span> en donde <span class="math display">\[
 a_n = n \sin{\left( \frac{1}{n} \right)}.
 \]</span> De acuerdo con la definición de funciones trigonométricas sobre el círculo de radio 1, es claro que <span class="math display">\[
 \frac{1}{n} \cos{\left( \frac{1}{n} \right)} \leq \sin{\left( \frac{1}{n}\right)} \leq \frac{1}{n}
 \]</span> y al multiplicar esta desigualdad por <span class="math inline">\(n,\)</span> obtenemos <span id="eq-des_seno_coseno"><span class="math display">\[
 \cos{\left( \frac{1}{n} \right)} \leq n \sin{\left( \frac{1}{n}\right)} \leq 1
 \tag{7}\]</span></span></p>
-<p>Lo interesante de este resultado es notar que el valor de convergencia de la sucesión <span class="math inline">\(\{ a_n \}\)</span> esta comprendido entre los valores de <span class="math inline">\(\cos(1/n)\)</span> y <span class="math inline">\(1.\)</span> De acuerdo entonces con el <a href="#exm-coseno">Ejemplo&nbsp;8</a> se tiene que <span class="math inline">\(n \sin(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> es decir <span class="math display">\[
+<p>Lo interesante de este resultado es notar que el valor de convergencia de la sucesión <span class="math inline">\(\{ a_n \}\)</span> esta comprendido entre los valores de <span class="math inline">\(\cos(1/n)\)</span> y <span class="math inline">\(1.\)</span> De acuerdo entonces con el <a href="#exm-coseno">Ejemplo&nbsp;9</a> se tiene que <span class="math inline">\(n \sin(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> es decir <span class="math display">\[
 \lim_{n \to \infty} n \sin{\left(\frac{1}{n} \right)} = 1.
 \]</span></p>
 </div>
@@ -789,14 +840,14 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-teorema2" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 6 </strong></span>Si la serie <span class="math inline">\(\sum_{k = 1}^{\infty} a_n\)</span> es convergente entonces</p>
+<p><span class="theorem-title"><strong>Teorema 7 </strong></span>Si la serie <span class="math inline">\(\sum_{k = 1}^{\infty} a_n\)</span> es convergente entonces</p>
 <p><span class="math display">\[
 \lim_{n \to \infty} a_n = 0
 \]</span></p>
 </div>
 </div>
 </div>
-<p>Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación <a href="#eq-geo2">13</a> y del <a href="#exm-ejemplo_geo">Ejemplo&nbsp;7</a>. Este establece que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces <span id="eq-se_geo"><span class="math display">\[
+<p>Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación <a href="#eq-geo2">13</a> y del <a href="#exm-ejemplo_geo">Ejemplo&nbsp;8</a>. Este establece que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces <span id="eq-se_geo"><span class="math display">\[
 \sum_{n = 0}^{\infty} r^{n} = \frac{1}{1-r}.
 \tag{14}\]</span></span> Note que en este caso <span class="math inline">\(a_n = r^n\)</span> y <span class="math inline">\(a_n \to 0\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
 <p>De manera equivalente a la notación de sumatorio, también existe una para los productos. Esta es <span class="math inline">\(\prod_{k = 1}^{n} a_{n}\)</span> y corresponde con <span class="math display">\[
@@ -813,7 +864,7 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-teorema2" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 7 </strong></span>Sea <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta &gt; 0\)</span> tales que <span class="math inline">\(a - \delta &gt; 1,\)</span> y sean <span class="math inline">\(a_1 , a_2 , \ldots , a_n , \ldots\)</span> números que verifican <span class="math inline">\(a_n \geq a - \delta\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 8 </strong></span>Sea <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta &gt; 0\)</span> tales que <span class="math inline">\(a - \delta &gt; 1,\)</span> y sean <span class="math inline">\(a_1 , a_2 , \ldots , a_n , \ldots\)</span> números que verifican <span class="math inline">\(a_n \geq a - \delta\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span class="math display">\[
 \sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \frac{a- \delta}{a - \delta  - 1}.
 \]</span></p>
 </div>
@@ -855,7 +906,7 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-teorema2" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 8 </strong></span>Sean <span class="math inline">\(a_1, a_2 , \ldots a_n\)</span> números reales que verifican la condición <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span id="eq-resteo"><span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 9 </strong></span>Sean <span class="math inline">\(a_1, a_2 , \ldots a_n\)</span> números reales que verifican la condición <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span id="eq-resteo"><span class="math display">\[
 \prod_{k = 1}^{n} a_{k} &gt; 1 + a_1 + a_1 \cdot a_2 + a_1 \cdot a_2 \cdot a_3 + \cdots + \prod_{k = 1}^{n-1}a_{k}.
 \tag{15}\]</span></span></p>
 </div>
@@ -961,7 +1012,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 10 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 11 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
 \frac{a_{n+1}}{a_n} = r
 \]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
 \begin{align*}
@@ -988,9 +1039,9 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 11 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 12 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
 a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
-\]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span>ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
+\]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span> ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
 \sqrt[n]{a_n} = r , \text{ con } 0 &lt; r &lt; 1
 \]</span> entonces <span class="math display">\[
 \sum_{n = 0}^{\infty} a_{n} = \frac{1}{1 - r}
@@ -1022,7 +1073,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-Telescopia" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 12 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 13 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_{n} = b_{n+1} - b_{n}
 \]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
 \begin{align*}
@@ -1048,7 +1099,7 @@ a_{n} = b_{n+1} - b_{n}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-binomio" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 13 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
 a_n = n - n^{p}(n - q )^{1 - p},
 \tag{19}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
 a_n \to q(1 - p) \text{ cuando } n \to \infty
@@ -1091,7 +1142,7 @@ a_n &amp;= n - (n-q)\left( 1 + p \frac{q}{(n-q)} + \frac{p(p-1)}{2!}\frac{q^2}{(
 \]</span> y sumando 1 a ambos lados de la desigualdad <span id="eq-desigualdad_p_serie1"><span class="math display">\[
 \sum_{k=1}^{n}\frac{1}{k^p} \leq \frac{n^{1-p} - p}{1 - p}
 \tag{24}\]</span></span></p>
-<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;6</a> <span class="math display">\[
+<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;5</a> <span class="math display">\[
 n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 \]</span> y de acuerdo con esto hemos probado el siguiente resultado</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -1105,13 +1156,13 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-pserie" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 9 </strong></span>Si <span class="math inline">\(p&gt;1\)</span> entonces <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 10 </strong></span>Si <span class="math inline">\(p&gt;1\)</span> entonces <span class="math display">\[
 \sum_{n=1}^{\infty} \dfrac{1}{n^p} \leq \frac{p}{p-1}
 \]</span></p>
 </div>
 </div>
 </div>
-<p>Una función de gran importancia en matemáticas, es la función <span class="math inline">\(z\)</span> de Riemann, <span class="math display">\[
+<p>Una función de gran importancia en matemáticas, es la función <span class="math inline">\(\zeta\)</span> de Riemann, definida como <span class="math display">\[
 \zeta(p) = \sum_{n=1}^{\infty} \frac{1}{n^p}
 \]</span> en el siguiente código se muestra el gráfico de la aproximación de la función sumando los primeros <span class="math inline">\(1000\)</span> términos de la serie con valores de <span class="math inline">\(p\)</span> entre 1 y 10.</p>
 <div class="cell" data-execution_count="6">
@@ -1138,8 +1189,12 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 <section id="la-serie-armónica" class="level3">
 <h3 class="anchored" data-anchor-id="la-serie-armónica"><strong>La serie armónica</strong></h3>
 <p>Una serie conocida por su lento crecimiento y que no es convergente, es la serie armónica, definida como <span class="math inline">\(\zeta(1)\)</span> es decir <span class="math display">\[
-\sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots
+\sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} \cdots
 \]</span></p>
+<p>Si <span class="math inline">\(\{ s_n \}\)</span> denota la sucesión de sumas parciales, se puede probar que <span class="math display">\[
+1 + \frac{n}{2} \leq s_{2^n},
+\]</span> y de acuerdo con esto, la serie armónica es divergente.</p>
+<p>Con el siguiente código estimamos el número de términos de la sucesión de sumas parciales, asociada a la serie armónica, para obtener un determinao valor, note por ejemplo que se requieren más de 12000 términos para que la suma sea mayor o igual que 10.</p>
 <div class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1163,7 +1218,7 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 <p><img src="modelos_univariable_files/figure-html/cell-8-output-1.png" width="387" height="356"></p>
 </div>
 </div>
-<p>Realizaremos ahora los cocientes dos a dos de términos consecutivos el número de terminos en la serie armónica para alcanzar un valor determinado.</p>
+<p>Con el siguiente código realizamos los cocientes dos a dos de términos consecutivos de los datos que ha arrajado el código anterior.</p>
 <div class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">cálculo de cocientes dos a dos términos consectivos</span></span>
@@ -1180,6 +1235,7 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 <p><img src="modelos_univariable_files/figure-html/cell-9-output-1.png" width="374" height="356"></p>
 </div>
 </div>
+<p>Note que la sucesión de cocientes parece converger a <span class="math inline">\(e,\)</span> entraremos en estos detalles más adelante.</p>
 </section>
 </section>
 </section>
@@ -1200,7 +1256,7 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limiteF" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 8 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;2</a> La notación <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 8 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;1</a> La notación <span class="math display">\[
 \lim_{x \to p} f(x) = l.
 \]</span> se lee “el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \} \cap S.
@@ -1221,7 +1277,8 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \}
 <div id="def-limiteL" class="theorem definition">
 <p><span class="theorem-title"><strong>Definición 9 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span class="math display">\[
 \lim_{x \to p^+} f(x) = l.
-\]</span> se lee “el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+\]</span><br>
+se lee “el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p \} \cap S.
 \]</span> De manera similar entenderemos la notación <span class="math display">\[
 \lim_{x \to p^-} f(x) = l,  
@@ -1262,7 +1319,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-contseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
 \vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
 \]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
 </div>
@@ -1279,7 +1336,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-hip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
 <p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
 \delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
 \]</span> y <span class="math display">\[
@@ -1316,6 +1373,21 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 <section id="consecuencias-de-la-continuidad" class="level2">
 <h2 class="anchored" data-anchor-id="consecuencias-de-la-continuidad">Consecuencias de la continuidad</h2>
 <p>La continuidad de un proceso tiene una bella propiedad que nos permite en cierto sentido predecir el comportamiento en una cierta vecindad de un valor, si tenemos suficiente información sobre el comportamiento de este proceso en dicho valor.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-p_interior" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 12 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1327,7 +1399,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-presig" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 10 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = (a, b).\)</span> Si para un punto interior <span class="math inline">\(p\)</span> de <span class="math inline">\(S\)</span> se cumple que <span class="math inline">\(f(p) &gt; 0,\)</span> entonces existe una vecindad <span class="math inline">\(V_r(p)\)</span> tal que <span class="math inline">\(f(x) &gt; 0\)</span> para todo <span class="math inline">\(x \in V_{r}(p).\)</span></p>
+<p><span class="theorem-title"><strong>Teorema 11 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = (a, b).\)</span> Si para un punto interior <span class="math inline">\(p\)</span> de <span class="math inline">\(S\)</span> se cumple que <span class="math inline">\(f(p) &gt; 0,\)</span> entonces existe una vecindad <span class="math inline">\(V_r(p)\)</span> tal que <span class="math inline">\(f(x) &gt; 0\)</span> para todo <span class="math inline">\(x \in V_{r}(p).\)</span></p>
 </div>
 </div>
 </div>
@@ -1347,7 +1419,7 @@ f(p) - \epsilon &lt; f(x) &lt; f(p) + \epsilon \text{ para todo } x \in V_{\delt
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-bolzano_ceros" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 11 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = [a,b]\)</span> tal que <span class="math inline">\(f(a) f(b) &lt; 0\)</span>. Entonces existe al menos un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(f(p) = 0.\)</span></p>
+<p><span class="theorem-title"><strong>Teorema 12 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = [a,b]\)</span> tal que <span class="math inline">\(f(a) f(b) &lt; 0\)</span>. Entonces existe al menos un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(f(p) = 0.\)</span></p>
 </div>
 </div>
 </div>
@@ -1392,7 +1464,7 @@ f(p) - \epsilon &lt; f(x) &lt; f(p) + \epsilon \text{ para todo } x \in V_{\delt
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-particion" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 12 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 13 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
 a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 \]</span> Una partición <span class="math inline">\(P'\)</span> se dice más fina que otra partición del mismo intervalo si <span class="math inline">\(P' \supset P.\)</span></p>
 <p>Emplearemos la notación <span class="math inline">\(\Delta x_k\)</span> para indicar la diferencia <span class="math inline">\(\Delta x_k = x_k - x_{k-1}\)</span> siendo <span class="math inline">\(x_{k-1}\)</span> y <span class="math inline">\(x_{k}\)</span> elementos de una partición <span class="math inline">\(P.\)</span></p>
@@ -1410,7 +1482,7 @@ a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-riemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 13 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 14 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
 S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1}, x_{k}].
 \]</span> Note en particular que el valor de <span class="math inline">\(S(P,f)\)</span> depende de la elección de <span class="math inline">\(P.\)</span></p>
 </div>
@@ -1427,7 +1499,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ejemplo" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Considere la función <span class="math inline">\(f(x) = \floor{x}\)</span> definida en el intervalo <span class="math inline">\(S = [0,10],\)</span> y consideremos una partición de dicho intervalo</p>
+<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Considere la función <span class="math inline">\(f(x) = \floor{x}\)</span> definida en el intervalo <span class="math inline">\(S = [0,10],\)</span> y consideremos una partición de dicho intervalo</p>
 </div>
 </div>
 </div>
@@ -1442,7 +1514,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-intriemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 15 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
 \vert S(P, f) - I\vert &lt; \epsilon.
 \]</span> El número <span class="math inline">\(I\)</span> se representa como <span class="math inline">\(I = \int_{a}^{b} f(x) \, dx\)</span> y se lee: `` la integral de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.’’</p>
 </div>
@@ -1459,7 +1531,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-teorema" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 12 </strong></span>Si <span class="math inline">\(f\)</span> es una función continua en <span class="math inline">\(S = [a,b]\)</span> entonces es Riemann integrable en <span class="math inline">\(S.\)</span></p>
+<p><span class="theorem-title"><strong>Teorema 13 </strong></span>Si <span class="math inline">\(f\)</span> es una función continua en <span class="math inline">\(S = [a,b]\)</span> entonces es Riemann integrable en <span class="math inline">\(S.\)</span></p>
 </div>
 </div>
 </div>
@@ -1488,7 +1560,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-diferenciabilidad" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 15 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 16 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
 \phi(x) = \frac{f(x) - f(p)}{x - p},
 \]</span> es continua en <span class="math inline">\(p.\)</span></p>
 <p>Comúnmente el símbolo <span class="math inline">\(\phi(p)\)</span> se representa como <span class="math inline">\(f'(p)\)</span> o <span class="math inline">\(\dfrac{d}{dx}f(p)\)</span> y en ambos casos se leen como: `` la derivada de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> evaluada en <span class="math inline">\(p.\)</span>’’ Es decir <span class="math display">\[
@@ -1508,7 +1580,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-lemadif_con" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 13 </strong></span>Sea <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> dos funciones diferenciables en un punto interior <span class="math inline">\(p\)</span> de un conjunto <span class="math inline">\(S\)</span> y sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> números reales. Entonces <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 14 </strong></span>Sea <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> dos funciones diferenciables en un punto interior <span class="math inline">\(p\)</span> de un conjunto <span class="math inline">\(S\)</span> y sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> números reales. Entonces <span class="math display">\[
 \frac{d}{dx} \left( \alpha f(p) + \beta g(p)\right) = \alpha \frac{d}{dx} f(p) + \beta \frac{d}{dx}g(p).
 \]</span></p>
 </div>
@@ -1532,7 +1604,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_constante" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
 <p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
 \frac{d}{dx}f(p) = 0,
 \]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
@@ -1550,7 +1622,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_xn" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
 <p>Note que <span class="math display">\[\begin{align*}
     \phi(x) &amp; = \frac{x^n - p^n }{x - p}
     \\
@@ -1572,7 +1644,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-derprod" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 14 </strong></span>Sean <span class="math inline">\(f:S \to T\)</span> y <span class="math inline">\(g:S \to U\)</span> dos funciones diferenciables en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S.\)</span> Entonces para la función <span class="math inline">\(h(x) = f(x) g(x)\)</span> se cumple que <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 15 </strong></span>Sean <span class="math inline">\(f:S \to T\)</span> y <span class="math inline">\(g:S \to U\)</span> dos funciones diferenciables en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S.\)</span> Entonces para la función <span class="math inline">\(h(x) = f(x) g(x)\)</span> se cumple que <span class="math display">\[
 \frac{d}{dx} h(p) = f(p) \frac{d}{dx}g(p) + g(p) \frac{d}{dx}f(p)
 \]</span></p>
 </div>
@@ -1601,7 +1673,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-creciente" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 15 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función con derivada continua en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(\dfrac{df}{dx}(p) &gt; 0.\)</span> Existe <span class="math inline">\(V_\delta(p) \subset S\)</span> tal que <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 16 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función con derivada continua en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(\dfrac{df}{dx}(p) &gt; 0.\)</span> Existe <span class="math inline">\(V_\delta(p) \subset S\)</span> tal que <span class="math display">\[
 \frac{f(x) - f(y)}{x - y} &gt; 0
 \]</span> para todo <span class="math inline">\(x, y \in V_{\delta}(p)\)</span> con <span class="math inline">\(x \neq y.\)</span></p>
 </div>
@@ -1628,7 +1700,7 @@ V_{\delta}(p) = \bigcup_{y \in V_{\alpha}(p)}V_{\beta}(y).
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-maxmin" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 16 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 17 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
 f(p) \geq f(x)
 \]</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span></p>
 <p>La definición para mínimo local es similar salvo por el hecho del cambio de sentido de la desigualdad.</p>
@@ -1646,7 +1718,7 @@ f(p) \geq f(x)
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-derivada_cero" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 16 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función diferenciable que alcanza en <span class="math inline">\(p,\)</span> un punto interior de <span class="math inline">\(S,\)</span> un máximo o mínimo local, entonces <span class="math inline">\(\frac{df}{dx}(p) = 0\)</span></p>
+<p><span class="theorem-title"><strong>Teorema 17 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función diferenciable que alcanza en <span class="math inline">\(p,\)</span> un punto interior de <span class="math inline">\(S,\)</span> un máximo o mínimo local, entonces <span class="math inline">\(\frac{df}{dx}(p) = 0\)</span></p>
 </div>
 </div>
 </div>
