@@ -142,15 +142,15 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#números-reales" id="toc-números-reales" class="nav-link" data-scroll-target="#números-reales">Números reales</a>
   <ul class="collapse">
-  <li><a href="#axiomas-de-cuerpo" id="toc-axiomas-de-cuerpo" class="nav-link" data-scroll-target="#axiomas-de-cuerpo">Axiomas de cuerpo</a></li>
-  <li><a href="#axiomas-de-orden" id="toc-axiomas-de-orden" class="nav-link" data-scroll-target="#axiomas-de-orden">Axiomas de orden</a></li>
   <li><a href="#axioma-de-completitud" id="toc-axioma-de-completitud" class="nav-link" data-scroll-target="#axioma-de-completitud">Axioma de completitud</a></li>
-  <li><a href="#recta-numérica" id="toc-recta-numérica" class="nav-link" data-scroll-target="#recta-numérica">Recta numérica</a></li>
-  <li><a href="#propiedades-de-los-exponentes" id="toc-propiedades-de-los-exponentes" class="nav-link" data-scroll-target="#propiedades-de-los-exponentes">Propiedades de los exponentes</a></li>
-  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a></li>
-  <li><a href="#directamente-proporcional" id="toc-directamente-proporcional" class="nav-link" data-scroll-target="#directamente-proporcional">Directamente proporcional</a></li>
-  <li><a href="#inversamente-proporcional" id="toc-inversamente-proporcional" class="nav-link" data-scroll-target="#inversamente-proporcional">Inversamente proporcional</a></li>
   </ul></li>
+  <li><a href="#recta-numérica" id="toc-recta-numérica" class="nav-link" data-scroll-target="#recta-numérica">Recta numérica</a></li>
+  <li><a href="#propiedades-de-los-exponentes" id="toc-propiedades-de-los-exponentes" class="nav-link" data-scroll-target="#propiedades-de-los-exponentes">Propiedades de los exponentes</a>
+  <ul class="collapse">
+  <li><a href="#notación-científica" id="toc-notación-científica" class="nav-link" data-scroll-target="#notación-científica">Notación científica</a></li>
+  </ul></li>
+  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a></li>
+  <li><a href="#factores-de-conversión" id="toc-factores-de-conversión" class="nav-link" data-scroll-target="#factores-de-conversión">Factores de conversión</a></li>
   <li><a href="#el-plano-cartesiano" id="toc-el-plano-cartesiano" class="nav-link" data-scroll-target="#el-plano-cartesiano">El plano cartesiano</a></li>
   </ul>
 </nav>
@@ -230,7 +230,7 @@ Diferencia de conjuntos
 <div class="callout-body-container callout-body">
 <p>Dados dos conjuntos <span class="math inline">\(\mathcal{A}\)</span> y <span class="math inline">\(\mathcal{B}\)</span> el símbolo <span class="math inline">\(\mathcal{A} \setminus \mathcal{B}\)</span> se lee <span class="math inline">\(\mathcal{A}\)</span> menos <span class="math inline">\(\mathcal{B},\)</span> y este corresponde con el conjunto cuyos elementos son aquellos que están en <span class="math inline">\(\mathcal{A}\)</span> y que no están en <span class="math inline">\(\mathcal{B}.\)</span> Este conjunto se puede representar simbólicamente como <span class="math display">\[
 \mathcal{A} \setminus \mathcal{B} = \{ x \in \mathcal{A} \vert x \notin \mathcal{B} \}.
-\]</span> Esto se lee en la siguiente forma: <span class="math inline">\(\mathcal{A} \setminus \mathcal{B}\)</span> son los elementos <span class="math inline">\(\bm{x}\)</span> de <span class="math inline">\(\mathcal{A}\)</span> <strong>““tales que”</strong> <span class="math inline">\(( \vert )\)</span> <span class="math inline">\(\bm{x}\)</span> <strong>“no es un elemento de”</strong> <span class="math inline">\(\mathcal{B}\)</span> “.</p>
+\]</span> Esto se lee en la siguiente forma: <span class="math inline">\(\mathcal{A} \setminus \mathcal{B}\)</span> son los elementos <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathcal{A}\)</span> <strong>““tales que”</strong> <span class="math inline">\(( \vert )\)</span> <span class="math inline">\(x\)</span> <strong>“no es un elemento de”</strong> <span class="math inline">\(\mathcal{B}\)</span> “.</p>
 </div>
 </div>
 </section>
@@ -238,8 +238,6 @@ Diferencia de conjuntos
 <section id="números-reales" class="level2">
 <h2 class="anchored" data-anchor-id="números-reales">Números reales</h2>
 <p>Supongamos la existencia de un conjunto de números denotado con <span class="math inline">\(\mathbb{R}\)</span> (números reales) que verifican los siguientes axiomas <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<section id="axiomas-de-cuerpo" class="level3">
-<h3 class="anchored" data-anchor-id="axiomas-de-cuerpo">Axiomas de cuerpo</h3>
 <ul>
 <li><p><strong>ax1.</strong> leyes conmutativas <span class="math display">\[
 x + y = y + x, \quad x \cdot y = y \cdot x
@@ -252,31 +250,12 @@ x \cdot ( y + z) = x \cdot y + x \cdot z
 \]</span></p></li>
 <li><p><strong>ax4.</strong> Dados dos números reales <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> existe siempre un número real <span class="math inline">\(z\)</span> tal que <span class="math inline">\(x + z = y.\)</span> Dicho número se representa por <span class="math inline">\(y - x.\)</span> En un caso particular, el número <span class="math inline">\(x - x\)</span> se representa con <span class="math inline">\(0.\)</span> Se escribe <span class="math inline">\(-x\)</span> en lugar de <span class="math inline">\(0 - x\)</span> y este número es conocido como el opuesto de <span class="math inline">\(x.\)</span></p></li>
 <li><p><strong>ax5.</strong> Para dos números reales <span class="math inline">\(x, y\)</span> con <span class="math inline">\(x \neq 0\)</span> existe un número real <span class="math inline">\(z\)</span> tal que <span class="math inline">\(x \cdot z = y.\)</span> Dicho número se representa con <span class="math inline">\(y / x.\)</span> En el caso particular, el número <span class="math inline">\(x/x\)</span> se representa con con <span class="math inline">\(1.\)</span> Se acostumbra escribir <span class="math inline">\(x^{-1}\)</span> en lugar de <span class="math inline">\(1/x,\)</span> y a <span class="math inline">\(x^-1\)</span> se le conoce como el inverso de <span class="math inline">\(x.\)</span></p></li>
-</ul>
-<p>Es claro que algunas consecuencias de estos dos axiomas son: <span class="math display">\[
--(-x) = x, \quad (x^{-1})^{-1} = x, \quad -(x - y) = y - x, \quad x - y = x + (-y), \quad \ldots
-\]</span> entre otras</p>
-<p>Note que para todo real <span class="math inline">\(x\)</span> se verifica que <span class="math inline">\(x + 0 = x,\)</span> y de esta observación se puede probar que el opuesto de <span class="math inline">\(x\)</span> es único, en efecto, supongamos que existen dos números reales <span class="math inline">\(y\)</span> y <span class="math inline">\(z\)</span> tales que <span class="math inline">\(x + y = 0\)</span> y <span class="math inline">\(x + z = 0,\)</span> de acuerdo con esto <span class="math display">\[
-y = y + 0 = y + (x + z) = (y + x) + z = 0 + z = z.
-\]</span> De manera equivalente podemos probar que el inverso de un número real <span class="math inline">\(x\)</span> con <span class="math inline">\(x \neq 0\)</span> es también único. En efecto, suponga que <span class="math inline">\(y\)</span> y <span class="math inline">\(z\)</span> son números reales tales que <span class="math inline">\(x\cdot y = 1\)</span> y <span class="math inline">\(x \cdot z = 1.\)</span> Entonces <span class="math display">\[
-y = y \cdot 1 = y \cdot ( x \cdot z) = ( y \cdot x) \cdot z = 1 \cdot z = z.
-\]</span></p>
-<p>Note además que <span class="math display">\[\begin{align*}
-0 &amp; = (x + (-x)) \cdot y
-\\
-&amp; = x \cdot y + (-x) \cdot y
-\end{align*}\]</span> con lo que <span class="math inline">\((-x) \cdot y = - x\cdot y.\)</span> De manera equivalente puede probarse que <span class="math inline">\(- x \cdot y = x \cdot (-y),\)</span> con lo que <span class="math inline">\((-x) \cdot y = x\cdot (-y).\)</span></p>
-</section>
-<section id="axiomas-de-orden" class="level3">
-<h3 class="anchored" data-anchor-id="axiomas-de-orden">Axiomas de orden</h3>
-<p>Las relaciones <span class="math inline">\(&lt;\)</span> y <span class="math inline">\(&gt;\)</span> establecen un orden entre los números reales, y estas verifican.</p>
-<ul>
 <li><p><strong>ax6.</strong> Se verifica una y sólo una de las relaciones <span class="math inline">\(x = y,\)</span> <span class="math inline">\(x &lt; y,\)</span> <span class="math inline">\(x &gt; y.\)</span></p></li>
 <li><p><strong>ax7.</strong> Si <span class="math inline">\(x &lt; y\)</span> entonces para cada <span class="math inline">\(z\)</span> se verifica que <span class="math display">\[
 x + z &lt; y + z
 \]</span></p></li>
 <li><p><strong>ax8.</strong> Si <span class="math inline">\(x &gt; 0\)</span> y <span class="math inline">\(y &gt; 0\)</span> entonces <span class="math inline">\(x \cdot y &gt; 0.\)</span></p></li>
-<li><p><strong>ax9.</strong> Si $x &gt; y $ e <span class="math inline">\(y &gt; z\)</span> entonces <span class="math inline">\(x &gt; z.\)</span></p></li>
+<li><p><strong>ax9.</strong> Si <span class="math inline">\(x &gt; y\)</span> e <span class="math inline">\(y &gt; z\)</span> entonces <span class="math inline">\(x &gt; z.\)</span></p></li>
 </ul>
 <p>Un número real <span class="math inline">\(x\)</span> es llamado positivo si <span class="math inline">\(x &gt; 0,\)</span> y es llamado negativo si <span class="math inline">\(x &lt; 0.\)</span> La notación <span class="math inline">\(x \leq y\)</span> se emplea para abreviar la afirmación <span class="math display">\[
 x &lt; y \quad \text{ ó } \quad x = y.
@@ -284,7 +263,6 @@ x &lt; y \quad \text{ ó } \quad x = y.
 <p>Note que si <span class="math inline">\(x &gt; 0\)</span> entonces <span class="math inline">\(-x &lt; 0.\)</span> En efecto, si <span class="math inline">\(-x &gt; 0\)</span> teniendo en cuenta que <span class="math inline">\(x &gt; 0\)</span> entonces <span class="math display">\[
 -x + x &gt; 0 + x,
 \]</span> con lo que <span class="math inline">\(0 &gt; x\)</span> lo que no es posible, ya que <span class="math inline">\(x &gt; 0.\)</span> De manera equivalente puede probarse que si <span class="math inline">\(-x &gt; 0\)</span> entonces <span class="math inline">\(x &lt; 0.\)</span></p>
-</section>
 <section id="axioma-de-completitud" class="level3">
 <h3 class="anchored" data-anchor-id="axioma-de-completitud">Axioma de completitud</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
@@ -322,28 +300,45 @@ Extremo superior e inferior de un conjunto
 <li><strong>ax10.</strong> Todo conjunto no vacío <span class="math inline">\(A\)</span> de números reales acotado superiormente admite un supremo.</li>
 </ul>
 </section>
-<section id="recta-numérica" class="level3">
-<h3 class="anchored" data-anchor-id="recta-numérica">Recta numérica</h3>
+</section>
+<section id="recta-numérica" class="level2">
+<h2 class="anchored" data-anchor-id="recta-numérica">Recta numérica</h2>
 <p>Una forma de representar el conjunto de los números reales es empleando la recta numérica. Sobre esta podemos identificar el cero y al lado derecho de este los números positivos mientras que a la lado izquierdo los negativos. Los axiomas de orden sobre la recta numérica se relacionan de la siguiente manera: un número <span class="math inline">\(a\)</span> es mayor que otro número <span class="math inline">\(b,\)</span> es decir <span class="math inline">\((a &gt; b)\)</span> si <span class="math inline">\(a\)</span> se encuentra localizado sobre la recta a la derecha de <span class="math inline">\(b.\)</span></p>
 <p>Sobre la recta numérica la suma de dos números reales tiene una interesante interpretación. Si <span class="math inline">\(a\)</span> es un número real y <span class="math inline">\(b\)</span> es un número positivo, entonces la suma de <span class="math inline">\(a + b\)</span> corresponde con el desplazar <span class="math inline">\(b\)</span> unidades el número <span class="math inline">\(a\)</span> a la derecha.</p>
 <p>A continuación vamos a presentar algunos ejemplos en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.</p>
-<div id="ej-ejemplo1">
-<section id="ejemplo-1" class="level4">
-<h4 class="anchored" data-anchor-id="ejemplo-1">Ejemplo 1</h4>
-<p>Encuentre el valor de <span class="math inline">\(x\)</span> que satisface la siguiente ecuación [ - x + = 1. ] </p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-ejemplo1" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 1 </strong></span>Encuentre el valor de <span class="math inline">\(x\)</span> que satisface la siguiente ecuación <span class="math display">\[
+- \frac{9}{4}x + \frac{2}{3} = 1.
+\]</span></p>
+<p><strong>Solución</strong></p>
 <p>Vamos a resolver la ecuación despejando paso a paso la variable <span class="math inline">\(x\)</span>.</p>
-<p>Primero sumaremos a ambos lados el inverso aditivo de <span class="math inline">\(2/3\)</span>. <span class="math display">\[\begin{align*}
+<p>Primero sumaremos a ambos lados el inverso aditivo de <span class="math inline">\(2/3\)</span>. <span class="math display">\[
+\begin{align*}
 -\frac{9}{4}x &amp; = 1 + \left( - \frac{2}{3} \right)
 \\
 &amp; = \frac{1}{3}.
-\end{align*}\]</span> Ahora vamos a multiplicar esta ultima expresión por el inverso multiplicativo de <span class="math inline">\(-9/4,\)</span> es decir <span class="math inline">\(-4/9,\)</span> para obtener <span class="math display">\[\begin{align*}
+\end{align*}
+\]</span> Ahora vamos a multiplicar esta ultima expresión por el inverso multiplicativo de <span class="math inline">\(-9/4,\)</span> es decir <span class="math inline">\(-4/9,\)</span> para obtener <span class="math display">\[
+\begin{align*}
 x = -\frac{4}{27}.
-\end{align*}\]</span></p>
-</section>
+\end{align*}
+\]</span></p>
+</div>
+</div>
 </div>
 </section>
-<section id="propiedades-de-los-exponentes" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-de-los-exponentes">Propiedades de los exponentes</h3>
+<section id="propiedades-de-los-exponentes" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-de-los-exponentes">Propiedades de los exponentes</h2>
 <p>Una forma de reducir la escritura del múltiple producto del número <span class="math inline">\(a\)</span> consigo mismo n-veces es <span class="math display">\[
 a^n = \underbrace{a \cdot a \cdots a}_{\text{ $n$-veces}}.
 \]</span> De acuerdo con esto, se puede probar que para dos enteros positivos <span class="math inline">\(m\)</span> y <span class="math inline">\(n\)</span> se cumple <span class="math display">\[
@@ -351,16 +346,14 @@ a^{m} \cdot a^{n} = a^{m + n} \, \text{ y que } \, \left( a^{m} \right)^n = a^{m
 \]</span> Por otro lado, como una consecuencia de los axiomas de los números reales entenderemos que <span class="math display">\[
 \left( a^n \right)^{-1} \equiv a^{-n} \equiv \frac{1}{a^n}.
 \]</span> Es importante mencionar que las expresiones anteriores se pueden extender para cualquier número real en el exponente de <span class="math inline">\(a.\)</span></p>
-<div id="ej-ejemplo2">
-<section id="ejemplo-2" class="level4">
-<h4 class="anchored" data-anchor-id="ejemplo-2">Ejemplo 2</h4>
+<section id="notación-científica" class="level3">
+<h3 class="anchored" data-anchor-id="notación-científica">Notación científica</h3>
 <p>La notación científica es un número en la forma <span class="math inline">\(M \times 10^k\)</span> en donde <span class="math inline">\(M\)</span> es un número decimal con parte entera distinta de cero, y <span class="math inline">\(10^k\)</span> se conoce como el orden de magnitud siendo <span class="math inline">\(k\)</span> un número entero.</p>
 <p>Por ejemplo, el número 0.0000401 se puede escribir en notación científica como <span class="math inline">\(401 \times 10^{-7}.\)</span></p>
 </section>
-</div>
 </section>
-<section id="cantidades-proporcionales" class="level3">
-<h3 class="anchored" data-anchor-id="cantidades-proporcionales">Cantidades proporcionales</h3>
+<section id="cantidades-proporcionales" class="level2">
+<h2 class="anchored" data-anchor-id="cantidades-proporcionales">Cantidades proporcionales</h2>
 <p>Diremos que dos cantidades <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> son directamentamente proporcionales, en notación <span class="math inline">\(x \propto y,\)</span> si existe una constante <span class="math inline">\(k \neq 0\)</span> tal que <span class="math display">\[
 x = k y.
 \]</span></p>
@@ -368,29 +361,104 @@ x = k y.
 x = k \frac{1}{y}.
 \]</span></p>
 <p>En los siguientes ejemplos las cantidades empleadas mantienen una relación directa o inversa de proporcionalidad.</p>
-</section>
-<section id="directamente-proporcional" class="level3">
-<h3 class="anchored" data-anchor-id="directamente-proporcional">Directamente proporcional</h3>
-<p>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
-<p></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-dp" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
+<p><strong>Solución</strong></p>
 <p>Note que a mayor cantidad de gasolina, mayor es el número de kilómetros que se pueden recorrer. De acuerdo con esto, la cantidad de gasolina es directamente proporcional a la distancia, es decir, si denotamos con <span class="math inline">\(G\)</span> a la gasolina y con <span class="math inline">\(K\)</span> a los kilómetros entonces <span class="math display">\[
 G = k K,
 \]</span> y de acuerdo a nuestra relación inicial <span class="math inline">\(1 = k 55\)</span> con lo que <span class="math inline">\(k = 1/55.\)</span> Considerando que se quieren recorrer 200km, entonces <span class="math display">\[
 G = \frac{200}{55}\approx 3.64
 \]</span></p>
 <p>Entonces con aproximadamente 3.64 galones en el tanque se pueden recorrer los 200km.</p>
-</section>
-<section id="inversamente-proporcional" class="level3">
-<h3 class="anchored" data-anchor-id="inversamente-proporcional">Inversamente proporcional</h3>
-<p>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
-<p></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-ip" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
+<p><strong>Solución</strong></p>
 <p>Note que a mayor número de trabajadores menor es el tiempo que se emplea en pintar la casa. De acuerdo con esto, el número de trabajadores es inversamente proporcional al tiempo empleado. Es decir, si denotamos con <span class="math inline">\(N\)</span> al número de trabajadores y con <span class="math inline">\(T\)</span> al tiempo en que se pinta la casa obtenemos <span class="math display">\[
 N = k \frac{1}{T},
 \]</span> y de acuerdo con la relación inicial <span class="math inline">\(10 = k/3\)</span> con lo que <span class="math inline">\(k = 30.\)</span> Teniendo en cuanta que se requiere pintar la casa en <span class="math inline">\(T = 2\)</span> días, entonces <span class="math display">\[
 N = \frac{30}{2} = 15.
 \]</span> Entonces con 15 trabajadores se podría pintar la casa en 2 días.</p>
-<p>En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.</p>
+</div>
+</div>
+</div>
 </section>
+<section id="factores-de-conversión" class="level2">
+<h2 class="anchored" data-anchor-id="factores-de-conversión">Factores de conversión</h2>
+<p>En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-fc" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Convertir <span class="math inline">\(1.3m^3\)</span> a <span class="math inline">\(in^3\)</span></p>
+<p><strong>Solución</strong></p>
+<p>Necesitamos identificar a cuantas pulgadas cúbicas <span class="math inline">\((in^3)\)</span> equivale un metro cúbico <span class="math inline">\((m^3),\)</span> para ello note que <span class="math display">\[
+1 in = 2.54 cm = 0.0254 m
+\]</span></p>
+<p>o de manera equivalente</p>
+<p><span class="math display">\[
+1 m = 39.37 in,
+\]</span> y de acuerdo con esto <span class="math display">\[
+1 m^3 = 61023.39 in^3,
+\]</span> con lo que <span class="math display">\[
+1.3 m^3 = 79330.40 in^3
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-fc1" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Convertir <span class="math inline">\(2.3 kg\)</span> a <span class="math inline">\(lb\)</span></p>
+<p><strong>Solución</strong></p>
+<p>Necesitamos identificar a cuantas libras <span class="math inline">\((lb)\)</span> equivale un kilo <span class="math inline">\((kg),\)</span> para ello note que</p>
+<p><span class="math display">\[
+1 lb = 453.59 g = 0.45359 kg
+\]</span> o de manera equivalente <span class="math display">\[
+1 kg = 2.2046 lb
+\]</span> con lo que <span class="math display">\[
+2.3 kg = 5.07 lb
+\]</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="el-plano-cartesiano" class="level2">
 <h2 class="anchored" data-anchor-id="el-plano-cartesiano">El plano cartesiano</h2>
