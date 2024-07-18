@@ -244,6 +244,12 @@ P \to Q \quad \text{y} \quad Q \to PQ,
 <p>Si contamos las letras en cada etapa del proceso, o iteración como le llamaremos a partir de este momento, se obtienen los siguientes valores: <span class="math inline">\(1,\)</span> <span class="math inline">\(1,\)</span> <span class="math inline">\(2,\)</span> <span class="math inline">\(3,\)</span> <span class="math inline">\(5,\)</span> <span class="math inline">\(8, \dots\)</span> secuencia de números conocida como la sucesión de Fibonacci. En esta el término presente, digamos <span class="math inline">\(a_n,\)</span> se obtiene al realizar la suma de los dos términos anteriores <span class="math inline">\(a_{n-1}\)</span> y <span class="math inline">\(a_{n-2}.\)</span> Esto se puede representar matemáticamente en la forma <span id="eq-fibon"><span class="math display">\[
 a_n = a_{n-1} + a_{n-2}.
 \tag{1}\]</span></span> Una expresión de esta forma recibe el nombre de relación de recurrencia, y es muy útil para describir procesos en los que la información presente depende de la información pasada. En el caso de la ecuación <a href="#eq-fibon">1</a> los valores correspondientes con <span class="math inline">\(a_0 = 1\)</span> y <span class="math inline">\(a_1= 1\)</span> se conocen como los valores iniciales de la relación de recurrencia.</p>
+<div class="grid">
+<div class="g-col-6">
+<p>Una de las aplicaciones más interesantes de las sucesiones, son aquellas en la que se modelan estructuras con crecimiento recurrente.</p>
+<p>En la imagen se han dispuesto la asignación de las <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son gramática a nivel computacional empleados principalmente para modelar el proceso de crecimiento de las plantas</p>
+</div>
+<div class="g-col-6">
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -262,6 +268,8 @@ a_n = a_{n-1} + a_{n-2}.
   Q3 --- Q6((Q))
 
 </pre>
+</div>
+</div>
 </div>
 </div>
 </div>
