@@ -247,7 +247,7 @@ a_n = a_{n-1} + a_{n-2}.
 <div class="grid">
 <div class="g-col-6">
 <p>Una de las aplicaciones más interesantes de las sucesiones, son aquellas en la que se modelan estructuras con crecimiento recurrente.</p>
-<p>En la imagen se han dispuesto la asignación de las <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son gramática a nivel computacional empleados principalmente para modelar el proceso de crecimiento de las plantas</p>
+<p>En la imagen se han dispuesto la asignación de las <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son una gramática a nivel computacional empleada principalmente para modelar el proceso de crecimiento de las plantas</p>
 </div>
 <div class="g-col-6">
 <div class="cell">
@@ -924,9 +924,9 @@ B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-asinto_equiv" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 6 </strong></span>Dos sucesiones <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> se dicen asintoticamente equivalentes si <span class="math display">\[
-\lim_{n \to \infty} \frac{a_n}{b_n} = 1
-\]</span></p>
+<p><span class="theorem-title"><strong>Definición 6 </strong></span>Dos sucesiones <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> se dicen asintóticamente equivalentes si <span class="math display">\[
+\lim_{n \to \infty} \frac{a_n}{b_n} = 1,
+\]</span> y en este caso se acostumbra escribir <span class="math inline">\(a_n \sim b_n\)</span>.</p>
 </div>
 </div>
 </div>
@@ -941,9 +941,43 @@ B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-asinto_equiv" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 7 </strong></span>Sean <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> dos sucesiones tales que <span class="math display">\[
-a_n = \left( n^s + n + u \right)^t \text{ y } b_n = \left( n^p + n + v \right)^q
-\]</span> con <span class="math inline">\(s &gt; 1\)</span>, <span class="math inline">\(p &gt; 1\)</span> y <span class="math inline">\(st = pq\)</span>.</p>
+<p><span class="theorem-title"><strong>Teorema 7 </strong></span>Si <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> son dos sucesiones tales que <span class="math display">\[
+a_n = \left( n^s + n^r + u \right)^t \text{ y } b_n = \left( n^p + n^k + v \right)^q
+\]</span> con <span class="math inline">\(s &gt; r\)</span>, <span class="math inline">\(p &gt; k\)</span> y <span class="math inline">\(st = pq\)</span>. Entonces <span class="math inline">\(a_n \sim b_n\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Es claro que <span class="math display">\[
+\begin{align*}
+\dfrac{a_n}{b_n} &amp; = \frac{n^{st} \left(1 + \dfrac{1}{n^{s-r}} + \dfrac{u}{n^{s}} \right)^t}{n^{pq} \left(1 + \dfrac{1}{n^{p-k}} + \dfrac{v}{n^{p}} \right)^q}
+\\
+&amp; = \dfrac{\left(1 + \dfrac{1}{n^{s-r}} + \dfrac{u}{n^{s-1}} \right)^t}{ \left(1 + \dfrac{1}{n^{p-k}} + \dfrac{v}{n^{p}} \right)^q}
+\end{align*}
+\]</span> y de acuerdo con esto <span class="math display">\[
+\lim_{n \to \infty} \dfrac{a_n}{b_n} = 1
+\]</span></p>
+</div>
+<p>Existe una significativa ventaja operativa al momento de calcular límites de sucesiones empleando sus límites equivalentes. Esto se hace evidente en el siguiente ejemplo</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-limite_equiv" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 11 </strong></span>Calculer el siguiente límite <span class="math display">\[
+\lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}}
+\]</span></p>
+<div id="solution">
+<p>Note que <span class="math display">\[
+\lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}} \sim \lim_{n \to \infty} \frac{\left(  n^{12}  \right)^{1/6}}{\sqrt{ 16 n^4 }} = \lim_{n \to \infty} \frac{n^2}{4 n^2} = \frac{1}{4}
+\]</span></p>
+</div>
 </div>
 </div>
 </div>
@@ -1169,7 +1203,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 11 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 12 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
 \frac{a_{n+1}}{a_n} = r
 \]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
 \begin{align*}
@@ -1196,7 +1230,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 12 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 13 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
 a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 \]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span> ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
 \sqrt[n]{a_n} = r , \text{ con } 0 &lt; r &lt; 1
@@ -1230,7 +1264,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-Telescopia" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 13 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 14 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_{n} = b_{n+1} - b_{n}
 \]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
 \begin{align*}
@@ -1256,7 +1290,7 @@ a_{n} = b_{n+1} - b_{n}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-binomio" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
 a_n = n - n^{p}(n - q )^{1 - p},
 \tag{19}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
 a_n \to q(1 - p) \text{ cuando } n \to \infty
@@ -1611,7 +1645,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-contseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
 \vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
 \]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
 </div>
@@ -1628,7 +1662,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-hip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
 <p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
 \delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
 \]</span> y <span class="math display">\[
@@ -1941,7 +1975,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_constante" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
 <p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
 \frac{d}{dx}f(p) = 0,
 \]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
@@ -1959,7 +1993,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_xn" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
 <p>Note que <span class="math display">\[\begin{align*}
     \phi(x) &amp; = \frac{x^n - p^n }{x - p}
     \\

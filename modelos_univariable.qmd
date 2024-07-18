@@ -55,7 +55,7 @@ Una expresión de esta forma recibe el nombre de relación de recurrencia, y es 
 
 Una de las aplicaciones más interesantes de las sucesiones, son aquellas en la que se modelan estructuras con crecimiento recurrente.
 
-En la imagen se han dispuesto la asignación de las $P$ y $Q$ en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son gramática a nivel computacional empleados principalmente para modelar el proceso de crecimiento de las plantas
+En la imagen se han dispuesto la asignación de las $P$ y $Q$ en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son una gramática a nivel computacional empleada principalmente para modelar el proceso de crecimiento de las plantas
 :::
   
 ::: {.g-col-6}
@@ -665,27 +665,61 @@ Toda sucesión que satisface la condición de Cauchy es convergente en los núme
 :::{.callout-tip icon="false"}
 ##
 :::{#def-asinto_equiv}
-Dos sucesiones $\{ a_n \}$ y $\{ b_n \}$ se dicen asintoticamente equivalentes si
+Dos sucesiones $\{ a_n \}$ y $\{ b_n \}$ se dicen asintóticamente equivalentes si
 $$
-\lim_{n \to \infty} \frac{a_n}{b_n} = 1
+\lim_{n \to \infty} \frac{a_n}{b_n} = 1,
 $$
+y en este caso se acostumbra escribir $a_n \sim b_n$.
 :::
 :::
 
 ::: {.callout-important icon="false"}
 ##
 ::: {#thm-asinto_equiv}
-Sean $\{ a_n \}$ y $\{ b_n \}$ dos sucesiones tales que
+Si $\{ a_n \}$ y $\{ b_n \}$ son dos sucesiones tales que
 $$
-a_n = \left( n^s + n + u \right)^t \text{ y } b_n = \left( n^p + n + v \right)^q
+a_n = \left( n^s + n^r + u \right)^t \text{ y } b_n = \left( n^p + n^k + v \right)^q
 $$
-con $s > 1$,  $p > 1$ y $st = pq$.
+con $s > r$,  $p > k$ y $st = pq$. Entonces $a_n \sim b_n$.
 :::
 :::
+:::{.proof}
+Es claro que
+$$
+\begin{align*}
+\dfrac{a_n}{b_n} & = \frac{n^{st} \left(1 + \dfrac{1}{n^{s-r}} + \dfrac{u}{n^{s}} \right)^t}{n^{pq} \left(1 + \dfrac{1}{n^{p-k}} + \dfrac{v}{n^{p}} \right)^q}
+\\
+& = \dfrac{\left(1 + \dfrac{1}{n^{s-r}} + \dfrac{u}{n^{s-1}} \right)^t}{ \left(1 + \dfrac{1}{n^{p-k}} + \dfrac{v}{n^{p}} \right)^q}
+\end{align*}
+$$
+y de acuerdo con esto
+$$
+\lim_{n \to \infty} \dfrac{a_n}{b_n} = 1
+$$
+
+:::
 
 
+Existe una significativa ventaja operativa al momento de calcular límites de sucesiones empleando sus límites equivalentes. Esto se hace evidente en el siguiente ejemplo
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-limite_equiv}
+Calculer el siguiente límite
+$$
+\lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}}
+$$
+
+:::{#solution}
+Note que
+$$
+\lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}} \sim \lim_{n \to \infty} \frac{\left(  n^{12}  \right)^{1/6}}{\sqrt{ 16 n^4 }} = \lim_{n \to \infty} \frac{n^2}{4 n^2} = \frac{1}{4}
+$$
+:::
 
 
+::: 
+:::
 
 ## Sucesión de sumas parciales ##
 
