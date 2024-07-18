@@ -1,0 +1,1757 @@
+---
+title: "Elementos del cálculo integral y diferencial"
+lang: es
+---
+\newcommand{\norm}[1]{\vert \vert #1 \vert \vert}
+\newcommand{\md}[1]{\vert  #1 \vert }
+\newcommand{\vt}[1]{\mathbf{#1}}
+\newcommand{\abs}[1]{\vert {#1} \vert}
+
+
+
+# Sucesiones #
+
+El concepto matemático de sucesión busca estudiar la evolución de un proceso que se construye a partir de una ley de formación. 
+
+Considere por ejemplo la siguiente asignación para las letras  $P$ y $Q$
+$$
+P \to Q \quad \text{y} \quad Q \to PQ,
+$$
+esto significa que la letra $P$ se transforma en el paso siguiente en letra $Q,$ mientras que la letra $Q$ se transforma en las letras $P$ y $Q.$ 
+
+Supongamos que en un primer instante, digamos instante $0,$ iniciamos en $P.$ De acuerdo con la ley de formación en la etapa siguiente obtendríamos una letra $Q.$ Esto lo podemos representar en la forma
+\begin{align*}
+    & 0: \quad P
+    \\
+    & 1: \quad Q
+\end{align*}
+En la etapa 2 seguirían las letras $P$, $Q$, y  de esta etapa seguirían las letras $Q,$  $P$ y $Q$, es decir
+\begin{align*}
+    & 0: \quad P
+    \\
+    & 1: \quad Q
+    \\
+    & 2: \quad PQ
+    \\
+    & 3: \quad QPQ
+\end{align*}
+De esta manera, el resultado de la cuarta y quinta etapa serían
+\begin{align*}
+    & 4: \quad PQQPQ
+    \\
+    & 5: \quad QPQPQQPQ
+\end{align*}
+
+Si contamos las letras en cada etapa del proceso, o iteración como le llamaremos a partir de este momento, se obtienen los siguientes valores: $1,$ $1,$ $2,$ $3,$ $5,$ $8, \dots$  secuencia de números conocida como la sucesión de Fibonacci. En esta el término presente, digamos $a_n,$ se obtiene al realizar la suma de los dos términos anteriores $a_{n-1}$ y $a_{n-2}.$ Esto se puede representar matemáticamente en la forma
+$$
+a_n = a_{n-1} + a_{n-2}.
+$$ {#eq-fibon}
+Una expresión de esta forma recibe el nombre de relación de recurrencia, y es muy útil para describir procesos en los que la información presente depende de la información pasada. En el caso de la ecuación [-@eq-fibon] los valores correspondientes con $a_0 = 1$ y $a_1= 1$ se conocen como los valores iniciales de la relación de recurrencia.
+
+
+::: {.grid}
+
+::: {.g-col-6}
+
+Una de las aplicaciones más interesantes de las sucesiones, son aquellas en la que se modelan estructuras con crecimiento recurrente.
+
+En la imagen se han dispuesto la asignación de las $P$ y $Q$ en forma vertical conectadas con una trazo simple. Este tipo de asignaciones son conocidas como L-sistemas que son gramática a nivel computacional empleados principalmente para modelar el proceso de crecimiento de las plantas
+:::
+  
+::: {.g-col-6}
+```{mermaid}
+flowchart BT
+  P((P)) --- Q((Q))
+  Q --- P1((P))
+  Q --- Q1((Q))
+  P1 --- Q2((Q))
+  Q1 --- P2((P))
+  Q1 --- Q3((Q))
+  Q2 --- P3((P))
+  Q2 --- Q4((Q))
+  P2 --- Q5((Q))
+  Q3 --- P4((P))
+  Q3 --- Q6((Q))
+
+```
+
+:::
+  
+:::
+
+
+::: {.callout-warning icon="false" }
+##
+::: {#exm-comlin}
+Considere la siguiente relación de recurrencia
+$$
+\begin{cases}
+a_{n} = a_{n - 1} + d
+\\
+a_0 = j.
+\end{cases}
+$$ {#eq-com_lineal}
+Note que 
+$$
+a_0 = j, \quad a_1 = j + d, \quad a_2 = j + 2d, \ldots \, a_n = j + nd,
+$$
+La expresión $a_n = j + nd$ corresponde con la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignado un valor de $n$.  
+
+El comportamiento se este conjunto de datos es lineal y para nuestra comprensión lo entenderemos como el caso en que la diferencia entre el valor presente y pasado es siempre constante.
+::: 
+:::
+
+::: {.callout-warning icon="false" }
+## 
+::: {#exm-comex}
+Considere la siguiente relación de recurrencia
+$$
+\begin{cases}
+a_{n} = r a_{n - 1} 
+\\
+a_0 = j.
+\end{cases}
+$$ {#eq-com_expo}
+Note que 
+$$
+a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
+$$
+De manera similar al ejemplo anterior, la expresión $a_n = r^n j$ es la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignado un valor de $n$. 
+
+El comportamiento de este conjunto de dice exponencial y para nuestra comprensión lo entenderemos como el caso en que el valor presente es proporcional al valor pasado, o bien, cuando el cociente del valor presente y pasado permanece constante. 
+:::
+:::
+
+Con el siguiente código graficamos un conjunto de $20$ puntos cuyo comportamiento es exponencial, aquí se ha tomado $r=1.05$ y $a_0 = 2$
+```{python}
+import matplotlib.pyplot as plt
+import numpy as np
+"""
+Valores asociados al número de datos (nd), dato inicial (k) y constante de proporcionalidad entre el dato presente y pasado (r)
+"""
+nd = 20
+j = 2                                
+r = 1.05                           
+
+a = [j]  
+x = np.linspace(1, nd, nd)
+for n in range(1 , len(x) ):
+  a.append( r*a[n-1] )   # relación de recurrencia en la forma r*a_(n-1)
+
+fig, ax = plt.subplots(figsize = (4,4) )
+ax.scatter(x, a, s = 14)
+plt.grid()
+plt.title('Comportamiento exponencial')
+plt.xlabel('n')
+plt.show()
+```
+
+Si en la ecuación [-@eq-com_expo] tomamos $r = 1 + t$ podemos escribir la relación de recurrencia en la forma
+$$
+\begin{cases}
+a_n - a_{n-1} = t a_{n-1},
+\\
+a_0 = j.
+\end{cases}
+$$ {#eq-int_comp0}
+En este caso podríamos entender un comportamiento exponencial de un conjunto de datos como aquel en donde la diferencia entre la información presente y pasada es proporcional a la pasada. Note que la solución de [-@eq-int_comp0] es
+$$
+a_n = (1 + t)^n j.
+$$ {#eq-int_comp1}
+Si $0 < t \leq  1$ esta expresión coincide con la fórmula de interés compuesto, en donde $t$ es la tasa de interés, $j$ es el capital inicial, $n$ es el número de períodos y $a_n$ es el capital al final del $n-$ésimo período. 
+
+::: {.callout-warning icon="false" }
+## 
+::: {#exm-promedio}
+Considere la siguiente relación.
+$$
+\begin{cases}
+a_n = \dfrac{a_{n-1} + q}{2},
+\\
+a_0 = p.
+\end{cases}
+$$
+Con $p$ y $q$ dos números reales. Note que 
+$$
+a_0 = p, \quad a_1 = \dfrac{p  + q}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots  \, ,a_n = \dfrac{p + (2^n - 1)q}{2^n}
+$$
+Numéricamente se puede evidenciar que a medida que $n$ toma valores cada vez más grandes, el valor de $a_n$ se acerca al número $q.$
+:::
+:::
+
+::: {.callout-warning icon="false" }
+## 
+::: {#exm-osc_convergente}
+Considere la siguiente relación de recurrencia
+$$
+\begin{cases}
+a_n = \dfrac{3p - a_{n-1}}{2},
+\\
+a_0 = q.
+\end{cases}
+$$
+con $p$ y $q$ números reales. Note que 
+$$
+a_0 = q, \, a_1 = \dfrac{3p  - q}{2}, \, a_2 = \dfrac{3p + q}{4} , \ldots ,a_n = \dfrac{(2^n - (-1)^n)p + (-1)^n q}{2^n}
+$$
+Es interesante evidenciar que a medida que $n$ toma valores cada vez más grandes, el valor de $a_n$ se acerca de forma oscilante a $q.$
+:::
+:::
+Con el siguiente código graficamos un conjunto de $10$ puntos cuyo comportamiento se acerca de forma oscilante a $p=5$, aquí se ha tomado $a_0 = 24.$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+nd = 10
+p = 5
+q = 24
+x = np.linspace(1,nd, nd, dtype = int)
+
+a = [q]
+for n in range(1, len(x)):
+  a.append((3*p - a[n-1])/2)
+
+fig, ax = plt.subplots(figsize = (4,4) )
+ax.scatter(x, a, s = 14)
+plt.grid()
+plt.title('Aproximación al número $q$')
+plt.xlabel('n')
+plt.show()
+```
+:::{.callout-note icon="false" }
+## Ejercicios
+
+:::{#exr-ej1}
+Encuentre el término $n-$ ésimo de las siguientes secuencias numéricas
+
+$a.$  $7, 12, 17, 22, 27, \ldots$
+
+$b.$  $34, 31, 28, 25, 22, \ldots$
+
+$c.$  $3, 6, 12, 24, 48, \ldots$
+
+$d.$  $-4, -1, 4, 11, 20,   \ldots$
+
+$e.$  $-1, 1, -1, 1, -1,   \ldots$
+
+$f.$  $4, 6, 4, 6, 4,   \ldots$
+
+$h.$  $\dfrac{7}{2}, \dfrac{5}{12} , \dfrac{17}{8}, \dfrac{1}{2}, \dfrac{27}{14}    \ldots$
+:::
+
+:::{#exr-ej2}
+En un laboratorio un investigador obtiene la siguiente tabla de datos
+
+|        |     |     |     |     |     |     |     |
+|--------|-----|-----|-----|-----|-----|-----|-----|
+|   $n$  |  1  |  2  |3    |4    |5    |6    |7    |
+|  $a_n$ |7.04 |13.14|19.22|25.10|31.13|37.07|43.03|
+
+y solicita su colaboración para identificar si estos datos obedecen a un comportamiento lineal o exponencial. ¿Qué estrategia emplearás?
+:::
+
+:::{#exr-ej3}
+Considere un árbol geométrico en el que cada nodo representa un punto en el espacio y cada rama (arista) representa una línea que conecta estos puntos. Comenzemos con un solo punto (la raíz), y suponga que en cada iteración, cada nodo existente genera dos nodos hijos, dibuje líneas (ramas) que conectan cada nodo padre con sus nodos hijos. Encuentre una relación de recurrencia para el número total de nodos despúes de $n$ iteraciones.
+:::
+
+:::{#exr-ej4}
+Considere un cuadrado de lado $l$ que se divide en dos rectángulos, y luego cada rectángulo se divide en dos rectángulos más pequeños, y así sucesivamente. Encuentre una relación de recurrencia para el número total de rectángulos después de $n$ divisiones.
+::: 
+
+:::{#exr-ej5}
+Considere una sucesión de polígonos regulares inscritos en una circunferencia. El primer polígono es un triángulo equilátero, el segundo un cuadrado, el tercero un pentágono, y así sucesivamente. Encuentre una relación de recurrencia para el perímetro de estos polígonos.
+::: 
+
+:::{#exr-ej6}
+Se ha determinado que un proceso en cada iteración $n$ se describe mediante la siguiente relación de recurrencia
+$$
+\begin{cases}
+a_n = a_{n - 1} + 2.4
+\\
+a_0 = 3.1
+\end{cases}
+$$
+Determine los valores de $n$ tales que $20.5 \leq a_n \leq 40.$ 
+:::
+
+:::{#exr-ej7}
+Se ha determinado que un proceso en cada iteración $n$ se describe mediante la siguiente relación de recurrencia
+$$
+\begin{cases}
+a_n = 1.2 a_{n - 1}
+\\
+a_0 = 2
+\end{cases}
+$$
+Determine los valores de $n$ tales que $300 \leq a_n \leq 4000.$ 
+:::
+
+:::{#exr-ej8}
+Una cantidad $k$ de dinero se depositiva en una cuenta de inversión que tiene una tasa de interés del $T\%$ compuesto mensual. ¿En cuántos meses se duplicará la cantidad de dinero? 
+:::
+
+:::{#exr-ej9}
+Una cantidad $k$ de dinero se depositiva en una cuenta de inversión que tiene una tasa de interés del $t\%$ compuesto mensual. ¿En cuántos meses se duplicará la cantidad de dinero? 
+:::
+
+:::{#exr-ej10}
+Una persona depositó  $\$$ 50 en una cuenta de inversión que tiene una tasa de interés del $t\%$ compuesto mensual. Si a los 18 meses en la cuenta hay $\$$ 67, determine la tasa de interés de la inversión. 
+:::
+
+:::
+
+## Convergencia de sucesiones ##
+
+En los dos últimos ejemplos de la sección anterior presentamos  sucesiones cuyos términos se acercan a un cierto valor. Esta será nuestra labor a partir de este momento, comprender matemáticamente como un conjunto de números se aproxima tanto como se desee a otro. 
+
+::: {.callout-warning icon="false" }
+##
+::: {#exm-nalp}
+Considere la sucesión $\{ a_n \}$ en donde 
+$$
+a_n =  \frac{1}{n^s},
+$$
+con $s > 0.$ 
+
+Para un $s$ fijo podemos verificar asignando valores a $n$ cada vez más y más grandes que $a_n$ toma valores cercanos a cero. De acuerdo con esto, todo parece indicar que la distancia entre el término $a_n$ a cero es cada vez más pequeña. 
+
+Supongamos entonces que damos un número $\epsilon > 0$ y queremos determinar los valores de $n$ tales que $\vert a_n \vert < \epsilon,$ es decir
+$$
+\frac{1}{n^s} < \epsilon. 
+$$
+De acuerdo con esto, es claro que 
+$$
+\left(\frac{1}{\epsilon} \right)^{1/s} < n.
+$$
+Aquí es importante mencionar que si $N$ es un entero tal que
+$$
+\left(\frac{1}{\epsilon} \right)^{1/s} \leq N,
+$$
+entonces para todo $n > N$ se tiene que $\vert a_n \vert < \epsilon$. Note que dicho $N,$ para un $s$ fijo, depende del valor de $\epsilon,$ por ejemplo si $s = 0.3$ y $\epsilon = 0.01$ tenemos que para todo  $n > 4641589$ se cumple que $\vert a_n \vert < 0.01$ en efecto, si $n = 4641590$ entonces
+$$
+\frac{1}{4641590^{0.3}} \approx 0.009 < 0.01
+$$
+:::
+:::
+
+A lo largo de nuestras discusiones identificaremos con $V_r(p)$ al intervalo abierto de radio $r$ cuyo centro es el punto $p.$ Una forma matemática de representar este conjunto de números reales es la siguiente
+$$
+V_r(p) = \{x \in \mathbb{R} : \abs{x - p} < r \}.
+$$
+De manera intuitiva podríamos decir que un conjunto de números se acerca a un punto $p$ de la recta, si a medida que hacemos más pequeño el radio $r$ de $V_r(p)$, seguimos encontrando al menos un elemento del mencionado conjunto. Esto se hace evidente en el ejemplo anterior, cuando tomamos $s = 0.3$ y $\epsilon = 0.01$ pudimos encontrar al menos un $a_n$ con $n = 4641590$ tal que $a_n \in V_{0.01}(0).$
+
+Para esclarecer un poco más lo que hemos mencionado, es necesario entrar en algunos detalles que nos permitirán entender ciertas propiedades geométricas de los puntos sobre la recta numérica.
+
+::: {.callout-note icon=false}
+##
+::: {#def-p_acumula}
+## Punto de acumulación
+Diremos que un punto $p$ es un punto de acumulación de un conjunto $S$ si para cualquier $r > 0$ de nuestra elección, se verifica que $V_r(p) \setminus \{p\} \cap S  \neq \emptyset$.
+:::
+:::
+
+::: {.callout-note icon=false}
+##
+::: {#def-acotado}
+## Conjunto acotado de números reales
+Sea $S$ un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante $M$ tal que $\abs{x} < M$ para todo $x \in S.$
+
+En particular, si $x < M$ para todo $x \in S,$ diremos que $S$ es acotado superiormente, y si $M < x$ para todo $x \in S,$ diremos que $S$ es acotado inferiormente.
+:::
+:::
+
+Las dos definiciones anteriores han permitido construir un resultado fascinante sobre los números reales y la idea del infinito. 
+
+::: {.callout-tip icon="false"}
+##
+::: {#thm-bolzano}
+Si $S$ es un conjunto infinito y acotado de de números reales, entonces $S$ admite al menos un punto de acumulación. 
+:::
+:::
+
+::: {.callout-note icon=false}
+##
+::: {#def-limite}
+## Límite de una sucesión
+Una sucesión $\{ a_n \}$ de números reales converge a un número $p,$ si  para cada $\epsilon > 0$ de nuestra elección, existe un entero $N \equiv N(\epsilon)$ tal que 
+$$
+\vert a_n - p \vert < \epsilon \text{ para todo } n > N.
+$$
+Esto se puede escribir como
+$$
+\lim_{n \to \infty} a_n = p, \text{ o bien, } a_n \to p \text{ cuando } n \to \infty
+$$
+que se lee respectivamente como: **"el límite de $a_n$ cuando $n$ tiende a infinito es igual a $p$"  o  "$a_n$ tiende a $p$ cuando $n$ tiende a infinito"**.
+:::
+:::
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-ejemplo_geo}
+Considere la sucesión $\{ a_n \}$ en donde
+$$
+a_n = \left( \frac{1}{a - \delta} \right)^n
+$$
+para $a > 1$ y $\delta$ un número real tal que $a - \delta > 1.$
+
+La experimentación numérica indica que para una escogencia arbitraria de valores  $a$ y $\delta$ que verifiquen las condiciones dadas, a medida que se asignen valores de $n$ cada vez más grandes, la sucesión toma valores cercanos a 0.
+
+En efecto, si
+$$
+  \left( \frac{1}{a - \delta} \right)^n < \epsilon,  
+$$
+al aplicar logaritmo natural obtenemos
+$$
+n > -\frac{\ln{\epsilon}}{ \ln{(a - \delta)}},
+$$
+y de acuerdo con esto, si  $a = 1.01,$   $\delta = 0.001$ y queremos encontrar valores de $n$ tales que $a_n < 0.0001$ basta tomar $n \geq 1028.$
+:::
+:::
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-coseno}
+Considere la sucesión $\{a_n\}$ en donde
+$$
+a_n= \cos{\left(\frac{1}{n} \right)}
+$$
+De acuerdo con la definición de funciones trigonométricas es fácil notar que
+$$
+1 - \frac{1}{n} < \cos{\left(\frac{1}{n} \right)} < 1
+$$
+y de acuerdo con esto entonces $\cos(1/n) \to 1$ cuando $n \to \infty.$
+::: 
+:::
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-seno}
+Considere la sucesión $\{a_n \}$ en donde
+$$
+a_n = n \sin{\left( \frac{1}{n} \right)}.
+$$
+De acuerdo con la definición de funciones trigonométricas sobre el círculo de radio 1, es claro que
+$$
+\frac{1}{n} \cos{\left( \frac{1}{n} \right)} \leq \sin{\left( \frac{1}{n}\right)} \leq \frac{1}{n}
+$$
+y al multiplicar esta desigualdad por $n,$ obtenemos
+$$
+\cos{\left( \frac{1}{n} \right)} \leq n \sin{\left( \frac{1}{n}\right)} \leq 1
+$$ {#eq-des_seno_coseno}
+
+Lo interesante de este resultado es notar que el valor de convergencia de la sucesión $\{ a_n \}$ esta comprendido entre los valores de $\cos(1/n)$ y $1.$ De acuerdo entonces con el @exm-coseno se tiene que $n \sin(1/n) \to 1$ cuando $n \to \infty,$ es decir
+$$
+\lim_{n \to \infty} n \sin{\left(\frac{1}{n} \right)} = 1.
+$$
+:::
+:::
+
+Se sigue de forma inmediata de [-@eq-des_seno_coseno] que la sucesión $\{ n \sin{1/n} \}$ es creciente, y como $\cos{(1/n)} \to 1$ cuando $n \to \infty$ entonces para un $\epsilon > 0$ de nuestra elección obtenemos
+$$
+1 - \epsilon < \cos{\left( \frac{1}{n}\right)} < 1 + \epsilon
+$$
+Teniendo en cuenta que la función $\arccos{(x)}$ es decreciente, se sigue que
+$$
+\frac{1}{\arccos{(1 - \epsilon)}} < n,
+$$ {#eq-arcos}
+y de acuerdo con [-@eq-des_seno_coseno] se verifica que
+$$
+1 - \epsilon < n \sin{\left( \frac{1}{n}\right)} \leq 1
+$$ 
+para los valores de $n$ que satisfacen [-@eq-arcos]. 
+
+Lo anterior nos permite determinar un valor de $n$ para el cual los valores de la sucesión $\{n \sin{(1/n)} \}$ estén comprendidos entre $1-\epsilon$ y $1.$
+
+En siguiente código determinamos un valor de $N$ para el que todos los términos $\{ n \sin(1/n) \}$ con $n > N$ verifican $\vert  n \sin(1/n)  -1 \vert < 0.05.$
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+"""
+Declaracion funcional de n*sin(1/n) y de arccos(n)
+"""
+def f(n):
+    return n*np.sin(1/n)
+def g(n):
+    return np.arccos(n)
+
+"""
+Valor de epsilon y de n
+"""
+epsilon = 0.05
+n = int(np.ceil(1/g(1 - epsilon)))
+
+"""
+Gráfico del conjunto de puntos
+"""
+x = np.linspace(n,4*n, 2*n + 1)
+y = f(x)
+plt.figure(figsize=(5,3))
+plt.scatter(x, y , s=14)
+plt.grid()
+plt.yticks(np.arange(1 - epsilon, 1+ epsilon, epsilon/4))
+plt.xticks(np.arange(n, 4*n + 1, 1))
+plt.text(epsilon, 1 - epsilon, '1 - E')
+plt.text(epsilon, 1 + epsilon, '1 + E')
+plt.show()
+
+```
+
+::: {.callout-note icon=false}
+##
+::: {#def-suc_cre_decre}
+## Sucesiones crecientes y decrecientes
+Una sucesión $\{ a_n \}$ es creciente si $a_n \leq  a_{n+1}$ para todo $n$ y es decreciente si $a_n \geq a_{n+1}$ para todo $n$. 
+
+En general diremos que una sucesión es monótona si esta es crecientes o decreciente. 
+:::
+:::
+
+::: {.callout-tip icon="false"}
+##
+::: {#thm-conv_suc_mon}
+Si $\{ a_n \}$ es una sucesión monótona y acotada, entonces es convergente. 
+:::
+:::
+::: {.proof}
+Supongamos sin pérdida de generalidad que la sucesión es creciente. Como el conjunto $\{ a_n \}$ es acotado, la menor de las cotas superiores de este conjunto, digamos $p$, verifica que $a_n < p$ para todo $n$ y que dado un $\epsilon > 0$ de nuestra elección existe al menos un elemento $a_N$ tal que 
+$$
+p - \epsilon < a_N,
+$$
+como la sucesión es creciente entonces la desigualdad anterior es válidad para todo $n > N$ con lo que
+$$ 
+p - \epsilon < a_n < p 
+$$
+o equivalentemente 
+$$
+\vert a_n - p  \vert < \epsilon
+$$
+para todo $n > N,$ y de acuerdo con esto $\{a_n \}$ es convergente a $p$.
+:::
+
+:::{.callout-warning icon="false"}
+##
+::: {#exm-promedio2}
+En el @exm-promedio si suponemos que $a_n < a_{n+1}$ entonces al sumar $q$ a ambos lados de la desigualdad y dividir por $2$ obtendríamos que $a_{n+1} < a_{n}.$ De acuerdo con esto si $p < q$ entonces la sucesión $\{ a_n \}$ asociada a la recurrencia del ejemplo sería creciente ya que
+$$
+a_0 = p < \frac{p + q}{2} = a_{1}.
+$$   
+Por otro lado, note que si $a_n \leq q$ entonces
+$$
+a_{n + 1} = \frac{a_n + q}{2} \leq q,
+$$
+y como $a_0 = p < q$ entonces $a_n < q$  para todo $n.$
+
+Lo anterior quiere decir que la sucesión $\{ a_n \}$ es creciente y acotada, y de acuerdo con el @thm-conv_suc_mon es convergente.
+:::
+:::
+
+En este momento nos surge la pregunta: ¿ Es posible que existan varios límites para una sucesión.? Esta cuestión la resolvemos con el siguiente resultado.
+
+::: {.callout-tip icon="false"}
+##
+::: {#thm-unilimite}
+Si $\{a_n \}$ es una sucesión convergente entonces su límite es único.
+:::
+:::
+::: {.proof}
+
+Supongamos que $p$ y $p'$ son dos límites de la sucesión $\{a_n \}.$ De acuerdo con esto, dado un $\epsilon$ de nuestra elección, existe un número $N$ tal que 
+$$
+\vert a_n - p \vert < \epsilon \text{ y } \vert a_n - p' \vert < \epsilon
+$$
+para todo $n > N.$ De acuerdo con la desigualdad triangular
+$$
+\vert p - p' \vert \leq \vert a_n - p \vert + \vert a_n - p' \vert < 2 \epsilon
+$$
+con lo que $p = p'.$
+
+:::
+
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-seccaucy}
+Considere la sucesión $\{ a_n \}$ en donde 
+$$
+a_n =  \frac{n}{1 + k n},
+$$
+para $k \neq 0.$ 
+
+Para un $k$ fijo se puede verificar asignando valores de $n$ cada vez más grandes, que la sucesión se acerca al valor $1/k.$  Lo interesante sería determinar el valor del $n$ para el cual, a partir de ese valor, se consigue una aproximación deseada. Note que 
+$$
+\Big\vert  \frac{n}{1 + kn} - \frac{1}{k}  \Big\vert = \frac{1}{\vert  k + k^2 n \vert}.
+$$
+De manera que  $\vert a_n - 1/k\vert < \epsilon$ sería equivalente a
+$$
+\frac{1}{\epsilon} \leq \vert k + k^2 n \vert \leq \vert k \vert + k^2 n
+$$
+con lo que 
+$$
+\frac{1}{k^2} \left( \frac{1}{\epsilon} - \vert k \vert \right) \leq n.
+$$
+De acuerdo con esto, si $k = 0.1$ y queremos conseguir una aproximación en la forma $\vert a_n - 10 \vert < 0.001$ basta tomar $n > 99990.$ 
+
+Por otro lado note que si tomamos $m = 125000$ y $n = 100000$ entonces
+$$
+\vert a_m - a_n \vert =  0.00019 < 0.002
+$$
+lo que parece indicar que en la medida que $n$ toma valores más grandes, la distancia entre estos términos se hace cada vez más pequeña.  
+:::
+:::
+
+El último comentario del ejemplo anterior se sintetiza en la siguiente definición.
+
+::: {.callout-note icon=false}
+##
+::: {#def-cauchy}
+## Condición de Cauchy
+Diremos que un sucesión $\{a_n\}$ cumple la condición de Cauchy, si para cada $\epsilon >0$ de nuestra elección, existe un entero $N \equiv N(\epsilon)$ tal que
+$$
+\vert a_m - a_n \vert < \epsilon \text{ para todo } n,m > N.
+$$ {#eq-cauchy}
+:::
+:::
+
+La condición de Cauchy tiene varias implicaciones geométricas en el comportamiento de una sucesión.
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-cauchy}
+Si $\{a_n \}$ es una sucesión convergente entonces satisface la condición de Cauchy.
+:::
+:::
+
+::: {.proof}
+ La demostración de este resultado es una consecuencia inmediata de la desigualdad triangular. En efecto, si $a_n \to p$ cuando $n \to \infty$ entonces para un $\epsilon > 0$ de nuestra escogencia, existe un $N$ tal que
+$$
+ \vert a_n - p \vert < \epsilon  \text{ y }   \vert a_m - p \vert < \epsilon
+$$
+ para todo $m, n > N.$ La prueba finaliza al sumar ambas desigualdades ya que   
+$$
+\vert a_m - a_n \vert \leq \vert a_n - p \vert + \vert a_m - p \vert < 2\epsilon,
+$$
+:::
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-sucacotada}
+Toda sucesión $\{a_n\}$ que satisface la condición de Cauchy es acotada. 
+:::
+:::
+::: {.proof}
+Sea $\{ a_n\}$ una sucesión de números reales, como se verifica la condición de Cauchy,  entonces para un $\epsilon > 0$ existe un $N$ tal que 
+$$
+\vert a_{N + 1} - a_m \vert < \epsilon \text{ para todo } m \geq N + 1
+$$
+esto es equivalente a decir que $a_m \in V_{\epsilon} (a_{N+1})$ para todo $m \geq N+1.$ Considere ahora el siguiente conjunto de números reales 
+$$
+B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_{N} - a_{N+1} \vert\}.
+$$
+Note que $\vert a \vert <  \vert a_{N + 1} \vert + \max B + \epsilon$ para todo $a \in \{ a_n \}$. Aquí $\max B$ corresponde al máximo elemento del conjunto $B.$
+:::
+
+Como una consecuencia de este resultado y del @thm-bolzano podemos concluir lo siguiente.
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-sucacotada2}
+Toda sucesión que satisface la condición de Cauchy es convergente en los números reales.
+:::
+:::
+
+:::{.callout-tip icon="false"}
+##
+:::{#def-asinto_equiv}
+Dos sucesiones $\{ a_n \}$ y $\{ b_n \}$ se dicen asintoticamente equivalentes si
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n} = 1
+$$
+:::
+:::
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-asinto_equiv}
+Sean $\{ a_n \}$ y $\{ b_n \}$ dos sucesiones tales que
+$$
+a_n = \left( n^s + n + u \right)^t \text{ y } b_n = \left( n^p + n + v \right)^q
+$$
+con $s > 1$,  $p > 1$ y $st = pq$.
+:::
+:::
+
+
+
+
+
+## Sucesión de sumas parciales ##
+
+Como una extensión natural del concepto de sucesión, se define una sucesión cuyos términos son la suma parcial de cada uno de los términos de otra sucesión. Por ejemplo, si $\{ a_n\}$ es una sucesión, identificaremos con $s_1$ al número $a_1,$ con $s_2$ al número $a_1 + a_2,$ con $s_3$ al número $a_1 + a_2 + a_3$ y en general
+$$
+s_n = a_1 + a_2 + \cdots + a_n
+$$ {#eq-suc_sp}
+Un resultado conocido es aquel en donde los términos $\{a_n\}$ cumplen la siguiente ley de formación: $a_1 = 1,$ $a_2 = r,$ $a_3 = r^{2}$ y en forma general $a_n = r^{n-1}$ para una cierta cantidad $r > 0,$ $r \neq 1.$ Para este caso note que
+$$
+s_n = 1 + r + \cdots +  r^{n-1} + r^{n}.   
+$$ {#eq-01}
+Al multiplicar esta última expresión por $r$ obtenemos
+$$
+rs_n = r + r^2 + \cdots + r^{n} + r^{n+1}.   
+$$ {#eq-02}
+y al restar [-@eq-01] de [-@eq-02] obtenemos
+$$
+s_n = \frac{1 - r^{n+1}} { 1 - r }
+$$ {#eq-geo}
+
+Es conveniente emplear una notación que permita reducir la escritura y al mismo tiempo identificar los elementos de la sucesión $\{ a_n \}$ con su suma. Esta notación se conoce como notación de sumatoria y corresponde con el símbolo $\sum,$ que acostumbra a escribir con sub y super índices para indicar el recorrido del parámetro  asociado a la suma, es decir
+$$
+\sum_{k = 1}^{n} a_{k} = a_{1} + a_{2} + \cdots + a_{k}.
+$$
+De acuerdo con esto, la expresión [-@eq-geo] se puede escribir como
+$$
+\sum_{k = 1}^{n} r^k = \frac{1 - r^{n+1}}{1 -r}.
+$$ {#eq-geo2}
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-sumacon}
+Sea $\{ a_n \}$ una sucesión de números reales.  Si la sucesión $s_n$ definida en [-@eq-suc_sp] verfica $s_n \to p$ cuando $n \to \infty,$ entonces se acostumbra a escribir
+$$
+\sum_{k = 1}^{\infty} a_n = p,
+$$
+y se dice que la serie $\sum_{k = 1}^{\infty} a_n$ es convergente. En particular convergente al número $p.$
+:::
+:::
+
+Si la sucesión de sumas parciales $\{ s_n \}$ es convergente, entonces  como una consecuencia de la condición de Cauchy (véase @def-cauchy) para un $\epsilon > 0$ de nuestra elección, existe un entero $N$ tal que 
+$$
+\vert s_{n} - s_{n-1} \vert <  \epsilon \text{ para todo } n > N - 1
+$$ 
+o de manera equivalente
+$$
+\vert a_n \vert < \epsilon \text{ para todo } n > N - 1,
+$$
+lo que significa que $a_n \to 0$ cuando $n \to \infty.$ Estos comentarios se resumen en el siguiente resultado.
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-teorema2 }
+ Si la serie  $\sum_{k = 1}^{\infty} a_n$ es convergente entonces
+ 
+$$
+\lim_{n \to \infty} a_n = 0
+$$
+:::
+:::
+
+Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación [-@eq-geo2] y del @exm-ejemplo_geo. Este establece que si $0 < r < 1$ entonces 
+$$
+\sum_{n = 0}^{\infty} r^{n} = \frac{1}{1-r}.
+$$ {#eq-se_geo}
+Note que en este caso $a_n = r^n$ y $a_n \to 0$ cuando $n \to \infty$.
+
+De manera equivalente a la notación de sumatorio, también existe una para los productos. Esta es $\prod_{k = 1}^{n} a_{n}$ y corresponde con
+$$
+\prod_{k = 1}^{n} a_{k} = a_1 \cdot a_2 \cdot \cdots \cdot a_n.
+$$
+Empleando esta notación y la ecuación [-@eq-se_geo] se puede probar fácilmente el siguiente resultado
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-teorema2 }
+ Sea $a > 1$ y $\delta > 0$ tales que $a - \delta > 1,$ y sean $a_1 , a_2 , \ldots , a_n ,  \ldots$ números que verifican $a_n \geq a - \delta$ para todo $n.$ Entonces
+$$
+\sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \frac{a- \delta}{a - \delta  - 1}.
+$$
+:::
+:::
+::: {.proof}
+Note que para todo $a_n$ , con $n = 1, 2, \ldots$ se cumple
+$$
+\frac{1}{a_k} \leq \frac{1}{a - \delta}
+$$
+y de acuerdo con esto
+$$
+\sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \sum_{n = 1}^{\infty} \frac{1}{(a - \delta)^n}. 
+$$
+La prueba finaliza al hacer $r = 1/(a - \delta)$ en [-@eq-se_geo]
+:::
+
+::: {.callout-important icon="false"}
+##
+::: {#cor-corolario1}
+Sean $a$ y $\delta$ reales positivos tales que $V_{\delta}(a) \subset (0,1),$ y sean $a_1,$ $a_2, \ldots a_n , \ldots$ números reales tales que $a_n \in V_{\delta}(a)$ para todo $n.$ Entonces
+$$
+\frac{a + \delta}{a + \delta - 1} \leq \sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \frac{a - \delta}{a -\delta - 1}      
+$$
+:::
+:::
+
+Note que si $\delta = 0$ entonces $a_n = a$ para todo $n,$ y en este caso el resultado coincide con la igualdad que se ha presentado en la ecuación [-@eq-se_geo] para el caso $r = 1/a.$
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-teorema2}
+Sean $a_1, a_2 , \ldots a_n$ números reales que verifican la condición $a_n \geq 2$ para todo $n.$ Entonces
+$$
+\prod_{k = 1}^{n} a_{k} > 1 + a_1 + a_1 \cdot a_2 + a_1 \cdot a_2 \cdot a_3 + \cdots + \prod_{k = 1}^{n-1}a_{k}.
+$$ {#eq-resteo}
+:::
+:::
+
+::: {.proof}
+Como $a_n \geq 2$ para todo $n,$ entonces  para $a_1$ y $a_2$ se verifica que
+$$
+a_1 a_2 \geq 2 a_1 = a_1 + a_1 \geq 2 + a_1 > 1 + a_1,
+$$
+ de manera equivalente para $a_1, $ $a_2$ y $a_3$ se tiene que
+$$
+a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 > 1 + a_1 + a_1 \cdot a_2,
+$$
+la prueba finaliza al aplicar inducción sobre el subíndice $n.$
+:::
+
+Al dividir cada término de [-@eq-resteo] por $\prod_{i = 1}^{k}a_{i}$ obtenemos de forma inmediata el siguiente resultado.
+
+::: {.callout-important icon="false"}
+##
+::: {#cor-corolario}
+Sean $a_1, a_2, \ldots , a_n$ números reales que verifican la condición $a_n \geq 2$ para todo $n.$ Entonces
+$$
+\frac{1}{a_n} + \frac{1}{a_n \cdot a_{n-1}} +  \frac{1}{a_{n} \cdot a_{n-1} \cdot a_{n-2}} + \cdots + \frac{1}{\prod_{k = 2}^{n-1}a_{i}}  +\frac{1}{ \prod_{k = 1}^{n} a_{k} } < 1
+$$
+:::
+:::
+
+Note que si tomamos $n-1$ números enteros consecutivos en la forma $a_{n-1} = 2,$ $a_{n-2} = 3,$ y de esta forma hasta $a_{1} = n,$ la expresión anterior toma la siguiente forma
+$$
+\frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} < 1
+$$ {#eq-factorial1}
+De esta último resultado se desprende de forma natural al sumar 2 lo siguiente
+$$
+2 < 2 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} < 3
+$$ {#eq-factorial2}
+para todo entero $n.$ 
+
+El número entre 2 y 3 al que se aproxima este valor se denota comúnmente con la letra $e,$ esto lo precisaremos la siguiente definición.
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-nume}
+## Número $e$
+Definimos la constante numérica $e$ como
+$$
+\sum_{k = 0}^{\infty} \frac{1}{k!} = e.
+$$ {#eq-nume}
+:::
+:::
+
+```{python}
+import numpy as np
+import math
+import matplotlib.pyplot as plt
+
+N = np.linspace(1, 10, 10, dtype=int)
+
+def aprox_e(n):
+  terminos = [1/math.factorial(i) for i in range(n)]
+  return np.sum(terminos)
+
+plt.figure(figsize=(4,4))
+plt.scatter(N, [aprox_e(n) for n in N], s=14)
+plt.grid()
+plt.title("Aproximación al número $e$")
+plt.xlabel("N")
+plt.ylabel("$e$")
+plt.show()
+```
+
+Númericamente se puede experimentar con una versión modificada del código anterior para obtener más cifras decimales del número $e$. 
+
+En el siguiente programa obtenemos las primeras cien cifras de $e$ para un valor de $n = 71$ en la función **aprox_**$e(n)$ del código anterior.
+
+```{python}
+import numpy as np
+import math
+from decimal import Decimal
+from decimal import getcontext
+
+getcontext().prec = 101
+def aprox_e(n):
+  terminos = [Decimal(1)/Decimal(math.factorial(i)) for i in range(n)]
+  return np.sum(terminos)
+
+print(aprox_e(71))
+
+```
+Para las series podemos identificar algunas propiedades que nos permiten determinar su convergencia. Verificaremos esto a partir del comportamiento exponencial de un conjunto de datos.
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-cociente}
+## Cociente dos a dos
+De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que
+$$
+\frac{a_{n+1}}{a_n} = r
+$$
+para $n = 0, 1, \dots$ Note que
+$$
+\begin{align*}
+\sum_{k = 0}^{n} a_{k} & = a_0 + a_1 + a_2 + \cdots + a_n
+\\
+& = a_0( 1 + r + r^2 + \cdots r^n )
+\\
+& = a_0 \frac{1 - r^{n+1}}{1 - r}
+\end{align*}
+$$
+y si $0 < r < 1$ de acuerdo con [-@eq-se_geo] obtenemos que 
+$$
+\sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
+$$ 
+:::
+:::
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-cociente}
+## Raíz del término $n-$ésimo
+Supongamos que tenemos una sucesión descrita por la relación $a_n = r^n,$ es claro que
+$$
+a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n 
+$$
+y esto indica que la raíz $n-$ ésima de $a_n$ coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si
+$$
+\sqrt[n]{a_n} = r , \text{ con } 0 < r < 1
+$$
+entonces
+$$
+\sum_{n = 0}^{\infty} a_{n} = \frac{1}{1 - r}
+$$ 
+:::
+:::
+
+Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie $\sum_{n = 1}^{\infty}a_n$ que verifica
+$$
+\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = r,
+$$
+Entonces para un $\epsilon > 0$ de nuestra elección existe un entero $N$ tal que
+$$
+\Big\vert \frac{a_{n+1}}{a_n} - r \Big\vert < \epsilon \text{ para todo } n > N
+$$
+o de manera equivalente
+$$
+(r - \epsilon) a_{n} < a_{n + 1} < (r + \epsilon) a_n,
+$$
+de acuerdo con esto
+$$
+(r - \epsilon)^k a_n < a_{n + k} < (r + \epsilon)^k a_n
+$$
+y si identificamos con $r^+ = r + \epsilon$ y con $r^- = r - \epsilon$ entonces se sigue de la ecuación [-@eq-geo2] 
+$$
+\frac{r^- - (r^-)^{m+1}}{1 - r^-} a_n < \sum_{k= 1}^{m} a_{n+k} < \frac{r^+ - (r^+)^{m+1}}{1 - r^+} a_n
+$$
+De manera que si $0 < r < 1$ entonces siempre es posible encontrar un $\epsilon >0$ tal que $r^-$ y $r^+$ esten comprendidos igualmente entre $0$ y $1$ y de acuerdo con esto.
+$$
+\frac{r^-}{1 - r^-} a_n < \sum_{k= 1}^{\infty} a_{n+k} < \frac{r^+ }{1 - r^+} a_n
+$$
+
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-Telescopia}
+## Series Telescópicas
+Considera la sucesión $\{a_n\}$ en donde
+$$
+a_{n} = b_{n+1} - b_{n}
+$$
+siendo $b_n$ el término $n-$ésimo de otra sucesión. Note que
+$$
+\begin{align*}
+    \sum_{k = 1}^{n} a_k & = b_2 - b_1 + b_3 - b_2 + \cdots + b_{n} - b_{n - 1} + b_{n+1} - b_{n}
+    \\
+    & = b_{n+1} - b_{1}
+\end{align*}
+$$
+Cuando una sucesión de números presente este comportamiento, se le llama suma telescópica, y será de mucha importancia para la construcción teórica a lo largo del documento.
+
+Si $b_n \to p$ cuando $n \to \infty$ entonces
+$$
+\sum_{n = 1}^{\infty} a_n = p - b_1
+$$
+:::
+:::
+
+::: {.callout-warning icon=false}
+##
+::: {#exm-binomio}
+Considere la sucesión $\{ a_n \}$ en donde
+$$
+a_n = n - n^{p}(n - q )^{1 - p},
+$$ {#eq-suc_pserie}
+Se puede probar que
+$$
+a_n \to q(1 - p) \text{ cuando } n \to \infty
+$$ {#eq-lim_bio}
+En efecto, despues de algunas manipulaciones algrebraicas es claro que
+$$
+a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
+$$ {#eq-suc_bin}
+y de acuerdo con el Teorema general de binomio
+$$
+\left( 1 + \frac{q}{n - q} \right)^p = \sum_{k = 0}^{\infty} {p \choose k} \frac{q^k}{(n - q)^k}
+$$
+
+::: {.callout-tip icon="false"}
+## **recuerde que...**
+$$
+{p \choose k} = \frac{1}{k!} \prod_{i = 0}^{k-1}(p - i) \quad \text{ aquí }  \quad {p \choose 0} = 1.
+$$
+:::
+
+Podemos escribir [-@eq-suc_bin] como
+\begin{align*}
+a_n &= n - (n-q)\left( 1 + p \frac{q}{(n-q)} + \frac{p(p-1)}{2!}\frac{q^2}{(n-q)^2} + \cdots\right)
+\\
+\\
+& = q(1 - p) -  \frac{p(p-1)}{2!}\frac{q^2}{(n-q)} -  \frac{p(p-1)(p-2)}{3!}\frac{q^3}{(n-q)^2} - \cdots 
+\end{align*}
+y obtenemos [-@eq-lim_bio] cuando hacemos tender $n$ a infinito.
+:::
+:::
+
+Podemos sacar provecho del ejemplo anterior para demostrar una interesante desigualdad que nos será útil a lo largo del documento.
+
+Tomemos $q = 1$ en la ecuación  [-@eq-suc_pserie]. Note que $a_n$ es creciente y como ya se ha visto  $a_n \to 1 - p$ cuando $n \to \infty.$ De acuerdo con esto
+$$
+\frac{n - n^{p}(n - 1)^{1-p}}{1 - p} \geq 1 \quad \text{ para } \quad n = 2, 3, 4, \ldots
+$$ {#eq-des_importante}
+y despues de un par de manipulaciones algebráicas, 
+$$
+\frac{1}{n^p} \leq \frac{n^{1-p} - (n -1)^{1-p}}{1 - p}.
+$$ {#eq-desigualdad_p_serie0}
+Al sumar desde $k = 2$ hasta $n$, obtenemos
+$$
+\sum_{k=2}^{n}\frac{1}{k^p} \leq \frac{1}{1-p}\sum_{k=2}^{n} \left( k^{1-p} - (k -1)^{1-p} \right) = \frac{n^{1-p} - 1}{1 - p}
+$$
+y sumando 1 a ambos lados de la desigualdad
+$$
+\sum_{k=1}^{n}\frac{1}{k^p} \leq \frac{n^{1-p} - p}{1 - p}
+$$ {#eq-desigualdad_p_serie1}
+
+Si en $n^{1-p}$ tomamos $p>1$ se sigue del @exm-nalp 
+$$
+n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
+$$
+y de acuerdo con esto hemos probado el siguiente resultado
+
+:::{.callout-important icon="false"}
+##
+:::{#thm-pserie}
+Si $p>1$ entonces 
+$$
+\sum_{n=1}^{\infty} \dfrac{1}{n^p} \leq \frac{p}{p-1}
+$$
+:::
+:::
+
+### La función $\zeta$ de Riemann
+
+Una función de gran importancia en matemáticas, es la función $\zeta$ de Riemann, definida como
+$$
+\zeta(p) = \sum_{n=1}^{\infty} \frac{1}{n^p} 
+$$
+en el siguiente código se muestra el gráfico de la aproximación de la función sumando los primeros $1000$ términos de la serie con valores de $p$ entre 1 y 10. 
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(1, 10, 100)
+
+def z(p , n ):
+  lista = [ 1/(k**p) for k in range(1,n - 1)  ]
+  return np.sum(lista)
+
+plt.figure(figsize=(4,4))
+plt.plot(x, [z(k, 1000) for k in x ])
+plt.title("Aproximación función z de Riemann")
+plt.xlabel("p")
+plt.ylabel("z(p, n)")
+plt.grid()
+plt.show()
+
+```
+Una relación fascinante entre la función $\zeta$ de Riemann y los números primos se desprende de los trabajos que realizó el matemático Leonar Euler sobre series de números reales, este establece que
+
+$$
+\sum_{1 \leq n} \frac{1}{n^s} = \prod_{p \in \mathbb{P}}\frac{1}{1 - p^{-s}}
+$$
+en donde $\mathbb{P}$ es el conjunto de los números primos.
+
+Con el siguiente código generamos la superposición de dos gráficos, entre la aproximación numérica de la función $\zeta$ de Riemann y el productorio de los números primos. Se ha generado una función ($ tp(n) $)que identifica si $n$ es un número es primo o no y se han tomado los primos menores o iguales que $n = 100.$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(1, 10, 100)
+"""
+Identificaremos los numeros primos menores o iguales que n
+"""
+n = 100
+
+"""
+Definición de la aproximación a la función z de Riemann
+"""
+def z(s , n ):
+  lista = [ 1/(k**s) for k in range(1,n - 1)  ]
+  return np.sum(lista)
+
+"""
+Vamos a crear una función que permita identificar si un número n es primo o no.
+Esta función devuelve 1 si el número es primo y 0 en caso contrario.
+"""
+def tp(n):
+  rn = np.sqrt(n)
+  for k in range(2, int(rn) + 1):
+    if n % k == 0:
+      return 0
+  return 1
+
+"""
+En esta lista vamos a almacenar los números primos menores o iguales que n
+"""
+listap = [p for p in range(2, n) if tp(p) == 1]
+
+
+"""
+Productorio de números primos. 1/(1- p^-s) = p^2/(p^2 - 1)
+"""
+def ap(s, lista):
+  aprox = [p**s/(p**s - 1) for p in listap]
+  return np.prod(aprox)
+
+plt.figure(figsize=(4,4))
+plt.plot(x, [z(k, 10000) for k in x ], label="z(s)")
+plt.plot(x, [ap(k, listap) for k in x ], label="Apro. Prod. Primos")
+plt.title("Comparación función z de Riemann y prod. Primos")
+plt.xlabel("s")
+plt.ylabel("z(s, n)")
+plt.grid()
+plt.legend()
+plt.show()
+
+```
+
+#### **La serie armónica** 
+
+Una serie conocida por su lento crecimiento y que no es convergente, es la serie armónica, definida como $\zeta(1)$ es decir
+$$
+\sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{4} + \frac{1}{5} \cdots
+$$
+
+Si $\{ s_n \}$ denota la sucesión de sumas parciales, se puede probar que 
+$$
+1 + \frac{n}{2} \leq s_{2^n},
+$$
+y de acuerdo con esto, la serie armónica es divergente. 
+
+
+Con el siguiente código estimamos el número de términos de la sucesión de sumas parciales, asociada a la serie armónica, para obtener un determinao valor, note por ejemplo que se requieren más de 12000 términos para que la suma sea mayor o igual que 10.
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+N = np.linspace(1, 10, 10, dtype=int)
+def lar(n):
+  armonica = [1]
+  k = 2
+  while np.sum(armonica) < n:
+    armonica.append(1/k)
+    k = k + 1
+  return len(armonica)
+
+plt.figure(figsize=(4,4))
+plt.scatter(N, [lar(n) for n in N], s=14)
+plt.grid()
+plt.ylabel('Número de términos')
+plt.xlabel('n')
+plt.show()
+
+```
+
+Con el siguiente código realizamos los cocientes dos a dos de términos consecutivos de los datos que ha arrajado el código anterior.
+
+``` {python}
+
+"""
+cálculo de cocientes dos a dos términos consectivos
+"""
+N = np.linspace(2, 9, 9, dtype=int)
+
+plt.figure(figsize=(4,4))
+plt.scatter(N, [lar(n+1)/lar(n) for n in N], s=14)
+plt.grid()
+plt.ylabel('Número de términos')
+plt.xlabel('n')
+plt.show()
+
+```
+Note que la sucesión de cocientes parece converger a $e,$ entraremos en estos detalles más adelante. 
+
+
+# Continuidad de funciones #
+
+La palabra continuidad surge en muchos contextos, y la asociamos cuando queremos hacer referencia a un proceso que no tenga saltos abruptos o interrupciones. Esto claro esta suponiendo de ante mano que se conoce cual debería de ser el comportamiento esperado de dicho proceso, para categorizar un salto o interrupción como algo anómalo. 
+
+## Límite de una función
+
+En el capítulo anterior definimos y encontramos el límite de sucesiones. En esta sección encontramos el límite de una función y profundizaremos un poco más en la naturaleza de los puntos sobre la recta y como la imagen de estos a través de una función empiezan a orbitar alrededor de un valor, o alejarse cada vez más y más de algún valor de referencia. A lo largo de este capítulo emplearemos las notaciones $V^+_r(p)$ y $V^-_r(p)$ para referirnos a los conjuntos
+$$
+V^+_r(p) = \{x \in \mathbb{R} : 0 \leq x - p < r \},
+$$
+y
+$$
+V^-_r(p) = \{x \in \mathbb{R} : 0 \leq p - x < r \}.
+$$
+
+::: {.callout-note icon="false"}
+##
+::: {#def-limiteF}
+Sea $f : S \to T$ y $p$ un punto de acumulación de $S,$ véase @def-p_acumula La notación 
+$$
+\lim_{x \to p} f(x) = l.
+$$ {#eq-limite}
+se lee **"el límite de $f$ cuando $x$ tiene a $p$ es igual a $l$"** lo que significa que dado un $\epsilon > 0$ de nuestra elección podemos encontrar un $\delta$ tal que
+$$
+f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \} \cap S.
+$$
+:::
+:::
+::: {.callout-note icon="false"}
+##
+::: {#def-limiteL}
+Sea $f : S \to T$ y $p$ un punto de acumulación de $S.$ La notación 
+$$
+\lim_{x \to p^+} f(x) = l.
+$$  {#eq-limited}
+se lee **"el límite de $f$ cuando $x$ tiene a $p$ por la derecha es igual a $l$"** lo que significa que dado un $\epsilon$ de nuestra elección podemos encontrar un $\delta$ tal que
+$$
+f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p \} \cap S.
+$$
+De manera similar entenderemos la notación
+$$
+\lim_{x \to p^-} f(x) = l,  
+$$ {#eq-limitei}
+con la diferencia de que tomaremos $V^{-}_{\delta}$ en lugar del conjunto  $V^{+}_{\delta},$ y en este caso leeremos [-@eq-limitei] como: **"el límite de $f$ cuando $x$ tiene a $p$ por la izquierda es igual a $l$."**
+:::
+:::
+
+Se sigue de manera natural a partir de la definición del límite de una función que si
+$$
+\lim_{x \to p} f(x) = l \text{ si y sólo si } \lim_{x \to p+} f(x) = \lim_{x \to p-} f(x) = l
+$$ 
+
+Por otro lado, note que la función $f$ no necesarimente debe estar definida en $p$ para que su límite existe.
+
+::: {.callout-note icon="false"}
+##
+::: {#def-continuidad}
+Sea $f : S \to T$ y $p$ un punto de $S.$ Diremos que $f$ es continua en $p$ si
+$$
+    \lim_{x \to p} f(x) = f(p).
+$$
+Si $f$ es continua en todo punto de $S$ entonces diremos que $f$ es continua en $S.$
+:::
+:::
+
+Note que de acuerdo con la definición de límite, lo anterior es equivalente a decir
+que $f$ es continua en $p$ si para cada $\epsilon$ de nuestra elección, existe un $\delta$ tal que 
+$$
+\vert f(x) - f(p )\vert < \epsilon \text{ siempre y cuando } \vert x - p \vert < \delta \text{ para todo } x \in V_{\delta} \cap S.
+$$
+o de manera equivalente
+$$
+f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
+$$
+y esto sugiere que si $\{ a_n \}$ es una sucesión arbitraria de números reales tal que $a_n \to p$ cuando $n \to \infty,$ entonces la sucesión $\{ f(a_n) \}$ es tal que $f(a_n) \to f(p)$ cuando $n \to \infty.$
+
+En el siguiente cógido graficamos la imagen de la sucesión oscilante del @exm-osc_convergente con $p = 0$ a través de la función $f(x) = \sin(x)/x$. Note que aunque se han tomado $100$ puntos en el gráfico parecen distinguirse cera de $5,$ los demás se han empezado a acumular cerca de $1.$
+
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Aquí p será el punto de al que converge la sucesión.
+"""
+
+p = 0
+
+nd = 100 #número de datos
+q = 6
+x = np.linspace(1,nd, nd, dtype = int)
+
+a = [q]
+for n in range(1, len(x)):
+  a.append((3*p - a[n-1])/2)
+
+"""
+función a estudiar
+"""
+def f(t):
+  return np.sin(t)/t
+
+plt.figure(figsize = (4,4))
+plt.scatter(a, [f(k) for k in a], s = 8)
+plt.grid()
+plt.show()
+
+```
+En el siguiente cógido graficamos la imagen de la sucesión oscilante del @exm-osc_convergente con $p = 3$ a través de la función $f(x) = \lfloor x \rfloor$. Se han tomado $100$ puntos y en el gráfico parecen acumularse  a la derecha de $4$ en valor de $4$ y a la izquierda de $4$ en el valor de $3$. 
+ 
+```{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+Aquí p será el punto de al que converge la sucesión.
+"""
+
+p = 4
+
+nd = 100 #número de datos
+q = 6
+x = np.linspace(1,nd, nd, dtype = int)
+
+a = [q]
+for n in range(1, len(x)):
+  a.append((3*p - a[n-1])/2)
+
+"""
+función a estudiar
+"""
+def f(t):
+  return np.floor(t)
+
+plt.figure(figsize = (4,4))
+plt.scatter(a, [f(k) for k in a], s = 8)
+plt.grid()
+plt.show()
+
+```
+
+
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-contseno}
+De acuerdo con la definición de la función $f(x) = \sin{x}$ note que
+$$
+\vert \sin{x} - \sin{p }\vert < \vert  x - p \vert
+$$
+y de acuerdo con esto dado $\epsilon > 0$ basta tomar $\delta = \epsilon,$ y de acuerdo con esto la función $f(x) = \sin{(x)}$ es continua en el punto $p.$ 
+:::
+:::
+
+::: {.callout-warning icon="false"}
+##
+::: {#exm-hip}
+Considere la función $f(x) = \dfrac{1}{x}$ definida en $S = (0,1)$
+
+Para un número $p \in S$ dado un $\epsilon$ se puede escoger un $\delta$ tal que  $f(x) \in V_\epsilon(f(p))$ para todo $x \in V_{\delta}(p).$ En efecto, note que la preimagen  del valor $1/p + \epsilon$ es $p/(1 + \epsilon p),$ y de $1/p - \epsilon$ es $p/(1 - \epsilon p)$ y ambos valores están respectivamente a izquierda y derecha de $p.$ Asociados a estas preimágenes encontramos dos  los  valores
+$$
+\delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
+$$
+y 
+$$
+\delta_1 = \frac{p}{1 - \epsilon p} - p = \frac{\epsilon p^2}{1 - \epsilon p},
+$$
+y es claro que $\delta_0 < \delta_1.$ De acuerdo con esto, si $\epsilon = 0.01$ y $p = 0.3$ basta tomar $\delta \leq 0.0029$ para garantizar que si $x \in V_{\delta}(p)$ entonces $f(x) \in V_{\epsilon}(f(p)).$
+:::
+:::
+
+Es importante resaltar que en el ejemplo anterior se hace manifiesta la dependencia que tiene $\delta$ con respecto del punto $p$ y $\epsilon,$ es decir $\delta \equiv \delta(p, \epsilon).$ 
+
+Un cambio en el conjunto $S$ de este ejemplo va a cambiar por completo la dependencia con respecto de $p$ de $\delta.$ En efecto, considere ahora un punto $a$ con $0 < a < 1$ y la función $f(x) = 1/x$ definida en $S = [a, 1).$ Note que dado un $\epsilon > 0$ se verifica que
+$$
+\frac{\epsilon a^2}{1 + \epsilon a} \leq \frac{\epsilon p^2}{1 + \epsilon p} \text{ para todo } p \in S.
+$$
+De acuerdo con esto, dado $\epsilon > 0,$ tomando $\delta = \epsilon a^2 / (1 + \epsilon a),$ note que $\delta \equiv \delta(\epsilon),$ se verifica que
+$$
+f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
+$$
+para todo $p \in S.$
+
+La situación aquí presentada motiva la siguiente definición.
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-conuniforme}
+Sea $f$ una función definida en un conjunto $S.$ Diremos que $f$ es uniformemente continua si para cada $\epsilon > 0$ de nuestra elección podemos encontrar un $\delta \equiv \delta(\epsilon)$ tal que
+$$
+\vert f(x) - f(y) \vert  < \epsilon \text{ siempre que } \vert x - y \vert < \delta
+$$
+para todo $x, y \in S.$
+:::
+:::
+
+## Consecuencias de la continuidad
+
+La continuidad de un proceso tiene una bella propiedad que nos permite en cierto sentido predecir el comportamiento en una cierta vecindad de un valor, si tenemos suficiente información sobre el comportamiento de este proceso en dicho valor.
+
+::: {.callout-note icon=false}
+##
+::: {#def-p_interior}
+## Punto interior
+Diremos que un punto $p$ es un punto interior de un conjunto $S$ si existe un intervalo $V_r(p) \subset S.$
+:::
+:::
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-presig}
+Sea $f$ una función continua en $S = (a, b).$ Si para un punto interior $p$ de $S$ se cumple que $f(p) > 0,$ entonces existe una vecindad $V_r(p)$ tal que $f(x) > 0$ para todo $x \in V_{r}(p).$
+:::
+:::
+::: {.proof}
+Como $f$ es continua en $p,$ entonces para un $\epsilon > 0$ de nuestra escogencia, existe un $\delta$ tal que 
+$$
+f(p) - \epsilon < f(x) < f(p) + \epsilon \text{ para todo } x \in V_{\delta}(p)
+$$
+la prueba finaliza a tomar cualquier valor   $\epsilon < f(p)$
+::: 
+
+::: {.callout-important icon="false"}
+##
+::: {#thm-bolzano_ceros}
+Sea $f$ una función continua en $S = [a,b]$ tal que $f(a) f(b) < 0$. Entonces existe al menos un punto $p$ interior de $S$ tal que $f(p) = 0.$
+:::
+:::
+
+::: {.proof}
+Consideremos el conjunto $\mathcal{A} = \{ x \in S: f(x) > 0 \}.$ Como $\mathcal{A}$ es no vacío y acotado, entonces es plausible pensar en la existencia de un elemento \footnote{Este elemento se conoce como el supremo de un conjunto, y verifica la condiciones que se presentan en la prueba del resultado. Para mayor información consultar la referencia \cite{apostol}} $p \in S$ tal que $x \leq p$ para todo $x \in \mathcal{A}$ y que dado $\delta > 0$ de nuestra elección, se verifica que
+$p - \delta < x$ para algún $x \in \mathcal{A}.$
+
+Vamos a probar que $f(p) = 0.$ En efecto, si $f(p) > 0$ de acuerdo con el Teorema \ref{teo:signo} existe $V_{\delta}(p)$ tal que $f(x) > 0$ para todo $x \in V_{\delta}(p)$ y de acuerdo con esto existe al menos un $x$ con $p < x < p + \delta$ tal que $f(x) > 0$ y esto contradice el echo de que $x \leq p$ para todo $x \in \mathcal{A}$.
+
+Por otro lado, si $f(x) < 0$ de acuerdo con el Teorema \eqref{teo:signo} existe $V_{\delta}(p)$ tal que $f(x) < 0$ para todo $x \in V_{\delta}(p),$ y de acuerdo con esto para todo $x$ tal que $p - \delta < x$ se tiene que $f(x) > 0,$ lo que es una contradicción con el echo de que  dado $\delta > 0$ de nuestra elección, se verifica que
+$p - \delta < x$ para algún $x \in \mathcal{A}.$
+:::
+
+::: {.callout-important icon="false"}
+##
+::: {#cor-bolzano_cor}
+Si $f$ una función continua en $S = [a,b]$ tal que $f(a) \neq f(b),$ entonces para cualquier punto $c$ comprendido entre $f(a)$ y $f(b)$ existe al menos un punto $p$ interior a $S$ tal que $f(p) = c.$
+:::
+:::
+
+::: {.proof}
+Note que la función $h(x) = f(x) - c$ verifica las hipótesis del Teorema \ref{teo_bolzano}.
+:::
+
+
+# Integración #
+
+
+En este capítulo buscaremos entender y realizar una escritura matemática de un antiguo método desarrollado por los griegos conocido como método exhaustivo, que consistía en encontrar un estimativo del área de una región descomponiendo esta en regiones más simple para las que fuese sencillo calcular el área. De esta forma el área de la región desconocida sería la suma de todas las áreas conocidas. 
+
+
+## Integral de Riemann
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-particion}
+Una partición $P$ de un intervalo $S = [a,b]$ es el conjunto de puntos $P = \{x_0, x_1, \ldots , x_{n-1} ,x_n  \}$ tales que
+$$
+a = x_0 < x_1 < \cdots <  x_{n-1} < x_n = b.
+$$
+Una partición $P'$ se dice más fina que otra partición del mismo intervalo si $P' \supset P.$
+
+Emplearemos la notación $\Delta x_k$ para indicar la diferencia $\Delta x_k = x_k - x_{k-1}$ siendo $x_{k-1}$ y $x_{k}$ elementos de una partición $P.$
+:::
+:::
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-riemann}
+Sea $f$ una función definida en $S = [a,b].$ La suma de Riemann de $f$ en $S$, en notación $S(P,f)$ corresponde con el número
+$$
+S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1}, x_{k}].
+$$
+Note en particular que el valor de $S(P,f)$ depende de la elección de $P.$ 
+:::
+:::
+
+:::{.callout-tip icon="false"}
+##
+:::{#def-intriemann}
+Diremos que una función $f$ es Reimann integrable en un intervalo $S = [a,b]$ si existe un número $I,$ tal que para cada $ \epsilon$ de nuestra elección, existe una partición $P_\epsilon \equiv P(\epsilon)$, y se verifica
+$$
+\vert S(P, f) - I\vert < \epsilon. 
+$$
+El número $I$ se representa como $I = \int_{a}^{b} f(x) \, dx$ y se lee: `` la integral de $f$ con respecto de $x$ entre $a$ y $b$.''
+:::
+:::
+
+::: {.callout-important icon="false" }
+##
+::: {#thm-teorema}
+Si $f$ es una función continua en $S = [a,b]$ entonces es Riemann integrable en $S.$
+:::
+:::
+
+::: {.proof}
+Debido a la continuidad de $f$ en $S$, para una partición arbitraria $P = \{x_0 , x_1, \ldots, x_n \}$ la función $f$ alcanza su menor y mayor valor en el intervalo  $\left[x_{k-1}, x_{k} \right].$ Identifiquemos estos valores respectivamente con $m_k$ y $M_k$. Es claro que
+$$
+\sum_{k = 1}^{n} m_k \Delta x_k \leq S(P, f) \leq \sum_{k = 1}^{n} M_k \Delta x_k
+$$
+Por otro lado, como una consecuencia del Corolario \ref{cor:bolzano} sean $r_{k}$ y $s_{k}$ puntos en $[x_{k-1}, x_{k}]$ tales que $f(r_{k}) = m_k$ y $f(s_{k}) = M_k.$ Ahora bien, como $f$ es continua en $S = [a,b],$ es uniformemente continua, y de acuerdo con esto para un $\epsilon > 0$ de nuestra escogencia, existe un $\delta \equiv \delta(\epsilon)$ tal que $\vert f(s_k) - f(r_k)\vert < \epsilon$ siempre que $\vert s_k - r_k \vert < \delta$ para todo $s_k,r_k \in S.$ De acuerdo con esto
+$$
+\sum_{k=1}^{n} \left( M_k - m_k \right) \Delta_k = \sum_{k=1}^{n} \left( f(s_k) - f(r_k) \right) \Delta_k < \epsilon(b-a).
+$$
+lo que finaliza la prueba.
+:::
+
+## Funciones definidas como una integral de Riemann
+
+En esta sección estudiaremos funciones definidas a partir de integrales, y en este sentido entenderemos que la variable independiente de la función coincide con alguno o ambos límites de integración, es decir
+$$
+f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
+$$
+aquí entendemos también que $g$ es una función definida y acotada en $S$ con un número finito de discontinuidades. 
+
+Con el siguiente código representamos el gráfico de las aproximaciones numéricas para función integral
+$$
+\int_{0}^{x} v^s \, ds \text{ con la función } f(x) = \frac{v^{1+s}}{1+s}
+$$
+para un valor de $s = 0.21.$
+
+```{python}
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+"""
+función en el integrando
+"""
+s = 0.21
+
+def g(v):
+    return v**s
+
+"""
+función asociada a la aproximación de la suma
+"""
+
+V = np.linspace(0, 5, 1000)
+f = (V**(1 + s))/(1+s)
+
+"""
+Creación de la función. Aquí n corresponde con el número de puntos
+a y x son los extremos de la partición. Note que aquí x hace parte
+de los parámetros de la función.
+"""
+def intR(a, x, n):
+  s = np.linspace(a,x, n)
+  ds = np.diff(s)
+  t = np.array([s[k] + np.random.rand()*(s[k+1] - s[k]) for k in range(0, len(s) - 1)])
+  return np.sum(g(t)*ds)
+
+Y = [intR(0, x, 50) for x in V]
+
+"""
+Líneas de código para generar los gráficos.
+"""
+fig, axs = plt.subplot_mosaic([["int" , "fun"], ["super", "super"]], layout="constrained", figsize=(5,5))
+axs["int"].plot(V, Y)
+axs["int"].grid()
+axs["int"].set_title('Función integral con $g(v)$')
+axs["fun"].plot(V, f)
+axs["fun"].grid()
+axs["fun"].set_title('Función propuesta $f(v)$')
+axs["super"].plot(V, Y)
+axs["super"].plot(V, f)
+axs["super"].grid()
+axs["super"].set_title('Superposición de los gráficos')
+plt.show()
+
+```
+
+
+# Diferenciación
+
+Sea $p \in S$ un punto interior de un conjunto $S$ de $\mathbb{R}$ y $f:S \to T$ una función de valor real. Consideremos la función
+$$
+\phi(x) = \frac{f(x) - f(p)}{x - p},
+$$
+La función $\phi$ tiene una interesante interpretación geométrica, pues resulta ser la pendiente de la recta que pasa por los puntos $(x, f(x))$ y $(p, f(p)).$ 
+
+
+::: {.callout-tip icon="false"}
+##
+::: {#def-diferenciabilidad}
+Una función $f:S \to T$ es diferenciable en un punto $p$ interior de $S,$ si la función 
+$$
+\phi(x) = \frac{f(x) - f(p)}{x - p},
+$$
+es continua en $p.$
+
+Comúnmente el símbolo $\phi(p)$ se representa como $f'(p)$ o $\dfrac{d}{dx}f(p)$ y en ambos casos se leen como: `` la derivada de $f$ con respecto de $x$ evaluada en $p.$'' Es decir
+$$
+\phi(p) \equiv f'(p) \text{ o } \phi(p) \equiv \frac{d}{dx}f(p).
+$$
+:::
+:::
+
+:::{.callout-important icon="false"}
+##
+:::{#thm-lemadif_con}
+
+Sea $f$ y $g$ dos funciones diferenciables en un punto interior $p$ de un conjunto $S$ y sean $\alpha$ y $\beta$ números reales. Entonces
+$$
+\frac{d}{dx} \left( \alpha f(p) + \beta g(p)\right) = \alpha \frac{d}{dx} f(p) + \beta \frac{d}{dx}g(p).
+$$
+:::
+:::
+
+:::{.proof}
+Consideremos la función cociente
+$$
+\varphi(x) = \frac{\alpha f(x) + \beta g(x) - \alpha f(p) - \beta g(p)}{x - p}
+$$
+Al agrupar y sacar factor común $\alpha$ y $\beta,$ obtenemos 
+$$
+\varphi(x) = \alpha \frac{f(x) - f(p)}{x - p} + \beta \frac{g(x) - g(p)}{x - p},
+$$
+y la prueba termina al hacer $x \to p.$
+:::
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-der_constante}
+Derivada de la función $f(x) = c$ siendo $c$ una constante.
+
+Note que en este caso la función cociente $\phi(x)$ toma siempre el valor de $0,$ y de acuerdo con esto
+$$
+\frac{d}{dx}f(p) = 0,
+$$
+para cualquier punto $p$ en el dominio de definición de $f.$
+:::
+:::
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-der_xn}
+Derivada de la función $f(x) = x^{n}$ siendo $n$ un entero no negativo.
+
+Note que
+\begin{align*}
+    \phi(x) & = \frac{x^n - p^n }{x - p}
+    \\
+    & = x^{n-1} + p x^{n-2} + p^{2} x^{n -3} + \cdots + p^{n - 2} x + p^{n-1}
+\end{align*}
+y de acuerdo con esto
+$$
+\lim_{x \to p} \phi(x) = \phi(p) = \frac{d}{dx} f(p) = n p^{n-1}.
+$$
+:::
+:::
+
+:::{.callout-important icon="false"}
+##
+:::{#thm-derprod}
+Sean $f:S \to T$ y $g:S \to U$ dos funciones diferenciables en un punto $p$ interior de $S.$ Entonces para la función $h(x) = f(x) g(x)$ se cumple que
+$$
+\frac{d}{dx} h(p) = f(p) \frac{d}{dx}g(p) + g(p) \frac{d}{dx}f(p)
+$$ 
+:::
+:::
+
+:::{.proof}
+Considere la función cociente
+$$
+\phi(x) = \frac{h(x) - h(p)}{x - p},
+$$
+y note que
+\begin{align*}
+    \phi(x) &= \frac{f(x) ( g(x) - g(p) ) + g(p) ( f(x) - f(p ) )}{x-p} 
+    \\
+    \\
+    &= f(x) \frac{g(x) - g(p)}{x - p} + g(p) \frac{f(x) - f(p)}{x - p},
+\end{align*}
+y la prueba termina al hacer $x \to p.$
+::: 
+
+## Consecuencias de la diferenciabilidad
+
+:::{.callout-important icon="false"}
+##
+:::{#thm-creciente}
+Sea $f: S \to T$ una función con derivada continua en un punto $p$ interior de $S$ tal que $\dfrac{df}{dx}(p) > 0.$ Existe $V_\delta(p) \subset S$ tal que 
+$$
+\frac{f(x) - f(y)}{x - y} > 0 
+$$
+para todo $x, y \in V_{\delta}(p)$ con $x \neq y.$
+:::
+:::
+
+:::{.proof}
+
+Como $\dfrac{df}{dx}(p) > 0,$ debido a la continuidad de la derivada existe una $V_{\delta}(p)$ tal que $\dfrac{df}{dx}(y) > 0$ para todo $y \in V_{\alpha}(p),$ y de acuerdo con esto, existe una $V_{\beta}(y) \subset V_{\alpha}(p)$ en donde el cociente
+$$
+\frac{f(x) - f(y)}{x - y} > 0 
+$$
+para todo $x \in V_{\beta}(y)$ con $x \neq y.$ Tomemos ahora
+$$
+V_{\delta}(p) = \bigcup_{y \in V_{\alpha}(p)}V_{\beta}(y).
+$$
+
+:::
+
+Es importante mencionar que en el caso de que $\dfrac{df}{dx}(p)<0$ entonces existe una $V_\delta(p) \subset S$ tal que 
+$$
+\frac{f(x) - f(y)}{x - y} < 0 
+$$
+para todo $x, y \in V_{\delta}(p)$ con $x \neq y.$ La prueba de esto es similiar a la anterior con la salvedad de que debemos cambiar el sentido de las desigualdades.
+
+
+
+:::{.callout-note icon="false"}
+##
+:::{#def-maxmin}
+## Máximo local-Mínimo local
+Sea $f:S \to T.$ Un punto en $p$ interior de $S$ se conoce como un máximo local de $f$ si existe una $V_{\delta}(p) \subset S$ en la que se verifica que
+$$
+f(p) \geq f(x) 
+$$
+para todo $x \in V_{\delta}(p).$
+
+La definición para mínimo local es similar salvo por el hecho del cambio de sentido de la desigualdad. 
+:::
+:::
+
+:::{.callout-important icon="false"}
+##
+:::{#thm-derivada_cero}
+Sea $f: S \to T$ una función diferenciable que alcanza en $p,$ un punto interior de $S,$ un máximo o mínimo local, entonces $\frac{df}{dx}(p) = 0$ 
+:::
+:::
+
+Sea $f \equiv f(x)$ una función diferenciable con respecto de la variable $x.$ Supongamos ahora que existe una función $s \equiv s(x)$ igualmente diferenciable tal que $\dfrac{d s}{dx} \neq 0.$ De acuerdo con el Teorema de la función inversa existe una función $m \equiv m(s)$ tal que $t \equiv m(s).$ Considere ahora una función $h(s) = f(m(s)).$ Note que 
+$$
+\frac{dh}{ds}\quad  \equiv \quad \frac{df}{ds} =  \frac{df}{dx} \Big\vert_{m(s)} \frac{dm}{ds} 
+$$
+Por otro lado, recuerde que $m(s(x)) = x$ y al derivar con respecto de $x$ obtenemos
+$$
+\frac{dm}{ds} \frac{ds}{dx} = 1
+$$
+y por lo tanto la ecuación anterior se puede escribir como
+$$
+\frac{df}{ds} = \frac{df}{dx} \Big\vert_{m(s)} \left( \frac{ds}{dx} \right)^{-1}
+$$

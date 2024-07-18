@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Elementos del cálculo integral y diferencial</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modelos_univariable.html">Cálculo de una variable</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mat_arte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matemáticas para las artes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modelos_univariable.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Cálculo de una variable</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">El autor</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/logo.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Logo image</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#sucesiones" id="toc-sucesiones" class="nav-link active" data-scroll-target="#sucesiones">Sucesiones</a>
+  <ul class="collapse">
+  <li><a href="#convergencia-de-sucesiones" id="toc-convergencia-de-sucesiones" class="nav-link" data-scroll-target="#convergencia-de-sucesiones">Convergencia de sucesiones</a></li>
+  <li><a href="#sucesión-de-sumas-parciales" id="toc-sucesión-de-sumas-parciales" class="nav-link" data-scroll-target="#sucesión-de-sumas-parciales">Sucesión de sumas parciales</a>
+  <ul class="collapse">
+  <li><a href="#la-serie-armónica" id="toc-la-serie-armónica" class="nav-link" data-scroll-target="#la-serie-armónica"><strong><em>La serie armónica</em></strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#continuidad-de-funciones" id="toc-continuidad-de-funciones" class="nav-link" data-scroll-target="#continuidad-de-funciones">Continuidad de funciones</a>
+  <ul class="collapse">
+  <li><a href="#límite-de-una-función" id="toc-límite-de-una-función" class="nav-link" data-scroll-target="#límite-de-una-función">Límite de una función</a></li>
+  <li><a href="#consecuencias-de-la-continuidad" id="toc-consecuencias-de-la-continuidad" class="nav-link" data-scroll-target="#consecuencias-de-la-continuidad">Consecuencias de la continuidad</a></li>
+  </ul></li>
+  <li><a href="#integración" id="toc-integración" class="nav-link" data-scroll-target="#integración">Integración</a>
+  <ul class="collapse">
+  <li><a href="#integral-de-riemann" id="toc-integral-de-riemann" class="nav-link" data-scroll-target="#integral-de-riemann">Integral de Riemann</a></li>
+  </ul></li>
+  <li><a href="#diferenciación" id="toc-diferenciación" class="nav-link" data-scroll-target="#diferenciación">Diferenciación</a>
+  <ul class="collapse">
+  <li><a href="#consecuencias-de-la-diferenciabilidad" id="toc-consecuencias-de-la-diferenciabilidad" class="nav-link" data-scroll-target="#consecuencias-de-la-diferenciabilidad">Consecuencias de la diferenciabilidad</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Elementos del cálculo integral y diferencial</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="sucesiones" class="level1">
+<h1>Sucesiones</h1>
+<p>El concepto matemático de sucesión busca representar la evolución de un proceso que se construye a partir de una ley de formación.</p>
+<p>Considere por ejemplo la siguiente asignación para los parámetros <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> <span class="math display">\[
+P \to Q \quad \text{y} \quad Q \to PQ,
+\]</span> esto significa que la letra <span class="math inline">\(P\)</span> se transforma en cada paso del proceso en letra <span class="math inline">\(Q,\)</span> mientras que la letra <span class="math inline">\(Q\)</span> se transforma en cada paso en las letras <span class="math inline">\(P\)</span> y <span class="math inline">\(Q.\)</span></p>
+<p>Supongamos que en un primer instante, digamos instante <span class="math inline">\(0,\)</span> iniciamos en <span class="math inline">\(P.\)</span> De acuerdo con la ley de formación en la etapa siguiente obtendríamos una letra <span class="math inline">\(Q.\)</span> Esto lo podemos representar en la forma <span class="math display">\[\begin{align*}
+    &amp; 0: \quad P
+    \\
+    &amp; 1: \quad Q
+\end{align*}\]</span> En la etapa 2 seguirían las letras <span class="math inline">\(P\)</span>, <span class="math inline">\(Q\)</span>, y de esta etapa seguirían las letras <span class="math inline">\(Q,\)</span> <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span>, es decir <span class="math display">\[\begin{align*}
+    &amp; 0: \quad P
+    \\
+    &amp; 1: \quad Q
+    \\
+    &amp; 2: \quad PQ
+    \\
+    &amp; 3: \quad QPQ
+\end{align*}\]</span> De esta manera, el resultado de la cuarta y quinta etapa serían <span class="math display">\[\begin{align*}
+    &amp; 4: \quad PQQPQ
+    \\
+    &amp; 5: \quad QPQPQQPQ
+\end{align*}\]</span></p>
+<p>Si contamos las letras en cada etapa del proceso, o iteración como le llamaremos a partir de este momento, se obtienen los siguientes valores: <span class="math inline">\(1,\)</span> <span class="math inline">\(1,\)</span> <span class="math inline">\(2,\)</span> <span class="math inline">\(3,\)</span> <span class="math inline">\(5,\)</span> <span class="math inline">\(8, \dots\)</span> secuencia de números conocida como la sucesión de Fibonacci. En esta el término presente, digamos <span class="math inline">\(a_n,\)</span> se encuentra realizando la suma de los dos términos anteriores <span class="math inline">\(a_{n-1}\)</span> y <span class="math inline">\(a_{n-2}.\)</span> Esto se puede representar matemáticamente en la forma <span id="eq-fibon"><span class="math display">\[
+    a_n = a_{n-1} + a_{n-2}
+\tag{1}\]</span></span> Dicha expresión recibe el nombre de relación de recurrencia, y es muy útil para describir procesos en los que la información presente depende de la información pasada. En el caso de la <a href="#eq-fibon">Ecuación&nbsp;1</a> los valores a <span class="math inline">\(a_0\)</span> y <span class="math inline">\(a_1\)</span> se conocen como los valores iniciales de la relación y todo el conjunto de valores que se presentan dependen de estos.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-comlin" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 1 </strong></span>Considere la siguiente la siguiente relación de recurrencia <span class="math display">\[
+\begin{cases}
+a_{n} = a_{n - 1} + d
+\\
+a_0 = j.
+\end{cases}
+\]</span> Note que <span class="math display">\[
+a_0 = j, \quad a_1 = j + d, \quad a_2 = j + 2d, \ldots \, a_n = j + nd,
+\]</span> A la expresión <span class="math inline">\(a_n = j + nd\)</span> se le conoce como la solución de la relación de recurrencia, que en este caso obedece a un comportamiento de forma lineal. Note que este comportamiento se puede entender como aquel en que la diferencia entre el valor futuro y presente es constante.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-comex" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Considere la siguiente la siguiente relación de recurrencia <span class="math display">\[
+\begin{cases}
+a_{n} = r a_{n - 1}
+\\
+a_0 = j.
+\end{cases}
+\]</span> Note que <span class="math display">\[
+a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
+\]</span> La expresión <span class="math inline">\(a_n = r^n j\)</span> es la solución de la relación de recurrencia, que en este caso obedece a un comportamiento de forma exponencial. Este se puede entender como aquel en que el valor futuro es proporcional al valor presente.</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Valores asociados al número de datos (nd), dato inicial (k) y constante de proporcionalidad entre el dato presente y pasado (r)</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">20</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>k <span class="op">=</span> <span class="dv">2</span>                                </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> <span class="fl">1.05</span>                           </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [k]  </span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, nd, nd)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span> , <span class="bu">len</span>(x) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  a.append( r<span class="op">*</span>a[n] )   <span class="co"># relación de recurrencia en la forma r*a_(n-1)</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>) )</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, a, s <span class="op">=</span> <span class="dv">14</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comportamiento exponencial'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-2-output-1.png" width="347" height="357"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-promedio" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Considere dos números reales digamos <span class="math inline">\(p\)</span> y <span class="math inline">\(q.\)</span> Considere la siguiente relación. <span class="math display">\[
+\begin{cases}
+a_n = \dfrac{a_{n-1} + q}{2},
+\\
+a_0 = p.
+\end{cases}
+\]</span> Note que <span class="math display">\[
+a_0 = p, \quad a_1 = \dfrac{p  + q}{2}, \quad a_2 = \dfrac{p + 3q}{4} , \ldots  \, ,a_n = \dfrac{p + (2^n - 1)q}{2^n}
+\]</span> Es interesante evidenciar que a medida que <span class="math inline">\(n\)</span> valores cada vez más y más grande, el valor de <span class="math inline">\(a_n\)</span> se acerca poco a poco al número <span class="math inline">\(q.\)</span></p>
+</div>
+</div>
+</div>
+<section id="convergencia-de-sucesiones" class="level2">
+<h2 class="anchored" data-anchor-id="convergencia-de-sucesiones">Convergencia de sucesiones</h2>
+<p>En los ejemplos al inicio de este capítulo presentamos algunas sucesiones en la que sus términos se acercan a un determinado valor. Esa será precisamente nuestra labor en este capítulo, determinar matemáticamente en que se entiende que un conjunto de cantidades se acerquen a otra.</p>
+<p>A lo largo del libro representaremos con <span class="math inline">\(V_r(p)\)</span> al intervalo abierto de radio <span class="math inline">\(r\)</span> cuyo centro es el punto <span class="math inline">\(p.\)</span> Una forma matemática de representar este conjunto de números reales es la siguiente <span class="math display">\[
+V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
+\]</span> De manera intuitiva podríamos decir que un conjunto de números se acerca a un punto <span class="math inline">\(p\)</span> de la recta, si a medida que hacemos más y más pequeño el radio <span class="math inline">\(r\)</span> de <span class="math inline">\(V_r(p)\)</span>, seguimos encontrando al menos un elemento del mencionado conjunto.</p>
+<p>Buscaremos entrar ahora en algunos detalles que nos permitirán entender algunas propiedades geométricas de los puntos en la recta.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-p_interior" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-p_acumula" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2 (Punto de acumulación) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto de acumulación de un conjunto <span class="math inline">\(S\)</span> si para cualquier <span class="math inline">\(r &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(V_r(p) \setminus \{p\} \cap S \neq \emptyset\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-acotado" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 3 (Conjunto acotado de números reales) </strong></span>Sea <span class="math inline">\(S\)</span> un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante <span class="math inline">\(M\)</span> tal que <span class="math inline">\(\vert {x} \vert &lt; M\)</span> para todo <span class="math inline">\(x \in S.\)</span></p>
+<p>En particular, si <span class="math inline">\(x &lt; M\)</span> para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado superiormente, y si $M &lt; x $ para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado inferiormente.</p>
+</div>
+</div>
+</div>
+<p>Las dos definiciones anteriores permiten construir un resultado fascinante sobre los números reales y la idea del infinito.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-bolzano" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1 </strong></span>Si <span class="math inline">\(S\)</span> un conjunto infinito y acotado de de números reales, entonces <span class="math inline">\(S\)</span> admite al menos un punto de acumulación.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-limite" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 4 (Límite de una sucesión) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> de números reales converge a un número <span class="math inline">\(p,\)</span> si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span class="math display">\[
+\vert a_n - p \vert \text{ para todo } n &gt; N.
+\]</span> Esto se puede escribir como <span class="math display">\[
+\lim_{n \to \infty} a_n = p, \text{ o bien, } a_n \to p \text{ cuando } n \to \infty
+\]</span> que se lee respectivamente como: “el límite de <span class="math inline">\(a_n\)</span> cuando <span class="math inline">\(n\)</span> tiende a infinito es igual a <span class="math inline">\(p\)</span>” o “<span class="math inline">\(a_n\)</span> tiene a <span class="math inline">\(p\)</span> cuando <span class="math inline">\(n\)</span> tiende a infinito”.</p>
+</div>
+</div>
+</div>
+<p>En este momento nos surge la pregunta: ¿ Es posible que existan varios límites para una sucesión.? Esto cuestión la resolvemos en el siguiente resultado.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-unilimite" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 2 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces su límite es único.</p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Supongamos que <span class="math inline">\(p\)</span> y <span class="math inline">\(p'\)</span> son dos límites de la sucesión <span class="math inline">\(\{a_n \}.\)</span> De acuerdo con esto, dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección, existe un número <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+\vert a_n - p \vert &lt; \epsilon \text{ y } \vert a_n - p' \vert &lt; \epsilon
+\]</span> para todo <span class="math inline">\(n &gt; N.\)</span> De acuerdo con la desigualdad triangular <span class="math display">\[
+\vert p - p' \vert \leq \vert a_n - p \vert + \vert a_n - p' \vert &lt; 2 \epsilon
+\]</span> con lo que <span class="math inline">\(p = p'.\)</span></p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-cauchy" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 5 (Condición de Cauchy) </strong></span>Diremos que un sucesión <span class="math inline">\(\{a_n\}\)</span> cumple la condición de Cauchy, si para cada <span class="math inline">\(\epsilon &gt;0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span id="eq-cauchy"><span class="math display">\[
+\vert a_m - a_n \vert &lt; \epsilon \text{ para todo } n,m &gt; N.
+\tag{2}\]</span></span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-cauchy" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 3 </strong></span>Si <span class="math inline">\(\{a_n \}\)</span> es una sucesión convergente entonces satisface la condición de Cauchy.</p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>La demostración de este resultado es una consecuencia inmediata de la desigualdad triangular. En efecto, si <span class="math inline">\(a_n \to p\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra escogencia, existe un <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+\vert a_n - p \vert &lt; \epsilon  \text{ y }   \vert a_m - p \vert &lt; \epsilon
+\]</span> para todo <span class="math inline">\(m, n &gt; N.\)</span> La prueba finaliza al sumar ambas desigualdades ya que<br>
+<span class="math display">\[
+\vert a_m - a_n \vert \leq \vert a_n - p \vert + \vert a_m - p \vert &lt; 2\epsilon,
+\]</span></p>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-sucacotada" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 4 </strong></span>Toda sucesión que satisface la condición de Cauchy es acotada.</p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Sea <span class="math inline">\(\{ a_n\}\)</span> una sucesión de números reales, entonces como se verifica la condición de Cauchy existe para un <span class="math inline">\(\epsilon &gt; 0\)</span> un <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+\vert a_{N + 1} - a_m \vert &lt; \epsilon \text{ para todo } m \geq N + 1
+\]</span> esto es equivalente a decir que <span class="math inline">\(a_m \in V_{\epsilon} (a_{N+1})\)</span> para todo <span class="math inline">\(m \geq N+1.\)</span> Considere ahora el siguiente conjunto de números reales <span class="math display">\[
+B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_{N} - a_{N+1} \vert\},
+\]</span> y note que <span class="math inline">\(\vert a \vert &lt; \vert a_{N + 1} \vert + \max B + \epsilon\)</span> para todo <span class="math inline">\(a \in \{ a_n \}\)</span>. Aquí <span class="math inline">\(\max B\)</span> corresponde al máximo elemento del conjunto <span class="math inline">\(B.\)</span></p>
+</div>
+<p>Como una consecuencia de este resultado y del <a href="#thm-bolzano">Teorema&nbsp;1</a> podemos concluir lo siguiente</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-sucacotada2" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 5 </strong></span>Toda sucesión infinita de números reales, acotada y que satisface la condición de Cauchy es convergente</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-seccaucy" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+a_n =  \frac{n}{1 + k n},
+\]</span> para <span class="math inline">\(k \neq 0.\)</span></p>
+<p>Para un <span class="math inline">\(k\)</span> fijo se puede verificar asignando valores de <span class="math inline">\(n\)</span> cada vez más grandes, que la sucesión se acerca al valor <span class="math inline">\(1/k.\)</span> Lo interesante sería determinar el valor del <span class="math inline">\(n\)</span> para el cual, a partir de ese valor, se consigue una aproximación deseada. Note que <span class="math display">\[
+\Big\vert  \frac{n}{1 + kn} - \frac{1}{k}  \Big\vert = \frac{1}{\vert  k + k^2 n \vert}.
+\]</span> De manera que <span class="math inline">\(\vert a_n - 1/k\vert &lt; \epsilon\)</span> sería equivalente a <span class="math display">\[
+\frac{1}{\epsilon} \leq \vert k + k^2 n \vert \leq \vert k \vert + k^2 n
+\]</span> con lo que <span class="math display">\[
+\frac{1}{k^2} \left( \frac{1}{\epsilon} - \vert k \vert \right) \leq n.
+\]</span> De acuerdo con esto, si <span class="math inline">\(k = 0.1\)</span> y queremos conseguir una aproximación en la forma <span class="math inline">\(\vert a_n - 10 \vert &lt; 0.001\)</span> basta tomar <span class="math inline">\(n &gt; 99990.\)</span> Además note que si tomamos <span class="math inline">\(m = 125000\)</span> y <span class="math inline">\(n = 100000\)</span> entonces <span class="math display">\[
+\vert a_m - a_n \vert =  0.00019 &lt; 0.002
+\]</span> verificándose la relación presente en la <a href="#eq-cauchy">Ecuación&nbsp;2</a>. Aquí de nuevo es importante mencionar que la escogencia de <span class="math inline">\(\epsilon\)</span> es arbitraria.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-nalp" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+a_n =  \frac{1}{n^r},
+\]</span> con <span class="math inline">\(r &gt; 0.\)</span></p>
+<p>Para un <span class="math inline">\(r\)</span> fijo podemos verificar asignando valores a <span class="math inline">\(n\)</span> cada vez más y más grandes que <span class="math inline">\(a_n\)</span> toma valores cercanos a cero. De acuerdo con esto, para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección queremos encontrar un <span class="math inline">\(N\)</span> para el cual se verifique <span class="math display">\[
+\frac{1}{n^r} &lt; \epsilon \quad \text{ para todo } \quad n &gt; N.
+\]</span> En efecto, basta tomar <span class="math inline">\(N\)</span> como un entero tal que <span class="math display">\[
+\left(\frac{1}{\epsilon} \right)^{1/r} &lt; N
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-ejemplo_geo" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+a_n = \left( \frac{1}{a - \delta} \right)^n
+\]</span> para <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta\)</span> un número real tal que <span class="math inline">\(a - \delta &gt; 1.\)</span></p>
+<p>La experimentación numérica indica que para una escogencia arbitraria de valores <span class="math inline">\(a\)</span> y <span class="math inline">\(\delta\)</span> que verifiquen las condiciones dadas, a medida que se asignen valores de <span class="math inline">\(n\)</span> cada vez más grandes, la sucesión toma valores cercanos a 0.</p>
+<p>En efecto, si <span class="math display">\[
+  \left( \frac{1}{a - \delta} \right)^n &lt; \epsilon,  
+\]</span> al aplicar logaritmo natural obtenemos <span class="math display">\[
+n &gt; -\frac{\ln{\epsilon}}{ \ln{(a - \delta)}},
+\]</span> y de acuerdo con esto, si <span class="math inline">\(a = 1.01,\)</span> <span class="math inline">\(\delta = 0.001\)</span> y queremos encontrar valores de <span class="math inline">\(n\)</span> tales que <span class="math inline">\(a_n &lt; 0.0001\)</span> basta tomar <span class="math inline">\(n \geq 1028.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-coseno" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+a_n= \cos{\left(\frac{1}{n} \right)}
+\]</span> De acuerdo con la definición de funciones trigonométricas es fácil notar que <span class="math display">\[
+1 - \frac{1}{n} &lt; \cos{\left(\frac{1}{n} \right)} &lt; 1
+\]</span> y de acuerdo con esto entonces <span class="math inline">\(\cos(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-seno" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n \}\)</span> en donde <span class="math display">\[
+a_n = n \sin{\left( \frac{1}{n} \right)}.
+\]</span> De acuerdo con la definición de funciones trigonométricas sobre el círculo de radio 1, es claro que <span class="math display">\[
+\frac{1}{n} \cos{\left( \frac{1}{n} \right)} \leq \sin{\left( \frac{1}{n}\right)} \leq \frac{1}{n}
+\]</span> y al multiplicar esta desigualdad por <span class="math inline">\(n,\)</span> obtenemos <span id="eq-des_seno_coseno"><span class="math display">\[
+\cos{\left( \frac{1}{n} \right)} \leq n \sin{\left( \frac{1}{n}\right)} \leq 1
+\tag{3}\]</span></span></p>
+<p>Lo interesante de este resultado es notar que el valor de convergencia de la sucesión <span class="math inline">\(\{ a_n \}\)</span> esta comprendido entre los valores de <span class="math inline">\(\cos(1/n)\)</span> y <span class="math inline">\(1.\)</span> De acuerdo entonces con el <a href="#exm-coseno">Ejemplo&nbsp;7</a> se tiene que <span class="math inline">\(n \sin(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> es decir <span class="math display">\[
+\lim_{n \to \infty} n \sin{\left(\frac{1}{n} \right)} = 1.
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Se sigue de forma inmediata de <a href="#eq-des_seno_coseno">3</a> que la sucesión <span class="math inline">\(\{ n \sin{1/n} \}\)</span> es creciente, y como <span class="math inline">\(\cos{(1/n)} \to 1\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección obtenemos <span class="math display">\[
+1 - \epsilon &lt; \cos{\left( \frac{1}{n}\right)} &lt; 1 + \epsilon
+\]</span> Teniendo en cuenta que la función <span class="math inline">\(\arccos{(x)}\)</span> es decreciente, se sigue que <span id="eq-arcos"><span class="math display">\[
+\frac{1}{\arccos{(1 - \epsilon)}} &lt; n,
+\tag{4}\]</span></span> y de acuerdo con <a href="#eq-des_seno_coseno">3</a> se verifica que <span class="math display">\[
+1 - \epsilon &lt; n \sin{\left( \frac{1}{n}\right)} \leq 1
+\]</span> para los valores de <span class="math inline">\(n\)</span> que satisfacen <a href="#eq-arcos">4</a>.</p>
+<p>Lo anterior nos permite determinar un valor de <span class="math inline">\(n\)</span> para el cual los valores de la sucesión <span class="math inline">\(\{n \sin{(1/n)} \}\)</span> estén comprendidos entre <span class="math inline">\(1-\epsilon\)</span> y <span class="math inline">\(1.\)</span></p>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">Declaracion funcional de n*sin(1/n) y de arccos(n)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(n):</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n<span class="op">*</span>np.sin(<span class="dv">1</span><span class="op">/</span>n)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(n):</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> np.arccos(n)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">Valor de epsilon y de n</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>epsilon <span class="op">=</span> <span class="fl">0.05</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="bu">int</span>(np.ceil(<span class="dv">1</span><span class="op">/</span>g(<span class="dv">1</span> <span class="op">-</span> epsilon)))</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co">Gráfico del conjunto de puntos</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(n,<span class="dv">4</span><span class="op">*</span>n, <span class="dv">2</span><span class="op">*</span>n <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> f(x)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">3</span>))</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>plt.scatter(x, y , s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>plt.yticks(np.arange(<span class="dv">1</span> <span class="op">-</span> epsilon, <span class="dv">1</span><span class="op">+</span> epsilon, epsilon<span class="op">/</span><span class="dv">4</span>))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>plt.xticks(np.arange(n, <span class="dv">4</span><span class="op">*</span>n <span class="op">+</span> <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>plt.text(epsilon, <span class="dv">1</span> <span class="op">-</span> epsilon, <span class="st">'1 - E'</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>plt.text(epsilon, <span class="dv">1</span> <span class="op">+</span> epsilon, <span class="st">'1 + E'</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-3-output-1.png" width="486" height="273"></p>
+</div>
+</div>
+</section>
+<section id="sucesión-de-sumas-parciales" class="level2">
+<h2 class="anchored" data-anchor-id="sucesión-de-sumas-parciales">Sucesión de sumas parciales</h2>
+<p>Como una extensión natural del concepto de sucesión, se define una sucesión cuyos términos son la suma parcial de cada uno de los términos de otra sucesión. Por ejemplo, si <span class="math inline">\(\{ a_n\}\)</span> es una sucesión, identificaremos con <span class="math inline">\(s_1\)</span> al número <span class="math inline">\(a_1,\)</span> con <span class="math inline">\(s_2\)</span> al número <span class="math inline">\(a_1 + a_2,\)</span> con <span class="math inline">\(s_3\)</span> al número <span class="math inline">\(a_1 + a_2 + a_3\)</span> y en general <span class="math display">\[
+s_n = a_1 + a_2 + \cdots + a_n
+\]</span> Un resultado conocido es aquel en donde los términos <span class="math inline">\(\{a_n\}\)</span> cumplen la siguiente ley de formación: <span class="math inline">\(a_1 = 1,\)</span> <span class="math inline">\(a_2 = r,\)</span> <span class="math inline">\(a_3 = r^{2}\)</span> y en forma general <span class="math inline">\(a_n = r^{n-1}\)</span> para una cierta cantidad <span class="math inline">\(r &gt; 0,\)</span> <span class="math inline">\(r \neq 1.\)</span> Para este caso ote que <span id="eq-01"><span class="math display">\[
+s_n = 1 + r + \cdots +  r^{n-1} + r^{n}.   
+\tag{5}\]</span></span> Al multiplicar esta última expresión por <span class="math inline">\(r\)</span> obtenemos <span id="eq-02"><span class="math display">\[
+rs_n = r + r^2 + \cdots + r^{n} + r^{n+1}.   
+\tag{6}\]</span></span> y es fácil notar que si restamos <a href="#eq-01">5</a> de <a href="#eq-02">6</a> obtenemos <span id="eq-geo"><span class="math display">\[
+s_n = \frac{1 - r^{n+1}} { 1 - r }
+\tag{7}\]</span></span></p>
+<p>Es conveniente emplear una notación que permita identificar los elementos de la sucesión <span class="math inline">\(\{ a_n \}\)</span> con su suma. Esta notación se conoce como notación de sumatorio y corresponde con el símbolo <span class="math inline">\(\sum,\)</span> y se acostumbra a escribir con sub y super índices para indicar el recorrido del parámetro asociado a la suma, es decir <span class="math display">\[
+\sum_{k = 1}^{n} a_{k} = a_{1} + a_{2} + \cdots + a_{k}.
+\]</span> De acuerdo con esto, la expresión <a href="#eq-geo">7</a> se puede escribir como <span id="eq-geo2"><span class="math display">\[
+\sum_{k = 1}^{n} r^k = \frac{1 - r^{n+1}}{1 -r}.
+\tag{8}\]</span></span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-sumacon" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 6 </strong></span>Sea <span class="math inline">\(\{ a_n \}\)</span> una sucesión de números reales. Si la sucesión <span class="math inline">\(s_n \to p\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> se acostumbra a escribir <span class="math display">\[
+\sum_{k = 1}^{\infty} a_n = p,
+\]</span> y se dice que la serie <span class="math inline">\(\sum_{k = 1}^{\infty} a_n\)</span> es convergente. En particular convergente al número <span class="math inline">\(p.\)</span></p>
+</div>
+</div>
+</div>
+<p>Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación <a href="#eq-geo2">8</a> y del <a href="#exm-ejemplo_geo">Ejemplo&nbsp;6</a>. Este establece que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces <span id="eq-se_geo"><span class="math display">\[
+\sum_{n = 0}^{\infty} r^{n} = \frac{1}{1-r}.
+\tag{9}\]</span></span> De menara equivalente a la notación de sumatorio, también existe una para los productos. Esta es <span class="math inline">\(\prod_{k = 1}^{n} a_{n}\)</span> y corresponde con <span class="math display">\[
+\prod_{k = 1}^{n} a_{k} = a_1 \cdot a_2 \cdot \cdots \cdot a_n.
+\]</span> Empleando esta notación y la ecuación <a href="#eq-se_geo">9</a> se puede probar fácilmente el siguiente resultado</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-teorema2" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 6 </strong></span>Sea <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta &gt; 0\)</span> tales que <span class="math inline">\(a - \delta &gt; 1,\)</span> y sean <span class="math inline">\(a_1 , a_2 , \ldots , a_n , \ldots\)</span> números que verifican <span class="math inline">\(a_n \geq a - \delta\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span class="math display">\[
+\sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \frac{a- \delta}{a - \delta  - 1}.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Note que para todo <span class="math inline">\(a_n\)</span> , con <span class="math inline">\(n = 1, 2, \ldots\)</span> se cumple <span class="math display">\[
+\frac{1}{a_k} \leq \frac{1}{a - \delta}
+\]</span> y de acuerdo con esto <span class="math display">\[
+\sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \sum_{n = 1}^{\infty} \frac{1}{(a - \delta)^n}.
+\]</span> La prueba finaliza al hacer <span class="math inline">\(r = 1/(a - \delta)\)</span> en <a href="#eq-se_geo">9</a></p>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="cor-corolario1" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolario 1 </strong></span>Sean <span class="math inline">\(a\)</span> y <span class="math inline">\(\delta\)</span> reales positivos tales que <span class="math inline">\(V_{\delta}(a) \subset (0,1),\)</span> y sean <span class="math inline">\(a_1,\)</span> <span class="math inline">\(a_2, \ldots a_n , \ldots\)</span> números reales tales que <span class="math inline">\(a_n \in V_{\delta}(a)\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span class="math display">\[
+      \frac{a + \delta}{a + \delta - 1} \leq \sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \frac{a - \delta}{a -\delta - 1}      
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Note que si <span class="math inline">\(\delta = 0\)</span> entonces <span class="math inline">\(a_n = a\)</span> para todo <span class="math inline">\(n,\)</span> y en este caso el resultado coincide con la igualdad que se ha presentado en la ecuación <a href="#eq-se_geo">9</a> para el caso <span class="math inline">\(r = 1/a.\)</span></p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-teorema2" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 7 </strong></span>Sean <span class="math inline">\(a_1, a_2 , \ldots a_n\)</span> números reales que verifican la condición <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span id="eq-resteo"><span class="math display">\[
+\prod_{k = 1}^{n} a_{k} &gt; 1 + a_1 + a_1 \cdot a_2 + a_1 \cdot a_2 \cdot a_3 + \cdots + \prod_{k = 1}^{n-1}a_{k}.
+\tag{10}\]</span></span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Como <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n,\)</span> entonces para <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> se verifica que <span class="math display">\[
+a_1 a_2 \geq 2 a_1 = a_1 + a_1 \geq 2 + a_1 &gt; 1 + a_1,
+\]</span> de manera equivalente para $a_1, $ <span class="math inline">\(a_2\)</span> y <span class="math inline">\(a_3\)</span> se tiene que <span class="math display">\[
+a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt; 1 + a_1 + a_1 \cdot a_2,
+\]</span> la prueba finaliza al aplicar inducción sobre el subíndice <span class="math inline">\(n.\)</span></p>
+</div>
+<p>Al dividir cada término de <a href="#eq-resteo">10</a> por <span class="math inline">\(\prod_{i = 1}^{k}a_{i}\)</span> obtenemos de forma inmediata el siguiente resultado.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="cor-corolario" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolario 2 </strong></span>Sean <span class="math inline">\(a_1, a_2, \ldots , a_n\)</span> números reales que verifican la condición <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span class="math display">\[
+\frac{1}{a_n} + \frac{1}{a_n \cdot a_{n-1}} +  \frac{1}{a_{n} \cdot a_{n-1} \cdot a_{n-2}} + \cdots + \frac{1}{\prod_{k = 2}^{n-1}a_{i}}  +\frac{1}{ \prod_{k = 1}^{n} a_{k} } &lt; 1
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Note que si tomamos <span class="math inline">\(n-1\)</span> números enteros consecutivos en la forma <span class="math inline">\(a_{n-1} = 2,\)</span> <span class="math inline">\(a_{n-2} = 3,\)</span> y de esta forma hasta <span class="math inline">\(a_{1} = n,\)</span> la expresión anterior toma la siguiente forma <span id="eq-factorial1"><span class="math display">\[
+\frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} &lt; 1
+\tag{11}\]</span></span> De esta último resultado se desprende de forma natural al sumar 2 lo siguiente <span id="eq-factorial2"><span class="math display">\[
+2 &lt; 2 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} &lt; 3
+\tag{12}\]</span></span> para todo entero <span class="math inline">\(n.\)</span></p>
+<p>El número entre 2 y 3 al que se aproxima este valor se denota comúnmente con la letra <span class="math inline">\(e,\)</span> esto lo precisaremos la siguiente definición.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-nume" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 7 (Número <span class="math inline">\(e\)</span>) </strong></span>Definimos la constante numérica <span class="math inline">\(e\)</span> como <span id="eq-nume"><span class="math display">\[
+\sum_{k = 0}^{\infty} \frac{1}{k!} = e.
+\tag{13}\]</span></span></p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aprox_e(n):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  terminos <span class="op">=</span> [<span class="dv">1</span><span class="op">/</span>math.factorial(i) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(terminos)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [aprox_e(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Aproximación al número $e$"</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"N"</span>)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"$e$"</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-4-output-1.png" width="374" height="378"></p>
+</div>
+</div>
+<p>Númericamente se puede experimentar con una versión modificada del código anterior para obtener más cifras decimales del número <span class="math inline">\(e\)</span>.</p>
+<p>En el siguiente programa obtenemos las primeras cien cifras de <span class="math inline">\(e\)</span> para un valor de <span class="math inline">\(n = 71\)</span> en la función <strong>aprox_</strong><span class="math inline">\(e(n)\)</span> del código anterior.</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> math</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> Decimal</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> decimal <span class="im">import</span> getcontext</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>getcontext().prec <span class="op">=</span> <span class="dv">101</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> aprox_e(n):</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  terminos <span class="op">=</span> [Decimal(<span class="dv">1</span>)<span class="op">/</span>Decimal(math.factorial(i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n)]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(terminos)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(aprox_e(<span class="dv">71</span>))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-cociente" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 9 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
+\frac{a_{n+1}}{a_n} = r
+\]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
+\begin{align*}
+\sum_{k = 0}^{n} a_{k} &amp; = a_0 + a_1 + a_2 + \cdots + a_n
+\\
+&amp; = a_0( 1 + r + r^2 + \cdots r^n )
+\\
+&amp; = a_0 \frac{1 - r^{n+1}}{1 - r}
+\end{align*}
+\]</span> y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">9</a> entonces <span class="math display">\[
+\sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-cociente" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 10 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
+a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
+\]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span>ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
+\sqrt[n]{a_n} = r , \text{ con } 0 &lt; r &lt; 1
+\]</span> entonces <span class="math display">\[
+\sum_{n = 0}^{\infty} a_{n} = \frac{1}{1 - r}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Aunque los dos últimos ejemplos se han construido haciendo referencia al comportamiento exponencial de un conjunto de datos. Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie <span class="math inline">\(\sum_{n = 1}^{\infty}a_n\)</span> que verifica <span class="math display">\[
+\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = r,
+\]</span> Entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección existe un entero <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+\Big\vert \frac{a_{n+1}}{a_n} - r \Big\vert &lt; \epsilon \text{ para todo } n &gt; N
+\]</span> o de manera equivalente <span class="math display">\[
+(r - \epsilon) a_{n} &lt; a_{n + 1} &lt; (r + \epsilon) a_n,
+\]</span> de acuerdo con esto <span class="math display">\[
+(r - \epsilon)^k a_n &lt; a_{n + k} &lt; (r + \epsilon)^k a_n
+\]</span> y si identificamos con <span class="math inline">\(r^+ = r + \epsilon\)</span> y con <span class="math inline">\(r^- = r - \epsilon\)</span> entonces se sigue de la ecuación <a href="#eq-geo2">8</a> <span class="math display">\[
+\frac{r^- - (r^-)^{m+1}}{1 - r^-} a_n &lt; \sum_{k= 1}^{m} a_{n+k} &lt; \frac{r^+ - (r^+)^{m+1}}{1 - r^+} a_n
+\]</span> De manera que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces siempre es posible encontrar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(r^-\)</span> y <span class="math inline">\(r^+\)</span> esten comprendidos igualmente entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span> y de acuerdo con esto. <span class="math display">\[
+\frac{r^-}{1 - r^-} a_n &lt; \sum_{k= 1}^{\infty} a_{n+k} &lt; \frac{r^+ }{1 - r^+} a_n
+\]</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-Telescopia" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 11 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+a_{n} = b_{n+1} - b_{n}
+\]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
+\begin{align*}
+    \sum_{k = 1}^{n} a_k &amp; = b_2 - b_1 + b_3 - b_2 + \cdots + b_{n} - b_{n - 1} + b_{n+1} - b_{n}
+    \\
+    &amp; = b_{n+1} - b_{1}
+\end{align*}
+\]</span> Cuando una sucesión de números presente este comportamiento, se le llama suma telescópica, y será de mucha importancia para la construcción teórica a lo largo del documento.</p>
+<p>Si <span class="math inline">\(b_n \to p\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces <span class="math display">\[
+\sum_{n = 1}^{\infty} a_n = p - b_1
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-binomio" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 12 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+a_n = n - n^{p}(n - q )^{1 - p},
+\tag{14}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
+a_n \to q(1 - p) \text{ cuando } n \to \infty
+\tag{15}\]</span></span> En efecto, despues de algunas manipulaciones algrebraicas es claro que <span id="eq-suc_bin"><span class="math display">\[
+a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
+\tag{16}\]</span></span> y de acuerdo con el Teorema general de binomio <span class="math display">\[
+\left( 1 + \frac{q}{n - q} \right)^p = \sum_{k = 0}^{\infty} {p \choose k} \frac{q^k}{(n - q)^k}
+\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<strong>recuerde que…</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[
+{p \choose k} = \frac{1}{k!} \prod_{i = 0}^{k-1}(p - i) \quad \text{ aquí }  \quad {p \choose 0} = 1.
+\]</span></p>
+</div>
+</div>
+<p>Podemos escribir <a href="#eq-suc_bin">16</a> como <span class="math display">\[\begin{align*}
+a_n &amp;= n - (n-q)\left( 1 + p \frac{q}{(n-q)} + \frac{p(p-1)}{2!}\frac{q^2}{(n-q)^2} + \cdots\right)
+\\
+\\
+&amp; = q(1 - p) -  \frac{p(p-1)}{2!}\frac{q^2}{(n-q)} -  \frac{p(p-1)(p-2)}{3!}\frac{q^3}{(n-q)^2} - \cdots
+\end{align*}\]</span> y obtenemos <a href="#eq-lim_bio">15</a> cuando hacemos tender <span class="math inline">\(n\)</span> a infinito.</p>
+</div>
+</div>
+</div>
+<p>Podemos sacar provecho del ejemplo anterior para demostrar una interesante desigualdad que nos será útil a lo largo del documento.</p>
+<p>Tomemos <span class="math inline">\(q = 1\)</span> en la ecuación <a href="#eq-suc_pserie">14</a>. Note que <span class="math inline">\(a_n\)</span> es creciente y como ya se ha visto <span class="math inline">\(a_n \to 1 - p\)</span> cuando <span class="math inline">\(n \to \infty.\)</span> De acuerdo con esto <span id="eq-des_importante"><span class="math display">\[
+\frac{n - n^{p}(n - 1)^{1-p}}{1 - p} \geq 1 \quad \text{ para } \quad n = 2, 3, 4, \ldots
+\tag{17}\]</span></span> y despues de un par de manipulaciones algebráicas, <span id="eq-desigualdad_p_serie0"><span class="math display">\[
+\frac{1}{n^p} \leq \frac{n^{1-p} - (n -1)^{1-p}}{1 - p}.
+\tag{18}\]</span></span> Al sumar desde <span class="math inline">\(k = 2\)</span> hasta <span class="math inline">\(n\)</span>, obtenemos <span class="math display">\[
+\sum_{k=2}^{n}\frac{1}{k^p} \leq \frac{1}{1-p}\sum_{k=2}^{n} \left( k^{1-p} - (k -1)^{1-p} \right) = \frac{n^{1-p} - 1}{1 - p}
+\]</span> y sumando 1 a ambos lados de la desigualdad <span id="eq-desigualdad_p_serie1"><span class="math display">\[
+\sum_{k=1}^{n}\frac{1}{k^p} \leq \frac{n^{1-p} - p}{1 - p}
+\tag{19}\]</span></span></p>
+<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;5</a> <span class="math display">\[
+n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
+\]</span> y de acuerdo con esto hemos probado el siguiente resultado</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-pserie" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 8 </strong></span>Si <span class="math inline">\(p&gt;1\)</span> entonces <span class="math display">\[
+\sum_{n=1}^{\infty} \dfrac{1}{n^p} \leq \frac{p}{p-1}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Una función de gran importancia en matemáticas, es la función <span class="math inline">\(z\)</span> de Riemann, <span class="math display">\[
+\zeta(p) = \sum_{n=1}^{\infty} \frac{1}{n^p}
+\]</span> en el siguiente código se muestra el gráfico de la aproximación de la función sumando los primeros <span class="math inline">\(1000\)</span> términos de la serie con valores de <span class="math inline">\(p\)</span> entre 1 y 10.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> z(p , n ):</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  lista <span class="op">=</span> [ <span class="dv">1</span><span class="op">/</span>(k<span class="op">**</span>p) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n <span class="op">-</span> <span class="dv">1</span>)  ]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(lista)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [z(k, <span class="dv">1000</span>) <span class="cf">for</span> k <span class="kw">in</span> x ])</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Aproximación función z de Riemann"</span>)</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"p"</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"z(p, n)"</span>)</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-6-output-1.png" width="353" height="377"></p>
+</div>
+</div>
+<section id="la-serie-armónica" class="level3">
+<h3 class="anchored" data-anchor-id="la-serie-armónica"><strong><em>La serie armónica</em></strong></h3>
+<p>Una serie conocida por su lento crecimiento y que no es convergente, es la serie armónica, definida como <span class="math display">\[
+\sum_{n = 1}^{\infty} \frac{1}{n} = 1 + \frac{1}{2} + \frac{1}{3} + \cdots
+\]</span></p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lar(n):</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  armonica <span class="op">=</span> [<span class="dv">1</span>]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  k <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> np.<span class="bu">sum</span>(armonica) <span class="op">&lt;</span> n:</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    armonica.append(<span class="dv">1</span><span class="op">/</span>k)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> k <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">len</span>(armonica)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-7-output-1.png" width="387" height="356"></p>
+</div>
+</div>
+<p>Realizaremos ahora los cocientes dos a dos de términos consecutivos el número de terminos en la serie armónica para alcanzar un valor determinado.</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">cálculo de cocientes dos a dos términos consectivos</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">9</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-8-output-1.png" width="374" height="356"></p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="continuidad-de-funciones" class="level1">
+<h1>Continuidad de funciones</h1>
+<p>La palabra continuidad surge en muchos contextos, y la asociamos cuando queremos hacer referencia a un proceso que no tenga saltos abruptos o interrupciones. Esto claro esta suponiendo de ante mano que se conoce cual debería de ser el comportamiento esperado de dicho proceso, para categorizar un salto o interrupción como algo anómalo.</p>
+<section id="límite-de-una-función" class="level2">
+<h2 class="anchored" data-anchor-id="límite-de-una-función">Límite de una función</h2>
+<p>En el capítulo anterior definimos y encontramos el límite de sucesiones. En esta sección encontramos el límite de una función y profundizaremos un poco más en la naturaleza de los puntos sobre la recta y como la imagen de estos a través de una función empiezan a orbitar alrededor de un valor, o alejarse cada vez más y más de algún valor de referencia. A lo largo de este capítulo emplearemos las notaciones <span class="math inline">\(V^+_\delta(p)\)</span> y <span class="math inline">\(V^-_\delta(p)\)</span> para referirnos a los conjuntos</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-limiteF" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 8 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;2</a> La notación <span class="math display">\[
+\lim_{x \to p} f(x) = l.
+\]</span> se lee “el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \} \cap S.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-limiteL" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 9 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span class="math display">\[
+\lim_{x \to p^+} f(x) = l.
+\]</span> se lee “el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p \} \cap S.
+\]</span> De manera similar entenderemos la notación <span class="math display">\[
+\lim_{x \to p^-} f(x) = l,  
+\]</span> con la diferencia de que tomaremos <span class="math inline">\(V^{-}_{\delta}\)</span> en lugar del conjunto <span class="math inline">\(V^{+}_{\delta},\)</span> y en este caso leeremos <span class="math inline">\(\eqref{eq:lim_iz}\)</span> como: `` el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la izquierda es igual a <span class="math inline">\(l\)</span>.’’</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-continuidad" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 10 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si <span class="math display">\[
+    \lim_{x \to p} f(x) = f(p).
+\]</span> Si <span class="math inline">\(f\)</span> es continua en todo punto de <span class="math inline">\(S\)</span> entonces diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(S.\)</span></p>
+</div>
+</div>
+</div>
+<p>Note que de acuerdo con la definición de límite, lo anterior es equivalente a decir que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si para cada <span class="math inline">\(\epsilon\)</span> de nuestra elección, existe un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+\vert f(x) - f(p )\vert &lt; \epsilon \text{ siempre y cuando } \vert x - p \vert &lt; \delta \text{ para todo } x \in V_{\delta} \cap S.
+\]</span> o de manera equivalente <span class="math display">\[
+f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
+\]</span> y esto sugiere que si <span class="math inline">\(\{ a_n \}\)</span> es una sucesión arbitraria de números reales tal que <span class="math inline">\(a_n \to p\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> entonces la sucesión <span class="math inline">\(\{ f(a_n) \}\)</span> es tal que <span class="math inline">\(f(a_n) \to f(p)\)</span> cuando <span class="math inline">\(n \to \infty.\)</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-contseno" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 13 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+\vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
+\]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-hip" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 14 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
+\delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
+\]</span> y <span class="math display">\[
+\delta_1 = \frac{p}{1 - \epsilon p} - p = \frac{\epsilon p^2}{1 - \epsilon p},
+\]</span> y es claro que <span class="math inline">\(\delta_0 &lt; \delta_1.\)</span> De acuerdo con esto, si <span class="math inline">\(\epsilon = 0.01\)</span> y <span class="math inline">\(p = 0.3\)</span> basta tomar <span class="math inline">\(\delta \leq 0.0029\)</span> para garantizar que si <span class="math inline">\(x \in V_{\delta}(p)\)</span> entonces <span class="math inline">\(f(x) \in V_{\epsilon}(f(p)).\)</span></p>
+</div>
+</div>
+</div>
+<p>Es importante resaltar que en el ejemplo anterior se hace manifiesta la dependencia que tiene <span class="math inline">\(\delta\)</span> con respecto del punto <span class="math inline">\(p\)</span> y <span class="math inline">\(\epsilon,\)</span> es decir <span class="math inline">\(\delta \equiv \delta(p, \epsilon).\)</span></p>
+<p>Un cambio en el conjunto <span class="math inline">\(S\)</span> de este ejemplo va a cambiar por completo la dependencia con respecto de <span class="math inline">\(p\)</span> de <span class="math inline">\(\delta.\)</span> En efecto, considere ahora un punto <span class="math inline">\(a\)</span> con <span class="math inline">\(0 &lt; a &lt; 1\)</span> y la función <span class="math inline">\(f(x) = 1/x\)</span> definida en <span class="math inline">\(S = [a, 1).\)</span> Note que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> se verifica que <span class="math display">\[
+\frac{\epsilon a^2}{1 + \epsilon a} \leq \frac{\epsilon p^2}{1 + \epsilon p} \text{ para todo } p \in S.
+\]</span> De acuerdo con esto, dado <span class="math inline">\(\epsilon &gt; 0,\)</span> tomando <span class="math inline">\(\delta = \epsilon a^2 / (1 + \epsilon a),\)</span> note que <span class="math inline">\(\delta \equiv \delta(\epsilon),\)</span> se verifica que <span class="math display">\[
+f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
+\]</span> para todo <span class="math inline">\(p \in S.\)</span></p>
+<p>La situación aquí presentada motiva la siguiente definición.</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-conuniforme" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 11 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en un conjunto <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es uniformemente continua si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math display">\[
+\vert f(x) - f(y) \vert  &lt; \epsilon \text{ siempre que } \vert x - y \vert &lt; \delta
+\]</span> para todo <span class="math inline">\(x, y \in S.\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="consecuencias-de-la-continuidad" class="level2">
+<h2 class="anchored" data-anchor-id="consecuencias-de-la-continuidad">Consecuencias de la continuidad</h2>
+<p>La continuidad de un proceso tiene una bella propiedad que nos permite en cierto sentido predecir el comportamiento en una cierta vecindad de un valor, si tenemos suficiente información sobre el comportamiento de este proceso en dicho valor.</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-presig" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 9 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = (a, b).\)</span> Si para un punto interior <span class="math inline">\(p\)</span> de <span class="math inline">\(S\)</span> se cumple que <span class="math inline">\(f(p) &gt; 0,\)</span> entonces existe una vecindad <span class="math inline">\(V_r(p)\)</span> tal que <span class="math inline">\(f(x) &gt; 0\)</span> para todo <span class="math inline">\(x \in V_{r}(p).\)</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Como <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p,\)</span> entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra escogencia, existe un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+f(p) - \epsilon &lt; f(x) &lt; f(p) + \epsilon \text{ para todo } x \in V_{\delta}(p)
+\]</span> la prueba finaliza a tomar cualquier valor <span class="math inline">\(\epsilon &lt; f(p)\)</span></p>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-bolzano_ceros" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 10 </strong></span>Sea <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = [a,b]\)</span> tal que <span class="math inline">\(f(a) f(b) &lt; 0\)</span>. Entonces existe al menos un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(f(p) = 0.\)</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Consideremos el conjunto <span class="math inline">\(\mathcal{A} = \{ x \in S: f(x) &gt; 0 \}.\)</span> Como <span class="math inline">\(\mathcal{A}\)</span> es no vacío y acotado, entonces es plausible pensar en la existencia de un elemento <span class="math inline">\(p \in S\)</span> tal que <span class="math inline">\(x \leq p\)</span> para todo <span class="math inline">\(x \in \mathcal{A}\)</span> y que dado <span class="math inline">\(\delta &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(p - \delta &lt; x\)</span> para algún <span class="math inline">\(x \in \mathcal{A}.\)</span></p>
+<p>Vamos a probar que <span class="math inline">\(f(p) = 0.\)</span> En efecto, si <span class="math inline">\(f(p) &gt; 0\)</span> de acuerdo con el Teorema <span class="math inline">\(\ref{teo:signo}\)</span> existe <span class="math inline">\(V_{\delta}(p)\)</span> tal que <span class="math inline">\(f(x) &gt; 0\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p)\)</span> y de acuerdo con esto existe al menos un <span class="math inline">\(x\)</span> con <span class="math inline">\(p &lt; x &lt; p + \delta\)</span> tal que <span class="math inline">\(f(x) &gt; 0\)</span> y esto contradice el echo de que <span class="math inline">\(x \leq p\)</span> para todo <span class="math inline">\(x \in \mathcal{A}\)</span>.</p>
+<p>Por otro lado, si <span class="math inline">\(f(x) &lt; 0\)</span> de acuerdo con el Teorema <span class="math inline">\(\eqref{teo:signo}\)</span> existe <span class="math inline">\(V_{\delta}(p)\)</span> tal que <span class="math inline">\(f(x) &lt; 0\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p),\)</span> y de acuerdo con esto para todo <span class="math inline">\(x\)</span> tal que <span class="math inline">\(p - \delta &lt; x\)</span> se tiene que <span class="math inline">\(f(x) &gt; 0,\)</span> lo que es una contradicción con el echo de que dado <span class="math inline">\(\delta &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(p - \delta &lt; x\)</span> para algún <span class="math inline">\(x \in \mathcal{A}.\)</span></p>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="cor-bolzano_cor" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolario 3 </strong></span>Si <span class="math inline">\(f\)</span> una función continua en <span class="math inline">\(S = [a,b]\)</span> tal que <span class="math inline">\(f(a) \neq f(b),\)</span> entonces para cualquier punto <span class="math inline">\(c\)</span> comprendido entre <span class="math inline">\(f(a)\)</span> y <span class="math inline">\(f(b)\)</span> existe al menos un punto <span class="math inline">\(p\)</span> interior a <span class="math inline">\(S\)</span> tal que <span class="math inline">\(f(p) = c.\)</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Note que la función <span class="math inline">\(h(x) = f(x) - c\)</span> verifica las hipótesis del Teorema <span class="math inline">\(\ref{teo_bolzano}\)</span>.</p>
+</div>
+</section>
+</section>
+<section id="integración" class="level1">
+<h1>Integración</h1>
+<p>En este capítulo buscaremos entender y realizar una escritura matemática de un antiguo método desarrollado por los griegos conocido como método exhaustivo, que consistía en encontrar un estimativo del área de una región descomponiendo esta en regiones más simple para las que fuese sencillo calcular el área. De esta forma el área de la región desconocida sería la suma de todas las áreas conocidas.</p>
+<section id="integral-de-riemann" class="level2">
+<h2 class="anchored" data-anchor-id="integral-de-riemann">Integral de Riemann</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-particion" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 12 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
+a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
+\]</span> Una partición <span class="math inline">\(P'\)</span> se dice más fina que otra partición del mismo intervalo si <span class="math inline">\(P' \supset P.\)</span></p>
+<p>Emplearemos la notación <span class="math inline">\(\Delta x_k\)</span> para indicar la diferencia <span class="math inline">\(\Delta x_k = x_k - x_{k-1}\)</span> siendo <span class="math inline">\(x_{k-1}\)</span> y <span class="math inline">\(x_{k}\)</span> elementos de una partición <span class="math inline">\(P.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-riemann" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 13 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
+S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1}, x_{k}].
+\]</span> Note en particular que el valor de <span class="math inline">\(S(P,f)\)</span> depende de la elección de <span class="math inline">\(P.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-ejemplo" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la función <span class="math inline">\(f(x) = \floor{x}\)</span> definida en el intervalo <span class="math inline">\(S = [0,10],\)</span> y consideremos una partición de dicho intervalo</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-intriemann" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 14 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
+\vert S(P, f) - I\vert &lt; \epsilon.
+\]</span> El número <span class="math inline">\(I\)</span> se representa como <span class="math inline">\(I = \int_{a}^{b} f(x) \, dx\)</span> y se lee: `` la integral de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.’’</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-teorema" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 11 </strong></span>Si <span class="math inline">\(f\)</span> es una función continua en <span class="math inline">\(S = [a,b]\)</span> entonces es Riemann integrable en <span class="math inline">\(S.\)</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Debido a la continuidad de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, para una partición arbitraria <span class="math inline">\(P = \{x_0 , x_1, \ldots, x_n \}\)</span> la función <span class="math inline">\(f\)</span> alcanza su menor y mayor valor en el intervalo <span class="math inline">\(\left[x_{k-1}, x_{k} \right].\)</span> Identifiquemos estos valores respectivamente con <span class="math inline">\(m_k\)</span> y <span class="math inline">\(M_k\)</span>. Es claro que <span class="math display">\[
+\sum_{k = 1}^{n} m_k \Delta x_k \leq S(P, f) \leq \sum_{k = 1}^{n} M_k \Delta x_k
+\]</span> Por otro lado, como una consecuencia del Corolario <span class="math inline">\(\ref{cor:bolzano}\)</span> sean <span class="math inline">\(r_{k}\)</span> y <span class="math inline">\(s_{k}\)</span> puntos en <span class="math inline">\([x_{k-1}, x_{k}]\)</span> tales que <span class="math inline">\(f(r_{k}) = m_k\)</span> y <span class="math inline">\(f(s_{k}) = M_k.\)</span> Ahora bien, como <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(S = [a,b],\)</span> es uniformemente continua, y de acuerdo con esto para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra escogencia, existe un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math inline">\(\vert f(s_k) - f(r_k)\vert &lt; \epsilon\)</span> siempre que <span class="math inline">\(\vert s_k - r_k \vert &lt; \delta\)</span> para todo <span class="math inline">\(s_k,r_k \in S.\)</span> De acuerdo con esto <span class="math display">\[
+\sum_{k=1}^{n} \left( M_k - m_k \right) \Delta_k = \sum_{k=1}^{n} \left( f(s_k) - f(r_k) \right) \Delta_k &lt; \epsilon(b-a).
+\]</span> lo que finaliza la prueba.</p>
+</div>
+</section>
+</section>
+<section id="diferenciación" class="level1">
+<h1>Diferenciación</h1>
+<p>Sea <span class="math inline">\(p \in S\)</span> un punto interior de un conjunto <span class="math inline">\(S\)</span> de <span class="math inline">\(\mathbb{R}\)</span> y <span class="math inline">\(f:S \to T\)</span> una función de valor real. Consideremos la función <span class="math display">\[
+\phi(x) = \frac{f(x) - f(p)}{x - p},
+\]</span> La función <span class="math inline">\(\phi\)</span> tiene una interesante interpretación geométrica, pues resulta ser la pendiente de la recta que pasa por los puntos <span class="math inline">\((x, f(x))\)</span> y <span class="math inline">\((p, f(p)).\)</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-diferenciabilidad" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 15 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
+\phi(x) = \frac{f(x) - f(p)}{x - p},
+\]</span> es continua en <span class="math inline">\(p.\)</span></p>
+<p>Comúnmente el símbolo <span class="math inline">\(\phi(p)\)</span> se representa como <span class="math inline">\(f'(p)\)</span> o <span class="math inline">\(\dfrac{d}{dx}f(p)\)</span> y en ambos casos se leen como: `` la derivada de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> evaluada en <span class="math inline">\(p.\)</span>’’ Es decir <span class="math display">\[
+\phi(p) \equiv f'(p) \text{ o } \phi(p) \equiv \frac{d}{dx}f(p).
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-lemadif_con" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 12 </strong></span>Sea <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> dos funciones diferenciables en un punto interior <span class="math inline">\(p\)</span> de un conjunto <span class="math inline">\(S\)</span> y sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> números reales. Entonces <span class="math display">\[
+\frac{d}{dx} \left( \alpha f(p) + \beta g(p)\right) = \alpha \frac{d}{dx} f(p) + \beta \frac{d}{dx}g(p).
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Consideremos la función cociente <span class="math display">\[
+\varphi(x) = \frac{\alpha f(x) + \beta g(x) - \alpha f(p) - \beta g(p)}{x - p}
+\]</span> Al agrupar y sacar factor común <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta,\)</span> obtenemos <span class="math display">\[
+\varphi(x) = \alpha \frac{f(x) - f(p)}{x - p} + \beta \frac{g(x) - g(p)}{x - p},
+\]</span> y la prueba termina al hacer <span class="math inline">\(x \to p.\)</span></p>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-der_constante" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
+\frac{d}{dx}f(p) = 0,
+\]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-der_xn" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p>Note que <span class="math display">\[\begin{align*}
+    \phi(x) &amp; = \frac{x^n - p^n }{x - p}
+    \\
+    &amp; = x^{n-1} + p x^{n-2} + p^{2} x^{n -3} + \cdots + p^{n - 2} x + p^{n-1}
+\end{align*}\]</span> y de acuerdo con esto <span class="math display">\[
+\lim_{x \to p} \phi(x) = \phi(p) = \frac{d}{dx} f(p) = n p^{n-1}.
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-derprod" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 13 </strong></span>Sean <span class="math inline">\(f:S \to T\)</span> y <span class="math inline">\(g:S \to U\)</span> dos funciones diferenciables en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S.\)</span> Entonces para la función <span class="math inline">\(h(x) = f(x) g(x)\)</span> se cumple que <span class="math display">\[
+\frac{d}{dx} h(p) = f(p) \frac{d}{dx}g(p) + g(p) \frac{d}{dx}f(p)
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Considere la función cociente <span class="math display">\[
+\phi(x) = \frac{h(x) - h(p)}{x - p},
+\]</span> y note que <span class="math display">\[\begin{align*}
+    \phi(x) &amp;= \frac{f(x) ( g(x) - g(p) ) + g(p) ( f(x) - f(p ) )}{x-p}
+    \\
+    \\
+    &amp;= f(x) \frac{g(x) - g(p)}{x - p} + g(p) \frac{f(x) - f(p)}{x - p},
+\end{align*}\]</span> y la prueba termina al hacer <span class="math inline">\(x \to p.\)</span></p>
+</div>
+<section id="consecuencias-de-la-diferenciabilidad" class="level2">
+<h2 class="anchored" data-anchor-id="consecuencias-de-la-diferenciabilidad">Consecuencias de la diferenciabilidad</h2>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-creciente" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 14 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función con derivada continua en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> tal que <span class="math inline">\(\dfrac{df}{dx}(p) &gt; 0.\)</span> Existe <span class="math inline">\(V_\delta(p) \subset S\)</span> tal que <span class="math display">\[
+\frac{f(x) - f(y)}{x - y} &gt; 0
+\]</span> para todo <span class="math inline">\(x, y \in V_{\delta}(p)\)</span> con <span class="math inline">\(x \neq y.\)</span></p>
+</div>
+</div>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Como <span class="math inline">\(\dfrac{df}{dx}(p) &gt; 0,\)</span> debido a la continuidad de la derivada existe una <span class="math inline">\(V_{\delta}(p)\)</span> tal que <span class="math inline">\(\dfrac{df}{dx}(y) &gt; 0\)</span> para todo <span class="math inline">\(y \in V_{\alpha}(p),\)</span> y de acuerdo con esto, existe una <span class="math inline">\(V_{\beta}(y) \subset V_{\alpha}(p)\)</span> en donde el cociente <span class="math display">\[
+\frac{f(x) - f(y)}{x - y} &gt; 0
+\]</span> para todo <span class="math inline">\(x \in V_{\beta}(y)\)</span> con <span class="math inline">\(x \neq y.\)</span> Tomemos ahora <span class="math display">\[
+V_{\delta}(p) = \bigcup_{y \in V_{\alpha}(p)}V_{\beta}(y).
+\]</span></p>
+</div>
+<p>Es importante mencionar que en el caso de que <span class="math inline">\(\dfrac{df}{dx}(p)&lt;0\)</span> entonces existe una <span class="math inline">\(V_\delta(p) \subset S\)</span> tal que <span class="math display">\[
+\frac{f(x) - f(y)}{x - y} &lt; 0
+\]</span> para todo <span class="math inline">\(x, y \in V_{\delta}(p)\)</span> con <span class="math inline">\(x \neq y.\)</span> La prueba de esto es similiar a la anterior con la salvedad de que debemos cambiar el sentido de las desigualdades.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-maxmin" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 16 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
+f(p) \geq f(x)
+\]</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span></p>
+<p>La definición para mínimo local es similar salvo por el hecho del cambio de sentido de la desigualdad.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="thm-derivada_cero" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 15 </strong></span>Sea <span class="math inline">\(f: S \to T\)</span> una función diferenciable que alcanza en <span class="math inline">\(p,\)</span> un punto interior de <span class="math inline">\(S,\)</span> un máximo o mínimo local, entonces <span class="math inline">\(\frac{df}{dx}(p) = 0\)</span></p>
+</div>
+</div>
+</div>
+<p>Sea <span class="math inline">\(f \equiv f(x)\)</span> una función diferenciable con respecto de la variable <span class="math inline">\(x.\)</span> Supongamos ahora que existe una función <span class="math inline">\(s \equiv s(x)\)</span> igualmente diferenciable tal que <span class="math inline">\(\dfrac{d s}{dx} \neq 0.\)</span> De acuerdo con el Teorema de la función inversa existe una función <span class="math inline">\(m \equiv m(s)\)</span> tal que <span class="math inline">\(t \equiv m(s).\)</span> Considere ahora una función <span class="math inline">\(h(s) = f(m(s)).\)</span> Note que <span class="math display">\[
+\frac{dh}{ds}\quad  \equiv \quad \frac{df}{ds} =  \frac{df}{dx} \Big\vert_{m(s)} \frac{dm}{ds}
+\]</span> Por otro lado, recuerde que <span class="math inline">\(m(s(x)) = x\)</span> y al derivar con respecto de <span class="math inline">\(x\)</span> obtenemos <span class="math display">\[
+\frac{dm}{ds} \frac{ds}{dx} = 1
+\]</span> y por lo tanto la ecuación anterior se puede escribir como <span class="math display">\[
+\frac{df}{ds} = \frac{df}{dx} \Big\vert_{m(s)} \left( \frac{ds}{dx} \right)^{-1}
+\]</span></p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

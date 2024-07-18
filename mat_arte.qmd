@@ -1,0 +1,296 @@
+---
+title: "Matemáticas para las artes"
+lang: es
+---
+
+## Preliminares##
+
+En este capítulo introduciremos algunos conceptos elementales del álgebra de conjuntos y la aritmética de los números reales. Estos conceptos los emplearemos para diseñar estructuras que obedezcan a patrones de uniones e intersecciones de unas con otras y para construir objetos que respeten cierta relación numérica.
+
+### Álgebra de conjuntos ###
+
+Entenderemos por un conjunto como una colección de elementos. A lo largo del documento identificaremos a un conjunto con una letra mayúscula cursiva, y sus elementos estarán comprendidos entre corchetes separados por una coma.  Por ejemplo,
+$$
+\mathcal{C} = \{2, 4, 6, 7, 9, 13 \}.
+$$
+Para indicar que un elemento pertenece a un conjunto se empleará el símbolo $\in,$ y con el símbolo $\notin$ indicaremos la situación contraria. Por ejemplo, para el conjunto $\mathcal{C}$ se verifica que $2 \in \mathcal{C}$ y que $5 \notin \mathcal{C}.$
+
+Un conjunto $\mathcal{A}$ será un subconjunto de un conjunto $\mathcal{B},$ en notación $\mathcal{A} \subset \mathcal{B},$ si todo elemento de $\mathcal{A}$ es un elemento de $\mathcal{B}.$ Por ejemplo, si $\mathcal{A} = \{ 2,9,13 \}$ note que $\mathcal{A} \subset \mathcal{C}.$
+
+De manera natural  podríamos pensar que dos conjuntos $\mathcal{S}$ y $\mathcal{T}$ son iguales si tienen los mismos elementos, es decir $\mathcal{S} \subset \mathcal{T}$ y $\mathcal{T} \subset \mathcal{S}.$
+
+Para dejar clara la posibilidad de que un conjunto es un subconjunto de si mismo, se emplea el símbolo $\subseteq$ y se deja el símbolo $\subset$ para referirse al caso de un subconjunto que no coincide con el mismo conjunto, o en otras palabras a un subconjunto propio del conjunto. De acuerdo con esto se podría escribir $\mathcal{A} \subseteq \mathcal{P},$ pero es recomendable en este caso escribir $\mathcal{A} \subset \mathcal{P},$ ya que $\mathcal{A}$ es un subconjunto propio de $\mathcal{P}.$
+
+Se representa con el símbolo $\emptyset$ al conjunto que carece de elementos, y se entiende que dicho conjunto es un subconjunto de todo conjunto. En nuestro caso por ejemplo $\emptyset \subset \mathcal{P}.$
+
+:::{.callout-note appearance="minimal"}
+## Unión de conjuntos
+Dado dos conjuntos $\mathcal{A}$ y $\mathcal{B}$ el símbolo $\mathcal{A} \cup \mathcal{B}$ se lee $\mathcal{A}$ unión $\mathcal{B}$ y este corresponde con el conjunto cuyos elementos son los elementos que están en $\mathcal{A}$ o en $\mathcal{B}.$  Este conjunto se puede representar simbólicamente como
+$$
+\mathcal{A} \cup \mathcal{B} = \{ x \vert x \in \mathcal{A} \lor x \in \mathcal{B}  \}.
+$$
+
+Esto se lee en la siguiente forma: $\mathcal{A} \cup \mathcal{B}$ son los elementos $x$ **"tales que"** $( \vert )$  $x$ **"es un elemento de"** $\mathcal{A}$  $( x \in \mathcal{A} )$  **"o"** $(\lor)$ $x$ **"es un elemento de"** $\mathcal{B}$
+:::
+    
+:::{.callout-note appearance="minimal"}
+## Intersección de conjuntos
+Dado dos conjuntos $\mathcal{A}$ y $\mathcal{B}$ el símbolo $\mathcal{A} \cap \mathcal{B}$ se lee $\mathcal{A}$ intersección $\mathcal{B}$ y este corresponde con el conjunto cuyos elementos son los elementos que están en $\mathcal{A}$ y en $\mathcal{B}.$  Este conjunto se puede representar simbólicamente como
+$$
+\mathcal{A} \cap \mathcal{B} = \{ x \vert x \in \mathcal{A} \land x \in \mathcal{B}  \}.
+$$
+Esto se lee en la siguiente forma: $\mathcal{A} \cup \mathcal{B}$ son los elementos $x$ **"tales que"** $( \vert )$  $x$ **"es un elemento de"** $\mathcal{A}$   $( x \in \mathcal{A} )$ **"y"** $(\land)$  $x$ **"es un elemento de"** $\mathcal{B}$ 
+
+:::
+
+:::{.callout-note appearance="minimal"}
+## Diferencia de conjuntos
+Dados dos conjuntos $\mathcal{A}$ y $\mathcal{B}$ el símbolo $\mathcal{A} \setminus \mathcal{B}$ se lee $\mathcal{A}$ menos $\mathcal{B},$ y este corresponde con el conjunto cuyos elementos son aquellos que están en $\mathcal{A}$ y que no están en $\mathcal{B}.$ Este conjunto se puede representar simbólicamente como
+$$
+\mathcal{A} \setminus \mathcal{B} = \{ x \in \mathcal{A} \vert x \notin \mathcal{B} \}.
+$$
+Esto se lee en la siguiente forma: $\mathcal{A} \setminus \mathcal{B}$ son los elementos $x$ de $\mathcal{A}$ **""tales que"** $( \vert )$  $x$ **"no es un elemento de"** $\mathcal{B}$ ".
+
+:::
+
+## Números reales
+
+Supongamos la existencia de un conjunto de números denotado con $\mathbb{R}$ (números reales) que verifican los siguientes axiomas ^[Una afirmación que se supone cierta.]
+
++ **ax1.** leyes conmutativas
+$$
+x + y = y + x, \quad x \cdot y = y \cdot x
+$$
+
++ **ax2.** leyes asociativas
+$$
+x + (y + z) = (x + y) + z, \quad x\cdot(y \cdot z) = (x \cdot y) \cdot z
+$$
+
++ **ax3.** ley distributiva
+$$
+x \cdot ( y + z) = x \cdot y + x \cdot z
+$$
+
++ **ax4.** Dados dos números reales $x$ e $y$ existe siempre un número real $z$ tal que $x + z = y.$ Dicho número se representa por $y - x.$ En un caso particular, el número $x - x$ se representa con $0.$ Se escribe $-x$ en lugar de $0 - x$ y este número es conocido como el opuesto de $x.$
+
+
++ **ax5.** Para dos números reales $x, y$ con $x \neq 0$ existe un número real $z$ tal que $x \cdot z = y.$ Dicho número se representa con $y / x.$ En el caso particular, el número $x/x$ se representa con con $1.$ Se acostumbra escribir $x^{-1}$ en lugar de $1/x,$ y a $x^-1$ se le conoce como el inverso de $x.$
+
++ **ax6.** Se verifica una y sólo una de las relaciones $x = y,$ $x < y,$ $x > y.$
+
++ **ax7.** Si $x < y$ entonces para cada $z$ se verifica que
+$$
+x + z < y + z
+$$
+
++ **ax8.** Si $x > 0$ y $y > 0$ entonces $x \cdot y > 0.$
+
++ **ax9.** Si $x > y$ e $y > z$ entonces $x > z.$
+
+Un número real $x$ es llamado positivo si $x > 0,$ y es llamado negativo si $x < 0.$ La notación  $x \leq y$ se emplea para abreviar la afirmación
+$$
+x < y \quad \text{ ó } \quad x = y.
+$$
+
+Note que si $x > 0$ entonces $-x < 0.$ En efecto, si $-x > 0$ teniendo en cuenta que $x > 0$ entonces 
+$$
+-x + x > 0 + x,
+$$
+con lo que $0 > x$ lo que no es posible, ya que $x > 0.$ De manera equivalente puede probarse que si $-x > 0$ entonces $x < 0.$
+
+### Axioma de completitud
+
+:::{.callout-note appearance="minimal"}
+## Cota superior e inferior de un conjunto
+Sea $A$ un conjunto de números reales. Si existe un número real $b$ tal que $x \leq b$ para todo número $x$ de $A,$ entonces diremos que $b$ es una cota superior de $A,$ y que $A$ esta acotado superiormente por $b.$ 
+
+En el caso de que las desigualdades estén en sentido opuesto, diremos que el conjunto es acotado inferiormente.
+:::
+
+:::{.callout-note appearance="minimal"}
+## Extremo superior e inferior de un conjunto
+Sea $A$ un conjunto de números reales acotado superiormente. Un número real $b$ se denomina extremo superior de $A,$ en notación  $b = \sup{A},$ si cumple las siguientes propiedades:
+
++ $i.$ $b$ es una cota superior de $A.$
+
++ $ii.$ $b$ es la menor de las cotas superiores de $A,$ es decir, no existe ningún número menor a $b$ que sea una cota superior de $A.$
+
+:::
+
+
++ **ax10.** Todo conjunto no vacío $A$ de números reales acotado superiormente admite un supremo. 
+
+
+## Recta numérica
+
+Una forma de representar el conjunto de los números reales es empleando la recta numérica. Sobre esta podemos identificar el cero y al lado derecho de este los números positivos mientras que a la lado izquierdo los negativos. Los axiomas de orden sobre la recta numérica se relacionan de la siguiente manera: un número $a$ es mayor que otro número $b,$ es decir $(a > b)$ si $a$ se encuentra localizado sobre la recta a la derecha de $b.$
+
+Sobre la recta numérica la suma de dos números reales tiene una interesante interpretación. Si $a$ es un número real y $b$ es un número positivo, entonces la suma de $a + b$ corresponde con el desplazar $b$ unidades el número $a$ a la derecha. 
+
+A continuación vamos a presentar algunos ejemplos en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.
+
+:::{.callout-warning icon=false}
+##
+::: {#exm-ejemplo1}
+
+Encuentre el valor de $x$ que satisface la siguiente ecuación
+$$
+- \frac{9}{4}x + \frac{2}{3} = 1.
+$$
+
+**Solución** 
+
+Vamos a resolver la ecuación despejando paso a paso la variable  $x$. 
+
+Primero sumaremos a ambos lados el inverso aditivo de $2/3$.
+$$
+\begin{align*}
+-\frac{9}{4}x & = 1 + \left( - \frac{2}{3} \right) 
+\\
+& = \frac{1}{3}.
+\end{align*}
+$$
+Ahora vamos a multiplicar esta ultima expresión por el inverso multiplicativo de $-9/4,$ es decir $-4/9,$ para obtener 
+$$
+\begin{align*}
+x = -\frac{4}{27}.
+\end{align*}
+$$
+:::
+:::
+## Propiedades de los exponentes
+
+Una forma de reducir la escritura del múltiple producto del número $a$ consigo mismo n-veces es 
+$$
+a^n = \underbrace{a \cdot a \cdots a}_{\text{ $n$-veces}}.
+$$
+De acuerdo con esto, se puede probar que para dos enteros positivos $m$ y $n$ se cumple
+$$
+a^{m} \cdot a^{n} = a^{m + n} \, \text{ y que } \, \left( a^{m} \right)^n = a^{m  n}.
+$$
+Por otro lado, como una consecuencia de los axiomas de los números reales entenderemos que
+$$
+\left( a^n \right)^{-1} \equiv a^{-n} \equiv \frac{1}{a^n}.
+$$
+Es importante mencionar que las expresiones anteriores se pueden extender para cualquier número real en el exponente de $a.$
+
+### Notación científica
+La notación científica es un número en la forma $M \times 10^k$ en donde $M$ es un número decimal con parte entera distinta de cero, y $10^k$ se conoce como el orden de magnitud siendo $k$ un número entero.
+
+Por ejemplo, el número 0.0000401 se puede escribir en notación científica como $401 \times 10^{-7}.$
+
+## Cantidades proporcionales
+
+Diremos que dos cantidades $x$ e $y$ son directamentamente proporcionales, en notación $x \propto y,$ si existe una constante $k \neq 0$ tal que
+$$
+x = k y.
+$$
+
+Por otro lado, diremos que $x$ e $y$ son inversamente proporcionales si $x$ es directamente proporcional a la cantidad $1/y.$ Es decir, existe una constante $k \neq 0$ tal que
+$$
+x = k \frac{1}{y}.
+$$
+
+
+En los siguientes ejemplos las cantidades empleadas mantienen una relación directa o inversa de proporcionalidad.
+
+
+:::{.callout-warning icon=false}
+##
+:::{#exm-dp}
+Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.
+
+**Solución** 
+
+Note que a mayor cantidad de gasolina, mayor es el número de kilómetros que se pueden recorrer. De acuerdo con esto, la cantidad de gasolina es directamente proporcional a la distancia, es decir, si denotamos con $G$ a la gasolina y con $K$ a los kilómetros entonces
+$$
+G = k K,
+$$
+y de acuerdo a nuestra relación inicial $1 = k 55$ con lo que $k = 1/55.$ Considerando que se quieren recorrer 200km, entonces
+$$
+G = \frac{200}{55}\approx 3.64 
+$$
+
+Entonces con aproximadamente 3.64 galones en el tanque se pueden recorrer los 200km.
+:::
+:::
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-ip}
+Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días? 
+
+**Solución** 
+
+Note que a mayor número de trabajadores menor es el tiempo que se emplea en pintar la casa. De acuerdo con esto, el número de trabajadores es inversamente proporcional al tiempo empleado. Es decir, si denotamos con $N$ al número de trabajadores y con $T$ al tiempo en que se pinta la casa obtenemos 
+$$
+N = k \frac{1}{T},
+$$
+y de acuerdo con la relación inicial $10 = k/3$ con lo que $k = 30.$ Teniendo en cuanta que se requiere pintar la casa en $T = 2$ días, entonces
+$$
+N = \frac{30}{2} = 15.
+$$
+Entonces con 15 trabajadores se podría pintar la casa en 2 días.
+:::
+:::
+
+## Factores de conversión 
+En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-fc}
+
+Convertir $1.3m^3$ a $in^3$
+
+**Solución** 
+
+Necesitamos identificar a cuantas pulgadas cúbicas $(in^3)$ equivale un metro cúbico $(m^3),$ para ello note que
+$$
+1 in = 2.54 cm = 0.0254 m
+$$
+
+o de manera equivalente
+
+$$
+1 m = 39.37 in,
+$$
+y de acuerdo con esto
+$$
+1 m^3 = 61023.39 in^3,
+$$
+con lo que
+$$
+1.3 m^3 = 79330.40 in^3
+$$
+:::
+:::
+
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-fc1}
+
+Convertir $2.3 kg$ a $lb$
+
+**Solución** 
+
+Necesitamos identificar a cuantas libras $(lb)$ equivale un kilo $(kg),$ para ello note que
+
+$$
+1 lb = 453.59 g = 0.45359 kg
+$$
+o de manera equivalente
+$$
+1 kg = 2.2046 lb
+$$
+con lo que
+$$
+2.3 kg = 5.07 lb
+$$
+:::
+:::
+
+## El plano cartesiano
+

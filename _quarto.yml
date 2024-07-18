@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - text: "Presentación"
+        href: index.qmd
+      - text: "Matemáticas para las artes"
+        href: mat_arte.qmd
+      - text: "Cálculo de una variable"
+        href: modelos_univariable.qmd
+      - about.qmd
+
+format:
+  html:
+    theme: Flatly
+    css: styles.css
+    toc: true
+
+body-header: | 
+  This page brought to you by <https://example.com>
+margin-header: |
+  ![superficie paramétrica](/img/logo.png)
+
+

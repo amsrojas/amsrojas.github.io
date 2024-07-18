@@ -1,0 +1,180 @@
+---
+title: "Algunos comentarios sobre matemáticas"
+lang: es
+---
+
+En este espacio vamos a escribiremos algunos resultados evidentes e interesantes sobre la matemática básica.
+
+## Un divertimento sobre números primos ##
+
+### Esquivando múltiplos de primos ###
+
+Note que todo número par $2N$ se puede escribir en la forma
+$$
+2N = 6k, \quad 2N = 6k + 2, \quad 2N = 6k + 4   
+$$
+con  $k = 0,1,\ldots$ 
+
+Por otro lado los números $6k,$ $6k + 2$ y $6k + 4$ son el resultado de la suma de cantidades de la forma
+$$
+6k + 1 \text{ y } 6k + 5,
+$$
+siendo estos números no divisibles por $2$ ni por $3.$ De acuerdo con lo anterior es evidente que:
+
+::: {.callout-note icon=false}
+
+## Lema
+
+Todo número par $2N > 6$ se puede escribir como la suma de dos números no divisibles por $2$ ni por $3.$
+
+:::
+
+Ahora bien, en los conjuntos
+$$
+A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb{N}_0}
+$${#eq-conjuntos}
+para ciertos valores de $x$ e $y$ es siempre posible encontrar múltiplos de algún primo $p.$ Note que en este caso $x$ e $y$ deberían de satisfacer las siguientes ecuaciones modulares  
+$$
+    6x \equiv (p - 1) \mod{p},
+$$
+$$
+    6y \equiv (p - 5) \mod{p},
+$$
+
+cuya solución se obtiene fáscilmente estudiando las situaciones de si $p-1$ o $p-5$ es un múltiplo de $6$. En efecto:
+
++ **S1.** Si $p-1$ es divisible por $6,$ entonces 
+$$
+x \equiv a \mod{p} \quad \text{ con } \quad a = \frac{p-1}{6}
+$$ 
+y 
+$$
+y \equiv b \mod{p} \quad \text{ con } \quad b = 5a
+$$
++ **S2.** Si $p-5$ es un múltiplo de $6,$ entonces 
+$$
+y   \equiv b \mod{p} \quad \text{ con } \quad b = \frac{p-5}{6}
+$$ 
+y
+$$
+x \equiv a \mod{p} \quad \text{ con } a = \frac{5p - 1}{6}
+$$ {#eq-modulo}
+En ambas situaciones **S1.** y **S2.** es claro que $a + b = p-1$
+
+**Ejemplo**
+
+Para $p = 29$ (situación **S1.**) tenemos que $b = 4$ y $a = 28.$ De acuerdo con esto los elementos de los conjuntos  @eq-conjuntos tomando $x  \equiv 28 \mod{29}$ y $y \equiv 4 \mod{29}$ son todos múltiplos de 29 no divisibles por $2$ ni por $3.$ 
+
+Para $p = 37$ (situación \textbf{S1}) tenemos que $a = 6$ y $b = 30.$ De acuerdo con esto los elementos de los conjuntos \eqref{eq::conjuntos}  tomando $x \equiv 6 \mod{37}$ y $y \equiv 30 \mod{37}$ son todos múltiplos de $37$ no divisibles por $2$ ni por $3.$
+
+Sean $\alpha$ y $\beta$ dos números múltiplos de un primo $p$ y pertenecientes a cualquiera o ambos conjuntos $A$ y $B.$ Es claro que $\alpha + \beta = 2N$ es un número par. 
+
+Nuestro propósito ahora es encontrar una forma de reescribir la suma $\alpha + \beta$ por otra $\alpha' + \beta'$ en donde $\alpha'$ y $\beta'$ sean elementos de $A$ y $B,$ no múltiplos de $p$ y cuya suma sea igualmente $2N.$  
+
+\begin{itemize}
+\item[\textbf{C1.}] Sean $\alpha$ y $\beta$ elementos del conjunto $A$ de \eqref{eq::conjuntos} ambos múltiplos de un primo $p$ siendo $p-1$ un múltiplo de $6.$ Es claro que
+\begin{align*}
+2N & = \alpha + \beta
+\\
+& = 6(x_1 + x_2) + 2 
+\end{align*}
+en donde $x_1 , x_2  \equiv a \Mod{p},$ con $a$ como \eqref{soleq1_x}. Notemos por ejemplo que
+\begin{equation}
+\label{eq:sumM1}
+a = 6a + (a + 1) \text{ para } 6a, a, 1 \in \mathbb{Z}_p.
+\end{equation}
+y como
+\[
+\alpha = p u \text{ con } u \equiv a \Mod{p} \, \text{ y } \, \alpha = p v \text{ con } v \equiv a \Mod{p}
+\]
+entonces 
+\[
+ u  + v \equiv (p-2) \Mod{p} + (2a + 2) \Mod{p},
+\]
+y si de acuerdo con \eqref{eq:sumM1} hacemos
+\begin{equation}
+    \label{ep:C1}
+u' = (p-2) \Mod{p} \text{ y } v' \equiv (2a + 2) \Mod{p}
+\end{equation}
+nuestros nuevos candidatos para $\alpha'$ y $\beta'$ serían
+\begin{equation}
+    \label{eq:C11}
+\alpha' = 6u' + 1 \text{ y } \beta' = 6v' + 1   
+\end{equation}
+\begin{ejemplo}
+Considere los números $\alpha = 247$ y $\beta = 589$ ambos elementos del conjunto $A$ múltiplos de $p = 19$. Como en este caso $a = 3$ de acuerdo con \eqref{ep:C1}  obtenemos
+\[
+u' \equiv 17 \Mod{19} \text{ y } v' \equiv 8 \Mod{19}
+\]
+y
+\begin{align*}
+247 + 589 =  836  & = (6u' + 1) + (6v' + 1)
+ \\
+ & = (6(19x_1' + 17) + 1) + (6(19x_2' + 8) + 1)
+\end{align*}
+de donde se obtiene que
+\[
+6 = x_1' + x_2'.
+\]
+y de acuerdo con esto tenemos $5$ posibles resultados para la pareja $(x_1, x_2)$ que permiten descomponer a $836$ como la suma de dos números no divisibles por $2$ ni por $3$ ni $19.$ Estos son
+\[
+836 = 217 + 619 = 331 + 505 = 445 + 391 = 559 + 277 = 673 + 163
+\]
+resultado de tomar las combinaciones $(1,5),$ $(2,4),$ $(3,3),$ $(4,2)$ y $(5,1)$ para $(x_1, x_2).$
+\end{ejemplo}
+
+\item[\textbf{C2.}]
+Sean $\alpha$ y $\beta$ elementos del conjunto $B$ de \eqref{eq::conjuntos} ambos múltiplos de un primo $p$ siendo $p-5$ un múltiplo de $6.$ Es claro que
+\begin{align*}
+2N & = \alpha + \beta
+\\
+& = 6(y_1 + y_2) + 2 
+\end{align*}
+en donde $y_1 , y_2  \equiv b \Mod{p},$ con $b$ como \eqref{soleq2_x}. Notemos por ejemplo que
+\begin{equation}
+\label{eq:sumM2}
+b = 2b + (p-b) \text{ para } 2b, p-b \in \mathbb{Z}_p.
+\end{equation}
+De acuerdo con esto podemos definir $u'$ y $v'$ como
+\begin{equation}
+    \label{ep:C11}
+u' = (4b) \Mod{p} \text{ y } v' \equiv (p - 2b) \Mod{p}
+\end{equation}
+para que nuestros candidatos  de $\alpha'$ y $\beta'$ sean 
+\begin{equation}
+    \label{eq:C21}
+\alpha' = 6u' + 5 \text{ y } \beta' = 6v' + 5   
+\end{equation}
+\begin{ejemplo}
+Considere los números $\alpha = 893$ y $\beta = 2021$ ambos elementos del conjunto $B$ múltiplos de $p = 47$. Como en este caso $b = 7$ de acuerdo con \eqref{ep:C11}  obtenemos
+\[
+u' \equiv 28 \Mod{47} \text{ y } v' \equiv 33 \Mod{47}
+\]
+como
+\begin{align*}
+ 893 + 2021 = 2914  & = (6u' + 5) + (6v' + 5)
+ \\
+ & = (6(47y_1' + 28) + 5) + (6(47y_2' + 33) + 5)
+\end{align*}
+entonces 
+\[
+9 = y_1' + y_2'.
+\]
+y de acuerdo con esto tenemos $8$ posibles resultados para la pareja $(y_1, y_2)$ que permiten descomponer a $2914$ como la suma de dos números no divisibles por $2,$ $3$ y $47.$ Estos son
+\begin{align*}
+   & 2914 = 455 + 2459 = 737 + 2177 = 1019 + 1895 = 1301 + 1613 
+   \\
+   & 2914 = 1583 + 1331 = 1865 + 1049 = 2147 + 767 = 1429 + 485
+\end{align*}
+
+
+resultado de tomar las combinaciones $(1,8),$ $(2,7),$ $(3,6),$ $(4,5),$ $(5,4), $ $(6, 3),$ $(7,2)$ y $(8,1)$ para $(y_1, y_2)$ respectivamente.
+\end{ejemplo}
+
+\item[\textbf{C3.}] Sean $\alpha$ y $\beta$ elementos de los conjuntos  $A$ y $B$ respectivamente 
+
+\end{itemize}
+
+
+
+

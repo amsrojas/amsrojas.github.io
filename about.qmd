@@ -1,0 +1,7 @@
+---
+title: "El autor"
+---
+
+Dr. Andres Salazar.
+
+Mi área de investigación son las ecuaciones parciales elípticas. También me interesa el campo del análsisi funcional, la teoría analítica de números y la computación, el arte.
