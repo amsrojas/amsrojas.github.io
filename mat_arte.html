@@ -183,9 +183,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#notación-científica" id="toc-notación-científica" class="nav-link" data-scroll-target="#notación-científica">Notación científica</a></li>
   </ul></li>
-  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a></li>
+  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a>
+  <ul class="collapse">
   <li><a href="#factores-de-conversión" id="toc-factores-de-conversión" class="nav-link" data-scroll-target="#factores-de-conversión">Factores de conversión</a></li>
-  <li><a href="#el-plano-cartesiano" id="toc-el-plano-cartesiano" class="nav-link" data-scroll-target="#el-plano-cartesiano">El plano cartesiano</a></li>
+  <li><a href="#cambios-de-escala" id="toc-cambios-de-escala" class="nav-link" data-scroll-target="#cambios-de-escala">Cambios de escala</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -267,6 +269,7 @@ Diferencia de conjuntos
 \]</span> Esto se lee en la siguiente forma: <span class="math inline">\(\mathcal{A} \setminus \mathcal{B}\)</span> son los elementos <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathcal{A}\)</span> <strong>““tales que”</strong> <span class="math inline">\(( \vert )\)</span> <span class="math inline">\(x\)</span> <strong>“no es un elemento de”</strong> <span class="math inline">\(\mathcal{B}\)</span> “.</p>
 </div>
 </div>
+<p>Con el siguiente código en OpenSCAD unimos tres cilindros, uno central de radio 50 y dos laterales cuyos centro se han localizado en los punto <span class="math inline">\(A(25 \sqrt{2}, 25 \sqrt{2})\)</span> y <span class="math inline">\(B(-25 \sqrt{2}, -25 \sqrt{2})\)</span>. Después a la estructura total le hemos sustraido un rectángulo de dimensiones <span class="math inline">\(100\)</span> unidades en <span class="math inline">\(x\)</span> y <span class="math inline">\(20\)</span> unidades, el rectángulo se ha ratado <span class="math inline">\(45^{\circ}\)</span> a favor de las manecillas de reloj.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource openscad number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>$fn = 100;</span>
 <span id="cb1-2"><a href="#cb1-2"></a>linear_extrude(5){</span>
 <span id="cb1-3"><a href="#cb1-3"></a>difference(){</span>
@@ -288,7 +291,7 @@ Diferencia de conjuntos
 <figure class="figure">
 <div class="quarto-figure quarto-figure-left">
 <figure class="figure">
-<p><img src=".\img/ej1.png" class="img-fluid figure-img" style="width:45.0%"></p>
+<p><img src=".\img/ej1.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
 <figcaption class="figure-caption">Figura&nbsp;1: Unión y diferencia en OpenSCAD</figcaption>
@@ -458,6 +461,27 @@ a^{m} \cdot a^{n} = a^{m + n} \, \text{ y que } \, \left( a^{m} \right)^n = a^{m
 \]</span> Por otro lado, como una consecuencia de los axiomas de los números reales entenderemos que <span class="math display">\[
 \left( a^n \right)^{-1} \equiv a^{-n} \equiv \frac{1}{a^n}.
 \]</span> Es importante mencionar que las expresiones anteriores se pueden extender para cualquier número real en el exponente de <span class="math inline">\(a.\)</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-exponente" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Simplifique la siguiente expresión y de la respuesta sin utilizar exponentes negativos <span class="math display">\[
+\frac{x (x y^3)^{-2}}{x^{-3} y}
+\]</span></p>
+<p><strong>Solución</strong></p>
+<p><span class="math display">\[
+\frac{x (x y^3)^{-2}}{x^{-3} y} = \frac{x x^{-2} y^{-6}}{x^{-3} y} = \frac{x^{-1} y^{-6}}{x^{-3} y} = x^2 y^{-7} = \frac{x^2}{y^7}
+\]</span></p>
+</div>
+</div>
+</div>
 <section id="notación-científica" class="level3">
 <h3 class="anchored" data-anchor-id="notación-científica">Notación científica</h3>
 <p>La notación científica es un número en la forma <span class="math inline">\(M \times 10^k\)</span> en donde <span class="math inline">\(M\)</span> es un número decimal con parte entera distinta de cero, y <span class="math inline">\(10^k\)</span> se conoce como el orden de magnitud siendo <span class="math inline">\(k\)</span> un número entero.</p>
@@ -484,7 +508,7 @@ x = k \frac{1}{y}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-dp" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
+<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
 <p><strong>Solución</strong></p>
 <p>Note que a mayor cantidad de gasolina, mayor es el número de kilómetros que se pueden recorrer. De acuerdo con esto, la cantidad de gasolina es directamente proporcional a la distancia, es decir, si denotamos con <span class="math inline">\(G\)</span> a la gasolina y con <span class="math inline">\(K\)</span> a los kilómetros entonces <span class="math display">\[
 G = k K,
@@ -506,7 +530,7 @@ G = \frac{200}{55}\approx 3.64
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
+<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
 <p><strong>Solución</strong></p>
 <p>Note que a mayor número de trabajadores menor es el tiempo que se emplea en pintar la casa. De acuerdo con esto, el número de trabajadores es inversamente proporcional al tiempo empleado. Es decir, si denotamos con <span class="math inline">\(N\)</span> al número de trabajadores y con <span class="math inline">\(T\)</span> al tiempo en que se pinta la casa obtenemos <span class="math display">\[
 N = k \frac{1}{T},
@@ -516,9 +540,8 @@ N = \frac{30}{2} = 15.
 </div>
 </div>
 </div>
-</section>
-<section id="factores-de-conversión" class="level2">
-<h2 class="anchored" data-anchor-id="factores-de-conversión">Factores de conversión</h2>
+<section id="factores-de-conversión" class="level3">
+<h3 class="anchored" data-anchor-id="factores-de-conversión">Factores de conversión</h3>
 <p>En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -531,7 +554,7 @@ N = \frac{30}{2} = 15.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-fc" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Convertir <span class="math inline">\(1.3m^3\)</span> a <span class="math inline">\(in^3\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Convertir <span class="math inline">\(1.3m^3\)</span> a <span class="math inline">\(in^3\)</span></p>
 <p><strong>Solución</strong></p>
 <p>Necesitamos identificar a cuantas pulgadas cúbicas <span class="math inline">\((in^3)\)</span> equivale un metro cúbico <span class="math inline">\((m^3),\)</span> para ello note que <span class="math display">\[
 1 in = 2.54 cm = 0.0254 m
@@ -558,7 +581,7 @@ N = \frac{30}{2} = 15.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-fc1" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Convertir <span class="math inline">\(2.3 kg\)</span> a <span class="math inline">\(lb\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Convertir <span class="math inline">\(2.3 kg\)</span> a <span class="math inline">\(lb\)</span></p>
 <p><strong>Solución</strong></p>
 <p>Necesitamos identificar a cuantas libras <span class="math inline">\((lb)\)</span> equivale un kilo <span class="math inline">\((kg),\)</span> para ello note que</p>
 <p><span class="math display">\[
@@ -572,10 +595,112 @@ N = \frac{30}{2} = 15.
 </div>
 </div>
 </section>
-<section id="el-plano-cartesiano" class="level2">
-<h2 class="anchored" data-anchor-id="el-plano-cartesiano">El plano cartesiano</h2>
+<section id="cambios-de-escala" class="level3">
+<h3 class="anchored" data-anchor-id="cambios-de-escala">Cambios de escala</h3>
+<p>En el contexto de escalas y proporciones, la notación <span class="math inline">\(a:b\)</span> se emplea para expresar la relación entre dos cantidades y significa que por cada <span class="math inline">\(a\)</span> unidades de la primera cantidad, hay <span class="math inline">\(b\)</span> unidades de la segunda cantidad. Por ejemplo, una proporción de <span class="math inline">\(3:4\)</span> significa que por cada 3 unidades de la primera cantidad, hay 4 unidades de la segunda cantidad. o por ejemplo, en el caso de un dibujo una escala de <span class="math inline">\(1:100\)</span> indica que 1 cm en el dibujo representa <span class="math inline">\(100 cm\)</span> (o <span class="math inline">\(1 m\)</span>) en la realidad, y de manera inversa, <span class="math inline">\(n:1\)</span> significa que <span class="math inline">\(n\)</span> unidades en el dibujo, plano o modelo representan 1 unidad en la realidad.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-escala" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Se desea convertir un dibujo arquitectónico a escala <span class="math inline">\(1:300\)</span> a una escala <span class="math inline">\(1:600\)</span>.</p>
+<p><strong>Solución</strong></p>
+<p>Necesitamos un factor <span class="math inline">\(k\)</span> tal que <span class="math display">\[
+k \frac{1}{300} = \frac{1}{600}
+\]</span> y de acuerdo con esto <span class="math inline">\(k = 1/2,\)</span> es decir necesitamos multiplicar las dimensiones del dibujo por <span class="math inline">\(1/2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 5 </strong></span>Simplifique y de la respuesta sin utilizar exponentes negativos <span class="math display">\[
+\begin{align*}
+    &amp;\textbf{a.} \ \frac{3(b^{-2}d)^{4}(2bd^{3})^{2}}{(2b^{2}d^{3})(b^{-1}d^{2})^{5}} &amp;    &amp;\textbf{b.} \ \left[\frac{2(3b^{-2}d)(bd^{3})^{2}}{12b^{3}d^{-1}}\right]^{5}  &amp;  &amp;\textbf{c.} \ \left[\frac{(ab^{2})^{-1}}{(ba^{2})^{-2}}\right]^{-1}
+    \\
+    \\
+    &amp;\textbf{d.} \ \left(a^{-2} + a^{-3}\right)^{-1}  &amp; &amp;\textbf{e.} \ \frac{x^{-1}}{y^{-1}} - \left(\frac{x}{y}\right)^{-1} &amp;   &amp;\textbf{f.} \ \left(x^{-1} - y^{-1}\right)^{-1}
+\end{align*}        
+\]</span></p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 6 </strong></span>Una impresora puede imprimir 150 páginas en 10 minutos. ¿Cuántas páginas puede imprimir en 25 minutos?</p>
+</div>
+<div id="exr-ej01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7 </strong></span>Un grifo llena un tanque en 30 minutos. Si se abre otro grifo igual, ¿en cuánto tiempo se llenará el tanque?</p>
+</div>
+<div id="exr-ej02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 8 </strong></span>Si 3 jardineros pueden plantar 45 árboles en 5 días, trabajando 6 horas al día, ¿cuántos árboles podrán plantar 5 jardineros en 4 días, trabajando 8 horas al día?</p>
+</div>
+<div id="exr-ej0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 9 </strong></span>Se está diseñando una fachada que tiene un ancho de 20 metros y una altura de 10 metros. Se requiere dividir la fachada en tres secciones verticales utilizando proporciones de <span class="math inline">\(2:3:5\)</span> para los anchos de las secciones.</p>
+<p><span class="math inline">\(a.\)</span>¿Cuál es el ancho de cada una de las secciones?</p>
+<p><span class="math inline">\(b.\)</span> Dibuje la fachada a una escala tal que 1cm corresponda con 1m y marque las divisiones correspondientes.</p>
+<p><span class="math inline">\(c.\)</span> Si se quiere colocar una ventana centrada en la segunda sección, ¿a qué distancia del borde izquierdo de la fachada se debe colocar el centro de la ventana?</p>
+</div>
+<div id="exr-ef2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 10 </strong></span>Un modelo 3D está a una escala <span class="math inline">\(1:50\)</span> y se desea convertir a una escala <span class="math inline">\(1:25.\)</span> ¿Cuál es el factor de conversión de escala?</p>
+</div>
+<div id="exr-ej10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 11 </strong></span>Un modelo arquitectónico de un edificio tiene una escala de <span class="math inline">\(1:500\)</span>. Si la altura del edificio real es de 200 metros y se desea cambiar la escala del modelo a <span class="math inline">\(1:250\)</span>, calcule el factor de conversión necesario y la nueva altura del modelo del edificio.</p>
+</div>
+</div>
+</div>
+<p>Con el siguiente código elaboramos en OpenSCAD una secuencia decreciente de cilindros cuyos radios diminuyen en una relación de <span class="math inline">\(0.75\)</span> del radio anterior. La altura de los cilindros disminuye también en cada cilindro <span class="math inline">\(4\)</span> unidades con respecto del anterior.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource openscad number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>$fn=100;</span>
+<span id="cb2-2"><a href="#cb2-2"></a>/*</span>
+<span id="cb2-3"><a href="#cb2-3"></a>Radio de la circunferencia inicial</span>
+<span id="cb2-4"><a href="#cb2-4"></a>*/</span>
+<span id="cb2-5"><a href="#cb2-5"></a>r = 100;</span>
+<span id="cb2-6"><a href="#cb2-6"></a>/*</span>
+<span id="cb2-7"><a href="#cb2-7"></a>Una función para realizar la suma de</span>
+<span id="cb2-8"><a href="#cb2-8"></a>los elementos de una lista.</span>
+<span id="cb2-9"><a href="#cb2-9"></a>*/</span>
+<span id="cb2-10"><a href="#cb2-10"></a>function suma(lista, c = 0) = </span>
+<span id="cb2-11"><a href="#cb2-11"></a> c == 0 ? lista[c]:</span>
+<span id="cb2-12"><a href="#cb2-12"></a> lista[c] + suma(lista, c - 1);</span>
+<span id="cb2-13"><a href="#cb2-13"></a>/*</span>
+<span id="cb2-14"><a href="#cb2-14"></a>Una función que alimenta una lista con</span>
+<span id="cb2-15"><a href="#cb2-15"></a>la suma de la secuencia de los radios</span>
+<span id="cb2-16"><a href="#cb2-16"></a>que se están disminuyendo o aumentando</span>
+<span id="cb2-17"><a href="#cb2-17"></a>en relación a un factor</span>
+<span id="cb2-18"><a href="#cb2-18"></a>*/</span>
+<span id="cb2-19"><a href="#cb2-19"></a>f = 0.75;</span>
+<span id="cb2-20"><a href="#cb2-20"></a>function radios(n) = </span>
+<span id="cb2-21"><a href="#cb2-21"></a>    [for (k = [0:n]) f^k]; </span>
+<span id="cb2-22"><a href="#cb2-22"></a>for (k=[0:10]){</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    translate([r*( suma(radios(k), k) - 1),0,0]){</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    linear_extrude(50 - 4*k)</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    circle(r*f^k);</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    }</span>
+<span id="cb2-27"><a href="#cb2-27"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-union_dif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src=".\img/ej2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<figcaption class="figure-caption">Figura&nbsp;2: Cilindros anidados con una disminución geométrica de sus radios, y aritmética en sus alturas</figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 
