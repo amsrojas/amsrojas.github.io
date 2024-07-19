@@ -324,7 +324,7 @@ a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
 </div>
 <p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(20\)</span> puntos cuyo comportamiento es exponencial, aquí se ha tomado <span class="math inline">\(r=1.05\)</span> y <span class="math inline">\(a_0 = 2\)</span></p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">Valores asociados al número de datos (nd), dato inicial (k) y constante de proporcionalidad entre el dato presente y pasado (r)</span></span>
@@ -336,7 +336,7 @@ a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [j]  </span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, nd, nd)</span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span> , <span class="bu">len</span>(x) ):</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  a.append( r<span class="op">*</span>a[n<span class="op">-</span><span class="dv">1</span>] )   <span class="co"># relación de recurrencia en la forma r*a_(n-1)</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  a.append( r<span class="op">*</span>a[n<span class="op">-</span><span class="dv">1</span>] )   <span class="co"># recurrencia en la forma r*a_(n-1)</span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>) )</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>ax.scatter(x, a, s <span class="op">=</span> <span class="dv">14</span>)</span>
@@ -973,11 +973,31 @@ a_n = \left( n^s + n^r + u \right)^t \text{ y } b_n = \left( n^p + n^k + v \righ
 <p><span class="theorem-title"><strong>Ejemplo 11 </strong></span>Calculer el siguiente límite <span class="math display">\[
 \lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}}
 \]</span></p>
-<div id="solution">
 <p>Note que <span class="math display">\[
 \lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}} \sim \lim_{n \to \infty} \frac{\left(  n^{12}  \right)^{1/6}}{\sqrt{ 16 n^4 }} = \lim_{n \to \infty} \frac{n^2}{4 n^2} = \frac{1}{4}
 \]</span></p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-ej1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 11 </strong></span>Sea <span class="math inline">\(\{ a_n \}\)</span> una sucesión en donde <span class="math display">\[
+a_n = \frac{n}{n +1}
+\]</span> Muestre empleando un argumento <span class="math inline">\(\epsilon\)</span> y <span class="math inline">\(N\)</span> que <span class="math inline">\(a_n \to 1\)</span> cuando <span class="math inline">\(n \to \infty\)</span></p>
+</div>
+<div id="exr-ej1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 12 </strong></span>Muestre que</p>
+<p><span class="math inline">\(a.\)</span> <span class="math inline">\(\displaystyle\lim_{n \to \infty} \dfrac{n}{2^n} = 0\)</span> <strong><em>Sugerencia</em></strong>: Muestre que <span class="math inline">\(n^2 &lt; 2^n\)</span> para <span class="math inline">\(n &gt; 3\)</span></p>
+<p><span class="math inline">\(b.\)</span> <span class="math inline">\(\displaystyle\lim_{n \to \infty} \dfrac{n}{2^n} = 0\)</span> <strong><em>Sugerencia</em></strong>: Muestre que <span class="math inline">\(n^2 &lt; 2^n\)</span> para <span class="math inline">\(n &gt; 3\)</span></p>
 </div>
 </div>
 </div>
@@ -1385,7 +1405,7 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 \]</span> en donde <span class="math inline">\(\mathbb{P}\)</span> es el conjunto de los números primos.</p>
 <p>Con el siguiente código generamos la superposición de dos gráficos, entre la aproximación numérica de la función <span class="math inline">\(\zeta\)</span> de Riemann y el productorio de los números primos. Se ha generado una función ($ tp(n) $)que identifica si <span class="math inline">\(n\)</span> es un número es primo o no y se han tomado los primos menores o iguales que <span class="math inline">\(n = 100.\)</span></p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
