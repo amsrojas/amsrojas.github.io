@@ -112,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modelos_univariable.html">Cálculo de una variable</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./modelos_univariable.html">Elementos del cálculo integral y diferencial</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -140,6 +140,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./comb_primos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algo de combinatoria y números primos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mat_arte.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Matemáticas para las artes</span></a>
   </div>
@@ -147,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./modelos_univariable.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Cálculo de una variable</span></a>
+ <span class="menu-text">Elementos del cálculo integral y diferencial</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -293,8 +299,8 @@ a_0 = j.
 \end{cases}
 \tag{2}\]</span></span> Note que <span class="math display">\[
 a_0 = j, \quad a_1 = j + d, \quad a_2 = j + 2d, \ldots \, a_n = j + nd,
-\]</span> La expresión <span class="math inline">\(a_n = j + nd\)</span> corresponde con la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto <span class="math inline">\(\{ a_n\}\)</span> asignado un valor de <span class="math inline">\(n\)</span>.</p>
-<p>El comportamiento se este conjunto de datos es lineal y para nuestra comprensión lo entenderemos como el caso en que la diferencia entre el valor presente y pasado es siempre constante.</p>
+\]</span> La expresión <span class="math inline">\(a_n = j + nd\)</span> corresponde con la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto <span class="math inline">\(\{ a_n\}\)</span> asignando un valor de <span class="math inline">\(n\)</span>.</p>
+<p>El comportamiento se este conjunto de datos es lineal y para nuestra comprensión lo entenderemos como el caso en que la diferencia entre el valor presente <span class="math inline">\(a_n\)</span> y pasado <span class="math inline">\(a_{n-1}\)</span> es siempre constante.</p>
 </div>
 </div>
 </div>
@@ -317,12 +323,12 @@ a_0 = j.
 \end{cases}
 \tag{3}\]</span></span> Note que <span class="math display">\[
 a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
-\]</span> De manera similar al ejemplo anterior, la expresión <span class="math inline">\(a_n = r^n j\)</span> es la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto <span class="math inline">\(\{ a_n\}\)</span> asignado un valor de <span class="math inline">\(n\)</span>.</p>
-<p>El comportamiento de este conjunto de dice exponencial y para nuestra comprensión lo entenderemos como el caso en que el valor presente es proporcional al valor pasado, o bien, cuando el cociente del valor presente y pasado permanece constante.</p>
+\]</span> De manera similar al ejemplo anterior, la expresión <span class="math inline">\(a_n = r^n j\)</span> es la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto <span class="math inline">\(\{ a_n\}\)</span> asignando un valor de <span class="math inline">\(n\)</span>.</p>
+<p>El comportamiento de este conjunto de dice exponencial y para nuestra comprensión lo entenderemos como el caso en que el valor presente <span class="math inline">\(a_n\)</span> es proporcional al valor pasado <span class="math inline">\(a_{n-1}\)</span>, o bien, cuando el cociente del valor presente y pasado permanece constante.</p>
 </div>
 </div>
 </div>
-<p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(20\)</span> puntos cuyo comportamiento es exponencial, aquí se ha tomado <span class="math inline">\(r=1.05\)</span> y <span class="math inline">\(a_0 = 2\)</span></p>
+<p>Con el siguiente código en Python graficamos un conjunto de <span class="math inline">\(20\)</span> puntos cuyo comportamiento es exponencial, aquí se ha tomado <span class="math inline">\(r=1.05\)</span> y <span class="math inline">\(a_0 = 2\)</span></p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
@@ -403,7 +409,7 @@ a_0 = q, \, a_1 = \dfrac{3p  - q}{2}, \, a_2 = \dfrac{3p + q}{4} , \ldots ,a_n =
 </div>
 </div>
 </div>
-<p>Con el siguiente código graficamos un conjunto de <span class="math inline">\(10\)</span> puntos cuyo comportamiento se acerca de forma oscilante a <span class="math inline">\(p=5\)</span>, aquí se ha tomado <span class="math inline">\(a_0 = 24.\)</span></p>
+<p>Con el siguiente código ePython graficamos un conjunto de <span class="math inline">\(10\)</span> puntos cuyo comportamiento se acerca de forma oscilante a <span class="math inline">\(p=5\)</span>, aquí se ha tomado <span class="math inline">\(a_0 = 24.\)</span></p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
