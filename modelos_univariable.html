@@ -433,6 +433,56 @@ a_0 = q, \, a_1 = \dfrac{3p  - q}{2}, \, a_2 = \dfrac{3p + q}{4} , \ldots ,a_n =
 <p><img src="modelos_univariable_files/figure-html/cell-3-output-1.png" width="346" height="378"></p>
 </div>
 </div>
+<p>A partir de este momento identificaremos con <span class="math inline">\(\{ a_n \}\)</span> a una lista infinita de valores, y nos referiremos a esta como una sucesión o secuencia, cuyos elementos se pueden obtener por ejemplo a partir de una relación de recurrencia. Aquí <span class="math inline">\(a_n\)</span> se conoce como el término <span class="math inline">\(n\)</span>-ésimo y con él podemos encontrar cualquier elemento de la sucesión al asignarle un valor a <span class="math inline">\(n.\)</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-terminon" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Encuentre el término <span class="math inline">\(n\)</span>-ésimo de la siguiente sucesión de números <span class="math display">\[
+\frac{1}{3}, \frac{8}{2},\frac{4}{13}, \frac{18}{8} , \frac{16}{23}\ldots
+\]</span></p>
+<p><strong>Solución</strong></p>
+<p>El comportamiento de esta sucesión de números parece alternarse entre numeradores y denorminadores en cada fracción. Note que en un sentido encontramos la secuencia <span class="math inline">\(1,2,4,8,16\)</span> mientras que en otro tenemos a <span class="math inline">\(3,8,13,18,23\)</span>. El primero obedece a un comportamiento exponencial cuya solución es <span class="math inline">\(2^n,\)</span> mientras que el otro obedece a un comportamiento lineal cuya solución es <span class="math inline">\(3 + 5n\)</span>.</p>
+<p>Ahora bien, para poder garantizar que en cada etapa de la secuencia la fracción cambie su numerador por denominador, recordemos que <span class="math inline">\(\left( \dfrac{a}{b} \right)^{-1} = \dfrac{b}{a}\)</span>. De acuerdo con esto, el término <span class="math inline">\(n\)</span>-ésimo de la sucesión es <span id="eq-terminon"><span class="math display">\[
+a_n = \left( \frac{2^n }{3 + 5n }\right)^{(-1)^n} \text{ para } n = 0, 1, 2,  \ldots
+\tag{6}\]</span></span></p>
+</div>
+</div>
+</div>
+<p>A veces es conveniente cambiar el valor en el que el dato <span class="math inline">\(n\)</span> inicia. Por ejemplo, en algún momento puede ser necesario cambiar el inicio <span class="math inline">\(n= 0\)</span> del término <span class="math inline">\(n\)</span>-ésimo de la ecuación <a href="#eq-terminon">6</a> por <span class="math inline">\(n = t,\)</span> para ello hacemos la siguiente identificación. <span class="math display">\[
+n + t = m
+\]</span> lo que indica que cuando el índice <span class="math inline">\(n\)</span> toma el valor de cero, el índice <span class="math inline">\(m\)</span> toma el valor de <span class="math inline">\(t.\)</span> Note que esta expresión es equivalente a <span class="math display">\[
+n = m - t \text{ es decir } n \equiv n - t,
+\]</span><br>
+esta última identificación es simplemente para no cambiar de letra. De acuerdo con esto la ecuación <a href="#eq-terminon">6</a> se podría escribir en la siguiente forma <span class="math display">\[
+a_n = \left( \frac{2^{n-t} }{3 + 5(n-t) }\right)^{(-1)^{n - t}} \text{ para } n = t, t + 1, t + 2,  \ldots  
+\]</span></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-suc_cre_dec" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1 (Sucesiones crecientes y decrecientes) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> es llamada creciente ( decreciente ) si para todo <span class="math inline">\(n\)</span> se verifica que <span class="math display">\[
+a_{n-1} \leq a_{n} \quad ( a_{n-1} \geq a_{n} ).
+\]</span> En general a las sucesiones crecientes o decrecientes se les conoce como sucesiones monótonas.</p>
+</div>
+</div>
+</div>
+<p>Las sucesiones asociadas a la relación de recurrencia del ejemplo <a href="#exm-comlin">1</a> son crecientes si <span class="math inline">\(d &gt; 0\)</span> y decrecientes si <span class="math inline">\(d &lt; 0\)</span>.</p>
+<p>Por otro lado, las sucesiones asociadas a la relación de recurrencia del ejemplo <a href="#exm-comex">2</a> para <span class="math inline">\(j &gt; 0\)</span> son crecientes si <span class="math inline">\(r &gt; 1\)</span> y decrecientes si <span class="math inline">\(0 &lt; r &lt; 1.\)</span></p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -533,7 +583,7 @@ a_0 = 2
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-nalp" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
 a_n =  \frac{1}{n^s},
 \]</span> con <span class="math inline">\(s &gt; 0.\)</span></p>
 <p>Para un <span class="math inline">\(s\)</span> fijo podemos verificar asignando valores a <span class="math inline">\(n\)</span> cada vez más y más grandes que <span class="math inline">\(a_n\)</span> toma valores cercanos a cero. De acuerdo con esto, todo parece indicar que la distancia entre el término <span class="math inline">\(a_n\)</span> a cero es cada vez más pequeña.</p>
@@ -564,7 +614,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-p_acumula" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 1 (Punto de acumulación) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto de acumulación de un conjunto <span class="math inline">\(S\)</span> si para cualquier <span class="math inline">\(r &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(V_r(p) \setminus \{p\} \cap S \neq \emptyset\)</span>.</p>
+<p><span class="theorem-title"><strong>Definición 2 (Punto de acumulación) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto de acumulación de un conjunto <span class="math inline">\(S\)</span> si para cualquier <span class="math inline">\(r &gt; 0\)</span> de nuestra elección, se verifica que <span class="math inline">\(V_r(p) \setminus \{p\} \cap S \neq \emptyset\)</span>.</p>
 </div>
 </div>
 </div>
@@ -579,7 +629,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-acotado" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 2 (Conjunto acotado de números reales) </strong></span>Sea <span class="math inline">\(S\)</span> un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante <span class="math inline">\(M\)</span> tal que <span class="math inline">\(\vert {x} \vert &lt; M\)</span> para todo <span class="math inline">\(x \in S.\)</span></p>
+<p><span class="theorem-title"><strong>Definición 3 (Conjunto acotado de números reales) </strong></span>Sea <span class="math inline">\(S\)</span> un conjunto de números reales. Diremos que este conjunto es acotado si existe una constante <span class="math inline">\(M\)</span> tal que <span class="math inline">\(\vert {x} \vert &lt; M\)</span> para todo <span class="math inline">\(x \in S.\)</span></p>
 <p>En particular, si <span class="math inline">\(x &lt; M\)</span> para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado superiormente, y si <span class="math inline">\(M &lt; x\)</span> para todo <span class="math inline">\(x \in S,\)</span> diremos que <span class="math inline">\(S\)</span> es acotado inferiormente.</p>
 </div>
 </div>
@@ -611,7 +661,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limite" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 3 (Límite de una sucesión) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> de números reales converge a un número <span class="math inline">\(p,\)</span> si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 4 (Límite de una sucesión) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> de números reales converge a un número <span class="math inline">\(p,\)</span> si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span class="math display">\[
 \vert a_n - p \vert &lt; \epsilon \text{ para todo } n &gt; N.
 \]</span> Esto se puede escribir como <span class="math display">\[
 \lim_{n \to \infty} a_n = p, \text{ o bien, } a_n \to p \text{ cuando } n \to \infty
@@ -630,7 +680,7 @@ V_r(p) = \{x \in \mathbb{R} : \vert {x - p} \vert &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ejemplo_geo" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
 a_n = \left( \frac{1}{a - \delta} \right)^n
 \]</span> para <span class="math inline">\(a &gt; 1\)</span> y <span class="math inline">\(\delta\)</span> un número real tal que <span class="math inline">\(a - \delta &gt; 1.\)</span></p>
 <p>La experimentación numérica indica que para una escogencia arbitraria de valores <span class="math inline">\(a\)</span> y <span class="math inline">\(\delta\)</span> que verifiquen las condiciones dadas, a medida que se asignen valores de <span class="math inline">\(n\)</span> cada vez más grandes, la sucesión toma valores cercanos a 0.</p>
@@ -653,7 +703,7 @@ n &gt; -\frac{\ln{\epsilon}}{ \ln{(a - \delta)}},
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-coseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_n= \cos{\left(\frac{1}{n} \right)}
 \]</span> De acuerdo con la definición de funciones trigonométricas es fácil notar que <span class="math display">\[
 1 - \frac{1}{n} &lt; \cos{\left(\frac{1}{n} \right)} &lt; 1
@@ -672,26 +722,26 @@ a_n= \cos{\left(\frac{1}{n} \right)}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-seno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 9 </strong></span>Considere la sucesión <span class="math inline">\(\{a_n \}\)</span> en donde <span class="math display">\[
 a_n = n \sin{\left( \frac{1}{n} \right)}.
 \]</span> De acuerdo con la definición de funciones trigonométricas sobre el círculo de radio 1, es claro que <span class="math display">\[
 \frac{1}{n} \cos{\left( \frac{1}{n} \right)} \leq \sin{\left( \frac{1}{n}\right)} \leq \frac{1}{n}
 \]</span> y al multiplicar esta desigualdad por <span class="math inline">\(n,\)</span> obtenemos <span id="eq-des_seno_coseno"><span class="math display">\[
 \cos{\left( \frac{1}{n} \right)} \leq n \sin{\left( \frac{1}{n}\right)} \leq 1
-\tag{6}\]</span></span></p>
-<p>Lo interesante de este resultado es notar que el valor de convergencia de la sucesión <span class="math inline">\(\{ a_n \}\)</span> esta comprendido entre los valores de <span class="math inline">\(\cos(1/n)\)</span> y <span class="math inline">\(1.\)</span> De acuerdo entonces con el <a href="#exm-coseno">Ejemplo&nbsp;7</a> se tiene que <span class="math inline">\(n \sin(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> es decir <span class="math display">\[
+\tag{7}\]</span></span></p>
+<p>Lo interesante de este resultado es notar que el valor de convergencia de la sucesión <span class="math inline">\(\{ a_n \}\)</span> esta comprendido entre los valores de <span class="math inline">\(\cos(1/n)\)</span> y <span class="math inline">\(1.\)</span> De acuerdo entonces con el <a href="#exm-coseno">Ejemplo&nbsp;8</a> se tiene que <span class="math inline">\(n \sin(1/n) \to 1\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> es decir <span class="math display">\[
 \lim_{n \to \infty} n \sin{\left(\frac{1}{n} \right)} = 1.
 \]</span></p>
 </div>
 </div>
 </div>
-<p>Se sigue de forma inmediata de <a href="#eq-des_seno_coseno">6</a> que la sucesión <span class="math inline">\(\{ n \sin{1/n} \}\)</span> es creciente, y como <span class="math inline">\(\cos{(1/n)} \to 1\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección obtenemos <span class="math display">\[
+<p>Se sigue de forma inmediata de <a href="#eq-des_seno_coseno">7</a> que la sucesión <span class="math inline">\(\{ n \sin{1/n} \}\)</span> es creciente, y como <span class="math inline">\(\cos{(1/n)} \to 1\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección obtenemos <span class="math display">\[
 1 - \epsilon &lt; \cos{\left( \frac{1}{n}\right)} &lt; 1 + \epsilon
 \]</span> Teniendo en cuenta que la función <span class="math inline">\(\arccos{(x)}\)</span> es decreciente, se sigue que <span id="eq-arcos"><span class="math display">\[
 \frac{1}{\arccos{(1 - \epsilon)}} &lt; n,
-\tag{7}\]</span></span> y de acuerdo con <a href="#eq-des_seno_coseno">6</a> se verifica que <span class="math display">\[
+\tag{8}\]</span></span> y de acuerdo con <a href="#eq-des_seno_coseno">7</a> se verifica que <span class="math display">\[
 1 - \epsilon &lt; n \sin{\left( \frac{1}{n}\right)} \leq 1
-\]</span> para los valores de <span class="math inline">\(n\)</span> que satisfacen <a href="#eq-arcos">7</a>.</p>
+\]</span> para los valores de <span class="math inline">\(n\)</span> que satisfacen <a href="#eq-arcos">8</a>.</p>
 <p>Lo anterior nos permite determinar un valor de <span class="math inline">\(n\)</span> para el cual los valores de la sucesión <span class="math inline">\(\{n \sin{(1/n)} \}\)</span> estén comprendidos entre <span class="math inline">\(1-\epsilon\)</span> y <span class="math inline">\(1.\)</span></p>
 <p>En siguiente código determinamos un valor de <span class="math inline">\(N\)</span> para el que todos los términos <span class="math inline">\(\{ n \sin(1/n) \}\)</span> con <span class="math inline">\(n &gt; N\)</span> verifican <span class="math inline">\(\vert n \sin(1/n) -1 \vert &lt; 0.05.\)</span></p>
 <div class="cell" data-execution_count="3">
@@ -739,7 +789,7 @@ a_n = n \sin{\left( \frac{1}{n} \right)}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-suc_cre_decre" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 4 (Sucesiones crecientes y decrecientes) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> es creciente si <span class="math inline">\(a_n \leq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span> y es decreciente si <span class="math inline">\(a_n \geq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span>.</p>
+<p><span class="theorem-title"><strong>Definición 5 (Sucesiones crecientes y decrecientes) </strong></span>Una sucesión <span class="math inline">\(\{ a_n \}\)</span> es creciente si <span class="math inline">\(a_n \leq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span> y es decreciente si <span class="math inline">\(a_n \geq a_{n+1}\)</span> para todo <span class="math inline">\(n\)</span>.</p>
 <p>En general diremos que una sucesión es monótona si esta es crecientes o decreciente.</p>
 </div>
 </div>
@@ -779,7 +829,7 @@ p - \epsilon &lt; a_n &lt; p
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-promedio2" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 9 </strong></span>En el <a href="#exm-promedio">Ejemplo&nbsp;3</a> si suponemos que <span class="math inline">\(a_n &lt; a_{n+1}\)</span> entonces al sumar <span class="math inline">\(q\)</span> a ambos lados de la desigualdad y dividir por <span class="math inline">\(2\)</span> obtendríamos que <span class="math inline">\(a_{n+1} &lt; a_{n}.\)</span> De acuerdo con esto si <span class="math inline">\(p &lt; q\)</span> entonces la sucesión <span class="math inline">\(\{ a_n \}\)</span> asociada a la recurrencia del ejemplo sería creciente ya que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 10 </strong></span>En el <a href="#exm-promedio">Ejemplo&nbsp;3</a> si suponemos que <span class="math inline">\(a_n &lt; a_{n+1}\)</span> entonces al sumar <span class="math inline">\(q\)</span> a ambos lados de la desigualdad y dividir por <span class="math inline">\(2\)</span> obtendríamos que <span class="math inline">\(a_{n+1} &lt; a_{n}.\)</span> De acuerdo con esto si <span class="math inline">\(p &lt; q\)</span> entonces la sucesión <span class="math inline">\(\{ a_n \}\)</span> asociada a la recurrencia del ejemplo sería creciente ya que <span class="math display">\[
 a_0 = p &lt; \frac{p + q}{2} = a_{1}.
 \]</span><br>
 Por otro lado, note que si <span class="math inline">\(a_n \leq q\)</span> entonces <span class="math display">\[
@@ -823,7 +873,7 @@ a_{n + 1} = \frac{a_n + q}{2} \leq q,
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-seccaucy" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 10 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 11 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span class="math display">\[
 a_n =  \frac{n}{1 + k n},
 \]</span> para <span class="math inline">\(k \neq 0.\)</span></p>
 <p>Para un <span class="math inline">\(k\)</span> fijo se puede verificar asignando valores de <span class="math inline">\(n\)</span> cada vez más grandes, que la sucesión se acerca al valor <span class="math inline">\(1/k.\)</span> Lo interesante sería determinar el valor del <span class="math inline">\(n\)</span> para el cual, a partir de ese valor, se consigue una aproximación deseada. Note que <span class="math display">\[
@@ -851,9 +901,9 @@ a_n =  \frac{n}{1 + k n},
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-cauchy" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 5 (Condición de Cauchy) </strong></span>Diremos que un sucesión <span class="math inline">\(\{a_n\}\)</span> cumple la condición de Cauchy, si para cada <span class="math inline">\(\epsilon &gt;0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span id="eq-cauchy"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 6 (Condición de Cauchy) </strong></span>Diremos que un sucesión <span class="math inline">\(\{a_n\}\)</span> cumple la condición de Cauchy, si para cada <span class="math inline">\(\epsilon &gt;0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N \equiv N(\epsilon)\)</span> tal que <span id="eq-cauchy"><span class="math display">\[
 \vert a_m - a_n \vert &lt; \epsilon \text{ para todo } n,m &gt; N.
-\tag{8}\]</span></span></p>
+\tag{9}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -930,7 +980,7 @@ B = \{ \vert a_1 - a_{N + 1}\vert , \vert a_2 - a_{N+1}\vert , \ldots , \vert a_
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-asinto_equiv" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 6 </strong></span>Dos sucesiones <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> se dicen asintóticamente equivalentes si <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 7 </strong></span>Dos sucesiones <span class="math inline">\(\{ a_n \}\)</span> y <span class="math inline">\(\{ b_n \}\)</span> se dicen asintóticamente equivalentes si <span class="math display">\[
 \lim_{n \to \infty} \frac{a_n}{b_n} = 1,
 \]</span> y en este caso se acostumbra escribir <span class="math inline">\(a_n \sim b_n\)</span>.</p>
 </div>
@@ -976,7 +1026,7 @@ a_n = \left( n^s + n^r + u \right)^t \text{ y } b_n = \left( n^p + n^k + v \righ
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-limite_equiv" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 11 </strong></span>Calculer el siguiente límite <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 12 </strong></span>Calculer el siguiente límite <span class="math display">\[
 \lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}}
 \]</span></p>
 <p>Note que <span class="math display">\[
@@ -1003,7 +1053,6 @@ a_n = \frac{n}{n +1}
 <div id="exr-ej1" class="theorem exercise">
 <p><span class="theorem-title"><strong>Ejercicio 12 </strong></span>Muestre que</p>
 <p><span class="math inline">\(a.\)</span> <span class="math inline">\(\displaystyle\lim_{n \to \infty} \dfrac{n}{2^n} = 0\)</span> <strong><em>Sugerencia</em></strong>: Muestre que <span class="math inline">\(n^2 &lt; 2^n\)</span> para <span class="math inline">\(n &gt; 3\)</span></p>
-<p><span class="math inline">\(b.\)</span> <span class="math inline">\(\displaystyle\lim_{n \to \infty} \dfrac{n}{2^n} = 0\)</span> <strong><em>Sugerencia</em></strong>: Muestre que <span class="math inline">\(n^2 &lt; 2^n\)</span> para <span class="math inline">\(n &gt; 3\)</span></p>
 </div>
 </div>
 </div>
@@ -1012,18 +1061,18 @@ a_n = \frac{n}{n +1}
 <h2 class="anchored" data-anchor-id="sucesión-de-sumas-parciales">Sucesión de sumas parciales</h2>
 <p>Como una extensión natural del concepto de sucesión, se define una sucesión cuyos términos son la suma parcial de cada uno de los términos de otra sucesión. Por ejemplo, si <span class="math inline">\(\{ a_n\}\)</span> es una sucesión, identificaremos con <span class="math inline">\(s_1\)</span> al número <span class="math inline">\(a_1,\)</span> con <span class="math inline">\(s_2\)</span> al número <span class="math inline">\(a_1 + a_2,\)</span> con <span class="math inline">\(s_3\)</span> al número <span class="math inline">\(a_1 + a_2 + a_3\)</span> y en general <span id="eq-suc_sp"><span class="math display">\[
 s_n = a_1 + a_2 + \cdots + a_n
-\tag{9}\]</span></span> Un resultado conocido es aquel en donde los términos <span class="math inline">\(\{a_n\}\)</span> cumplen la siguiente ley de formación: <span class="math inline">\(a_1 = 1,\)</span> <span class="math inline">\(a_2 = r,\)</span> <span class="math inline">\(a_3 = r^{2}\)</span> y en forma general <span class="math inline">\(a_n = r^{n-1}\)</span> para una cierta cantidad <span class="math inline">\(r &gt; 0,\)</span> <span class="math inline">\(r \neq 1.\)</span> Para este caso note que <span id="eq-01"><span class="math display">\[
+\tag{10}\]</span></span> Un resultado conocido es aquel en donde los términos <span class="math inline">\(\{a_n\}\)</span> cumplen la siguiente ley de formación: <span class="math inline">\(a_1 = 1,\)</span> <span class="math inline">\(a_2 = r,\)</span> <span class="math inline">\(a_3 = r^{2}\)</span> y en forma general <span class="math inline">\(a_n = r^{n-1}\)</span> para una cierta cantidad <span class="math inline">\(r &gt; 0,\)</span> <span class="math inline">\(r \neq 1.\)</span> Para este caso note que <span id="eq-01"><span class="math display">\[
 s_n = 1 + r + \cdots +  r^{n-1} + r^{n}.   
-\tag{10}\]</span></span> Al multiplicar esta última expresión por <span class="math inline">\(r\)</span> obtenemos <span id="eq-02"><span class="math display">\[
+\tag{11}\]</span></span> Al multiplicar esta última expresión por <span class="math inline">\(r\)</span> obtenemos <span id="eq-02"><span class="math display">\[
 rs_n = r + r^2 + \cdots + r^{n} + r^{n+1}.   
-\tag{11}\]</span></span> y al restar <a href="#eq-01">10</a> de <a href="#eq-02">11</a> obtenemos <span id="eq-geo"><span class="math display">\[
+\tag{12}\]</span></span> y al restar <a href="#eq-01">11</a> de <a href="#eq-02">12</a> obtenemos <span id="eq-geo"><span class="math display">\[
 s_n = \frac{1 - r^{n+1}} { 1 - r }
-\tag{12}\]</span></span></p>
+\tag{13}\]</span></span></p>
 <p>Es conveniente emplear una notación que permita reducir la escritura y al mismo tiempo identificar los elementos de la sucesión <span class="math inline">\(\{ a_n \}\)</span> con su suma. Esta notación se conoce como notación de sumatoria y corresponde con el símbolo <span class="math inline">\(\sum,\)</span> que acostumbra a escribir con sub y super índices para indicar el recorrido del parámetro asociado a la suma, es decir <span class="math display">\[
 \sum_{k = 1}^{n} a_{k} = a_{1} + a_{2} + \cdots + a_{k}.
-\]</span> De acuerdo con esto, la expresión <a href="#eq-geo">12</a> se puede escribir como <span id="eq-geo2"><span class="math display">\[
+\]</span> De acuerdo con esto, la expresión <a href="#eq-geo">13</a> se puede escribir como <span id="eq-geo2"><span class="math display">\[
 \sum_{k = 1}^{n} r^k = \frac{1 - r^{n+1}}{1 -r}.
-\tag{13}\]</span></span></p>
+\tag{14}\]</span></span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1035,13 +1084,13 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-sumacon" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 7 </strong></span>Sea <span class="math inline">\(\{ a_n \}\)</span> una sucesión de números reales. Si la sucesión <span class="math inline">\(s_n\)</span> definida en <a href="#eq-suc_sp">9</a> verfica <span class="math inline">\(s_n \to p\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> entonces se acostumbra a escribir <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 8 </strong></span>Sea <span class="math inline">\(\{ a_n \}\)</span> una sucesión de números reales. Si la sucesión <span class="math inline">\(s_n\)</span> definida en <a href="#eq-suc_sp">10</a> verfica <span class="math inline">\(s_n \to p\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> entonces se acostumbra a escribir <span class="math display">\[
 \sum_{k = 1}^{\infty} a_n = p,
 \]</span> y se dice que la serie <span class="math inline">\(\sum_{k = 1}^{\infty} a_n\)</span> es convergente. En particular convergente al número <span class="math inline">\(p.\)</span></p>
 </div>
 </div>
 </div>
-<p>Si la sucesión de sumas parciales <span class="math inline">\(\{ s_n \}\)</span> es convergente, entonces como una consecuencia de la condición de Cauchy (véase <a href="#def-cauchy">Definición&nbsp;5</a>) para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+<p>Si la sucesión de sumas parciales <span class="math inline">\(\{ s_n \}\)</span> es convergente, entonces como una consecuencia de la condición de Cauchy (véase <a href="#def-cauchy">Definición&nbsp;6</a>) para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección, existe un entero <span class="math inline">\(N\)</span> tal que <span class="math display">\[
 \vert s_{n} - s_{n-1} \vert &lt;  \epsilon \text{ para todo } n &gt; N - 1
 \]</span> o de manera equivalente <span class="math display">\[
 \vert a_n \vert &lt; \epsilon \text{ para todo } n &gt; N - 1,
@@ -1064,12 +1113,12 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 </div>
 </div>
-<p>Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación <a href="#eq-geo2">13</a> y del <a href="#exm-ejemplo_geo">Ejemplo&nbsp;6</a>. Este establece que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces <span id="eq-se_geo"><span class="math display">\[
+<p>Un resultado interesante y de gran utilidad es una consecuencia inmediata de la ecuación <a href="#eq-geo2">14</a> y del <a href="#exm-ejemplo_geo">Ejemplo&nbsp;7</a>. Este establece que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces <span id="eq-se_geo"><span class="math display">\[
 \sum_{n = 0}^{\infty} r^{n} = \frac{1}{1-r}.
-\tag{14}\]</span></span> Note que en este caso <span class="math inline">\(a_n = r^n\)</span> y <span class="math inline">\(a_n \to 0\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
+\tag{15}\]</span></span> Note que en este caso <span class="math inline">\(a_n = r^n\)</span> y <span class="math inline">\(a_n \to 0\)</span> cuando <span class="math inline">\(n \to \infty\)</span>.</p>
 <p>De manera equivalente a la notación de sumatorio, también existe una para los productos. Esta es <span class="math inline">\(\prod_{k = 1}^{n} a_{n}\)</span> y corresponde con <span class="math display">\[
 \prod_{k = 1}^{n} a_{k} = a_1 \cdot a_2 \cdot \cdots \cdot a_n.
-\]</span> Empleando esta notación y la ecuación <a href="#eq-se_geo">14</a> se puede probar fácilmente el siguiente resultado</p>
+\]</span> Empleando esta notación y la ecuación <a href="#eq-se_geo">15</a> se puede probar fácilmente el siguiente resultado</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1092,7 +1141,7 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 \frac{1}{a_k} \leq \frac{1}{a - \delta}
 \]</span> y de acuerdo con esto <span class="math display">\[
 \sum_{n = 1}^{\infty} \left( \prod_{k = 1}^{n}\frac{1}{a_{k}} \right) \leq  \sum_{n = 1}^{\infty} \frac{1}{(a - \delta)^n}.
-\]</span> La prueba finaliza al hacer <span class="math inline">\(r = 1/(a - \delta)\)</span> en <a href="#eq-se_geo">14</a></p>
+\]</span> La prueba finaliza al hacer <span class="math inline">\(r = 1/(a - \delta)\)</span> en <a href="#eq-se_geo">15</a></p>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1111,7 +1160,7 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 </div>
 </div>
 </div>
-<p>Note que si <span class="math inline">\(\delta = 0\)</span> entonces <span class="math inline">\(a_n = a\)</span> para todo <span class="math inline">\(n,\)</span> y en este caso el resultado coincide con la igualdad que se ha presentado en la ecuación <a href="#eq-se_geo">14</a> para el caso <span class="math inline">\(r = 1/a.\)</span></p>
+<p>Note que si <span class="math inline">\(\delta = 0\)</span> entonces <span class="math inline">\(a_n = a\)</span> para todo <span class="math inline">\(n,\)</span> y en este caso el resultado coincide con la igualdad que se ha presentado en la ecuación <a href="#eq-se_geo">15</a> para el caso <span class="math inline">\(r = 1/a.\)</span></p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1125,7 +1174,7 @@ s_n = \frac{1 - r^{n+1}} { 1 - r }
 <div id="thm-teorema2" class="theorem">
 <p><span class="theorem-title"><strong>Teorema 10 </strong></span>Sean <span class="math inline">\(a_1, a_2 , \ldots a_n\)</span> números reales que verifican la condición <span class="math inline">\(a_n \geq 2\)</span> para todo <span class="math inline">\(n.\)</span> Entonces <span id="eq-resteo"><span class="math display">\[
 \prod_{k = 1}^{n} a_{k} &gt; 1 + a_1 + a_1 \cdot a_2 + a_1 \cdot a_2 \cdot a_3 + \cdots + \prod_{k = 1}^{n-1}a_{k}.
-\tag{15}\]</span></span></p>
+\tag{16}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1136,7 +1185,7 @@ a_1 a_2 \geq 2 a_1 = a_1 + a_1 \geq 2 + a_1 &gt; 1 + a_1,
 a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt; 1 + a_1 + a_1 \cdot a_2,
 \]</span> la prueba finaliza al aplicar inducción sobre el subíndice <span class="math inline">\(n.\)</span></p>
 </div>
-<p>Al dividir cada término de <a href="#eq-resteo">15</a> por <span class="math inline">\(\prod_{i = 1}^{k}a_{i}\)</span> obtenemos de forma inmediata el siguiente resultado.</p>
+<p>Al dividir cada término de <a href="#eq-resteo">16</a> por <span class="math inline">\(\prod_{i = 1}^{k}a_{i}\)</span> obtenemos de forma inmediata el siguiente resultado.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1156,9 +1205,9 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <p>Note que si tomamos <span class="math inline">\(n-1\)</span> números enteros consecutivos en la forma <span class="math inline">\(a_{n-1} = 2,\)</span> <span class="math inline">\(a_{n-2} = 3,\)</span> y de esta forma hasta <span class="math inline">\(a_{1} = n,\)</span> la expresión anterior toma la siguiente forma <span id="eq-factorial1"><span class="math display">\[
 \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} &lt; 1
-\tag{16}\]</span></span> De esta último resultado se desprende de forma natural al sumar 2 lo siguiente <span id="eq-factorial2"><span class="math display">\[
+\tag{17}\]</span></span> De esta último resultado se desprende de forma natural al sumar 2 lo siguiente <span id="eq-factorial2"><span class="math display">\[
 2 &lt; 2 + \frac{1}{2!} + \frac{1}{3!} + \frac{1}{4!} + \cdots + \frac{1}{(n-1)!} + \frac{1}{n!} &lt; 3
-\tag{17}\]</span></span> para todo entero <span class="math inline">\(n.\)</span></p>
+\tag{18}\]</span></span> para todo entero <span class="math inline">\(n.\)</span></p>
 <p>El número entre 2 y 3 al que se aproxima este valor se denota comúnmente con la letra <span class="math inline">\(e,\)</span> esto lo precisaremos la siguiente definición.</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1171,9 +1220,9 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-nume" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 8 (Número <span class="math inline">\(e\)</span>) </strong></span>Definimos la constante numérica <span class="math inline">\(e\)</span> como <span id="eq-nume"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 9 (Número <span class="math inline">\(e\)</span>) </strong></span>Definimos la constante numérica <span class="math inline">\(e\)</span> como <span id="eq-nume"><span class="math display">\[
 \sum_{k = 0}^{\infty} \frac{1}{k!} = e.
-\tag{18}\]</span></span></p>
+\tag{19}\]</span></span></p>
 </div>
 </div>
 </div>
@@ -1229,7 +1278,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 12 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 13 (Cociente dos a dos) </strong></span>De acuerdo con nuestra definición del comportamiento exponencial de un conjunto de puntos es claro que <span class="math display">\[
 \frac{a_{n+1}}{a_n} = r
 \]</span> para <span class="math inline">\(n = 0, 1, \dots\)</span> Note que <span class="math display">\[
 \begin{align*}
@@ -1239,7 +1288,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 \\
 &amp; = a_0 \frac{1 - r^{n+1}}{1 - r}
 \end{align*}
-\]</span> y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">14</a> obtenemos que <span class="math display">\[
+\]</span> y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">15</a> obtenemos que <span class="math display">\[
 \sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
 \]</span></p>
 </div>
@@ -1256,7 +1305,7 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-cociente" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 13 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 14 (Raíz del término <span class="math inline">\(n-\)</span>ésimo) </strong></span>Supongamos que tenemos una sucesión descrita por la relación <span class="math inline">\(a_n = r^n,\)</span> es claro que <span class="math display">\[
 a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 \]</span> y esto indica que la raíz <span class="math inline">\(n-\)</span> ésima de <span class="math inline">\(a_n\)</span> coincide con la tasa de proporcionalidad entre el valor futuro y presente del conjunto de datos. De acuerdo con esto se sigue del ejemplo anterior que si <span class="math display">\[
 \sqrt[n]{a_n} = r , \text{ con } 0 &lt; r &lt; 1
@@ -1274,7 +1323,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 (r - \epsilon) a_{n} &lt; a_{n + 1} &lt; (r + \epsilon) a_n,
 \]</span> de acuerdo con esto <span class="math display">\[
 (r - \epsilon)^k a_n &lt; a_{n + k} &lt; (r + \epsilon)^k a_n
-\]</span> y si identificamos con <span class="math inline">\(r^+ = r + \epsilon\)</span> y con <span class="math inline">\(r^- = r - \epsilon\)</span> entonces se sigue de la ecuación <a href="#eq-geo2">13</a> <span class="math display">\[
+\]</span> y si identificamos con <span class="math inline">\(r^+ = r + \epsilon\)</span> y con <span class="math inline">\(r^- = r - \epsilon\)</span> entonces se sigue de la ecuación <a href="#eq-geo2">14</a> <span class="math display">\[
 \frac{r^- - (r^-)^{m+1}}{1 - r^-} a_n &lt; \sum_{k= 1}^{m} a_{n+k} &lt; \frac{r^+ - (r^+)^{m+1}}{1 - r^+} a_n
 \]</span> De manera que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces siempre es posible encontrar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(r^-\)</span> y <span class="math inline">\(r^+\)</span> esten comprendidos igualmente entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span> y de acuerdo con esto. <span class="math display">\[
 \frac{r^-}{1 - r^-} a_n &lt; \sum_{k= 1}^{\infty} a_{n+k} &lt; \frac{r^+ }{1 - r^+} a_n
@@ -1290,7 +1339,7 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-Telescopia" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 14 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 15 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
 a_{n} = b_{n+1} - b_{n}
 \]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
 \begin{align*}
@@ -1316,13 +1365,13 @@ a_{n} = b_{n+1} - b_{n}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-binomio" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 15 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
 a_n = n - n^{p}(n - q )^{1 - p},
-\tag{19}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
+\tag{20}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
 a_n \to q(1 - p) \text{ cuando } n \to \infty
-\tag{20}\]</span></span> En efecto, despues de algunas manipulaciones algrebraicas es claro que <span id="eq-suc_bin"><span class="math display">\[
+\tag{21}\]</span></span> En efecto, despues de algunas manipulaciones algrebraicas es claro que <span id="eq-suc_bin"><span class="math display">\[
 a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
-\tag{21}\]</span></span> y de acuerdo con el Teorema general de binomio <span class="math display">\[
+\tag{22}\]</span></span> y de acuerdo con el Teorema general de binomio <span class="math display">\[
 \left( 1 + \frac{q}{n - q} \right)^p = \sum_{k = 0}^{\infty} {p \choose k} \frac{q^k}{(n - q)^k}
 \]</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -1340,26 +1389,26 @@ a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
 \]</span></p>
 </div>
 </div>
-<p>Podemos escribir <a href="#eq-suc_bin">21</a> como <span class="math display">\[\begin{align*}
+<p>Podemos escribir <a href="#eq-suc_bin">22</a> como <span class="math display">\[\begin{align*}
 a_n &amp;= n - (n-q)\left( 1 + p \frac{q}{(n-q)} + \frac{p(p-1)}{2!}\frac{q^2}{(n-q)^2} + \cdots\right)
 \\
 \\
 &amp; = q(1 - p) -  \frac{p(p-1)}{2!}\frac{q^2}{(n-q)} -  \frac{p(p-1)(p-2)}{3!}\frac{q^3}{(n-q)^2} - \cdots
-\end{align*}\]</span> y obtenemos <a href="#eq-lim_bio">20</a> cuando hacemos tender <span class="math inline">\(n\)</span> a infinito.</p>
+\end{align*}\]</span> y obtenemos <a href="#eq-lim_bio">21</a> cuando hacemos tender <span class="math inline">\(n\)</span> a infinito.</p>
 </div>
 </div>
 </div>
 <p>Podemos sacar provecho del ejemplo anterior para demostrar una interesante desigualdad que nos será útil a lo largo del documento.</p>
-<p>Tomemos <span class="math inline">\(q = 1\)</span> en la ecuación <a href="#eq-suc_pserie">19</a>. Note que <span class="math inline">\(a_n\)</span> es creciente y como ya se ha visto <span class="math inline">\(a_n \to 1 - p\)</span> cuando <span class="math inline">\(n \to \infty.\)</span> De acuerdo con esto <span id="eq-des_importante"><span class="math display">\[
+<p>Tomemos <span class="math inline">\(q = 1\)</span> en la ecuación <a href="#eq-suc_pserie">20</a>. Note que <span class="math inline">\(a_n\)</span> es creciente y como ya se ha visto <span class="math inline">\(a_n \to 1 - p\)</span> cuando <span class="math inline">\(n \to \infty.\)</span> De acuerdo con esto <span id="eq-des_importante"><span class="math display">\[
 \frac{n - n^{p}(n - 1)^{1-p}}{1 - p} \geq 1 \quad \text{ para } \quad n = 2, 3, 4, \ldots
-\tag{22}\]</span></span> y despues de un par de manipulaciones algebráicas, <span id="eq-desigualdad_p_serie0"><span class="math display">\[
+\tag{23}\]</span></span> y despues de un par de manipulaciones algebráicas, <span id="eq-desigualdad_p_serie0"><span class="math display">\[
 \frac{1}{n^p} \leq \frac{n^{1-p} - (n -1)^{1-p}}{1 - p}.
-\tag{23}\]</span></span> Al sumar desde <span class="math inline">\(k = 2\)</span> hasta <span class="math inline">\(n\)</span>, obtenemos <span class="math display">\[
+\tag{24}\]</span></span> Al sumar desde <span class="math inline">\(k = 2\)</span> hasta <span class="math inline">\(n\)</span>, obtenemos <span class="math display">\[
 \sum_{k=2}^{n}\frac{1}{k^p} \leq \frac{1}{1-p}\sum_{k=2}^{n} \left( k^{1-p} - (k -1)^{1-p} \right) = \frac{n^{1-p} - 1}{1 - p}
 \]</span> y sumando 1 a ambos lados de la desigualdad <span id="eq-desigualdad_p_serie1"><span class="math display">\[
 \sum_{k=1}^{n}\frac{1}{k^p} \leq \frac{n^{1-p} - p}{1 - p}
-\tag{24}\]</span></span></p>
-<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;5</a> <span class="math display">\[
+\tag{25}\]</span></span></p>
+<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;6</a> <span class="math display">\[
 n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 \]</span> y de acuerdo con esto hemos probado el siguiente resultado</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
@@ -1539,9 +1588,9 @@ V^-_r(p) = \{x \in \mathbb{R} : 0 \leq p - x &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limiteF" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 9 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;1</a> La notación <span id="eq-limite"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 10 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;2</a> La notación <span id="eq-limite"><span class="math display">\[
 \lim_{x \to p} f(x) = l.
-\tag{25}\]</span></span> se lee <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> es igual a <span class="math inline">\(l\)</span>”</strong> lo que significa que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+\tag{26}\]</span></span> se lee <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> es igual a <span class="math inline">\(l\)</span>”</strong> lo que significa que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \} \cap S.
 \]</span></p>
 </div>
@@ -1558,13 +1607,13 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \}
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limiteL" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 10 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span id="eq-limited"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 11 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span id="eq-limited"><span class="math display">\[
 \lim_{x \to p^+} f(x) = l.
-\tag{26}\]</span></span> se lee <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>”</strong> lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
+\tag{27}\]</span></span> se lee <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>”</strong> lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p \} \cap S.
 \]</span> De manera similar entenderemos la notación <span id="eq-limitei"><span class="math display">\[
 \lim_{x \to p^-} f(x) = l,  
-\tag{27}\]</span></span> con la diferencia de que tomaremos <span class="math inline">\(V^{-}_{\delta}\)</span> en lugar del conjunto <span class="math inline">\(V^{+}_{\delta},\)</span> y en este caso leeremos <a href="#eq-limitei">27</a> como: <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la izquierda es igual a <span class="math inline">\(l\)</span>.”</strong></p>
+\tag{28}\]</span></span> con la diferencia de que tomaremos <span class="math inline">\(V^{-}_{\delta}\)</span> en lugar del conjunto <span class="math inline">\(V^{+}_{\delta},\)</span> y en este caso leeremos <a href="#eq-limitei">28</a> como: <strong>“el límite de <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la izquierda es igual a <span class="math inline">\(l\)</span>.”</strong></p>
 </div>
 </div>
 </div>
@@ -1583,7 +1632,7 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-continuidad" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 11 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 12 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si <span class="math display">\[
     \lim_{x \to p} f(x) = f(p).
 \]</span> Si <span class="math inline">\(f\)</span> es continua en todo punto de <span class="math inline">\(S\)</span> entonces diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(S.\)</span></p>
 </div>
@@ -1671,7 +1720,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-contseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 16 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
 \vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
 \]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
 </div>
@@ -1688,7 +1737,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-hip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 17 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
 <p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
 \delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
 \]</span> y <span class="math display">\[
@@ -1715,7 +1764,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-conuniforme" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 12 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en un conjunto <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es uniformemente continua si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 13 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en un conjunto <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es uniformemente continua si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math display">\[
 \vert f(x) - f(y) \vert  &lt; \epsilon \text{ siempre que } \vert x - y \vert &lt; \delta
 \]</span> para todo <span class="math inline">\(x, y \in S.\)</span></p>
 </div>
@@ -1736,7 +1785,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-p_interior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 13 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
+<p><span class="theorem-title"><strong>Definición 14 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
 </div>
 </div>
 </div>
@@ -1816,7 +1865,7 @@ f(p) - \epsilon &lt; f(x) &lt; f(p) + \epsilon \text{ para todo } x \in V_{\delt
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-particion" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 15 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
 a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 \]</span> Una partición <span class="math inline">\(P'\)</span> se dice más fina que otra partición del mismo intervalo si <span class="math inline">\(P' \supset P.\)</span></p>
 <p>Emplearemos la notación <span class="math inline">\(\Delta x_k\)</span> para indicar la diferencia <span class="math inline">\(\Delta x_k = x_k - x_{k-1}\)</span> siendo <span class="math inline">\(x_{k-1}\)</span> y <span class="math inline">\(x_{k}\)</span> elementos de una partición <span class="math inline">\(P.\)</span></p>
@@ -1834,7 +1883,7 @@ a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-riemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 15 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 16 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
 S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1}, x_{k}].
 \]</span> Note en particular que el valor de <span class="math inline">\(S(P,f)\)</span> depende de la elección de <span class="math inline">\(P.\)</span></p>
 </div>
@@ -1851,7 +1900,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-intriemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 16 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 17 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
 \vert S(P, f) - I\vert &lt; \epsilon.
 \]</span> El número <span class="math inline">\(I\)</span> se representa como <span class="math inline">\(I = \int_{a}^{b} f(x) \, dx\)</span> y se lee: `` la integral de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.’’</p>
 </div>
@@ -1957,7 +2006,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-diferenciabilidad" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 17 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 18 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
 \phi(x) = \frac{f(x) - f(p)}{x - p},
 \]</span> es continua en <span class="math inline">\(p.\)</span></p>
 <p>Comúnmente el símbolo <span class="math inline">\(\phi(p)\)</span> se representa como <span class="math inline">\(f'(p)\)</span> o <span class="math inline">\(\dfrac{d}{dx}f(p)\)</span> y en ambos casos se leen como: `` la derivada de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> evaluada en <span class="math inline">\(p.\)</span>’’ Es decir <span class="math display">\[
@@ -2001,7 +2050,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_constante" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
 <p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
 \frac{d}{dx}f(p) = 0,
 \]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
@@ -2019,7 +2068,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_xn" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p><span class="theorem-title"><strong>Ejemplo 20 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
 <p>Note que <span class="math display">\[\begin{align*}
     \phi(x) &amp; = \frac{x^n - p^n }{x - p}
     \\
@@ -2097,7 +2146,7 @@ V_{\delta}(p) = \bigcup_{y \in V_{\alpha}(p)}V_{\beta}(y).
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-maxmin" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 18 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 19 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
 f(p) \geq f(x)
 \]</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span></p>
 <p>La definición para mínimo local es similar salvo por el hecho del cambio de sentido de la desigualdad.</p>
