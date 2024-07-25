@@ -1,0 +1,291 @@
+---
+title: "Algo de combinatoria y números primos"
+lang: es
+---
+
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+\newcommand{\piso}[1]{\left \lfloor{#1}\right \rfloor}
+\newcommand{\res}[2]{\left[ #1 , #2 \right]}
+\newcommand{\card}[1]{\big \vert  #1 \big \vert }
+
+\newcommand{\norm}[1]{\vert \vert #1 \vert \vert}
+\newcommand{\md}[1]{\vert  #1 \vert }
+\newcommand{\vt}[1]{\mathbf{#1}}
+
+## Introducción
+
+Los métodos tipo criba, son una de las herramientas más antiguas y comúnmente empleados en el estudio de la distribución de los números primos. Estos métodos buscan encontrar una estructura al conjunto de los números primos, estudiando su comportamiento hasta un determinado entero. 
+
+En el siguiente documento, un trabajo en colaboración con mi estudiante tesista Cristian Andrés Valor, hacemos un recorrido de las ideas desarrolladas por el matemático Ernst Meissel para obtener una expresión que nos permita reescribir la criba de Eratóstenes (véase ecuación [-@eq-final0])
+
+
+## Residuos en progresiones aritméticas
+
+Para un par de números enteros $p$ y $q$ con $p > 0,$  denotaremos con $\res{q}{p}$ al residuo de la división de $q$ por $p.$ Identificaremos con $\varphi(n)$ para $n \geq 1,$ a la función idicatriz de Euler, que corresponde el número de enteros positivos menores o iguales que $n.$  Es claro que si $p$ es primo entonces $\varphi(p) = p-1.$ Por otro lado, es bien conocido que $\varphi$ es multiplicativa en el sentido de que si $(m,n) = 1$ entonces $\varphi(m n) = \varphi(m) \varphi(n).$
+
+Identificaremos con $\pi(x)$ al número de primos menores o iguales que un cierto número $x,$ y con $\pi(x ; q, r)$ al número de primos menores o iguales que $x,$ presentes en la progresión aritmética $\{ qk + r\}$ con $(q,r)=1.$ 
+
+Denotaremos con $P{\left(x\right)}$ al conjunto de primos menores o iguales que un cierto número $x,$ y con $P^*(x)$ al conjunto de primos no pares menores o iguales que $x.$ Es claro que $\big \vert P \left( x \right) \big \vert = \pi \left( x \right)$ y que $\big \vert P^* \left( x \right) \big \vert = \pi \left( x \right) -1.$
+
+Denotaremos con $x\#$ al factorial primo de $x,$ esto es
+ $$
+ x\# = \prod_{p \in P(x)}p,
+ $$
+ Note que
+ $$
+ \varphi(x\#) = \prod_{p \in P(x)}(p-1).
+ $$
+
+Para un par de enteros $q$ y $x,$ escribiremos $d_q(x)$ para representar la función
+$$
+d_q(x) = 
+\begin{cases}
+	1 \text{ si } q \vert x,
+	\\
+	0 \text{ en caso contrario}.
+\end{cases}
+$$
+Para un entero $q$ menor o igual que $x,$ identificaremos con $C(x ; q, r)$ al conjunto de los números, menores o iguales que $x,$  presentes en la progresión $\{q k + r\}$ con $k = 0, 1, 2, \ldots.$ 
+
+Escribiremos $\beta(x)$ para referirnos a la función 
+$$
+\beta(x) = 
+\begin{cases}
+	0 \text{ si } x \text{ es primo},
+	\\
+	1 \text{ en otro caso,}
+\end{cases}
+$$
+y escribiremos $C^*{\left(x; q, r \right)}$ para identificar al conjunto 
+$$
+C^*{\left(x; q, r \right)} =
+\begin{cases}
+	C{\left(x; q, r \right)} \setminus \{ r \} \text{ si } \beta{\left(  r \right)} = 0,
+	\\
+	C{\left(x; q, r \right)} \text{ si } \beta{\left( r \right)} = 1,	
+\end{cases}
+$$
+Note que 
+$$
+\card{C^*{\left(x; q , r \right)}} = \piso{\frac{x - r}{q}} + \beta{(r)}.
+$$ {#eq-cardinalC}
+Emplearemos la notación $D \left(x; q \right)$ para representar el conjunto de divisores primos de $q$ menores o iguales que $x,$ es decir $D{ \left( x; q \right) } = \left\{ p \in P{ \left( x \right)} : p \vert q \right\}.$
+
+Para un entero $j$ no negativo, representaremos con $A_j(x ; q)$ a los conjuntos
+$$
+A_j(x ; q) = 
+\begin{cases}
+	\{1\} \text{ si } j = 0,
+	\\
+	\\
+	\left\{ \prod_{i = 1}^{j}p_i : p_i \in P {\left( x \right)} \setminus D(x;q) \right\} \text{ si } j \geq 1.
+\end{cases}
+$$
+
+Identificaremos con la letra $Q$ a los elementos de $A_j(x;q)$. Note en particular que si $j = 1$ entonces $Q$ es un número primo perteneciente al conjunto $P(x) \setminus D(x;q).$ 
+
+::: {#lem-lema1}
+
+Sean $q,$ $r$ y $x$ enteros no negativos tales que $r < q \leq x.$ El número de primos presentes hasta $x,$ en la progresión $\{ qk + r\}$ con $(q,r) = 1$ es
+$$	
+\pi(x ; q , r) =1 - \piso{\frac{1}{r}} + \piso{\frac{x - r}{q}} + \sum_{j = 1}^{\pi{ \left( \sqrt{x} \right)} - d}  (-1)^j  \sum_{Q \in  A_j(\sqrt{x} ; q)} \Big\vert C^*{\left(x ; qQ , \res{rQ^{\varphi(q)}}{qQ} \right)} \Big\vert
+$$ {#eq-formula1}
+en donde $d = \card{D{\left( \sqrt{x} ; q  \right)}}.$ 
+:::
+:::{.proof}
+Si para un cierto entero no negativo $z$ el número $1 < pz + r \leq x$ es compuesto, entonces existe un primo $Q \in A_1(\sqrt{x} ; q)$ que le divide, y es claro que $pz + r$ es una solución del sistema de ecuaciones modulares,
+$$
+\begin{cases}
+x \equiv r \Mod{q},
+\\
+x \equiv 0 \Mod{Q}.
+\end{cases}
+$$ {#eq-sistema}
+De acuerdo con el Teorema chino del residuo este sistema admite solución siendo una de estás $rQ^{\varphi(q)},$ con lo que un conjunto de soluciones no negativas de [-@eq-sistema] hasta un cierto $x,$ esta dado por $C{\left(x ; Q , \res{r Q^{\varphi(q)}}{qQ} \right)}.$ Se sigue entonces que el conjunto de números primos,  hasta un cierto $x$ presentes en la progresión $\{qk + r\}$ corresponde con
+$$
+\pi{\left(x ; q, r \right)}  = \Big\vert	C(x ; q, r) \setminus \bigcup_{Q \in A_{1} (\sqrt{x} ; q)}  C^*{ \left( x;Q, \res{r Q^{\varphi(q)}}{qQ} \right)}\Big\vert - \piso{\frac{1}{r}}
+$$ {#eq-conjunto}
+En donde se ha restado término $\piso{1/r}$ contemplando la posibilidad de que $r = 1.$ También se ha empleado la notación $C^*$ pues es posible que  $ rQ^{\varphi(q)} = \res{ rQ^{\varphi(q)}}{qQ}$ sea un número primo, el cual no debe ser excluido del conjunto $C(x ; q, r).$ 
+
+De acuerdo con el principio de inclusión--exclusión, podemos reescribir el cardinal en [-@eq-conjunto] sumando y restando de forma alternada, al cardinal de $C(x;q,r),$ el cardinal de las intersecciones dos a dos, tres a tres y de esta forma sucesivamente hasta las $\pi(\sqrt{x}) - d$ con $d = \vert D(\sqrt{x} ; q)\vert$ intersecciones de los conjuntos $C{\left( x;Q, \res{r Q^{\varphi(q)}}{qQ} \right)}.$ De acuerdo con este propósito, note que para $Q_i \in A_1{\left( \sqrt{x}  , q \right)}$ con $i = 1, \ldots n,$ se tiene como una consecuencia directa del Teorema chino del residuo, que el sistema de ecuaciones modulares
+$$
+\begin{cases}
+		x \equiv & \res{rQ_1^{\varphi(q)}}{qQ_1} \Mod{Q_1},
+		\\
+	& \vdots 
+		\\
+		x \equiv  & \res{rQ_n^{\varphi(q)}}{qQ_n}  \Mod{Q_n},
+\end{cases}
+$$ {#eq-sistema2}
+admite solución, siendo una de estás $rQ^{\varphi(q)}$ con $Q = \prod_{i = 1}^{n} Q_i$. Note que en este caso $\res{rQ^{\varphi{(q)} }}{pQ}$ será un número compuesto. Esto sugiere que el conjunto de soluciones no negativas de [-@eq-sistema2] hasta un cierto $x$ corresponde con $C{\left(x ; Q , \res{r Q^{\varphi(q)}}{qQ} \right)}$ para  $Q = \prod_{i = 1}^{n} Q_i,$ y en este caso , se sigue de [-@eq-cardinalC] que
+$$
+ \Big\vert C^*{\left(x; qQ , \res{Q^{\varphi(q)}}{qQ} \right) }\Big\vert = \piso{\frac{x - \res{Q^{\varphi(q)}}{qQ} }{qQ}} + 1.
+$$
+
+Por lo tanto, si $x < \res{Q^{\varphi(q)}}{qQ}$ entonces $\Big\vert C^*{\left(x; qQ , \res{Q^{\varphi(q)}}{qQ} \right) }\Big\vert = 0.$
+ 
+ De acuerdo con lo anterior, [-@eq-conjunto] puede escribirse como  
+
+$$
+\pi(x ; q, r) = \card{C(x;q,r)} - \piso{\frac{1}{r}} + \sum_{j = 1}^{\pi \left( \sqrt{x} \right) - d} (-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)} \Big \vert C^*{\left( x; qQ, \res{ Q^{\varphi(q)}}{qQ} \right)} \Big \vert,
+$$
+lo que finaliza la prueba.
+:::
+
+
+:::{#thm-teorema1}
+Sean $q,$ $r$ enteros no negativos tales que $r < q \leq x$  y $(q, r) = 1.$ Entonces
+$$
+\sum_{j = 0}^{\pi\left( \sqrt{x}\right) - d }  (-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)} \piso{\frac{x - \res{rQ^{\varphi(q)}}{qQ}}{qQ}} = \pi{\left(x; q, r \right)} - \pi \left( \sqrt{x}; q, r \right) + \piso{\frac{1}{r}},
+$${#eq-formular2}
+en donde $d = \card{D{\left(\sqrt{x} ; q \right)}}.$
+:::
+
+:::{.proof}
+Para $Q \in A_j(\sqrt{x} ; q)$ con $j \geq 2$ se tiene que $\beta \left(\res{rQ^{\varphi{(q)}}}{qQ} \right) = 1,$ y por lo tanto
+$$
+\sum_{j = 2}^{\pi{ \left( \sqrt{x} \right) } - d}(-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)}  \beta\left( \res{rQ^{\varphi{(q)}}}{qQ} \right)  =
+\sum_{j = 2}^{\pi{ \left( \sqrt{x} \right) } - d}(-1)^j  {\binom{\pi{ \left( \sqrt{x} \right) } - d}{j} }
+$${#eq-binomio}
+Por otro lado, como
+$$
+0 = (1 - 1)^{\pi{ \left( \sqrt{x} \right)} - d} = 1 -  \pi{  \left(  \sqrt{x} \right)} +  d  + \sum_{j = 2}^{\pi{\left( \sqrt{x}\right)} - d}(-1)^j  \binom{\pi{\left( \sqrt{x}\right)} - d}{j},
+$$
+entonces [-@eq-binomio] puede escribirse de la forma
+	
+$$
+\sum_{j = 2}^{\pi {\left( \sqrt{x} \right)} - d}(-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}}\beta\left( \res{rQ^{\varphi{(q)}}}{qQ} \right) = -1 + \pi{\left( \sqrt{x} \right)} - d.
+$$ {#eq-formula2.2}
+
+Note que para $Q  \in A_{1}{\left(\sqrt{x} ; q \right)}$ se tiene que $\beta\left( \res{rQ^{\varphi{(q)}}}{qQ } \right) = 0,$ únicamente si $Q \in \{qk + r\}.$ De acuerdo con esto
+
+$$
+		\sum_{Q \in A_{1}{\left( \sqrt{x}; q \right)}} \beta \left(  \res{rQ^{\varphi{(q)}}}{qQ } \right)  = \pi{\left( \sqrt{x} \right)}  - \pi{\left( \sqrt{x}; q, r \right)} - d.
+$${#eq-formula2.3}
+
+De las ecuaciones [-@eq-formula2.2] y [-@eq-formula2.3] se concluye que
+$$
+\sum_{j = 1}^{\pi{\left( \sqrt{x} \right)} - d} (-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}} \beta{\left(  \res{rQ^{\varphi{(p)}}}{pQ } \right)} =   \pi{\left( \sqrt{x}; q, r \right)} -1.
+$$ {#eq-identidad2}
+Teniendo en cuenta [-@eq-cardinalC], y al reemplazar [-@eq-identidad2]en [-@eq-formula1] obtenemos
+$$
+\piso{\frac{x - r}{q}} + \sum_{j = 1}^{\pi{\left( \sqrt{x} \right)} - d} (-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}} \piso{\frac{x - \res{rQ^{\varphi(q)}}{qQ} }{qQ}} = \pi{\left(x; q; r \right)} - \pi{\left( \sqrt{x} ; q , r \right)} +  \piso{\frac{1}{r}}.
+$$
+La prueba finaliza al iniciar la suma desde $j = 0.$ 
+:::
+
+## Residuos respecto a un entero común
+
+Para un entero $x,$ escribiremos $N(x)$ para identificar el conjunto $N(x) = \{2, 3, \ldots , x\}.$ Note que $\card{N(x)} = x - 1.$
+
+ Se empleará la notación $C(x;q)$ para identificar el conjunto $\{ q k + \res{x}{q}\}_{k = 0},$ y con $B(x)$ identificaremos a la unión de estos conjuntos con $q \in P{\left( \sqrt{x} \right)},$ es decir
+$$
+B(x) = \bigcup_{q \in P{\left(\sqrt{x} \right)}} C(x;q),
+$$
+
+A partir de este momento asumiremos que $A_j(x) \equiv A_j(x; 1).$
+
+:::{#lem-lm1}
+
+Sean $p, q, x \in \mathbb{Z}$ con $p > 0.$ Entonces $p \vert (x - q)$ si y sólo si $\res{q}{p} = \res{x}{p}.$
+:::
+
+:::{.proof}
+Si $p \vert (x - q)$ entonces existe un entero  $k$ tal que $x - q = pk.$ Por otro lado, existen enteros $k_1$ y $k_2$ tales que $\res{x}{p} = x - pk_1$ y $\res{q}{p} = q - p k_2,$ con lo que
+$$
+\res{x}{p} -\res{q}{p} = p(k - k_1 + k_2).
+$$
+Como $0 \leq \res{n}{p} < p$ y $- p < - \res{q}{p}  \leq 0,$ entonces 
+$$
+-1 < k - k_1 + k_2 < 1,
+$$
+y al ser $k,$ $k_1$ y $k_2$ enteros, la desigualdad estricta se cumple siempre que $  k - k_1 + k_2 = 0.$ Por lo tanto $\res{q}{p} = \res{x}{p}.$
+	
+Si $\res{q}{p} = \res{x}{p}$ entonces, para enteros $k_1$ y $k_2$ como en la primera parte de la prueba, se verifica que
+$$
+\begin{align*}
+x - pk_1  & = q - pk_2
+\\
+x - q &= p (k_1 - k_2),
+\end{align*}
+$$
+y en consecuencia $p \vert (x - q).$
+:::
+
+:::{#lem-lemaC2}
+$\card{N(x) \setminus B(x)} = \pi(x) - \pi(\sqrt{x}) + 1.$
+:::
+
+:::{.proof}
+Se desprende del lema [-@lem-lm1]  que $q \notin B(x)$ si y sólo si $x - q$ es un número primo. 
+	
+Por otro lado, note que para todo primo $p \leq \sqrt{x},$ se tiene que $x - p \in B(x),$ 
+:::	
+
+:::{#lem}
+Sea $x$ un entero no negativo, entonces
+$$
+\card{N(x) \setminus B(x )} =   \sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \left( \frac{x + \res{x}{Q}}{Q} \right)  + 1 - d_{Q}(x)\right).
+$$ {#eq-lm2}
+:::
+:::{.proof}
+Es claro que
+$$
+\card{N(x) \setminus B(x)} = \Big\vert N(x)  \setminus  \bigcup_{Q \in P{\left( \sqrt{x} \right)}} C(x;Q) \Big\vert
+$$
+De forma similar a la prueba del lema [-@lem-lema1], note que si en el sistema [-@eq-sistema2] cambiamos $\res{rQ_{i}^{\varphi(q)}}{qQ_i}$ por $\res{x}{Q_i}$ para $i = 1, \ldots , n$ el sistema admite una solución elemental, siendo ésta $x.$ De acuerdo con lo anterior, para $Q \in A_j{\left( \sqrt{x} \right)}$ con $j \geq 2,$ se tiene que
+$$
+\Big\vert C{\left(x; Q\right) }\Big\vert = \left( \frac{x - \res{x}{Q}}{Q}\right) + 1 - d_{Q}(x),
+$$ 
+lo que finaliza la prueba.
+:::
+
+:::{#lem-lemaf1}
+
+Si $x$ es un entero no negativo, entonces
+$$
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right) } } (-1)^j \sum_{Q \in A_j(\sqrt{x})} \left( \frac{x - \res{x}{Q} }{Q} \right) =  \pi{(x)} - \pi{\left( \sqrt{x}\right)} + 1.
+$$ {#eq-lemaf}
+:::
+
+:::{.proof}
+Note que
+$$
+\sum_{j = 0}^{\pi{\left( \sqrt{x}\right)}} (-1)^j \sum_{Q \in A_j{\left( \sqrt{x} \right)}} 1 = \sum_{j = 0}^{\pi{\left( \sqrt{x}\right)}}(-1)^j  \binom{\pi{\left( \sqrt{x}\right)}}{j} = 0,
+$$
+
+de acuerdo con esto y el resultado del lema [-@lem-lemaC2], la ecuación [-@eq-lm2] puede escribirse en la forma
+$$
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \piso{\frac{x}{Q}}  - d_{Q}(x)\right) =  \pi{(x)} - \pi{\left( \sqrt{x}\right)} + 2- \beta(x-1).
+$$
+Por otro lado, tenemos que
+$$
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})}  d_{Q}(x) = \sum_{j = 0}^{d} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})}  1 = 0,
+$$
+en donde $d = \vert D (\sqrt{x} ; x)\vert,$ lo que finaliza la prueba.
+:::
+
+Es conocido que
+$$
+\sum_{j = 0}^{\pi(\sqrt{x})}(-1)^j\sum_{Q \in A_j(\sqrt{x})} \frac{1}{Q} = \prod_{p \leq \sqrt{n}} \left( 1 - \frac{1}{p}\right),
+$$
+y si escribimos
+$$
+ R(x) = \sum_{j = 0}^{\pi{\left( \sqrt{x} \right) } } (-1)^{j+1} \sum_{Q \in A_j(\sqrt{x})}  \left\{ \frac{x}{Q} \right\} ,
+$$ {#eq-residuo}
+
+entonces, una consecuencia inmediata del teorema anterior es 
+
+:::{#cor-corolariof}
+Para todo entero $n \geq 2$ se verifica
+:::
+$$
+\label{eq::final0}
+n \prod_{p \leq \sqrt{n}} \left( 1 - \frac{1}{p}\right) - R(n)  =  \pi{(n)} - \pi{\left( \sqrt{n}\right)} + 1.
+$$ {#eq-final0}
+
+Para algunos casos elementales, la ecuación \eqref{eq::final0} permite encontrar el número de primos hasta un cierto $n,$ cuando se conoce de manera exacta el valor de $R(n),$ o un valor aproximado del mismo. Puede comprobarse esto tomando $n = 6, 12, 18, 24, 30,$ valores de $n$ para los cuales $R(n) = 0,$ y $\phi(\sqrt{n})$ es fácilmente computable.
+
+la siguiente figura es una representación del gráfico $R(n)$, con $n$ desde 2 hasta 20000.
+
+![](/img/grafRN.png){fig-align="center" width=55%}

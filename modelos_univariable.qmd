@@ -95,9 +95,9 @@ Note que
 $$
 a_0 = j, \quad a_1 = j + d, \quad a_2 = j + 2d, \ldots \, a_n = j + nd,
 $$
-La expresión $a_n = j + nd$ corresponde con la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignado un valor de $n$.  
+La expresión $a_n = j + nd$ corresponde con la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignando un valor de $n$.  
 
-El comportamiento se este conjunto de datos es lineal y para nuestra comprensión lo entenderemos como el caso en que la diferencia entre el valor presente y pasado es siempre constante.
+El comportamiento se este conjunto de datos es lineal y para nuestra comprensión lo entenderemos como el caso en que la diferencia entre el valor presente $a_n$ y pasado $a_{n-1}$ es siempre constante.
 ::: 
 :::
 
@@ -116,14 +116,17 @@ Note que
 $$
 a_0 = j, \quad a_1 = r j, \quad a_2 = r^2 j, \ldots \, a_n = r^n j
 $$
-De manera similar al ejemplo anterior, la expresión $a_n = r^n j$ es la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignado un valor de $n$. 
+De manera similar al ejemplo anterior, la expresión $a_n = r^n j$ es la solución de la relación de recurrencia ya que permite encontrar cualquier término del conjunto $\{ a_n\}$ asignando un valor de $n$. 
 
-El comportamiento de este conjunto de dice exponencial y para nuestra comprensión lo entenderemos como el caso en que el valor presente es proporcional al valor pasado, o bien, cuando el cociente del valor presente y pasado permanece constante. 
+El comportamiento de este conjunto de dice exponencial y para nuestra comprensión lo entenderemos como el caso en que el valor presente $a_n$ es proporcional al valor pasado $a_{n-1}$, o bien, cuando el cociente del valor presente y pasado permanece constante. 
 :::
 :::
 
-Con el siguiente código graficamos un conjunto de $20$ puntos cuyo comportamiento es exponencial, aquí se ha tomado $r=1.05$ y $a_0 = 2$
+Con el siguiente código en Python graficamos un conjunto de $20$ puntos cuyo comportamiento es exponencial, aquí se ha tomado $r=1.05$ y $a_0 = 2$
 ```{python}
+
+#| code-overflow: wrap
+
 import matplotlib.pyplot as plt
 import numpy as np
 """
@@ -136,7 +139,7 @@ r = 1.05
 a = [j]  
 x = np.linspace(1, nd, nd)
 for n in range(1 , len(x) ):
-  a.append( r*a[n-1] )   # relación de recurrencia en la forma r*a_(n-1)
+  a.append( r*a[n-1] )   # recurrencia en la forma r*a_(n-1)
 
 fig, ax = plt.subplots(figsize = (4,4) )
 ax.scatter(x, a, s = 14)
@@ -197,7 +200,7 @@ $$
 Es interesante evidenciar que a medida que $n$ toma valores cada vez más grandes, el valor de $a_n$ se acerca de forma oscilante a $q.$
 :::
 :::
-Con el siguiente código graficamos un conjunto de $10$ puntos cuyo comportamiento se acerca de forma oscilante a $p=5$, aquí se ha tomado $a_0 = 24.$
+Con el siguiente código ePython graficamos un conjunto de $10$ puntos cuyo comportamiento se acerca de forma oscilante a $p=5$, aquí se ha tomado $a_0 = 24.$
 
 ```{python}
 import numpy as np
@@ -219,6 +222,62 @@ plt.title('Aproximación al número $q$')
 plt.xlabel('n')
 plt.show()
 ```
+
+A partir de este momento identificaremos con $\{ a_n \}$ a una lista infinita de valores, y nos referiremos a esta como una sucesión o secuencia, cuyos elementos se pueden obtener por ejemplo a partir de una relación de recurrencia. Aquí $a_n$ se conoce como el término $n$-ésimo y con él podemos encontrar cualquier elemento de  la sucesión al asignarle un valor a $n.$
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-terminon}
+Encuentre el término $n$-ésimo de la siguiente sucesión de números
+$$
+\frac{1}{3}, \frac{8}{2},\frac{4}{13}, \frac{18}{8} , \frac{16}{23}\ldots
+$$
+
+**Solución**
+
+El comportamiento de esta sucesión de números parece alternarse entre numeradores y denorminadores en cada fracción. Note que en un sentido encontramos la secuencia $1,2,4,8,16$ mientras que en otro tenemos a $3,8,13,18,23$. El primero obedece a un comportamiento exponencial cuya solución es $2^n,$ mientras que el otro obedece a un comportamiento lineal cuya solución es $3 + 5n$.
+
+Ahora bien, para poder garantizar que en cada etapa de la secuencia la fracción cambie su numerador por denominador, recordemos que $\left( \dfrac{a}{b} \right)^{-1} = \dfrac{b}{a}$. De acuerdo con esto, el término $n$-ésimo de la sucesión es
+$$
+a_n = \left( \frac{2^n }{3 + 5n }\right)^{(-1)^n} \text{ para } n = 0, 1, 2,  \ldots
+$$  {#eq-terminon}
+
+:::
+
+:::
+
+A veces es conveniente cambiar el valor en el que el dato $n$ inicia. Por ejemplo, en algún momento puede ser necesario cambiar el inicio $n= 0$ del término $n$-ésimo de la ecuación [-@eq-terminon] por $n = t,$ para ello hacemos la siguiente identificación. 
+$$
+n + t = m
+$$
+lo que indica que cuando el índice $n$ toma el valor de cero, el índice $m$ toma el valor de $t.$ Note que esta expresión es equivalente a 
+$$
+n = m - t \text{ es decir } n \equiv n - t,
+$$  
+esta última identificación es simplemente para no cambiar de letra. De acuerdo con esto la ecuación [-@eq-terminon] se podría escribir en la siguiente forma
+$$
+a_n = \left( \frac{2^{n-t} }{3 + 5(n-t) }\right)^{(-1)^{n - t}} \text{ para } n = t, t + 1, t + 2,  \ldots  
+$$
+
+:::{.callout-tip icon="false"}
+##
+:::{#def-suc_cre_dec}
+## Sucesiones crecientes y decrecientes
+Una sucesión $\{ a_n \}$ es llamada creciente ( decreciente ) si para todo $n$ se verifica que
+$$
+a_{n-1} \leq a_{n} \quad ( a_{n-1} \geq a_{n} ).
+$$
+En general a las sucesiones crecientes o decrecientes se les conoce como sucesiones monótonas.
+
+:::
+
+:::
+
+Las sucesiones asociadas a la relación de recurrencia del ejemplo [-@exm-comlin] son crecientes si $d > 0$ y decrecientes si $d < 0$. 
+
+Por otro lado, las sucesiones asociadas a la relación de recurrencia del ejemplo [-@exm-comex] para $j > 0$ son crecientes si $r > 1$ y decrecientes si $0 < r < 1.$ 
+
+
 :::{.callout-note icon="false" }
 ## Ejercicios
 
@@ -237,7 +296,7 @@ $e.$  $-1, 1, -1, 1, -1,   \ldots$
 
 $f.$  $4, 6, 4, 6, 4,   \ldots$
 
-$h.$  $\dfrac{7}{2}, \dfrac{5}{12} , \dfrac{17}{8}, \dfrac{1}{2}, \dfrac{27}{14}    \ldots$
+$g.$  $\dfrac{7}{2}, \dfrac{5}{12} , \dfrac{17}{8}, \dfrac{1}{2}, \dfrac{27}{14}    \ldots$
 :::
 
 :::{#exr-ej2}
@@ -499,16 +558,6 @@ plt.show()
 
 ```
 
-::: {.callout-note icon=false}
-##
-::: {#def-suc_cre_decre}
-## Sucesiones crecientes y decrecientes
-Una sucesión $\{ a_n \}$ es creciente si $a_n \leq  a_{n+1}$ para todo $n$ y es decreciente si $a_n \geq a_{n+1}$ para todo $n$. 
-
-En general diremos que una sucesión es monótona si esta es crecientes o decreciente. 
-:::
-:::
-
 ::: {.callout-tip icon="false"}
 ##
 ::: {#thm-conv_suc_mon}
@@ -516,19 +565,19 @@ Si $\{ a_n \}$ es una sucesión monótona y acotada, entonces es convergente.
 :::
 :::
 ::: {.proof}
-Supongamos sin pérdida de generalidad que la sucesión es creciente. Como el conjunto $\{ a_n \}$ es acotado, la menor de las cotas superiores de este conjunto, digamos $p$, verifica que $a_n < p$ para todo $n$ y que dado un $\epsilon > 0$ de nuestra elección existe al menos un elemento $a_N$ tal que 
+Supongamos sin pérdida de generalidad que la sucesión es creciente. Como el conjunto $\{ a_n \}$ es acotado, la menor de las cotas superiores de este conjunto, digamos $p$, verifica dos cosas, la primera es que $a_n \leq p$ para todo $n$, y la segunda es que dado un $\epsilon > 0$ de nuestra elección existe al menos un elemento $a_N$ tal que 
 $$
 p - \epsilon < a_N,
 $$
-como la sucesión es creciente entonces la desigualdad anterior es válidad para todo $n > N$ con lo que
+ahora bien, como la sucesión es creciente entonces la desigualdad anterior es válidad para todo $n > N$ con lo que
 $$ 
-p - \epsilon < a_n < p 
+p - \epsilon < a_n \leq  p < p + \epsilon
 $$
-o equivalentemente 
+o de manera equivalentemente 
 $$
 \vert a_n - p  \vert < \epsilon
 $$
-para todo $n > N,$ y de acuerdo con esto $\{a_n \}$ es convergente a $p$.
+para todo $n > N.$ De acuerdo con esto $\{a_n \}$ converge a $p$.
 :::
 
 :::{.callout-warning icon="false"}
@@ -710,16 +759,35 @@ $$
 \lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}}
 $$
 
-:::{#solution}
 Note que
 $$
 \lim_{n \to \infty} \frac{\left(  n^{12} + 10 n^3 + 34 \right)^{1/6}}{\sqrt{ 16 n^4 - n + 5}} \sim \lim_{n \to \infty} \frac{\left(  n^{12}  \right)^{1/6}}{\sqrt{ 16 n^4 }} = \lim_{n \to \infty} \frac{n^2}{4 n^2} = \frac{1}{4}
 $$
 :::
-
-
 ::: 
+
+
+:::{.callout-note icon="false"}
+## Ejercicios
+
+:::{#exr-ej1}
+Sea $\{ a_n \}$ una sucesión en donde
+$$
+a_n = \frac{n}{n +1}
+$$
+Muestre empleando un argumento $\epsilon$ y $N$ que $a_n \to 1$ cuando $n \to \infty$
 :::
+
+:::{#exr-ej1}
+Muestre que
+
+$a.$ $\displaystyle\lim_{n \to \infty} \dfrac{n}{2^n} = 0$   ***Sugerencia***: Muestre que $n^2 < 2^n$ para $n > 3$
+
+
+:::
+:::
+
+
 
 ## Sucesión de sumas parciales ##
 
@@ -1128,6 +1196,9 @@ en donde $\mathbb{P}$ es el conjunto de los números primos.
 Con el siguiente código generamos la superposición de dos gráficos, entre la aproximación numérica de la función $\zeta$ de Riemann y el productorio de los números primos. Se ha generado una función ($ tp(n) $)que identifica si $n$ es un número es primo o no y se han tomado los primos menores o iguales que $n = 100.$
 
 ```{python}
+
+#| code-overflow: wrap 
+
 import numpy as np
 import matplotlib.pyplot as plt
 

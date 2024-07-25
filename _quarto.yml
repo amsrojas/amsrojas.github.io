@@ -8,10 +8,13 @@ website:
     contents:
       - text: "Presentación"
         href: index.qmd
+      - text: "Algo de combinatoria y números primos"
+        href: comb_primos.qmd
       - text: "Matemáticas para las artes"
         href: mat_arte.qmd
-      - text: "Cálculo de una variable"
+      - text: "Elementos del cálculo integral y diferencial"
         href: modelos_univariable.qmd
+    
       - about.qmd
 
 format:

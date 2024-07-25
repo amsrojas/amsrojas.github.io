@@ -3,11 +3,9 @@ title: "Matemáticas para las artes"
 lang: es
 ---
 
-## Preliminares##
 
-En este capítulo introduciremos algunos conceptos elementales del álgebra de conjuntos y la aritmética de los números reales. Estos conceptos los emplearemos para diseñar estructuras que obedezcan a patrones de uniones e intersecciones de unas con otras y para construir objetos que respeten cierta relación numérica.
 
-### Álgebra de conjuntos ###
+# Álgebra de conjuntos
 
 Entenderemos por un conjunto como una colección de elementos. A lo largo del documento identificaremos a un conjunto con una letra mayúscula cursiva, y sus elementos estarán comprendidos entre corchetes separados por una coma.  Por ejemplo,
 $$
@@ -50,10 +48,36 @@ $$
 \mathcal{A} \setminus \mathcal{B} = \{ x \in \mathcal{A} \vert x \notin \mathcal{B} \}.
 $$
 Esto se lee en la siguiente forma: $\mathcal{A} \setminus \mathcal{B}$ son los elementos $x$ de $\mathcal{A}$ **""tales que"** $( \vert )$  $x$ **"no es un elemento de"** $\mathcal{B}$ ".
-
 :::
 
-## Números reales
+Con el siguiente código en OpenSCAD unimos tres cilindros, uno central de radio 50 y dos laterales cuyos centro se han localizado en los punto $A(25 \sqrt{2}, 25 \sqrt{2})$ y $B(-25 \sqrt{2}, -25 \sqrt{2})$. Después a la estructura total le hemos sustraido un rectángulo de dimensiones $100$ unidades en $x$ y $20$ unidades, el rectángulo se ha ratado $45^{\circ}$ a favor de las manecillas de reloj.
+
+
+```{.openscad code-line-numbers="true"}
+$fn = 100;
+linear_extrude(5){
+difference(){
+union(){
+    circle(50);
+    translate([50*sqrt(2)/2,50*sqrt(2)/2,0]){
+        circle(25);
+    }
+    translate([-50*sqrt(2)/2,-50*sqrt(2)/2,0]){
+        circle(25);
+    }
+}
+    rotate([0, 0, 45]){
+        square([100, 20], center = true);
+    }
+}
+}
+
+```
+::: {#fig-union_dif fig-cap="Unión y diferencia en OpenSCAD"}
+![](/img/ej1.png){fig-align="left" width=50%}
+:::
+
+# Números reales
 
 Supongamos la existencia de un conjunto de números denotado con $\mathbb{R}$ (números reales) que verifican los siguientes axiomas ^[Una afirmación que se supone cierta.]
 
@@ -99,8 +123,6 @@ $$
 $$
 con lo que $0 > x$ lo que no es posible, ya que $x > 0.$ De manera equivalente puede probarse que si $-x > 0$ entonces $x < 0.$
 
-### Axioma de completitud
-
 :::{.callout-note appearance="minimal"}
 ## Cota superior e inferior de un conjunto
 Sea $A$ un conjunto de números reales. Si existe un número real $b$ tal que $x \leq b$ para todo número $x$ de $A,$ entonces diremos que $b$ es una cota superior de $A,$ y que $A$ esta acotado superiormente por $b.$ 
@@ -128,7 +150,7 @@ Una forma de representar el conjunto de los números reales es empleando la rect
 
 Sobre la recta numérica la suma de dos números reales tiene una interesante interpretación. Si $a$ es un número real y $b$ es un número positivo, entonces la suma de $a + b$ corresponde con el desplazar $b$ unidades el número $a$ a la derecha. 
 
-A continuación vamos a presentar algunos ejemplos en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.
+Veamos un ejemplo en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.
 
 :::{.callout-warning icon=false}
 ##
@@ -159,6 +181,78 @@ x = -\frac{4}{27}.
 $$
 :::
 :::
+
+
+:::{.callout-note icon="false" }
+## Ejercicios
+
+
+:::{#exr-ej0}
+Sean los conjuntos $A$ y $B$ definidos como
+$$
+A = \{1, 2, 3, 4, 5\} \text{ y } B = \{4, 5, 6, 7, 8\}
+$$
+
+Encuentre
+
+$a.$ $A \cup B$
+
+$b.$ $A \cap B$
+
+$c.$ $A \setminus B$
+
+$d.$ $B \setminus A$
+
+:::
+
+:::{#exr-ej00}
+Considere los conjuntos $E$ y $F$ definidos como
+$$
+E = \{x \in \mathbb{Z} \mid -3 \leq x \leq 3\} \text{ y } F = \{x \in \mathbb{Z} \mid 1 \leq x \leq 5\}
+$$
+
+Encuentre
+
+$a.$ $E \cup F$
+
+$b.$ $E \cap F$
+
+$c.$ $E \setminus F$
+
+$d.$ $E \setminus F$
+
+:::
+
+:::{#exr-ej1}
+Realice las siguentes operaciones
+
+$a.$  $5 + 3$
+
+$b.$  $3 - 5$
+
+$c.$  $5 + 3 - (3 - 5)$
+
+$d.$  $2 - 5 + (3 - 7)$
+
+$e.$  $\dfrac{1}{3} + \dfrac{5}{3} + 3$
+
+$f.$  $\dfrac{2}{5} \left( \dfrac{1}{2} - \dfrac{1}{5}\right) - \dfrac{1}{3}$
+
+$h.$  $\left(\dfrac{2}{7}-\dfrac{3}{5}\left( \dfrac{3}{2} + \dfrac{2}{3} \right)\right) \div \left( \dfrac{1}{4} - \dfrac{2}{7} \right)$
+:::
+
+:::{#exr-ej2}
+Resolver las siguientes ecuaciones
+$$
+\begin{align*}
+& a. \, 2x + 3 = -x + 6 & & b. x  - 4x = 2 + 2x 
+\\
+& c. \, - \frac{5}{6}x + \frac{1}{2} = 1 -\frac{1}{3}\left(  \frac{3}{4}x - \frac{2}{3} \right) & & d. \, 2(4 - 3x) + \frac{3}{2} = 1 - \frac{1}{2}\left( x - 3\right)
+\end{align*}
+$$
+:::
+:::
+
 ## Propiedades de los exponentes
 
 Una forma de reducir la escritura del múltiple producto del número $a$ consigo mismo n-veces es 
@@ -174,6 +268,24 @@ $$
 \left( a^n \right)^{-1} \equiv a^{-n} \equiv \frac{1}{a^n}.
 $$
 Es importante mencionar que las expresiones anteriores se pueden extender para cualquier número real en el exponente de $a.$
+
+:::{.callout-warning icon=false}
+##
+:::{#exm-exponente}
+Simplifique la siguiente expresión y de la respuesta sin utilizar exponentes negativos
+$$
+\frac{x (x y^3)^{-2}}{x^{-3} y}
+$$
+
+**Solución**
+
+$$
+\frac{x (x y^3)^{-2}}{x^{-3} y} = \frac{x x^{-2} y^{-6}}{x^{-3} y} = \frac{x^{-1} y^{-6}}{x^{-3} y} = x^2 y^{-7} = \frac{x^2}{y^7}
+$$
+:::
+:::
+
+
 
 ### Notación científica
 La notación científica es un número en la forma $M \times 10^k$ en donde $M$ es un número decimal con parte entera distinta de cero, y $10^k$ se conoce como el orden de magnitud siendo $k$ un número entero.
@@ -235,7 +347,7 @@ Entonces con 15 trabajadores se podría pintar la casa en 2 días.
 :::
 :::
 
-## Factores de conversión 
+### Factores de conversión 
 En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.
 
 :::{.callout-warning icon="false"}
@@ -292,5 +404,389 @@ $$
 :::
 :::
 
-## El plano cartesiano
+### Cambios de escala
+
+En el contexto de escalas y proporciones, la notación $a:b$ se emplea para expresar la relación entre dos cantidades y significa que por cada $a$ unidades de la primera cantidad, hay $b$ unidades de la segunda cantidad. Por ejemplo, una proporción de $3:4$ significa que por cada 3 unidades de la primera cantidad, hay 4 unidades de la segunda cantidad.
+o por ejemplo, en el caso de un dibujo una escala de $1:100$ indica que 1 cm en el dibujo representa $100 cm$ (o $1 m$) en la realidad, y de manera inversa, $n:1$ significa que $n$ unidades en el dibujo, plano o modelo representan 1 unidad en la realidad. 
+
+:::{.callout-warning icon="false"}
+##
+:::{#exm-escala}
+Se desea convertir un dibujo arquitectónico a escala $1:300$ a una escala $1:600$.
+
+**Solución**
+
+Necesitamos un factor $k$ tal que
+$$
+k \frac{1}{300} = \frac{1}{600}
+$$
+y de acuerdo con esto $k = 1/2,$ es decir necesitamos multiplicar las dimensiones del dibujo por $1/2$.
+:::
+:::
+
+
+:::{.callout-note icon="false" }
+## Ejercicios
+
+:::{#exr-ej00}
+Simplifique y de la respuesta sin utilizar exponentes negativos
+$$
+\begin{align*}
+	&\textbf{a.} \ \frac{3(b^{-2}d)^{4}(2bd^{3})^{2}}{(2b^{2}d^{3})(b^{-1}d^{2})^{5}} &    &\textbf{b.} \ \left[\frac{2(3b^{-2}d)(bd^{3})^{2}}{12b^{3}d^{-1}}\right]^{5}  &  &\textbf{c.} \ \left[\frac{(ab^{2})^{-1}}{(ba^{2})^{-2}}\right]^{-1} 
+	\\
+	\\
+	&\textbf{d.} \ \left(a^{-2} + a^{-3}\right)^{-1}  & &\textbf{e.} \ \frac{x^{-1}}{y^{-1}} - \left(\frac{x}{y}\right)^{-1} &   &\textbf{f.} \ \left(x^{-1} - y^{-1}\right)^{-1}
+\end{align*}		
+$$
+:::
+
+:::{#exr-ej00}
+Una impresora puede imprimir 150 páginas en 10 minutos. ¿Cuántas páginas puede imprimir en 25 minutos?
+:::
+
+:::{#exr-ej01}
+Un grifo llena un tanque en 30 minutos. Si se abre otro grifo igual, ¿en cuánto tiempo se llenará el tanque?
+:::
+
+:::{#exr-ej02}
+Si 3 jardineros pueden plantar 45 árboles en 5 días, trabajando 6 horas al día, ¿cuántos árboles podrán plantar 5 jardineros en 4 días, trabajando 8 horas al día?
+:::
+
+:::{#exr-ej0}
+Se está diseñando una fachada que tiene un ancho de 20 metros y una altura de 10 metros. Se requiere dividir la fachada en tres secciones verticales utilizando proporciones de $2:3:5$ para los anchos de las secciones.
+
+$a.$¿Cuál es el ancho de cada una de las secciones?
+
+$b.$ Dibuje la fachada a una escala tal que 1cm corresponda con 1m y marque las divisiones correspondientes.
+
+$c.$ Si se quiere colocar una ventana centrada en la segunda sección, ¿a qué distancia del borde izquierdo de la fachada se debe colocar el centro de la ventana?
+:::
+
+
+:::{#exr-ef2}
+Un modelo 3D está a una escala $1:50$ y se desea convertir a una escala $1:25.$ ¿Cuál es el factor de conversión de escala?
+:::
+
+:::{#exr-ej10}
+Un modelo arquitectónico de un edificio tiene una escala de $1:500$. Si la altura del edificio real es de 200 metros y se desea cambiar la escala del modelo a $1:250$, calcule el factor de conversión necesario y la nueva altura del modelo del edificio.
+
+:::
+
+
+:::
+
+Con el siguiente código elaboramos en OpenSCAD una secuencia decreciente de cilindros cuyos radios diminuyen en una relación de $0.75$ del radio anterior. La altura de los cilindros disminuye también en cada cilindro $4$ unidades con respecto del anterior.
+
+```{.openscad code-line-numbers="true"}
+$fn=100;
+/*
+Radio de la circunferencia inicial
+*/
+r = 100;
+/*
+Una función para realizar la suma de
+los elementos de una lista.
+*/
+function suma(lista, c = 0) = 
+ c == 0 ? lista[c]:
+ lista[c] + suma(lista, c - 1);
+/*
+Una función que alimenta una lista con
+la suma de la secuencia de los radios
+que se están disminuyendo o aumentando
+en relación a un factor
+*/
+f = 0.75;
+function radios(n) = 
+    [for (k = [0:n]) f^k]; 
+for (k=[0:10]){
+    translate([r*( suma(radios(k), k) - 1),0,0]){
+    linear_extrude(50 - 4*k)
+    circle(r*f^k);
+    }
+}
+```
+
+::: {#fig-union_dif fig-cap="Cilindros anidados con una disminución geométrica de sus radios, y aritmética en sus alturas"}
+![](/img/ej2.png){fig-align="left" width=50%}
+:::
+
+
+# Plano cartesiano
+
+El plano cartesiano es un sistema de referencia dos dimensional empleado para representar puntos, líneas y figuras geométricas. Este plano está compuesto por dos ejes perpendiculares entre sí, uno horizontal, denominado eje $x$ y otro vertical conocido como eje $y$. Ambos ejes se intersectan en un punto denominado origen, que tiene coordenadas $\mathcal{O} = (0,0)$
+
+Cada punto en el plano cartesiano se representa mediante un par ordenado de números $(x,y)$ en donde $x$ indica la posición en el eje horizontal y $y$ la posición en el eje vertical. 
+
+Los puntos en el plano los identificaremos con una letra mayúscula, por ejemplo el punto $P(a,b)$ corresponde al punto $P$ cuyas componentes son $(a,b).$ Es bien conocido que por dos puntos pasa una y sólo una recta, y estás las identificaremos con dos puntos sobre esta o con una letra minúscula a su lado. Si los puntos $A$ y $B$ pertenecen a la recta, esta se denota por $\overleftrightarrow{AB}$.
+
+:::{#def-puntocol}
+Dos o más puntos son colineales si pertenecen a la misma recta. Dos rectas que se encuentran en el plano cuya intersección es el conjunto vacío son llamadas  rectas paralelas. Para escribir que una recta $l$ es paralela a una recta $s$ se empleará la notación $l \parallel s.$
+:::
+
+:::{#def-segmento}
+La parte de la recta $l$ entre los puntos $A$ y $B$ se llama segmento $AB,$ este se denota por $\overline{AB}.$  Los puntos $A$ y $B$ se conocen como los puntos extremos del segmento.
+:::
+
+Emplearemos la notación $\vert \overline{AB} \vert$ para referirnos a la longitud del segmento $\overline{AB}$ y se empleará la notación $d(A,B)$ para referirse a la distancia entre los puntos $A$ y $B.$ En particular note que $d(A,B) = d(B,A) = \vert \overline{AB} \vert.$
+
+Para dos puntos en el plano cartesiano digamos $A(x_0, y_0)$ y $B(x_1, y_1)$ la distancia entre  $A$ y $B$ est\'a dada por la expresión
+$$
+d(A,B) = \sqrt{(x_1 - x_0)^2 + (y_1 - y_0)^2}.
+$${#eq-distancia}
+
+:::{#def-punto_segmento}
+Un punto $C$ se encuentra entre los puntos $A$ y $B$ si $A,$ $B$ y $C$ son puntos distintos sobre la misma recta y $\vert \overline{AC} \vert + \vert \overline{CB} \vert = \vert \overline{AB} \vert.$ Una forma equivalente de escribir esta última  expresión es $d(A,C) + d(C,B) = d(A,B).$ Si $C$ se encuentra entre $A$ y $B,$ y $d(A,C)=d(C,B)$ entonces $C$ es el punto medio del segmento $\overline{AB},$ y en este caso se dice que $C$ biseca el segmento $\overline{AB}.$ 
+:::
+
+:::{#def-rayo}
+Sean $A$ y $B$ dos puntos de la recta $l.$ El conjunto de todos los puntos de $l$ que se encuentran del mismo lado de $A$ pasando por $B,$ incluido $A,$ se denomina rayo y lo denotamos por $\overrightarrow{AB}.$ Se dice que $\overrightarrow{BA}$ y $\overrightarrow{BC}$ son rayos opuestos si $A,$ $B$ y $C$ son puntos colineales y $B$ se encuentra entre $A$ y $C.$
+:::
+
+Rayos y segmentos paralelos entre sí, son subconjuntos de rectas paralelas. Con base a esto se escribirá por ejemplo,  $\overline{AB} \parallel \overline{CD}$ si se quiere decir que el segmento $\overline{AB}$ es paralelo al segmento $\overline{CD}.$
+
+
+### Ángulos y rectas perpendiculares 
+
+En esta sección se introduce los conceptos de ángulo y de rectas perpendiculares.
+
+:::{#def-angulo}
+Un ángulo es la unión de dos rayos que tienen el mismo punto extremo. Los rayos se llaman lados del ángulo y su punto extremo común recibe el nombre de vértice del ángulo.  
+:::
+
+Los ángulos comúnmente se presentan con el símbolo $\angle$ seguido de tres letras, la primera y la última corresponden a puntos sobre los lados del ángulo y la segunda letra corresponde al vértice. Otra manera de representar ángulos es emplear el símbolo $\angle$ seguido de su vértice. También podemos representar un ángulo por medio de una letra minúscula romana o griega. 
+
+La medida del ángulo $\angle ABC$ se representará con $\vert \angle ABC \vert$ cuya unidad es el grado sexagesimal. Un ángulo es llamado \textit{\'angulo recto} \index{\'angulo! recto} si su medida es de $90^\circ.$ Un ángulo es llamado \textit{\'angulo agudo} \index{\'angulo! agudo} si su medida es menor a $90^\circ,$ y se dice \textit{\'angulo obtuso} \index{\'angulo! obtuso} si su medida es mayor a $90^\circ$.
+
+:::{#def-ang_ad}
+Dos ángulos son adyacentes si tienen un mismo vértice y un lado común.
+
+Dos ángulos son opuestos por el vértice si corresponden a los ángulos no adyacentes formados por dos rectas que se intersectan.
+
+Los ángulos que tienen la misma medida se llaman ángulos congruentes. La bisectriz de un ángulo es el rayo cuyo punto extremo es el vértice del ángulo y el cual divide el ángulo en dos ángulos congruentes ^[La noción de congruencia se aplica igual para segmentos y otros objetos matemáticos relacionados con la Geometr\'ia y se representa comúnmente con el s\'imbolo $\cong.$.]
+:::
+
+
+
+:::{#def-rectas_per}
+Dos rectas son perpendiculares si su intersección forma un ángulo recto. Escribiremos $l \perp s$ para representar que la recta $l$ es perpendicular a la recta $s.$ Rayos y segmentos son perpendiculares si son subconjuntos de rectas perpendiculares.
+	
+La distancia de un punto a una recta es la medida del segmento perpendicular que va del punto a la recta. La distancia de un punto $P$ a la recta $l$ se denotará con la expresión $d(P,l).$ 
+:::
+
+ ### Rectas en el plano 
+ En esta sección encontraremos la ecuación de la recta empleando el invariante geométrico llamado pendiente. Entendiendo por invariante geométrico una cantidad que se conserva para todo punto en la estructura, toda estructura tiene infinitos invariantes geométricos. 
+
+:::{#def-pendiente}
+Dado dos puntos $A(x_0,x_1)$ y $B(y_0,y_1) $ con $x_0 \neq x_1$ definimos la pendiente como el cociente 
+$$
+m=\frac{y_1-y_0}{x_1-x_0}
+$$
+Note que en particular la pendiente indica la inclinación de la recta, en ese sentido si la pendiente es positiva la pendiente es creciente en el sentido de las $x$, si es negativa es decreciente y si es cero no tiene inclinación.
+:::
+
+
+Debido a que la pendiente es un invariante geométrico de la recta, para encontrar la ecuación de una recta, simplemente reemplazamos cualquier punto con el que hayamos la pendiente por un punto arbitrario $(x,y)$
+
+
+Es importante mencionar que un punto $P(p_1,p_2)$ pertenece a la recta si este punto satisface a la ecuación de la recta. 
+
+
+:::{#def-rectas_par}
+Dos rectas $l$ y $s$ en un mismo plano son paralelas, $l \parallel s$, si estas no se cortan. Rectas paralelas tienen pendientes iguales.
+:::
+
+:::{#def-rectas_per}
+Dos rectas  $l$ y $s$  son perpendiculares, $l \perp s$, si se cortan formando un ángulo de $90$ grados ($\pi/2$ radianes). El producto de pendientes  de rectas perpendiculares es $-1.$
+:::
+
+
+:::{#exm-ejemplo_ec_recta}
+Considere los puntos $A(1,2)$, $B(-3,-1)$ y $C(-1,5)$ 
+
+1. Encuentre la ecuación de la recta $l$ que pasa por los puntos $A$ y $B.$ 
+2. Encuentre la ecuación $s$ paralela a $l$ que pasa por el punto $C.$
+3. Encuentre la ecuación $t$ perpendicular a $l$ que pasa por el punto $C.$
+
+
+**Solución**
+
+1. Se puede probar que la pendiente de la recta $l,$ es $m_l = 3/4,$ y de acuerdo con esto la ecuación de esta recta es 
+$$
+3x-4y=-5.
+$$
+2. Como la recta $s$ es paralela a $l,$ entonces las pendientes de estas rectas son iguales, es decir $m_s = 3/4$ y de acuerdo con esto la ecuación de esta recta es
+$$
+3x-4y=-23.
+$$
+3. Como la recta $t$ es perpendicular a $l,$ entonces el producto de sus pendientes debe ser $-1,$ de acuerdo con esto $m_t = -4/3,$ y se puede probar que la ecuación de esta recta es
+$$
+4x + 3y = 11.
+$$
+:::
+
+:::{#def-punto_corte}
+## Punto de corte entre dos rectas
+
+Un punto que es común  para las rectas $l$ y $s$ es llamado punto de corte de las rectas. Un punto de corte satisface las ecuaciones de las rectas de manera simultánea. 
+:::
+
+
+:::{#exm-puntocorte}
+Una recta $l$ pasa por los puntos $A(-2,1)$ y $B(3,-2)$, mientras que la recta $s$ pasa por los puntos $C(-1,-3)$ y $D(5,1)$, Encuentre las ecuaciones de las rectas $l$ y $s$ y su punto de corte si este existe.
+
+**Solución**
+
+Puede probarse que la ecuación de la recta $l$ es
+$$
+3x+5y=-1
+$$
+y que la ecuación de la recta  $s$  es 
+$$
+-4x + 6y =-14
+$$
+Para determinar el punto de corte de las rectas $l$ y $s,$ resolveremos el siguiente sistema de ecuaciones. 
+$$
+\begin{cases}
+3x+5y=-1
+\\
+-4x + 6y =-14
+\end{cases}
+$$ {#eq-sist}
+Vamos a multiplicar la primera ecuación de [-@eq-sist] por $6$ y la segunda por $-5$ de manera que al sumar ambas expresiones se elimine la  variable $y,$ de acuerdo con esto obtenemos.
+$$
+38x=64 \to x=\frac{32}{19}.
+$$
+Vamos multiplicar la primera ecuación de [-@eq-sist]  por $4$ y la segunda ecuación por $3$ de manera que al sumar ambas expresiones se elimine la  variable $x,$ de acuerdo con esto obtenemos.
+$$
+38y=-46 \to y= \frac{-23}{19}
+$$
+El punto de corte entre ambas rectas sería $P(32/19 , -23/19)$.
+:::
+
+:::{.callout-note icon="false" }
+## Ejercicios
+
+:::{#exr-ej00}
+Encuentre la pendiente de la recta que pasa por los puntos $(2, 3)$ y $(5, 11)$.
+:::
+
+:::{#exr-ej00}
+Encuentre la pendiente de la recta que pasa por los puntos $(6, 8)$ y $(6, -4)$.
+:::
+
+:::{#exr-ej00}
+Encuentra la pendiente de la recta $3x - 4y + 12 = 0$
+:::
+
+
+:::{#exr-ej00}
+Escriba la ecuación de la recta que pasa por el punto $(-1, 2)$ con una pendiente de $-3$.
+:::
+
+:::{#exr-ej00}
+Escriba la ecuación de la recta que pasa por el punto $(4, -2)$ y tiene una pendiente de $3$.
+:::
+
+:::{#exr-ej00}
+Determina si las rectas con ecuaciones $2x - y = -5$ y $2x - y = 3$ son paralelas.
+:::
+
+:::{#exr-ej00}
+Determina si las rectas con ecuaciones $x + 2y = 8$ y $2x - y = 2$ son perpendiculares.
+:::
+
+:::{#exr-ej00}
+Convierte la ecuación de la recta $y - 4 = 2(x + 1)$ a la foma  $Ax + By  = C$.
+:::
+
+:::{#exr-ej00}
+Escriba las ecuaciones de las rectas que pasan por el punto $(1, -2)$ y son paralelas y perpendiculares a la recta $3x + 4y = 12$.
+:::
+
+:::{#exr-ej00}
+Dada la recta $5x - y = 4$, encuentra la pendiente de una recta perpendicular a ella.
+:::
+
+:::{#exr-ej00}
+Calcula la distancia entre los puntos $(3, 4)$ y $(-1, 2)$ y determina la pendiente de la recta que los une.
+:::
+
+:::{#exr-ej00}
+Encuentra el punto de intersección de las rectas $2x - y = -3$ y $x + y = 1$.
+:::
+
+:::{#exr-ej00}
+ Diseña el techo de una casa, teniendo en cuenta que tiene forma triangular con una pendiente de $4/3$. Si la base del triángulo mide $12$ metros, ¿cuál es la altura del techo?
+:::
+
+:::{#exr-ej00}
+ Se desea construir un techo a una agua con una caída del $30\%$ Si la base del techo es de $15m,$ cúal debe ser su altura.
+:::
+
+:::
+
+
+
+# Introducción a la geometría vectorial en el plano
+
+En esta sección haremos una breve presentación de la aritmética vectorial y su aplicación en la geometría del plano. La sección se ha divido en dos partes. En la primera parte se introduce el concepto de vector en el plano, su interpretación geométrica y operaciones entre estos. En la segunda se presenta la ecuación vectorial y paramétrica de una recta y la distancia de un punto a una recta de manera vectorial. 
+
+## Aritmética vectorial
+
+:::{#def-vector}
+## Vector
+Un vector es un arreglo  o una lista de números reales, Los vectores los identificamos con una letra mayúscula o minúscula y en este ultimo caso con una flecha encima de esta. Los números reales del vector son llamados componentes y se enumeran de izquierda a derecha partiendo desde uno, el número de componentes del vector se conoce como la dimensión del vector
+:::
+
+Un vector de dimensión 2 es una pareja de números reales $a_1$ y $a_2$ dispuestos en una fila o una columna. Cada uno de estos números recibe el nombre de coordenada o componente del vector.
+
+El conjunto de todos los vectores en el plano se denota  $\mathbb{R}^2$. Los vectores se representan con una letra mayúscula, o con una letra min\'uscula y una flecha en la parte superior de esta, es decir:
+\[
+A = (a_1, a_2), \quad \overrightarrow{a} = (a_1, a_2).
+\]
+\begin{definicion}
+	Dos vectores $A$ y $B$ de $\mathbb{R}^2$ son \textit{iguales} siempre y cuando sus componentes coincidan. Es decir, si $A = (a_1, a_2)$ y $B = (b_1, b_2),$ diremos que $A = B$ si $a_{1} = b_{1}$ y $a_2 = b_2$.
+	
+	La \textit{suma} \index{suma de vectores} $A + B$ de dos vectores se define como el vector que se obtiene de sumar componente a componente de $A$ y $B,$
+	\[
+	A + B = (a_1 + b_1, a_2 + b_2).
+	\]
+ También se puede representar geométricamente la suma de los vectores $A+B$ realizando el siguiente procedimiento, trazamos una linea punteada desde el vector $A$ paralela al vector $B$ y trazamos desde el extremo de $B$ una linea punteada paralela al vector $A$, el punto de corte entre estas lineas coincide con el extremo del  vector $A+B$, esto se muestra en la siguiente figura.
+\begin{figure}[h]
+\begin{center}
+     \begin{overpic}[scale=2.5]{inter_vec.pdf}
+    \put(65,15){$B$}
+    \put(29,55){$A$}
+    \put(102,70){$A+B$}
+\end{overpic}
+\end{center}
+
+\end{figure}
+
+
+	Si $\alpha$ es un n\'umero real (escalar), se define $\alpha A$ como el vector que se obtiene al multiplicar $\alpha$ por cada componente de $A,$
+	\[
+	\alpha A = (\alpha a_1, \alpha a_2).
+	\]
+\end{definicion}
+Con base a esta definici\'on se desprende de manera inmediata que la suma de vectores es conmutativa y asociativa. Se sigue también que la multiplicación por escalares es asociativa y verifica dos leyes distributivas, esto es 
+\[
+\alpha(A + B) = \alpha A + \alpha B, \quad (\alpha + \beta)A = \alpha A + \beta A,
+\] 
+con $A$ y $B$ elementos de $\mathbb{R}^2,$ $\alpha$ y $\beta$ escalares.
+
+\begin{definicion}
+	El vector cuyas componentes son $\mathcal{O}$ se conoce como el \textit{vector nulo}, \index{vector! nulo} y se representa como $\mathcal{O},$ es decir $\mathcal{O} = (0, 0).$ 
+ 
+ El vector nulo verifica $A + \mathcal{O} = A.$ El vector $(-1)A$ se representa por $-A$ y comúnmente se conoce como el opuesto de $A$ el cual satisface $-A + A = \mathcal{O}.$  Se acostumbra a escribir $A - B$ en lugar de $A + (-1)B.$
+\end{definicion}
+
+Existe una identificación natural entre el vector $A = (a_1, a_2)$ y el punto $A(a_1, a_2)$ del plano cartesiano, lo cual permite interpretar geométricamente el vector como el segmento de recta dirigido del origen al punto. Esta identificación nos permitirá referirnos en ciertos contextos a puntos y vectores de manera indistinta.
+
+En general un par de puntos $A$ y $B$ del plano cartesiano se denomina \textit{vector geom\'etrico}, \index{vector! geom\'etrico} si un punto es el punto inicial del vector (suponga $A$) y el otro punto es el extremo final del vector (suponga $B$). Este vector se representa como $\overrightarrow{AB}$ y se entiende como el segmento de recta dirigido del punto $A$ al punto $B.$ Más aún, si $A(a_1, a_2)$ y $B(b_1, b_2),$ entonces $\overrightarrow{AB}$ tiene componentes $(b_1 - a_1, b_2 - a_2)$. 
+
+\begin{definicion}
+	Dos vectores $A$ y $B$ de $\mathbb{R}^2$ son \textit{paralelos} \index{vectores paralelos} si  $B = \alpha A$ para un cierto escalar $\alpha$ no nulo. Si $\alpha$ es positivo, $A$ y $B$ tienen la misma dirección. Si $\alpha$ es negativo, $A$ y $B$ tienen direcciones contrarias.
+\end{definicion}
 

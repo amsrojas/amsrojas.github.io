@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -103,6 +137,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./comb_primos.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algo de combinatoria y números primos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./mat_arte.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Matemáticas para las artes</span></a>
   </div>
@@ -110,7 +150,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./modelos_univariable.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cálculo de una variable</span></a>
+ <span class="menu-text">Elementos del cálculo integral y diferencial</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -128,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src=".\img/logo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Logo image</figcaption>
+<figcaption class="figure-caption">superficie paramétrica</figcaption>
 </figure>
 </div>
 </div></div>
@@ -136,22 +176,28 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#preliminares" id="toc-preliminares" class="nav-link active" data-scroll-target="#preliminares">Preliminares</a>
-  <ul class="collapse">
-  <li><a href="#álgebra-de-conjuntos" id="toc-álgebra-de-conjuntos" class="nav-link" data-scroll-target="#álgebra-de-conjuntos">Álgebra de conjuntos</a></li>
-  </ul></li>
+  <li><a href="#álgebra-de-conjuntos" id="toc-álgebra-de-conjuntos" class="nav-link active" data-scroll-target="#álgebra-de-conjuntos">Álgebra de conjuntos</a></li>
   <li><a href="#números-reales" id="toc-números-reales" class="nav-link" data-scroll-target="#números-reales">Números reales</a>
   <ul class="collapse">
-  <li><a href="#axioma-de-completitud" id="toc-axioma-de-completitud" class="nav-link" data-scroll-target="#axioma-de-completitud">Axioma de completitud</a></li>
-  </ul></li>
   <li><a href="#recta-numérica" id="toc-recta-numérica" class="nav-link" data-scroll-target="#recta-numérica">Recta numérica</a></li>
   <li><a href="#propiedades-de-los-exponentes" id="toc-propiedades-de-los-exponentes" class="nav-link" data-scroll-target="#propiedades-de-los-exponentes">Propiedades de los exponentes</a>
   <ul class="collapse">
   <li><a href="#notación-científica" id="toc-notación-científica" class="nav-link" data-scroll-target="#notación-científica">Notación científica</a></li>
   </ul></li>
-  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a></li>
+  <li><a href="#cantidades-proporcionales" id="toc-cantidades-proporcionales" class="nav-link" data-scroll-target="#cantidades-proporcionales">Cantidades proporcionales</a>
+  <ul class="collapse">
   <li><a href="#factores-de-conversión" id="toc-factores-de-conversión" class="nav-link" data-scroll-target="#factores-de-conversión">Factores de conversión</a></li>
-  <li><a href="#el-plano-cartesiano" id="toc-el-plano-cartesiano" class="nav-link" data-scroll-target="#el-plano-cartesiano">El plano cartesiano</a></li>
+  <li><a href="#cambios-de-escala" id="toc-cambios-de-escala" class="nav-link" data-scroll-target="#cambios-de-escala">Cambios de escala</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#plano-cartesiano" id="toc-plano-cartesiano" class="nav-link" data-scroll-target="#plano-cartesiano">Plano cartesiano</a>
+  <ul class="collapse">
+  <li><a href="#ángulos-y-rectas-perpendiculares" id="toc-ángulos-y-rectas-perpendiculares" class="nav-link" data-scroll-target="#ángulos-y-rectas-perpendiculares">Ángulos y rectas perpendiculares</a></li>
+  </ul></li>
+  <li><a href="#introducción-a-la-geometría-vectorial-en-el-plano" id="toc-introducción-a-la-geometría-vectorial-en-el-plano" class="nav-link" data-scroll-target="#introducción-a-la-geometría-vectorial-en-el-plano">Introducción a la geometría vectorial en el plano</a>
+  <ul class="collapse">
+  <li><a href="#aritmética-vectorial" id="toc-aritmética-vectorial" class="nav-link" data-scroll-target="#aritmética-vectorial">Aritmética vectorial</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -175,11 +221,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="preliminares" class="level2">
-<h2 class="anchored" data-anchor-id="preliminares">Preliminares</h2>
-<p>En este capítulo introduciremos algunos conceptos elementales del álgebra de conjuntos y la aritmética de los números reales. Estos conceptos los emplearemos para diseñar estructuras que obedezcan a patrones de uniones e intersecciones de unas con otras y para construir objetos que respeten cierta relación numérica.</p>
-<section id="álgebra-de-conjuntos" class="level3">
-<h3 class="anchored" data-anchor-id="álgebra-de-conjuntos">Álgebra de conjuntos</h3>
+<section id="álgebra-de-conjuntos" class="level1">
+<h1>Álgebra de conjuntos</h1>
 <p>Entenderemos por un conjunto como una colección de elementos. A lo largo del documento identificaremos a un conjunto con una letra mayúscula cursiva, y sus elementos estarán comprendidos entre corchetes separados por una coma. Por ejemplo, <span class="math display">\[
 \mathcal{C} = \{2, 4, 6, 7, 9, 13 \}.
 \]</span> Para indicar que un elemento pertenece a un conjunto se empleará el símbolo <span class="math inline">\(\in,\)</span> y con el símbolo <span class="math inline">\(\notin\)</span> indicaremos la situación contraria. Por ejemplo, para el conjunto <span class="math inline">\(\mathcal{C}\)</span> se verifica que <span class="math inline">\(2 \in \mathcal{C}\)</span> y que <span class="math inline">\(5 \notin \mathcal{C}.\)</span></p>
@@ -233,10 +276,37 @@ Diferencia de conjuntos
 \]</span> Esto se lee en la siguiente forma: <span class="math inline">\(\mathcal{A} \setminus \mathcal{B}\)</span> son los elementos <span class="math inline">\(x\)</span> de <span class="math inline">\(\mathcal{A}\)</span> <strong>““tales que”</strong> <span class="math inline">\(( \vert )\)</span> <span class="math inline">\(x\)</span> <strong>“no es un elemento de”</strong> <span class="math inline">\(\mathcal{B}\)</span> “.</p>
 </div>
 </div>
+<p>Con el siguiente código en OpenSCAD unimos tres cilindros, uno central de radio 50 y dos laterales cuyos centro se han localizado en los punto <span class="math inline">\(A(25 \sqrt{2}, 25 \sqrt{2})\)</span> y <span class="math inline">\(B(-25 \sqrt{2}, -25 \sqrt{2})\)</span>. Después a la estructura total le hemos sustraido un rectángulo de dimensiones <span class="math inline">\(100\)</span> unidades en <span class="math inline">\(x\)</span> y <span class="math inline">\(20\)</span> unidades, el rectángulo se ha ratado <span class="math inline">\(45^{\circ}\)</span> a favor de las manecillas de reloj.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource openscad number-lines code-with-copy"><code class="sourceCode"><span id="cb1-1"><a href="#cb1-1"></a>$fn = 100;</span>
+<span id="cb1-2"><a href="#cb1-2"></a>linear_extrude(5){</span>
+<span id="cb1-3"><a href="#cb1-3"></a>difference(){</span>
+<span id="cb1-4"><a href="#cb1-4"></a>union(){</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    circle(50);</span>
+<span id="cb1-6"><a href="#cb1-6"></a>    translate([50*sqrt(2)/2,50*sqrt(2)/2,0]){</span>
+<span id="cb1-7"><a href="#cb1-7"></a>        circle(25);</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    }</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    translate([-50*sqrt(2)/2,-50*sqrt(2)/2,0]){</span>
+<span id="cb1-10"><a href="#cb1-10"></a>        circle(25);</span>
+<span id="cb1-11"><a href="#cb1-11"></a>    }</span>
+<span id="cb1-12"><a href="#cb1-12"></a>}</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    rotate([0, 0, 45]){</span>
+<span id="cb1-14"><a href="#cb1-14"></a>        square([100, 20], center = true);</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    }</span>
+<span id="cb1-16"><a href="#cb1-16"></a>}</span>
+<span id="cb1-17"><a href="#cb1-17"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-union_dif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src=".\img/ej1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<figcaption class="figure-caption">Figura&nbsp;1: Unión y diferencia en OpenSCAD</figcaption>
+</figure>
+</div>
 </section>
-</section>
-<section id="números-reales" class="level2">
-<h2 class="anchored" data-anchor-id="números-reales">Números reales</h2>
+<section id="números-reales" class="level1">
+<h1>Números reales</h1>
 <p>Supongamos la existencia de un conjunto de números denotado con <span class="math inline">\(\mathbb{R}\)</span> (números reales) que verifican los siguientes axiomas <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <ul>
 <li><p><strong>ax1.</strong> leyes conmutativas <span class="math display">\[
@@ -263,8 +333,6 @@ x &lt; y \quad \text{ ó } \quad x = y.
 <p>Note que si <span class="math inline">\(x &gt; 0\)</span> entonces <span class="math inline">\(-x &lt; 0.\)</span> En efecto, si <span class="math inline">\(-x &gt; 0\)</span> teniendo en cuenta que <span class="math inline">\(x &gt; 0\)</span> entonces <span class="math display">\[
 -x + x &gt; 0 + x,
 \]</span> con lo que <span class="math inline">\(0 &gt; x\)</span> lo que no es posible, ya que <span class="math inline">\(x &gt; 0.\)</span> De manera equivalente puede probarse que si <span class="math inline">\(-x &gt; 0\)</span> entonces <span class="math inline">\(x &lt; 0.\)</span></p>
-<section id="axioma-de-completitud" class="level3">
-<h3 class="anchored" data-anchor-id="axioma-de-completitud">Axioma de completitud</h3>
 <div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -299,13 +367,11 @@ Extremo superior e inferior de un conjunto
 <ul>
 <li><strong>ax10.</strong> Todo conjunto no vacío <span class="math inline">\(A\)</span> de números reales acotado superiormente admite un supremo.</li>
 </ul>
-</section>
-</section>
 <section id="recta-numérica" class="level2">
 <h2 class="anchored" data-anchor-id="recta-numérica">Recta numérica</h2>
 <p>Una forma de representar el conjunto de los números reales es empleando la recta numérica. Sobre esta podemos identificar el cero y al lado derecho de este los números positivos mientras que a la lado izquierdo los negativos. Los axiomas de orden sobre la recta numérica se relacionan de la siguiente manera: un número <span class="math inline">\(a\)</span> es mayor que otro número <span class="math inline">\(b,\)</span> es decir <span class="math inline">\((a &gt; b)\)</span> si <span class="math inline">\(a\)</span> se encuentra localizado sobre la recta a la derecha de <span class="math inline">\(b.\)</span></p>
 <p>Sobre la recta numérica la suma de dos números reales tiene una interesante interpretación. Si <span class="math inline">\(a\)</span> es un número real y <span class="math inline">\(b\)</span> es un número positivo, entonces la suma de <span class="math inline">\(a + b\)</span> corresponde con el desplazar <span class="math inline">\(b\)</span> unidades el número <span class="math inline">\(a\)</span> a la derecha.</p>
-<p>A continuación vamos a presentar algunos ejemplos en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.</p>
+<p>Veamos un ejemplo en donde se emplean las propiedades de los números reales, para encontrar el valor numérico de una variable.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -336,6 +402,57 @@ x = -\frac{4}{27}.
 </div>
 </div>
 </div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-ej0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 1 </strong></span>Sean los conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> definidos como <span class="math display">\[
+A = \{1, 2, 3, 4, 5\} \text{ y } B = \{4, 5, 6, 7, 8\}
+\]</span></p>
+<p>Encuentre</p>
+<p><span class="math inline">\(a.\)</span> <span class="math inline">\(A \cup B\)</span></p>
+<p><span class="math inline">\(b.\)</span> <span class="math inline">\(A \cap B\)</span></p>
+<p><span class="math inline">\(c.\)</span> <span class="math inline">\(A \setminus B\)</span></p>
+<p><span class="math inline">\(d.\)</span> <span class="math inline">\(B \setminus A\)</span></p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 2 </strong></span>Considere los conjuntos <span class="math inline">\(E\)</span> y <span class="math inline">\(F\)</span> definidos como <span class="math display">\[
+E = \{x \in \mathbb{Z} \mid -3 \leq x \leq 3\} \text{ y } F = \{x \in \mathbb{Z} \mid 1 \leq x \leq 5\}
+\]</span></p>
+<p>Encuentre</p>
+<p><span class="math inline">\(a.\)</span> <span class="math inline">\(E \cup F\)</span></p>
+<p><span class="math inline">\(b.\)</span> <span class="math inline">\(E \cap F\)</span></p>
+<p><span class="math inline">\(c.\)</span> <span class="math inline">\(E \setminus F\)</span></p>
+<p><span class="math inline">\(d.\)</span> <span class="math inline">\(E \setminus F\)</span></p>
+</div>
+<div id="exr-ej1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 3 </strong></span>Realice las siguentes operaciones</p>
+<p><span class="math inline">\(a.\)</span> <span class="math inline">\(5 + 3\)</span></p>
+<p><span class="math inline">\(b.\)</span> <span class="math inline">\(3 - 5\)</span></p>
+<p><span class="math inline">\(c.\)</span> <span class="math inline">\(5 + 3 - (3 - 5)\)</span></p>
+<p><span class="math inline">\(d.\)</span> <span class="math inline">\(2 - 5 + (3 - 7)\)</span></p>
+<p><span class="math inline">\(e.\)</span> <span class="math inline">\(\dfrac{1}{3} + \dfrac{5}{3} + 3\)</span></p>
+<p><span class="math inline">\(f.\)</span> <span class="math inline">\(\dfrac{2}{5} \left( \dfrac{1}{2} - \dfrac{1}{5}\right) - \dfrac{1}{3}\)</span></p>
+<p><span class="math inline">\(h.\)</span> <span class="math inline">\(\left(\dfrac{2}{7}-\dfrac{3}{5}\left( \dfrac{3}{2} + \dfrac{2}{3} \right)\right) \div \left( \dfrac{1}{4} - \dfrac{2}{7} \right)\)</span></p>
+</div>
+<div id="exr-ej2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 4 </strong></span>Resolver las siguientes ecuaciones <span class="math display">\[
+\begin{align*}
+&amp; a. \, 2x + 3 = -x + 6 &amp; &amp; b. x  - 4x = 2 + 2x
+\\
+&amp; c. \, - \frac{5}{6}x + \frac{1}{2} = 1 -\frac{1}{3}\left(  \frac{3}{4}x - \frac{2}{3} \right) &amp; &amp; d. \, 2(4 - 3x) + \frac{3}{2} = 1 - \frac{1}{2}\left( x - 3\right)
+\end{align*}
+\]</span></p>
+</div>
+</div>
+</div>
 </section>
 <section id="propiedades-de-los-exponentes" class="level2">
 <h2 class="anchored" data-anchor-id="propiedades-de-los-exponentes">Propiedades de los exponentes</h2>
@@ -346,6 +463,27 @@ a^{m} \cdot a^{n} = a^{m + n} \, \text{ y que } \, \left( a^{m} \right)^n = a^{m
 \]</span> Por otro lado, como una consecuencia de los axiomas de los números reales entenderemos que <span class="math display">\[
 \left( a^n \right)^{-1} \equiv a^{-n} \equiv \frac{1}{a^n}.
 \]</span> Es importante mencionar que las expresiones anteriores se pueden extender para cualquier número real en el exponente de <span class="math inline">\(a.\)</span></p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-exponente" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Simplifique la siguiente expresión y de la respuesta sin utilizar exponentes negativos <span class="math display">\[
+\frac{x (x y^3)^{-2}}{x^{-3} y}
+\]</span></p>
+<p><strong>Solución</strong></p>
+<p><span class="math display">\[
+\frac{x (x y^3)^{-2}}{x^{-3} y} = \frac{x x^{-2} y^{-6}}{x^{-3} y} = \frac{x^{-1} y^{-6}}{x^{-3} y} = x^2 y^{-7} = \frac{x^2}{y^7}
+\]</span></p>
+</div>
+</div>
+</div>
 <section id="notación-científica" class="level3">
 <h3 class="anchored" data-anchor-id="notación-científica">Notación científica</h3>
 <p>La notación científica es un número en la forma <span class="math inline">\(M \times 10^k\)</span> en donde <span class="math inline">\(M\)</span> es un número decimal con parte entera distinta de cero, y <span class="math inline">\(10^k\)</span> se conoce como el orden de magnitud siendo <span class="math inline">\(k\)</span> un número entero.</p>
@@ -372,7 +510,7 @@ x = k \frac{1}{y}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-dp" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
+<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Un carro emplea 1 galón de gasolina para recorrer 55km. Si se necesita recorrer 200 km, cuál debe ser la cantidad mínima de gasolina que debe tener el carro en el tanque de combustible.</p>
 <p><strong>Solución</strong></p>
 <p>Note que a mayor cantidad de gasolina, mayor es el número de kilómetros que se pueden recorrer. De acuerdo con esto, la cantidad de gasolina es directamente proporcional a la distancia, es decir, si denotamos con <span class="math inline">\(G\)</span> a la gasolina y con <span class="math inline">\(K\)</span> a los kilómetros entonces <span class="math display">\[
 G = k K,
@@ -394,7 +532,7 @@ G = \frac{200}{55}\approx 3.64
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-ip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
+<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Si 10 trabajadores pintan una casa en 3 días. ¿Cuántos trabajadores se necesitarían para pintarla en 2 días?</p>
 <p><strong>Solución</strong></p>
 <p>Note que a mayor número de trabajadores menor es el tiempo que se emplea en pintar la casa. De acuerdo con esto, el número de trabajadores es inversamente proporcional al tiempo empleado. Es decir, si denotamos con <span class="math inline">\(N\)</span> al número de trabajadores y con <span class="math inline">\(T\)</span> al tiempo en que se pinta la casa obtenemos <span class="math display">\[
 N = k \frac{1}{T},
@@ -404,9 +542,8 @@ N = \frac{30}{2} = 15.
 </div>
 </div>
 </div>
-</section>
-<section id="factores-de-conversión" class="level2">
-<h2 class="anchored" data-anchor-id="factores-de-conversión">Factores de conversión</h2>
+<section id="factores-de-conversión" class="level3">
+<h3 class="anchored" data-anchor-id="factores-de-conversión">Factores de conversión</h3>
 <p>En muchas ocasiones la información de un problema combina datos en distintos tipos de escalas, por lo que se hace necesario contar con un mecanismo que permita poder operar de forma uiforme la información suministrada, y la mejor forma de conseguir esto es identificar la relación que existe entre una escala y otra.</p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -419,7 +556,7 @@ N = \frac{30}{2} = 15.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-fc" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Convertir <span class="math inline">\(1.3m^3\)</span> a <span class="math inline">\(in^3\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Convertir <span class="math inline">\(1.3m^3\)</span> a <span class="math inline">\(in^3\)</span></p>
 <p><strong>Solución</strong></p>
 <p>Necesitamos identificar a cuantas pulgadas cúbicas <span class="math inline">\((in^3)\)</span> equivale un metro cúbico <span class="math inline">\((m^3),\)</span> para ello note que <span class="math display">\[
 1 in = 2.54 cm = 0.0254 m
@@ -446,7 +583,7 @@ N = \frac{30}{2} = 15.
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-fc1" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 5 </strong></span>Convertir <span class="math inline">\(2.3 kg\)</span> a <span class="math inline">\(lb\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 6 </strong></span>Convertir <span class="math inline">\(2.3 kg\)</span> a <span class="math inline">\(lb\)</span></p>
 <p><strong>Solución</strong></p>
 <p>Necesitamos identificar a cuantas libras <span class="math inline">\((lb)\)</span> equivale un kilo <span class="math inline">\((kg),\)</span> para ello note que</p>
 <p><span class="math display">\[
@@ -460,10 +597,279 @@ N = \frac{30}{2} = 15.
 </div>
 </div>
 </section>
-<section id="el-plano-cartesiano" class="level2">
-<h2 class="anchored" data-anchor-id="el-plano-cartesiano">El plano cartesiano</h2>
+<section id="cambios-de-escala" class="level3">
+<h3 class="anchored" data-anchor-id="cambios-de-escala">Cambios de escala</h3>
+<p>En el contexto de escalas y proporciones, la notación <span class="math inline">\(a:b\)</span> se emplea para expresar la relación entre dos cantidades y significa que por cada <span class="math inline">\(a\)</span> unidades de la primera cantidad, hay <span class="math inline">\(b\)</span> unidades de la segunda cantidad. Por ejemplo, una proporción de <span class="math inline">\(3:4\)</span> significa que por cada 3 unidades de la primera cantidad, hay 4 unidades de la segunda cantidad. o por ejemplo, en el caso de un dibujo una escala de <span class="math inline">\(1:100\)</span> indica que 1 cm en el dibujo representa <span class="math inline">\(100 cm\)</span> (o <span class="math inline">\(1 m\)</span>) en la realidad, y de manera inversa, <span class="math inline">\(n:1\)</span> significa que <span class="math inline">\(n\)</span> unidades en el dibujo, plano o modelo representan 1 unidad en la realidad.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-escala" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 7 </strong></span>Se desea convertir un dibujo arquitectónico a escala <span class="math inline">\(1:300\)</span> a una escala <span class="math inline">\(1:600\)</span>.</p>
+<p><strong>Solución</strong></p>
+<p>Necesitamos un factor <span class="math inline">\(k\)</span> tal que <span class="math display">\[
+k \frac{1}{300} = \frac{1}{600}
+\]</span> y de acuerdo con esto <span class="math inline">\(k = 1/2,\)</span> es decir necesitamos multiplicar las dimensiones del dibujo por <span class="math inline">\(1/2\)</span>.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 5 </strong></span>Simplifique y de la respuesta sin utilizar exponentes negativos <span class="math display">\[
+\begin{align*}
+    &amp;\textbf{a.} \ \frac{3(b^{-2}d)^{4}(2bd^{3})^{2}}{(2b^{2}d^{3})(b^{-1}d^{2})^{5}} &amp;    &amp;\textbf{b.} \ \left[\frac{2(3b^{-2}d)(bd^{3})^{2}}{12b^{3}d^{-1}}\right]^{5}  &amp;  &amp;\textbf{c.} \ \left[\frac{(ab^{2})^{-1}}{(ba^{2})^{-2}}\right]^{-1}
+    \\
+    \\
+    &amp;\textbf{d.} \ \left(a^{-2} + a^{-3}\right)^{-1}  &amp; &amp;\textbf{e.} \ \frac{x^{-1}}{y^{-1}} - \left(\frac{x}{y}\right)^{-1} &amp;   &amp;\textbf{f.} \ \left(x^{-1} - y^{-1}\right)^{-1}
+\end{align*}        
+\]</span></p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 6 </strong></span>Una impresora puede imprimir 150 páginas en 10 minutos. ¿Cuántas páginas puede imprimir en 25 minutos?</p>
+</div>
+<div id="exr-ej01" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 7 </strong></span>Un grifo llena un tanque en 30 minutos. Si se abre otro grifo igual, ¿en cuánto tiempo se llenará el tanque?</p>
+</div>
+<div id="exr-ej02" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 8 </strong></span>Si 3 jardineros pueden plantar 45 árboles en 5 días, trabajando 6 horas al día, ¿cuántos árboles podrán plantar 5 jardineros en 4 días, trabajando 8 horas al día?</p>
+</div>
+<div id="exr-ej0" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 9 </strong></span>Se está diseñando una fachada que tiene un ancho de 20 metros y una altura de 10 metros. Se requiere dividir la fachada en tres secciones verticales utilizando proporciones de <span class="math inline">\(2:3:5\)</span> para los anchos de las secciones.</p>
+<p><span class="math inline">\(a.\)</span>¿Cuál es el ancho de cada una de las secciones?</p>
+<p><span class="math inline">\(b.\)</span> Dibuje la fachada a una escala tal que 1cm corresponda con 1m y marque las divisiones correspondientes.</p>
+<p><span class="math inline">\(c.\)</span> Si se quiere colocar una ventana centrada en la segunda sección, ¿a qué distancia del borde izquierdo de la fachada se debe colocar el centro de la ventana?</p>
+</div>
+<div id="exr-ef2" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 10 </strong></span>Un modelo 3D está a una escala <span class="math inline">\(1:50\)</span> y se desea convertir a una escala <span class="math inline">\(1:25.\)</span> ¿Cuál es el factor de conversión de escala?</p>
+</div>
+<div id="exr-ej10" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 11 </strong></span>Un modelo arquitectónico de un edificio tiene una escala de <span class="math inline">\(1:500\)</span>. Si la altura del edificio real es de 200 metros y se desea cambiar la escala del modelo a <span class="math inline">\(1:250\)</span>, calcule el factor de conversión necesario y la nueva altura del modelo del edificio.</p>
+</div>
+</div>
+</div>
+<p>Con el siguiente código elaboramos en OpenSCAD una secuencia decreciente de cilindros cuyos radios diminuyen en una relación de <span class="math inline">\(0.75\)</span> del radio anterior. La altura de los cilindros disminuye también en cada cilindro <span class="math inline">\(4\)</span> unidades con respecto del anterior.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource openscad number-lines code-with-copy"><code class="sourceCode"><span id="cb2-1"><a href="#cb2-1"></a>$fn=100;</span>
+<span id="cb2-2"><a href="#cb2-2"></a>/*</span>
+<span id="cb2-3"><a href="#cb2-3"></a>Radio de la circunferencia inicial</span>
+<span id="cb2-4"><a href="#cb2-4"></a>*/</span>
+<span id="cb2-5"><a href="#cb2-5"></a>r = 100;</span>
+<span id="cb2-6"><a href="#cb2-6"></a>/*</span>
+<span id="cb2-7"><a href="#cb2-7"></a>Una función para realizar la suma de</span>
+<span id="cb2-8"><a href="#cb2-8"></a>los elementos de una lista.</span>
+<span id="cb2-9"><a href="#cb2-9"></a>*/</span>
+<span id="cb2-10"><a href="#cb2-10"></a>function suma(lista, c = 0) = </span>
+<span id="cb2-11"><a href="#cb2-11"></a> c == 0 ? lista[c]:</span>
+<span id="cb2-12"><a href="#cb2-12"></a> lista[c] + suma(lista, c - 1);</span>
+<span id="cb2-13"><a href="#cb2-13"></a>/*</span>
+<span id="cb2-14"><a href="#cb2-14"></a>Una función que alimenta una lista con</span>
+<span id="cb2-15"><a href="#cb2-15"></a>la suma de la secuencia de los radios</span>
+<span id="cb2-16"><a href="#cb2-16"></a>que se están disminuyendo o aumentando</span>
+<span id="cb2-17"><a href="#cb2-17"></a>en relación a un factor</span>
+<span id="cb2-18"><a href="#cb2-18"></a>*/</span>
+<span id="cb2-19"><a href="#cb2-19"></a>f = 0.75;</span>
+<span id="cb2-20"><a href="#cb2-20"></a>function radios(n) = </span>
+<span id="cb2-21"><a href="#cb2-21"></a>    [for (k = [0:n]) f^k]; </span>
+<span id="cb2-22"><a href="#cb2-22"></a>for (k=[0:10]){</span>
+<span id="cb2-23"><a href="#cb2-23"></a>    translate([r*( suma(radios(k), k) - 1),0,0]){</span>
+<span id="cb2-24"><a href="#cb2-24"></a>    linear_extrude(50 - 4*k)</span>
+<span id="cb2-25"><a href="#cb2-25"></a>    circle(r*f^k);</span>
+<span id="cb2-26"><a href="#cb2-26"></a>    }</span>
+<span id="cb2-27"><a href="#cb2-27"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-union_dif" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src=".\img/ej2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<figcaption class="figure-caption">Figura&nbsp;2: Cilindros anidados con una disminución geométrica de sus radios, y aritmética en sus alturas</figcaption>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="plano-cartesiano" class="level1">
+<h1>Plano cartesiano</h1>
+<p>El plano cartesiano es un sistema de referencia dos dimensional empleado para representar puntos, líneas y figuras geométricas. Este plano está compuesto por dos ejes perpendiculares entre sí, uno horizontal, denominado eje <span class="math inline">\(x\)</span> y otro vertical conocido como eje <span class="math inline">\(y\)</span>. Ambos ejes se intersectan en un punto denominado origen, que tiene coordenadas <span class="math inline">\(\mathcal{O} = (0,0)\)</span></p>
+<p>Cada punto en el plano cartesiano se representa mediante un par ordenado de números <span class="math inline">\((x,y)\)</span> en donde <span class="math inline">\(x\)</span> indica la posición en el eje horizontal y <span class="math inline">\(y\)</span> la posición en el eje vertical.</p>
+<p>Los puntos en el plano los identificaremos con una letra mayúscula, por ejemplo el punto <span class="math inline">\(P(a,b)\)</span> corresponde al punto <span class="math inline">\(P\)</span> cuyas componentes son <span class="math inline">\((a,b).\)</span> Es bien conocido que por dos puntos pasa una y sólo una recta, y estás las identificaremos con dos puntos sobre esta o con una letra minúscula a su lado. Si los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> pertenecen a la recta, esta se denota por <span class="math inline">\(\overleftrightarrow{AB}\)</span>.</p>
+<div id="def-puntocol" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 1 </strong></span>Dos o más puntos son colineales si pertenecen a la misma recta. Dos rectas que se encuentran en el plano cuya intersección es el conjunto vacío son llamadas rectas paralelas. Para escribir que una recta <span class="math inline">\(l\)</span> es paralela a una recta <span class="math inline">\(s\)</span> se empleará la notación <span class="math inline">\(l \parallel s.\)</span></p>
+</div>
+<div id="def-segmento" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 2 </strong></span>La parte de la recta <span class="math inline">\(l\)</span> entre los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> se llama segmento <span class="math inline">\(AB,\)</span> este se denota por <span class="math inline">\(\overline{AB}.\)</span> Los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> se conocen como los puntos extremos del segmento.</p>
+</div>
+<p>Emplearemos la notación <span class="math inline">\(\vert \overline{AB} \vert\)</span> para referirnos a la longitud del segmento <span class="math inline">\(\overline{AB}\)</span> y se empleará la notación <span class="math inline">\(d(A,B)\)</span> para referirse a la distancia entre los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span> En particular note que <span class="math inline">\(d(A,B) = d(B,A) = \vert \overline{AB} \vert.\)</span></p>
+<p>Para dos puntos en el plano cartesiano digamos <span class="math inline">\(A(x_0, y_0)\)</span> y <span class="math inline">\(B(x_1, y_1)\)</span> la distancia entre <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> est'a dada por la expresión <span id="eq-distancia"><span class="math display">\[
+d(A,B) = \sqrt{(x_1 - x_0)^2 + (y_1 - y_0)^2}.
+\tag{1}\]</span></span></p>
+<div id="def-punto_segmento" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 3 </strong></span>Un punto <span class="math inline">\(C\)</span> se encuentra entre los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> si <span class="math inline">\(A,\)</span> <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> son puntos distintos sobre la misma recta y <span class="math inline">\(\vert \overline{AC} \vert + \vert \overline{CB} \vert = \vert \overline{AB} \vert.\)</span> Una forma equivalente de escribir esta última expresión es <span class="math inline">\(d(A,C) + d(C,B) = d(A,B).\)</span> Si <span class="math inline">\(C\)</span> se encuentra entre <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> y <span class="math inline">\(d(A,C)=d(C,B)\)</span> entonces <span class="math inline">\(C\)</span> es el punto medio del segmento <span class="math inline">\(\overline{AB},\)</span> y en este caso se dice que <span class="math inline">\(C\)</span> biseca el segmento <span class="math inline">\(\overline{AB}.\)</span></p>
+</div>
+<div id="def-rayo" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 4 </strong></span>Sean <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> dos puntos de la recta <span class="math inline">\(l.\)</span> El conjunto de todos los puntos de <span class="math inline">\(l\)</span> que se encuentran del mismo lado de <span class="math inline">\(A\)</span> pasando por <span class="math inline">\(B,\)</span> incluido <span class="math inline">\(A,\)</span> se denomina rayo y lo denotamos por <span class="math inline">\(\overrightarrow{AB}.\)</span> Se dice que <span class="math inline">\(\overrightarrow{BA}\)</span> y <span class="math inline">\(\overrightarrow{BC}\)</span> son rayos opuestos si <span class="math inline">\(A,\)</span> <span class="math inline">\(B\)</span> y <span class="math inline">\(C\)</span> son puntos colineales y <span class="math inline">\(B\)</span> se encuentra entre <span class="math inline">\(A\)</span> y <span class="math inline">\(C.\)</span></p>
+</div>
+<p>Rayos y segmentos paralelos entre sí, son subconjuntos de rectas paralelas. Con base a esto se escribirá por ejemplo, <span class="math inline">\(\overline{AB} \parallel \overline{CD}\)</span> si se quiere decir que el segmento <span class="math inline">\(\overline{AB}\)</span> es paralelo al segmento <span class="math inline">\(\overline{CD}.\)</span></p>
+<section id="ángulos-y-rectas-perpendiculares" class="level3">
+<h3 class="anchored" data-anchor-id="ángulos-y-rectas-perpendiculares">Ángulos y rectas perpendiculares</h3>
+<p>En esta sección se introduce los conceptos de ángulo y de rectas perpendiculares.</p>
+<div id="def-angulo" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 5 </strong></span>Un ángulo es la unión de dos rayos que tienen el mismo punto extremo. Los rayos se llaman lados del ángulo y su punto extremo común recibe el nombre de vértice del ángulo.</p>
+</div>
+<p>Los ángulos comúnmente se presentan con el símbolo <span class="math inline">\(\angle\)</span> seguido de tres letras, la primera y la última corresponden a puntos sobre los lados del ángulo y la segunda letra corresponde al vértice. Otra manera de representar ángulos es emplear el símbolo <span class="math inline">\(\angle\)</span> seguido de su vértice. También podemos representar un ángulo por medio de una letra minúscula romana o griega.</p>
+<p>La medida del ángulo <span class="math inline">\(\angle ABC\)</span> se representará con <span class="math inline">\(\vert \angle ABC \vert\)</span> cuya unidad es el grado sexagesimal. Un ángulo es llamado si su medida es de <span class="math inline">\(90^\circ.\)</span> Un ángulo es llamado si su medida es menor a <span class="math inline">\(90^\circ,\)</span> y se dice si su medida es mayor a <span class="math inline">\(90^\circ\)</span>.</p>
+<div id="def-ang_ad" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 6 </strong></span>Dos ángulos son adyacentes si tienen un mismo vértice y un lado común.</p>
+<p>Dos ángulos son opuestos por el vértice si corresponden a los ángulos no adyacentes formados por dos rectas que se intersectan.</p>
+<p>Los ángulos que tienen la misma medida se llaman ángulos congruentes. La bisectriz de un ángulo es el rayo cuyo punto extremo es el vértice del ángulo y el cual divide el ángulo en dos ángulos congruentes <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+</div>
+<div id="def-rectas_per" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 7 </strong></span>Dos rectas son perpendiculares si su intersección forma un ángulo recto. Escribiremos <span class="math inline">\(l \perp s\)</span> para representar que la recta <span class="math inline">\(l\)</span> es perpendicular a la recta <span class="math inline">\(s.\)</span> Rayos y segmentos son perpendiculares si son subconjuntos de rectas perpendiculares.</p>
+<p>La distancia de un punto a una recta es la medida del segmento perpendicular que va del punto a la recta. La distancia de un punto <span class="math inline">\(P\)</span> a la recta <span class="math inline">\(l\)</span> se denotará con la expresión <span class="math inline">\(d(P,l).\)</span></p>
+</div>
+<p>### Rectas en el plano En esta sección encontraremos la ecuación de la recta empleando el invariante geométrico llamado pendiente. Entendiendo por invariante geométrico una cantidad que se conserva para todo punto en la estructura, toda estructura tiene infinitos invariantes geométricos.</p>
+<div id="def-pendiente" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 8 </strong></span>Dado dos puntos <span class="math inline">\(A(x_0,x_1)\)</span> y $B(y_0,y_1) $ con <span class="math inline">\(x_0 \neq x_1\)</span> definimos la pendiente como el cociente <span class="math display">\[
+m=\frac{y_1-y_0}{x_1-x_0}
+\]</span> Note que en particular la pendiente indica la inclinación de la recta, en ese sentido si la pendiente es positiva la pendiente es creciente en el sentido de las <span class="math inline">\(x\)</span>, si es negativa es decreciente y si es cero no tiene inclinación.</p>
+</div>
+<p>Debido a que la pendiente es un invariante geométrico de la recta, para encontrar la ecuación de una recta, simplemente reemplazamos cualquier punto con el que hayamos la pendiente por un punto arbitrario <span class="math inline">\((x,y)\)</span></p>
+<p>Es importante mencionar que un punto <span class="math inline">\(P(p_1,p_2)\)</span> pertenece a la recta si este punto satisface a la ecuación de la recta.</p>
+<div id="def-rectas_par" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 9 </strong></span>Dos rectas <span class="math inline">\(l\)</span> y <span class="math inline">\(s\)</span> en un mismo plano son paralelas, <span class="math inline">\(l \parallel s\)</span>, si estas no se cortan. Rectas paralelas tienen pendientes iguales.</p>
+</div>
+<div id="def-rectas_per" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 10 </strong></span>Dos rectas <span class="math inline">\(l\)</span> y <span class="math inline">\(s\)</span> son perpendiculares, <span class="math inline">\(l \perp s\)</span>, si se cortan formando un ángulo de <span class="math inline">\(90\)</span> grados (<span class="math inline">\(\pi/2\)</span> radianes). El producto de pendientes de rectas perpendiculares es <span class="math inline">\(-1.\)</span></p>
+</div>
+<div id="exm-ejemplo_ec_recta" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 8 </strong></span>Considere los puntos <span class="math inline">\(A(1,2)\)</span>, <span class="math inline">\(B(-3,-1)\)</span> y <span class="math inline">\(C(-1,5)\)</span></p>
+<ol type="1">
+<li>Encuentre la ecuación de la recta <span class="math inline">\(l\)</span> que pasa por los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span></li>
+<li>Encuentre la ecuación <span class="math inline">\(s\)</span> paralela a <span class="math inline">\(l\)</span> que pasa por el punto <span class="math inline">\(C.\)</span></li>
+<li>Encuentre la ecuación <span class="math inline">\(t\)</span> perpendicular a <span class="math inline">\(l\)</span> que pasa por el punto <span class="math inline">\(C.\)</span></li>
+</ol>
+<p><strong>Solución</strong></p>
+<ol type="1">
+<li>Se puede probar que la pendiente de la recta <span class="math inline">\(l,\)</span> es <span class="math inline">\(m_l = 3/4,\)</span> y de acuerdo con esto la ecuación de esta recta es <span class="math display">\[
+3x-4y=-5.
+\]</span></li>
+<li>Como la recta <span class="math inline">\(s\)</span> es paralela a <span class="math inline">\(l,\)</span> entonces las pendientes de estas rectas son iguales, es decir <span class="math inline">\(m_s = 3/4\)</span> y de acuerdo con esto la ecuación de esta recta es <span class="math display">\[
+3x-4y=-23.
+\]</span></li>
+<li>Como la recta <span class="math inline">\(t\)</span> es perpendicular a <span class="math inline">\(l,\)</span> entonces el producto de sus pendientes debe ser <span class="math inline">\(-1,\)</span> de acuerdo con esto <span class="math inline">\(m_t = -4/3,\)</span> y se puede probar que la ecuación de esta recta es <span class="math display">\[
+4x + 3y = 11.
+\]</span></li>
+</ol>
+</div>
+<div id="def-punto_corte" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 11 (Punto de corte entre dos rectas) </strong></span>Un punto que es común para las rectas <span class="math inline">\(l\)</span> y <span class="math inline">\(s\)</span> es llamado punto de corte de las rectas. Un punto de corte satisface las ecuaciones de las rectas de manera simultánea.</p>
+</div>
+<div id="exm-puntocorte" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 9 </strong></span>Una recta <span class="math inline">\(l\)</span> pasa por los puntos <span class="math inline">\(A(-2,1)\)</span> y <span class="math inline">\(B(3,-2)\)</span>, mientras que la recta <span class="math inline">\(s\)</span> pasa por los puntos <span class="math inline">\(C(-1,-3)\)</span> y <span class="math inline">\(D(5,1)\)</span>, Encuentre las ecuaciones de las rectas <span class="math inline">\(l\)</span> y <span class="math inline">\(s\)</span> y su punto de corte si este existe.</p>
+<p><strong>Solución</strong></p>
+<p>Puede probarse que la ecuación de la recta <span class="math inline">\(l\)</span> es <span class="math display">\[
+3x+5y=-1
+\]</span> y que la ecuación de la recta <span class="math inline">\(s\)</span> es <span class="math display">\[
+-4x + 6y =-14
+\]</span> Para determinar el punto de corte de las rectas <span class="math inline">\(l\)</span> y <span class="math inline">\(s,\)</span> resolveremos el siguiente sistema de ecuaciones. <span id="eq-sist"><span class="math display">\[
+\begin{cases}
+3x+5y=-1
+\\
+-4x + 6y =-14
+\end{cases}
+\tag{2}\]</span></span> Vamos a multiplicar la primera ecuación de <a href="#eq-sist">2</a> por <span class="math inline">\(6\)</span> y la segunda por <span class="math inline">\(-5\)</span> de manera que al sumar ambas expresiones se elimine la variable <span class="math inline">\(y,\)</span> de acuerdo con esto obtenemos. <span class="math display">\[
+38x=64 \to x=\frac{32}{19}.
+\]</span> Vamos multiplicar la primera ecuación de <a href="#eq-sist">2</a> por <span class="math inline">\(4\)</span> y la segunda ecuación por <span class="math inline">\(3\)</span> de manera que al sumar ambas expresiones se elimine la variable <span class="math inline">\(x,\)</span> de acuerdo con esto obtenemos. <span class="math display">\[
+38y=-46 \to y= \frac{-23}{19}
+\]</span> El punto de corte entre ambas rectas sería <span class="math inline">\(P(32/19 , -23/19)\)</span>.</p>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ejercicios
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 12 </strong></span>Encuentre la pendiente de la recta que pasa por los puntos <span class="math inline">\((2, 3)\)</span> y <span class="math inline">\((5, 11)\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 13 </strong></span>Encuentre la pendiente de la recta que pasa por los puntos <span class="math inline">\((6, 8)\)</span> y <span class="math inline">\((6, -4)\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 14 </strong></span>Encuentra la pendiente de la recta <span class="math inline">\(3x - 4y + 12 = 0\)</span></p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 15 </strong></span>Escriba la ecuación de la recta que pasa por el punto <span class="math inline">\((-1, 2)\)</span> con una pendiente de <span class="math inline">\(-3\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 16 </strong></span>Escriba la ecuación de la recta que pasa por el punto <span class="math inline">\((4, -2)\)</span> y tiene una pendiente de <span class="math inline">\(3\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 17 </strong></span>Determina si las rectas con ecuaciones <span class="math inline">\(2x - y = -5\)</span> y <span class="math inline">\(2x - y = 3\)</span> son paralelas.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 18 </strong></span>Determina si las rectas con ecuaciones <span class="math inline">\(x + 2y = 8\)</span> y <span class="math inline">\(2x - y = 2\)</span> son perpendiculares.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 19 </strong></span>Convierte la ecuación de la recta <span class="math inline">\(y - 4 = 2(x + 1)\)</span> a la foma <span class="math inline">\(Ax + By = C\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 20 </strong></span>Escriba las ecuaciones de las rectas que pasan por el punto <span class="math inline">\((1, -2)\)</span> y son paralelas y perpendiculares a la recta <span class="math inline">\(3x + 4y = 12\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 21 </strong></span>Dada la recta <span class="math inline">\(5x - y = 4\)</span>, encuentra la pendiente de una recta perpendicular a ella.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 22 </strong></span>Calcula la distancia entre los puntos <span class="math inline">\((3, 4)\)</span> y <span class="math inline">\((-1, 2)\)</span> y determina la pendiente de la recta que los une.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 23 </strong></span>Encuentra el punto de intersección de las rectas <span class="math inline">\(2x - y = -3\)</span> y <span class="math inline">\(x + y = 1\)</span>.</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 24 </strong></span>Diseña el techo de una casa, teniendo en cuenta que tiene forma triangular con una pendiente de <span class="math inline">\(4/3\)</span>. Si la base del triángulo mide <span class="math inline">\(12\)</span> metros, ¿cuál es la altura del techo?</p>
+</div>
+<div id="exr-ej00" class="theorem exercise">
+<p><span class="theorem-title"><strong>Ejercicio 25 </strong></span>Se desea construir un techo a una agua con una caída del <span class="math inline">\(30\%\)</span> Si la base del techo es de <span class="math inline">\(15m,\)</span> cúal debe ser su altura.</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="introducción-a-la-geometría-vectorial-en-el-plano" class="level1">
+<h1>Introducción a la geometría vectorial en el plano</h1>
+<p>En esta sección haremos una breve presentación de la aritmética vectorial y su aplicación en la geometría del plano. La sección se ha divido en dos partes. En la primera parte se introduce el concepto de vector en el plano, su interpretación geométrica y operaciones entre estos. En la segunda se presenta la ecuación vectorial y paramétrica de una recta y la distancia de un punto a una recta de manera vectorial.</p>
+<section id="aritmética-vectorial" class="level2">
+<h2 class="anchored" data-anchor-id="aritmética-vectorial">Aritmética vectorial</h2>
+<div id="def-vector" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 12 (Vector) </strong></span>Un vector es un arreglo o una lista de números reales, Los vectores los identificamos con una letra mayúscula o minúscula y en este ultimo caso con una flecha encima de esta. Los números reales del vector son llamados componentes y se enumeran de izquierda a derecha partiendo desde uno, el número de componentes del vector se conoce como la dimensión del vector</p>
+</div>
+<p>Un vector de dimensión 2 es una pareja de números reales <span class="math inline">\(a_1\)</span> y <span class="math inline">\(a_2\)</span> dispuestos en una fila o una columna. Cada uno de estos números recibe el nombre de coordenada o componente del vector.</p>
+El conjunto de todos los vectores en el plano se denota <span class="math inline">\(\mathbb{R}^2\)</span>. Los vectores se representan con una letra mayúscula, o con una letra min'uscula y una flecha en la parte superior de esta, es decir: [ A = (a_1, a_2), = (a_1, a_2). ]
+<p>Con base a esta definici'on se desprende de manera inmediata que la suma de vectores es conmutativa y asociativa. Se sigue también que la multiplicación por escalares es asociativa y verifica dos leyes distributivas, esto es [ (A + B) = A + B, (+ )A = A + A, ] con <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> elementos de <span class="math inline">\(\mathbb{R}^2,\)</span> <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> escalares.</p>
+<p>Existe una identificación natural entre el vector <span class="math inline">\(A = (a_1, a_2)\)</span> y el punto <span class="math inline">\(A(a_1, a_2)\)</span> del plano cartesiano, lo cual permite interpretar geométricamente el vector como el segmento de recta dirigido del origen al punto. Esta identificación nos permitirá referirnos en ciertos contextos a puntos y vectores de manera indistinta.</p>
+<p>En general un par de puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> del plano cartesiano se denomina , si un punto es el punto inicial del vector (suponga <span class="math inline">\(A\)</span>) y el otro punto es el extremo final del vector (suponga <span class="math inline">\(B\)</span>). Este vector se representa como <span class="math inline">\(\overrightarrow{AB}\)</span> y se entiende como el segmento de recta dirigido del punto <span class="math inline">\(A\)</span> al punto <span class="math inline">\(B.\)</span> Más aún, si <span class="math inline">\(A(a_1, a_2)\)</span> y <span class="math inline">\(B(b_1, b_2),\)</span> entonces <span class="math inline">\(\overrightarrow{AB}\)</span> tiene componentes <span class="math inline">\((b_1 - a_1, b_2 - a_2)\)</span>.</p>
 
 
+</section>
 </section>
 
 
@@ -471,6 +877,7 @@ N = \frac{30}{2} = 15.
 
 <ol>
 <li id="fn1"><p>Una afirmación que se supone cierta.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>La noción de congruencia se aplica igual para segmentos y otros objetos matemáticos relacionados con la Geometr'ia y se representa comúnmente con el s'imbolo <span class="math inline">\(\cong.\)</span>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

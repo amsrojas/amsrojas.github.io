@@ -65,7 +65,7 @@ En ambas situaciones **S1.** y **S2.** es claro que $a + b = p-1$
 
 Para $p = 29$ (situación **S1.**) tenemos que $b = 4$ y $a = 28.$ De acuerdo con esto los elementos de los conjuntos  @eq-conjuntos tomando $x  \equiv 28 \mod{29}$ y $y \equiv 4 \mod{29}$ son todos múltiplos de 29 no divisibles por $2$ ni por $3.$ 
 
-Para $p = 37$ (situación \textbf{S1}) tenemos que $a = 6$ y $b = 30.$ De acuerdo con esto los elementos de los conjuntos \eqref{eq::conjuntos}  tomando $x \equiv 6 \mod{37}$ y $y \equiv 30 \mod{37}$ son todos múltiplos de $37$ no divisibles por $2$ ni por $3.$
+Para $p = 37$ (situación **S1**) tenemos que $a = 6$ y $b = 30.$ De acuerdo con esto los elementos de los conjuntos \eqref{eq::conjuntos}  tomando $x \equiv 6 \mod{37}$ y $y \equiv 30 \mod{37}$ son todos múltiplos de $37$ no divisibles por $2$ ni por $3.$
 
 Sean $\alpha$ y $\beta$ dos números múltiplos de un primo $p$ y pertenecientes a cualquiera o ambos conjuntos $A$ y $B.$ Es claro que $\alpha + \beta = 2N$ es un número par. 
 
