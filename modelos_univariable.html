@@ -1193,9 +1193,9 @@ s_n = \frac{1 + (-1)^n r^{n+1}}{1 + r}
 <p><span id="eq-geo2"><span class="math display">\[
 \sum_{k = 1}^{n} r^k = \frac{1 - r^{n+1}}{1 -r}.
 \tag{16}\]</span></span></p>
-<p>y la expresión <strong>?@eq-eq-alterf</strong> se puede escribir como</p>
+<p>y la expresión <a href="#eq-alterf">15</a> se puede escribir como</p>
 <p><span id="eq-geoalter"><span class="math display">\[
-\sum_{k = 1}^{n} (-1)^k r^k = \frac{1 + (-1)^kr^{n+1}}{1 + r}.
+\sum_{k = 1}^{n} (-1)^k r^k = \frac{1 + (-1)^n r^{n+1}}{1 + r}.
 \tag{17}\]</span></span></p>
 <p>Existe un procedimiento aritmético bastante simple para escribir la suma de los primeros enteros no negativos <span class="math inline">\(1 + 2 + 3 + \cdots + n\)</span>. Note que</p>
 <p><span id="eq-relacion_suma"><span class="math display">\[
@@ -1447,7 +1447,8 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-nume" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 8 (Número <span class="math inline">\(e\)</span>) </strong></span>Definimos la constante numérica <span class="math inline">\(e\)</span> como <span id="eq-nume"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 8 (Número <span class="math inline">\(e\)</span>) </strong></span>Definimos la constante numérica <span class="math inline">\(e\)</span> como</p>
+<p><span id="eq-nume"><span class="math display">\[
 \sum_{k = 0}^{\infty} \frac{1}{k!} = e.
 \tag{26}\]</span></span></p>
 </div>
@@ -1517,7 +1518,11 @@ a_1 \cdot a_2 \cdot a_3 \geq 2 a_1 \cdot a_2 = a_1 \cdot a_2 + a_1 \cdot a_2 &gt
 \\
 &amp; = a_0 \frac{1 - r^{n+1}}{1 - r}
 \end{align*}\]</span></p>
-<p><span class="math display">\[ y si $0 &lt; r &lt; 1$ de acuerdo con [-@eq-se_geo] obtenemos que \]</span> <em>{n = 0}^{} a</em>{n} = $$</p>
+<p>$$</p>
+<p>y si <span class="math inline">\(0 &lt; r &lt; 1\)</span> de acuerdo con <a href="#eq-se_geo">22</a> obtenemos que</p>
+<p><span class="math display">\[
+\sum_{n = 0}^{\infty} a_{n} = \frac{a_0}{1 - r}
+\]</span></p>
 </div>
 </div>
 </div>
@@ -1546,17 +1551,28 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 </div>
 </div>
-<p>Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie <span class="math inline">\(\sum_{n = 1}^{\infty}a_n\)</span> que verifica <span class="math display">\[
+<p>Estas observaciones se pueden generalizar para el estudio de otras series. En efecto, si tenemos una serie <span class="math inline">\(\sum_{n = 1}^{\infty}a_n\)</span> que verifica</p>
+<p><span class="math display">\[
 \lim_{n \to \infty} \frac{a_{n+1}}{a_n} = r,
-\]</span> Entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección existe un entero <span class="math inline">\(N\)</span> tal que <span class="math display">\[
+\]</span></p>
+<p>Entonces para un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección existe un entero <span class="math inline">\(N\)</span> tal que</p>
+<p><span class="math display">\[
 \Big\vert \frac{a_{n+1}}{a_n} - r \Big\vert &lt; \epsilon \text{ para todo } n &gt; N
-\]</span> o de manera equivalente <span class="math display">\[
+\]</span></p>
+<p>o de manera equivalente</p>
+<p><span class="math display">\[
 (r - \epsilon) a_{n} &lt; a_{n + 1} &lt; (r + \epsilon) a_n,
-\]</span> de acuerdo con esto <span class="math display">\[
+\]</span></p>
+<p>de acuerdo con esto</p>
+<p><span class="math display">\[
 (r - \epsilon)^k a_n &lt; a_{n + k} &lt; (r + \epsilon)^k a_n
-\]</span> y si identificamos con <span class="math inline">\(r^+ = r + \epsilon\)</span> y con <span class="math inline">\(r^- = r - \epsilon\)</span> entonces se sigue de la ecuación <a href="#eq-geo2">16</a> <span class="math display">\[
+\]</span></p>
+<p>y si identificamos con <span class="math inline">\(r^+ = r + \epsilon\)</span> y con <span class="math inline">\(r^- = r - \epsilon\)</span> entonces se sigue de la ecuación <a href="#eq-geo2">16</a></p>
+<p><span class="math display">\[
 \frac{r^- - (r^-)^{m+1}}{1 - r^-} a_n &lt; \sum_{k= 1}^{m} a_{n+k} &lt; \frac{r^+ - (r^+)^{m+1}}{1 - r^+} a_n
-\]</span> De manera que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces siempre es posible encontrar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(r^-\)</span> y <span class="math inline">\(r^+\)</span> esten comprendidos igualmente entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span> y de acuerdo con esto. <span class="math display">\[
+\]</span></p>
+<p>De manera que si <span class="math inline">\(0 &lt; r &lt; 1\)</span> entonces siempre es posible encontrar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(r^-\)</span> y <span class="math inline">\(r^+\)</span> esten comprendidos igualmente entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span> y de acuerdo con esto.</p>
+<p><span class="math display">\[
 \frac{r^-}{1 - r^-} a_n &lt; \sum_{k= 1}^{\infty} a_{n+k} &lt; \frac{r^+ }{1 - r^+} a_n
 \]</span></p>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -1570,16 +1586,21 @@ a_{n+1} = r^{n+1} =  r \cdot r^n = r a_n
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-Telescopia" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 17 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 17 (Series Telescópicas) </strong></span>Considera la sucesión <span class="math inline">\(\{a_n\}\)</span> en donde</p>
+<p><span class="math display">\[
 a_{n} = b_{n+1} - b_{n}
-\]</span> siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que <span class="math display">\[
+\]</span></p>
+<p>siendo <span class="math inline">\(b_n\)</span> el término <span class="math inline">\(n-\)</span>ésimo de otra sucesión. Note que</p>
+<p><span class="math display">\[
 \begin{align*}
     \sum_{k = 1}^{n} a_k &amp; = b_2 - b_1 + b_3 - b_2 + \cdots + b_{n} - b_{n - 1} + b_{n+1} - b_{n}
     \\
     &amp; = b_{n+1} - b_{1}
 \end{align*}
-\]</span> Cuando una sucesión de números presente este comportamiento, se le llama suma telescópica, y será de mucha importancia para la construcción teórica a lo largo del documento.</p>
-<p>Si <span class="math inline">\(b_n \to p\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces <span class="math display">\[
+\]</span></p>
+<p>Cuando una sucesión de números presente este comportamiento, se le llama suma telescópica, y será de mucha importancia para la construcción teórica a lo largo del documento.</p>
+<p>Si <span class="math inline">\(b_n \to p\)</span> cuando <span class="math inline">\(n \to \infty\)</span> entonces</p>
+<p><span class="math display">\[
 \sum_{n = 1}^{\infty} a_n = p - b_1
 \]</span></p>
 </div>
@@ -1596,13 +1617,20 @@ a_{n} = b_{n+1} - b_{n}
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-binomio" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde <span id="eq-suc_pserie"><span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 18 </strong></span>Considere la sucesión <span class="math inline">\(\{ a_n \}\)</span> en donde</p>
+<p><span id="eq-suc_pserie"><span class="math display">\[
 a_n = n - n^{p}(n - q )^{1 - p},
-\tag{27}\]</span></span> Se puede probar que <span id="eq-lim_bio"><span class="math display">\[
+\tag{27}\]</span></span></p>
+<p>Se puede probar que</p>
+<p><span id="eq-lim_bio"><span class="math display">\[
 a_n \to q(1 - p) \text{ cuando } n \to \infty
-\tag{28}\]</span></span> En efecto, despues de algunas manipulaciones algrebraicas es claro que <span id="eq-suc_bin"><span class="math display">\[
+\tag{28}\]</span></span></p>
+<p>En efecto, despues de algunas manipulaciones algrebraicas es claro que</p>
+<p><span id="eq-suc_bin"><span class="math display">\[
 a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
-\tag{29}\]</span></span> y de acuerdo con el Teorema general de binomio <span class="math display">\[
+\tag{29}\]</span></span></p>
+<p>y de acuerdo con el Teorema general de binomio</p>
+<p><span class="math display">\[
 \left( 1 + \frac{q}{n - q} \right)^p = \sum_{k = 0}^{\infty} {p \choose k} \frac{q^k}{(n - q)^k}
 \]</span></p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
@@ -1620,28 +1648,40 @@ a_n = n - (n - q)\left( 1 + \frac{q}{n - q}\right)^p.
 \]</span></p>
 </div>
 </div>
-<p>Podemos escribir <a href="#eq-suc_bin">29</a> como <span class="math display">\[\begin{align*}
+<p>Podemos escribir <a href="#eq-suc_bin">29</a> como <span class="math display">\[
+\begin{align*}
 a_n &amp;= n - (n-q)\left( 1 + p \frac{q}{(n-q)} + \frac{p(p-1)}{2!}\frac{q^2}{(n-q)^2} + \cdots\right)
 \\
 \\
 &amp; = q(1 - p) -  \frac{p(p-1)}{2!}\frac{q^2}{(n-q)} -  \frac{p(p-1)(p-2)}{3!}\frac{q^3}{(n-q)^2} - \cdots
-\end{align*}\]</span> y obtenemos <a href="#eq-lim_bio">28</a> cuando hacemos tender <span class="math inline">\(n\)</span> a infinito.</p>
+\end{align*}
+\]</span></p>
+<p>y obtenemos <a href="#eq-lim_bio">28</a> cuando hacemos tender <span class="math inline">\(n\)</span> a infinito.</p>
 </div>
 </div>
 </div>
 <p>Podemos sacar provecho del ejemplo anterior para demostrar una interesante desigualdad que nos será útil a lo largo del documento.</p>
-<p>Tomemos <span class="math inline">\(q = 1\)</span> en la ecuación <a href="#eq-suc_pserie">27</a>. Note que <span class="math inline">\(a_n\)</span> es creciente y como ya se ha visto <span class="math inline">\(a_n \to 1 - p\)</span> cuando <span class="math inline">\(n \to \infty.\)</span> De acuerdo con esto <span id="eq-des_importante"><span class="math display">\[
+<p>Tomemos <span class="math inline">\(q = 1\)</span> en la ecuación <a href="#eq-suc_pserie">27</a>. Note que <span class="math inline">\(a_n\)</span> es creciente y como ya se ha visto <span class="math inline">\(a_n \to 1 - p\)</span> cuando <span class="math inline">\(n \to \infty.\)</span> De acuerdo con esto</p>
+<p><span id="eq-des_importante"><span class="math display">\[
 \frac{n - n^{p}(n - 1)^{1-p}}{1 - p} \geq 1 \quad \text{ para } \quad n = 2, 3, 4, \ldots
-\tag{30}\]</span></span> y despues de un par de manipulaciones algebráicas, <span id="eq-desigualdad_p_serie0"><span class="math display">\[
+\tag{30}\]</span></span></p>
+<p>y después de un par de manipulaciones algebráicas,</p>
+<p><span id="eq-desigualdad_p_serie0"><span class="math display">\[
 \frac{1}{n^p} \leq \frac{n^{1-p} - (n -1)^{1-p}}{1 - p}.
-\tag{31}\]</span></span> Al sumar desde <span class="math inline">\(k = 2\)</span> hasta <span class="math inline">\(n\)</span>, obtenemos <span class="math display">\[
+\tag{31}\]</span></span></p>
+<p>Al sumar desde <span class="math inline">\(k = 2\)</span> hasta <span class="math inline">\(n\)</span>, obtenemos</p>
+<p><span class="math display">\[
 \sum_{k=2}^{n}\frac{1}{k^p} \leq \frac{1}{1-p}\sum_{k=2}^{n} \left( k^{1-p} - (k -1)^{1-p} \right) = \frac{n^{1-p} - 1}{1 - p}
-\]</span> y sumando 1 a ambos lados de la desigualdad <span id="eq-desigualdad_p_serie1"><span class="math display">\[
+\]</span></p>
+<p>y sumando 1 a ambos lados de la desigualdad</p>
+<p><span id="eq-desigualdad_p_serie1"><span class="math display">\[
 \sum_{k=1}^{n}\frac{1}{k^p} \leq \frac{n^{1-p} - p}{1 - p}
 \tag{32}\]</span></span></p>
-<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;6</a> <span class="math display">\[
+<p>Si en <span class="math inline">\(n^{1-p}\)</span> tomamos <span class="math inline">\(p&gt;1\)</span> se sigue del <a href="#exm-nalp">Ejemplo&nbsp;6</a></p>
+<p><span class="math display">\[
 n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
-\]</span> y de acuerdo con esto hemos probado el siguiente resultado</p>
+\]</span></p>
+<p>y de acuerdo con esto hemos probado el siguiente resultado.</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1653,10 +1693,112 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 </div>
 <div class="callout-body-container callout-body">
 <div id="thm-pserie" class="theorem">
-<p><span class="theorem-title"><strong>Teorema 9 </strong></span>Si <span class="math inline">\(p&gt;1\)</span> entonces <span class="math display">\[
+<p><span class="theorem-title"><strong>Teorema 9 </strong></span>Si <span class="math inline">\(p&gt;1\)</span> entonces</p>
+<p><span class="math display">\[
 \sum_{n=1}^{\infty} \dfrac{1}{n^p} \leq \frac{p}{p-1}
 \]</span></p>
 </div>
+</div>
+</div>
+<p>Uno de los resultados para la convergencia de series, que se desprenden de forma natural a partir de la definición de la convergencia de sucesiones, es el siguiente</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Criterios de comparación
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Comparación directa</strong></p>
+<p>Sea <span class="math inline">\(\sum a_n\)</span> y <span class="math inline">\(\sum b_n\)</span> dos series de términos positivos. Si existe una constante <span class="math inline">\(C &gt; 0\)</span> tal que <span class="math inline">\(0 \leq a_n \leq C b_n\)</span>, entonces:</p>
+<ol type="1">
+<li><p>Si <span class="math inline">\(\sum b_n\)</span> converge, entonces <span class="math inline">\(\sum a_n\)</span> también converge.</p></li>
+<li><p>Si <span class="math inline">\(\sum a_n\)</span> diverge, entonces <span class="math inline">\(\sum b_n\)</span> también diverge.</p></li>
+</ol>
+<p><strong>Comparación por el límite</strong></p>
+<p>Sea <span class="math inline">\(\sum a_n\)</span> y <span class="math inline">\(\sum b_n\)</span> dos series de términos positivos. Si existe el límite</p>
+<p><span class="math display">\[
+\lim_{n \to \infty} \frac{a_n}{b_n} = L,
+\]</span></p>
+<p>donde <span class="math inline">\(L\)</span> es un número finito y positivo, entonces:</p>
+<ol type="1">
+<li><p>Si <span class="math inline">\(L &gt; 0\)</span> y <span class="math inline">\(\sum b_n\)</span> converge, entonces <span class="math inline">\(\sum a_n\)</span> también converge.</p></li>
+<li><p>Si <span class="math inline">\(L &gt; 0\)</span> y <span class="math inline">\(\sum b_n\)</span> diverge, entonces <span class="math inline">\(\sum a_n\)</span> también diverge.</p></li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="def-absconv" class="theorem definition">
+<p><span class="theorem-title"><strong>Definición 9 </strong></span>Una serie <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} a_n\)</span> se dice absolutamente convergente si la serie <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} \vert a_n \vert\)</span> es convergente.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div id="exm-absconv" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>Estudie la convergencia de la serie <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} \dfrac{\sin{n}}{n^2}\)</span></p>
+<p><strong>Solución</strong></p>
+<p>Note que <span class="math display">\[
+\frac{\sin{n}}{n^2} \leq  \Big\vert \frac{\sin{n}}{n^2} \Big\vert \leq \frac{1}{n^2}.
+\]</span></p>
+<p>De acuerdo con el Teorema <a href="#thm-pserie">9</a> la serie <span class="math inline">\(\displaystyle\sum \dfrac{1}{n^2}\)</span> es convergente y en consecuencia se sigue del teorema de comparación directa que la serie <span class="math inline">\(\displaystyle\sum \Big\vert \dfrac{\sin{n}}{n^2} \Big\vert\)</span> y por lo tanto la serie <span class="math inline">\(\displaystyle\sum_{n=1}^{\infty} \dfrac{\sin{n}}{n^2}\)</span> es absolutamente convergente.</p>
+</div>
+</div>
+</div>
+<p>En el siguiente código es Python se estudia la sucesión de sumas parciales <span class="math inline">\(\{s_n\}\)</span> con <span class="math inline">\(n\)</span> desde <span class="math inline">\(1\)</span> hasta <span class="math inline">\(50\)</span> de la sucesión <span class="math inline">\(\{\sin{n} / n^2\}\)</span>.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a(n):</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.sin(n)<span class="op">/</span>n<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> suc_suma(n):</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> []</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, n<span class="op">+</span><span class="dv">1</span>):</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    s.append(a(k))</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(s)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>sn <span class="op">=</span> [suc_suma(n) <span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, nd<span class="op">+</span><span class="dv">1</span>)]</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>plt.scatter(<span class="bu">range</span>(<span class="dv">1</span>, nd<span class="op">+</span><span class="dv">1</span>), sn, s <span class="op">=</span> <span class="dv">10</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Comportamiento de la sucesión de sumas parciales'</span>) </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'s_n'</span>) </span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>datos <span class="op">=</span> [sn[<span class="bu">len</span>(sn) <span class="op">-</span> <span class="dv">5</span> <span class="op">+</span> k] <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>) ]</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'los últimos 5 datos de la sucesión de sumas parciales son: </span><span class="sc">{</span>datos<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="modelos_univariable_files/figure-html/cell-6-output-1.png" width="433" height="377"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>los últimos 5 datos de la sucesión de sumas parciales son: [1.0143385311629363, 1.0143944719156504, 1.0140610280522284, 1.0136637966266726, 1.013558846685191]</code></pre>
 </div>
 </div>
 <section id="la-función-zeta-de-riemann" class="level3">
@@ -1664,25 +1806,25 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 <p>Una función de gran importancia en matemáticas, es la función <span class="math inline">\(\zeta\)</span> de Riemann, definida como <span class="math display">\[
 \zeta(p) = \sum_{n=1}^{\infty} \frac{1}{n^p}
 \]</span> en el siguiente código se muestra el gráfico de la aproximación de la función sumando los primeros <span class="math inline">\(1000\)</span> términos de la serie con valores de <span class="math inline">\(p\)</span> entre 1 y 10.</p>
-<div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> z(p , n ):</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  lista <span class="op">=</span> [ <span class="dv">1</span><span class="op">/</span>(k<span class="op">**</span>p) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n <span class="op">-</span> <span class="dv">1</span>)  ]</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(lista)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [z(k, <span class="dv">1000</span>) <span class="cf">for</span> k <span class="kw">in</span> x ])</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Aproximación función z de Riemann"</span>)</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"p"</span>)</span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"z(p, n)"</span>)</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> z(p , n ):</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  lista <span class="op">=</span> [ <span class="dv">1</span><span class="op">/</span>(k<span class="op">**</span>p) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n <span class="op">-</span> <span class="dv">1</span>)  ]</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(lista)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [z(k, <span class="dv">1000</span>) <span class="cf">for</span> k <span class="kw">in</span> x ])</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Aproximación función z de Riemann"</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"p"</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"z(p, n)"</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-6-output-1.png" width="353" height="377"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-7-output-1.png" width="353" height="377"></p>
 </div>
 </div>
 <p>Una relación fascinante entre la función <span class="math inline">\(\zeta\)</span> de Riemann y los números primos se desprende de los trabajos que realizó el matemático Leonar Euler sobre series de números reales, este establece que</p>
@@ -1690,58 +1832,58 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 \sum_{1 \leq n} \frac{1}{n^s} = \prod_{p \in \mathbb{P}}\frac{1}{1 - p^{-s}}
 \]</span> en donde <span class="math inline">\(\mathbb{P}\)</span> es el conjunto de los números primos.</p>
 <p>Con el siguiente código generamos la superposición de dos gráficos, entre la aproximación numérica de la función <span class="math inline">\(\zeta\)</span> de Riemann y el productorio de los números primos. Se ha generado una función (<span class="math inline">\(tp(n)\)</span>)que identifica si <span class="math inline">\(n\)</span> es un número es primo o no y se han tomado los primos menores o iguales que <span class="math inline">\(n = 100.\)</span></p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">Identificaremos los numeros primos menores o iguales que n</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">Definición de la aproximación a la función z de Riemann</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> z(s , n ):</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  lista <span class="op">=</span> [ <span class="dv">1</span><span class="op">/</span>(k<span class="op">**</span>s) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n <span class="op">-</span> <span class="dv">1</span>)  ]</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(lista)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="co">Vamos a crear una función que permita identificar si un número n es primo o no.</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">Esta función devuelve 1 si el número es primo y 0 en caso contrario.</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tp(n):</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  rn <span class="op">=</span> np.sqrt(n)</span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">int</span>(rn) <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">%</span> k <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="co">En esta lista vamos a almacenar los números primos menores o iguales que n</span></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>listap <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, n) <span class="cf">if</span> tp(p) <span class="op">==</span> <span class="dv">1</span>]</span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="co">Productorio de números primos. 1/(1- p^-s) = p^2/(p^2 - 1)</span></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ap(s, lista):</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>  aprox <span class="op">=</span> [p<span class="op">**</span>s<span class="op">/</span>(p<span class="op">**</span>s <span class="op">-</span> <span class="dv">1</span>) <span class="cf">for</span> p <span class="kw">in</span> listap]</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.prod(aprox)</span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [z(k, <span class="dv">10000</span>) <span class="cf">for</span> k <span class="kw">in</span> x ], label<span class="op">=</span><span class="st">"z(s)"</span>)</span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [ap(k, listap) <span class="cf">for</span> k <span class="kw">in</span> x ], label<span class="op">=</span><span class="st">"Apro. Prod. Primos"</span>)</span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Comparación función z de Riemann y prod. Primos"</span>)</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"s"</span>)</span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"z(s, n)"</span>)</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-overflow-wrap code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">100</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">Identificaremos los numeros primos menores o iguales que n</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">Definición de la aproximación a la función z de Riemann</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> z(s , n ):</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  lista <span class="op">=</span> [ <span class="dv">1</span><span class="op">/</span>(k<span class="op">**</span>s) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,n <span class="op">-</span> <span class="dv">1</span>)  ]</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(lista)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="co">Vamos a crear una función que permita identificar si un número n es primo o no.</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="co">Esta función devuelve 1 si el número es primo y 0 en caso contrario.</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> tp(n):</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>  rn <span class="op">=</span> np.sqrt(n)</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, <span class="bu">int</span>(rn) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> n <span class="op">%</span> k <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="co">En esta lista vamos a almacenar los números primos menores o iguales que n</span></span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>listap <span class="op">=</span> [p <span class="cf">for</span> p <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>, n) <span class="cf">if</span> tp(p) <span class="op">==</span> <span class="dv">1</span>]</span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="co">Productorio de números primos. 1/(1- p^-s) = p^2/(p^2 - 1)</span></span>
+<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ap(s, lista):</span>
+<span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a>  aprox <span class="op">=</span> [p<span class="op">**</span>s<span class="op">/</span>(p<span class="op">**</span>s <span class="op">-</span> <span class="dv">1</span>) <span class="cf">for</span> p <span class="kw">in</span> listap]</span>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.prod(aprox)</span>
+<span id="cb9-40"><a href="#cb9-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-41"><a href="#cb9-41" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb9-42"><a href="#cb9-42" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [z(k, <span class="dv">10000</span>) <span class="cf">for</span> k <span class="kw">in</span> x ], label<span class="op">=</span><span class="st">"z(s)"</span>)</span>
+<span id="cb9-43"><a href="#cb9-43" aria-hidden="true" tabindex="-1"></a>plt.plot(x, [ap(k, listap) <span class="cf">for</span> k <span class="kw">in</span> x ], label<span class="op">=</span><span class="st">"Apro. Prod. Primos"</span>)</span>
+<span id="cb9-44"><a href="#cb9-44" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Comparación función z de Riemann y prod. Primos"</span>)</span>
+<span id="cb9-45"><a href="#cb9-45" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">"s"</span>)</span>
+<span id="cb9-46"><a href="#cb9-46" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">"z(s, n)"</span>)</span>
+<span id="cb9-47"><a href="#cb9-47" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb9-48"><a href="#cb9-48" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb9-49"><a href="#cb9-49" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-7-output-1.png" width="424" height="377"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-8-output-1.png" width="424" height="377"></p>
 </div>
 </div>
 <section id="la-serie-armónica" class="level4">
@@ -1753,44 +1895,44 @@ n^{1 - p} = \frac{1}{n^{p-1}} \to 0 \text{ cuando } n \to \infty
 1 + \frac{n}{2} \leq s_{2^n},
 \]</span> y de acuerdo con esto, la serie armónica es divergente.</p>
 <p>Con el siguiente código estimamos el número de términos de la sucesión de sumas parciales, asociada a la serie armónica, para obtener un determinao valor, note por ejemplo que se requieren más de 12000 términos para que la suma sea mayor o igual que 10.</p>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lar(n):</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  armonica <span class="op">=</span> [<span class="dv">1</span>]</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  k <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> np.<span class="bu">sum</span>(armonica) <span class="op">&lt;</span> n:</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    armonica.append(<span class="dv">1</span><span class="op">/</span>k)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> k <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">len</span>(armonica)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">1</span>, <span class="dv">10</span>, <span class="dv">10</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lar(n):</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  armonica <span class="op">=</span> [<span class="dv">1</span>]</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  k <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">while</span> np.<span class="bu">sum</span>(armonica) <span class="op">&lt;</span> n:</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    armonica.append(<span class="dv">1</span><span class="op">/</span>k)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> k <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> <span class="bu">len</span>(armonica)</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-8-output-1.png" width="387" height="356"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-9-output-1.png" width="387" height="356"></p>
 </div>
 </div>
 <p>Con el siguiente código realizamos los cocientes dos a dos de términos consecutivos de los datos que ha arrajado el código anterior.</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">cálculo de cocientes dos a dos términos consectivos</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">9</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">cálculo de cocientes dos a dos términos consectivos</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>N <span class="op">=</span> np.linspace(<span class="dv">2</span>, <span class="dv">9</span>, <span class="dv">9</span>, dtype<span class="op">=</span><span class="bu">int</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>plt.scatter(N, [lar(n<span class="op">+</span><span class="dv">1</span>)<span class="op">/</span>lar(n) <span class="cf">for</span> n <span class="kw">in</span> N], s<span class="op">=</span><span class="dv">14</span>)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Número de términos'</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'n'</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-9-output-1.png" width="374" height="356"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-10-output-1.png" width="374" height="356"></p>
 </div>
 </div>
 <p>Note que la sucesión de cocientes parece converger a <span class="math inline">\(e,\)</span> entraremos en estos detalles más adelante.</p>
@@ -1856,7 +1998,7 @@ V^-_r(p) = \{x \in \mathbb{R} : 0 \leq p - x &lt; r \}.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limiteF" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 9 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;2</a> La notación <span id="eq-limite"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 10 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S,\)</span> véase <a href="#def-p_acumula">Definición&nbsp;2</a> La notación <span id="eq-limite"><span class="math display">\[
 \lim_{x \to p} f(x) = l.
 \tag{33}\]</span></span> se lee **“el límite de** <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \} \cap S.
@@ -1875,7 +2017,7 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V_{\delta}(p)\setminus \{ p \}
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-limiteL" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 10 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span id="eq-limited"><span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 11 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de acumulación de <span class="math inline">\(S.\)</span> La notación <span id="eq-limited"><span class="math display">\[
 \lim_{x \to p^+} f(x) = l.
 \tag{34}\]</span></span> se lee <strong>“el límite de** <span class="math inline">\(f\)</span> cuando <span class="math inline">\(x\)</span> tiene a <span class="math inline">\(p\)</span> por la derecha es igual a <span class="math inline">\(l\)</span>” lo que significa que dado un <span class="math inline">\(\epsilon\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta\)</span> tal que <span class="math display">\[
 f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p \} \cap S.
@@ -1900,7 +2042,7 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-continuidad" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 11 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 12 </strong></span>Sea <span class="math inline">\(f : S \to T\)</span> y <span class="math inline">\(p\)</span> un punto de <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(p\)</span> si <span class="math display">\[
     \lim_{x \to p} f(x) = f(p).
 \]</span> Si <span class="math inline">\(f\)</span> es continua en todo punto de <span class="math inline">\(S\)</span> entonces diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(S.\)</span></p>
 </div>
@@ -1912,69 +2054,69 @@ f(x) \in V_{\epsilon}(l) \text{ para todo } x \in V^+_{\delta}(p) \setminus \{ p
 f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 \]</span> y esto sugiere que si <span class="math inline">\(\{ a_n \}\)</span> es una sucesión arbitraria de números reales tal que <span class="math inline">\(a_n \to p\)</span> cuando <span class="math inline">\(n \to \infty,\)</span> entonces la sucesión <span class="math inline">\(\{ f(a_n) \}\)</span> es tal que <span class="math inline">\(f(a_n) \to f(p)\)</span> cuando <span class="math inline">\(n \to \infty.\)</span></p>
 <p>En el siguiente cógido graficamos la imagen de la sucesión oscilante del <a href="#exm-osc_convergente">Ejemplo&nbsp;4</a> con <span class="math inline">\(p = 0\)</span> a través de la función <span class="math inline">\(f(x) = \sin(x)/x\)</span>. Note que aunque se han tomado <span class="math inline">\(100\)</span> puntos en el gráfico parecen distinguirse cera de <span class="math inline">\(5,\)</span> los demás se han empezado a acumular cerca de <span class="math inline">\(1.\)</span></p>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">Aquí p será el punto de al que converge la sucesión.</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">100</span> <span class="co">#número de datos</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,nd, nd, dtype <span class="op">=</span> <span class="bu">int</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [q]</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(x)):</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  a.append((<span class="dv">3</span><span class="op">*</span>p <span class="op">-</span> a[n<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="co">función a estudiar</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.sin(t)<span class="op">/</span>t</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(a, [f(k) <span class="cf">for</span> k <span class="kw">in</span> a], s <span class="op">=</span> <span class="dv">8</span>)</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">Aquí p será el punto de al que converge la sucesión.</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">100</span> <span class="co">#número de datos</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,nd, nd, dtype <span class="op">=</span> <span class="bu">int</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [q]</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>  a.append((<span class="dv">3</span><span class="op">*</span>p <span class="op">-</span> a[n<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">función a estudiar</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.sin(t)<span class="op">/</span>t</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(a, [f(k) <span class="cf">for</span> k <span class="kw">in</span> a], s <span class="op">=</span> <span class="dv">8</span>)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-10-output-1.png" width="347" height="337"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-11-output-1.png" width="347" height="337"></p>
 </div>
 </div>
 <p>En el siguiente cógido graficamos la imagen de la sucesión oscilante del <a href="#exm-osc_convergente">Ejemplo&nbsp;4</a> con <span class="math inline">\(p = 3\)</span> a través de la función <span class="math inline">\(f(x) = \lfloor x \rfloor\)</span>. Se han tomado <span class="math inline">\(100\)</span> puntos y en el gráfico parecen acumularse a la derecha de <span class="math inline">\(4\)</span> en valor de <span class="math inline">\(4\)</span> y a la izquierda de <span class="math inline">\(4\)</span> en el valor de <span class="math inline">\(3\)</span>.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">Aquí p será el punto de al que converge la sucesión.</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">4</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">100</span> <span class="co">#número de datos</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="dv">6</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,nd, nd, dtype <span class="op">=</span> <span class="bu">int</span>)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [q]</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(x)):</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  a.append((<span class="dv">3</span><span class="op">*</span>p <span class="op">-</span> a[n<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>)</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">función a estudiar</span></span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.floor(t)</span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(a, [f(k) <span class="cf">for</span> k <span class="kw">in</span> a], s <span class="op">=</span> <span class="dv">8</span>)</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">Aquí p será el punto de al que converge la sucesión.</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>p <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>nd <span class="op">=</span> <span class="dv">100</span> <span class="co">#número de datos</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>q <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.linspace(<span class="dv">1</span>,nd, nd, dtype <span class="op">=</span> <span class="bu">int</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [q]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> n <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(x)):</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>  a.append((<span class="dv">3</span><span class="op">*</span>p <span class="op">-</span> a[n<span class="op">-</span><span class="dv">1</span>])<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="co">función a estudiar</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(t):</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.floor(t)</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>plt.scatter(a, [f(k) <span class="cf">for</span> k <span class="kw">in</span> a], s <span class="op">=</span> <span class="dv">8</span>)</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>plt.grid()</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-11-output-1.png" width="347" height="337"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-12-output-1.png" width="347" height="337"></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
@@ -1988,7 +2130,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-contseno" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 19 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
+<p><span class="theorem-title"><strong>Ejemplo 20 </strong></span>De acuerdo con la definición de la función <span class="math inline">\(f(x) = \sin{x}\)</span> note que <span class="math display">\[
 \vert \sin{x} - \sin{p }\vert &lt; \vert  x - p \vert
 \]</span> y de acuerdo con esto dado <span class="math inline">\(\epsilon &gt; 0\)</span> basta tomar <span class="math inline">\(\delta = \epsilon,\)</span> y de acuerdo con esto la función <span class="math inline">\(f(x) = \sin{(x)}\)</span> es continua en el punto <span class="math inline">\(p.\)</span></p>
 </div>
@@ -2005,7 +2147,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-hip" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 20 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 21 </strong></span>Considere la función <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> definida en <span class="math inline">\(S = (0,1)\)</span></p>
 <p>Para un número <span class="math inline">\(p \in S\)</span> dado un <span class="math inline">\(\epsilon\)</span> se puede escoger un <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(f(x) \in V_\epsilon(f(p))\)</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span> En efecto, note que la preimagen del valor <span class="math inline">\(1/p + \epsilon\)</span> es <span class="math inline">\(p/(1 + \epsilon p),\)</span> y de <span class="math inline">\(1/p - \epsilon\)</span> es <span class="math inline">\(p/(1 - \epsilon p)\)</span> y ambos valores están respectivamente a izquierda y derecha de <span class="math inline">\(p.\)</span> Asociados a estas preimágenes encontramos dos los valores <span class="math display">\[
 \delta_0 = p - \frac{p}{1 + \epsilon p} = \frac{\epsilon p^2}{1 + \epsilon p},
 \]</span> y <span class="math display">\[
@@ -2032,7 +2174,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-conuniforme" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 12 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en un conjunto <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es uniformemente continua si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 13 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en un conjunto <span class="math inline">\(S.\)</span> Diremos que <span class="math inline">\(f\)</span> es uniformemente continua si para cada <span class="math inline">\(\epsilon &gt; 0\)</span> de nuestra elección podemos encontrar un <span class="math inline">\(\delta \equiv \delta(\epsilon)\)</span> tal que <span class="math display">\[
 \vert f(x) - f(y) \vert  &lt; \epsilon \text{ siempre que } \vert x - y \vert &lt; \delta
 \]</span> para todo <span class="math inline">\(x, y \in S.\)</span></p>
 </div>
@@ -2053,7 +2195,7 @@ f(V_{\delta}(p)) \subset V_{\epsilon}(f(p)),
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-p_interior" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 13 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
+<p><span class="theorem-title"><strong>Definición 14 (Punto interior) </strong></span>Diremos que un punto <span class="math inline">\(p\)</span> es un punto interior de un conjunto <span class="math inline">\(S\)</span> si existe un intervalo <span class="math inline">\(V_r(p) \subset S.\)</span></p>
 </div>
 </div>
 </div>
@@ -2133,7 +2275,7 @@ f(p) - \epsilon &lt; f(x) &lt; f(p) + \epsilon \text{ para todo } x \in V_{\delt
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-particion" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 14 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 15 </strong></span>Una partición <span class="math inline">\(P\)</span> de un intervalo <span class="math inline">\(S = [a,b]\)</span> es el conjunto de puntos <span class="math inline">\(P = \{x_0, x_1, \ldots , x_{n-1} ,x_n \}\)</span> tales que <span class="math display">\[
 a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 \]</span> Una partición <span class="math inline">\(P'\)</span> se dice más fina que otra partición del mismo intervalo si <span class="math inline">\(P' \supset P.\)</span></p>
 <p>Emplearemos la notación <span class="math inline">\(\Delta x_k\)</span> para indicar la diferencia <span class="math inline">\(\Delta x_k = x_k - x_{k-1}\)</span> siendo <span class="math inline">\(x_{k-1}\)</span> y <span class="math inline">\(x_{k}\)</span> elementos de una partición <span class="math inline">\(P.\)</span></p>
@@ -2151,7 +2293,7 @@ a = x_0 &lt; x_1 &lt; \cdots &lt;  x_{n-1} &lt; x_n = b.
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-riemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 15 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 16 </strong></span>Sea <span class="math inline">\(f\)</span> una función definida en <span class="math inline">\(S = [a,b].\)</span> La suma de Riemann de <span class="math inline">\(f\)</span> en <span class="math inline">\(S\)</span>, en notación <span class="math inline">\(S(P,f)\)</span> corresponde con el número <span class="math display">\[
 S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1}, x_{k}].
 \]</span> Note en particular que el valor de <span class="math inline">\(S(P,f)\)</span> depende de la elección de <span class="math inline">\(P.\)</span></p>
 </div>
@@ -2168,7 +2310,7 @@ S(P, f) = \sum_{k = 1}^{n} f(t_k) \Delta x_k \text{ en donde } t_k \in [x_{k-1},
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-intriemann" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 16 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 17 </strong></span>Diremos que una función <span class="math inline">\(f\)</span> es Reimann integrable en un intervalo <span class="math inline">\(S = [a,b]\)</span> si existe un número <span class="math inline">\(I,\)</span> tal que para cada $ $ de nuestra elección, existe una partición <span class="math inline">\(P_\epsilon \equiv P(\epsilon)\)</span>, y se verifica <span class="math display">\[
 \vert S(P, f) - I\vert &lt; \epsilon.
 \]</span> El número <span class="math inline">\(I\)</span> se representa como <span class="math inline">\(I = \int_{a}^{b} f(x) \, dx\)</span> y se lee: `` la integral de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> entre <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>.’’</p>
 </div>
@@ -2205,55 +2347,55 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 <p>Con el siguiente código representamos el gráfico de las aproximaciones numéricas para función integral <span class="math display">\[
 \int_{0}^{x} v^s \, ds \text{ con la función } f(x) = \frac{v^{1+s}}{1+s}
 \]</span> para un valor de <span class="math inline">\(s = 0.21.\)</span></p>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">función en el integrando</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.21</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(v):</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v<span class="op">**</span>s</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="co">función asociada a la aproximación de la suma</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (V<span class="op">**</span>(<span class="dv">1</span> <span class="op">+</span> s))<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>s)</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co">Creación de la función. Aquí n corresponde con el número de puntos</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co">a y x son los extremos de la partición. Note que aquí x hace parte</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="co">de los parámetros de la función.</span></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> intR(a, x, n):</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> np.linspace(a,x, n)</span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>  ds <span class="op">=</span> np.diff(s)</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  t <span class="op">=</span> np.array([s[k] <span class="op">+</span> np.random.rand()<span class="op">*</span>(s[k<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> s[k]) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(s) <span class="op">-</span> <span class="dv">1</span>)])</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(g(t)<span class="op">*</span>ds)</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> [intR(<span class="dv">0</span>, x, <span class="dv">50</span>) <span class="cf">for</span> x <span class="kw">in</span> V]</span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="co">Líneas de código para generar los gráficos.</span></span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplot_mosaic([[<span class="st">"int"</span> , <span class="st">"fun"</span>], [<span class="st">"super"</span>, <span class="st">"super"</span>]], layout<span class="op">=</span><span class="st">"constrained"</span>, figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].plot(V, Y)</span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].grid()</span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].set_title(<span class="st">'Función integral con $g(v)$'</span>)</span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].plot(V, f)</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].grid()</span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].set_title(<span class="st">'Función propuesta $f(v)$'</span>)</span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].plot(V, Y)</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].plot(V, f)</span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].grid()</span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].set_title(<span class="st">'Superposición de los gráficos'</span>)</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co">función en el integrando</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="fl">0.21</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> g(v):</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> v<span class="op">**</span>s</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co">función asociada a la aproximación de la suma</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>V <span class="op">=</span> np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">1000</span>)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> (V<span class="op">**</span>(<span class="dv">1</span> <span class="op">+</span> s))<span class="op">/</span>(<span class="dv">1</span><span class="op">+</span>s)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="co">Creación de la función. Aquí n corresponde con el número de puntos</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="co">a y x son los extremos de la partición. Note que aquí x hace parte</span></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co">de los parámetros de la función.</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> intR(a, x, n):</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  s <span class="op">=</span> np.linspace(a,x, n)</span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  ds <span class="op">=</span> np.diff(s)</span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  t <span class="op">=</span> np.array([s[k] <span class="op">+</span> np.random.rand()<span class="op">*</span>(s[k<span class="op">+</span><span class="dv">1</span>] <span class="op">-</span> s[k]) <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="bu">len</span>(s) <span class="op">-</span> <span class="dv">1</span>)])</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">return</span> np.<span class="bu">sum</span>(g(t)<span class="op">*</span>ds)</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>Y <span class="op">=</span> [intR(<span class="dv">0</span>, x, <span class="dv">50</span>) <span class="cf">for</span> x <span class="kw">in</span> V]</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a><span class="co">Líneas de código para generar los gráficos.</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>fig, axs <span class="op">=</span> plt.subplot_mosaic([[<span class="st">"int"</span> , <span class="st">"fun"</span>], [<span class="st">"super"</span>, <span class="st">"super"</span>]], layout<span class="op">=</span><span class="st">"constrained"</span>, figsize<span class="op">=</span>(<span class="dv">5</span>,<span class="dv">5</span>))</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].plot(V, Y)</span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].grid()</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"int"</span>].set_title(<span class="st">'Función integral con $g(v)$'</span>)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].plot(V, f)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].grid()</span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"fun"</span>].set_title(<span class="st">'Función propuesta $f(v)$'</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].plot(V, Y)</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].plot(V, f)</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].grid()</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>axs[<span class="st">"super"</span>].set_title(<span class="st">'Superposición de los gráficos'</span>)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="modelos_univariable_files/figure-html/cell-12-output-1.png" width="491" height="491"></p>
+<p><img src="modelos_univariable_files/figure-html/cell-13-output-1.png" width="491" height="491"></p>
 </div>
 </div>
 </section>
@@ -2274,7 +2416,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-diferenciabilidad" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 17 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 18 </strong></span>Una función <span class="math inline">\(f:S \to T\)</span> es diferenciable en un punto <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S,\)</span> si la función <span class="math display">\[
 \phi(x) = \frac{f(x) - f(p)}{x - p},
 \]</span> es continua en <span class="math inline">\(p.\)</span></p>
 <p>Comúnmente el símbolo <span class="math inline">\(\phi(p)\)</span> se representa como <span class="math inline">\(f'(p)\)</span> o <span class="math inline">\(\dfrac{d}{dx}f(p)\)</span> y en ambos casos se leen como: `` la derivada de <span class="math inline">\(f\)</span> con respecto de <span class="math inline">\(x\)</span> evaluada en <span class="math inline">\(p.\)</span>’’ Es decir <span class="math display">\[
@@ -2318,7 +2460,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_constante" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 21 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
+<p><span class="theorem-title"><strong>Ejemplo 22 </strong></span>Derivada de la función <span class="math inline">\(f(x) = c\)</span> siendo <span class="math inline">\(c\)</span> una constante.</p>
 <p>Note que en este caso la función cociente <span class="math inline">\(\phi(x)\)</span> toma siempre el valor de <span class="math inline">\(0,\)</span> y de acuerdo con esto <span class="math display">\[
 \frac{d}{dx}f(p) = 0,
 \]</span> para cualquier punto <span class="math inline">\(p\)</span> en el dominio de definición de <span class="math inline">\(f.\)</span></p>
@@ -2336,7 +2478,7 @@ f(x) = \int_{a}^{x} g(s) \, ds \text{ con } x \in S = [a,b]
 </div>
 <div class="callout-body-container callout-body">
 <div id="exm-der_xn" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 22 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
+<p><span class="theorem-title"><strong>Ejemplo 23 </strong></span>Derivada de la función <span class="math inline">\(f(x) = x^{n}\)</span> siendo <span class="math inline">\(n\)</span> un entero no negativo.</p>
 <p>Note que <span class="math display">\[\begin{align*}
     \phi(x) &amp; = \frac{x^n - p^n }{x - p}
     \\
@@ -2414,7 +2556,7 @@ V_{\delta}(p) = \bigcup_{y \in V_{\alpha}(p)}V_{\beta}(y).
 </div>
 <div class="callout-body-container callout-body">
 <div id="def-maxmin" class="theorem definition">
-<p><span class="theorem-title"><strong>Definición 18 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
+<p><span class="theorem-title"><strong>Definición 19 (Máximo local-Mínimo local) </strong></span>Sea <span class="math inline">\(f:S \to T.\)</span> Un punto en <span class="math inline">\(p\)</span> interior de <span class="math inline">\(S\)</span> se conoce como un máximo local de <span class="math inline">\(f\)</span> si existe una <span class="math inline">\(V_{\delta}(p) \subset S\)</span> en la que se verifica que <span class="math display">\[
 f(p) \geq f(x)
 \]</span> para todo <span class="math inline">\(x \in V_{\delta}(p).\)</span></p>
 <p>La definición para mínimo local es similar salvo por el hecho del cambio de sentido de la desigualdad.</p>
