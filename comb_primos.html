@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Algo de combinatoria y números primos</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./comb_primos.html">Algo de combinatoria y números primos</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Presentación</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./comb_primos.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Algo de combinatoria y números primos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./mat_arte.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Matemáticas para las artes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./modelos_univariable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Elementos del cálculo integral y diferencial</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">El autor</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/logo.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">superficie paramétrica</figcaption>
+</figure>
+</div>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#residuos-en-progresiones-aritméticas" id="toc-residuos-en-progresiones-aritméticas" class="nav-link" data-scroll-target="#residuos-en-progresiones-aritméticas">Residuos en progresiones aritméticas</a></li>
+  <li><a href="#residuos-respecto-a-un-entero-común" id="toc-residuos-respecto-a-un-entero-común" class="nav-link" data-scroll-target="#residuos-respecto-a-un-entero-común">Residuos respecto a un entero común</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Algo de combinatoria y números primos</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>Los métodos tipo criba hacen parte de las primeras técnicas matemáticas empleadas en el estudio de la distribución de los números primos. Estos métodos buscan encontrar una estructura al conjunto de los estos números estudiando su comportamiento hasta un determinado entero.</p>
+<p>En el siguiente documento, un trabajo en colaboración con mi estudiante tesista Cristian Andrés Valor, hacemos un recorrido de las ideas desarrolladas por el matemático Ernst Meissel para obtener una expresión que nos permita reescribir la criba de Eratóstenes (véase ecuación <a href="#eq-final0">14</a>)</p>
+</section>
+<section id="residuos-en-progresiones-aritméticas" class="level2">
+<h2 class="anchored" data-anchor-id="residuos-en-progresiones-aritméticas">Residuos en progresiones aritméticas</h2>
+<p>Para un par de números enteros <span class="math inline">\(p\)</span> y <span class="math inline">\(q\)</span> con <span class="math inline">\(p &gt; 0,\)</span> denotaremos con <span class="math inline">\(\left[ q , p \right]\)</span> al residuo de la división de <span class="math inline">\(q\)</span> por <span class="math inline">\(p.\)</span> Identificaremos con <span class="math inline">\(\varphi(n)\)</span> para <span class="math inline">\(n \geq 1,\)</span> a la función idicatriz de Euler, que corresponde el número de enteros positivos menores o iguales que <span class="math inline">\(n.\)</span> Es claro que si <span class="math inline">\(p\)</span> es primo entonces <span class="math inline">\(\varphi(p) = p-1.\)</span> Por otro lado, es bien conocido que <span class="math inline">\(\varphi\)</span> es multiplicativa en el sentido de que si <span class="math inline">\((m,n) = 1\)</span> entonces <span class="math inline">\(\varphi(m n) = \varphi(m) \varphi(n).\)</span></p>
+<p>Identificaremos con <span class="math inline">\(\pi(x)\)</span> al número de primos menores o iguales que un cierto número <span class="math inline">\(x,\)</span> y con <span class="math inline">\(\pi(x ; q, r)\)</span> al número de primos menores o iguales que <span class="math inline">\(x,\)</span> presentes en la progresión aritmética <span class="math inline">\(\{ qk + r\}\)</span> con <span class="math inline">\((q,r)=1.\)</span></p>
+<p>Denotaremos con <span class="math inline">\(P{\left(x\right)}\)</span> al conjunto de primos menores o iguales que un cierto número <span class="math inline">\(x,\)</span> y con <span class="math inline">\(P^*(x)\)</span> al conjunto de primos no pares menores o iguales que <span class="math inline">\(x.\)</span> Es claro que <span class="math inline">\(\big \vert P \left( x \right) \big \vert = \pi \left( x \right)\)</span> y que <span class="math inline">\(\big \vert P^* \left( x \right) \big \vert = \pi \left( x \right) -1.\)</span></p>
+<p>Denotaremos con <span class="math inline">\(x\#\)</span> al factorial primo de <span class="math inline">\(x,\)</span> esto es <span class="math display">\[
+x\# = \prod_{p \in P(x)}p,
+\]</span> Note que <span class="math display">\[
+\varphi(x\#) = \prod_{p \in P(x)}(p-1).
+\]</span></p>
+<p>Para un par de enteros <span class="math inline">\(q\)</span> y <span class="math inline">\(x,\)</span> escribiremos <span class="math inline">\(d_q(x)\)</span> para representar la función <span class="math display">\[
+d_q(x) =
+\begin{cases}
+    1 \text{ si } q \vert x,
+    \\
+    0 \text{ en caso contrario}.
+\end{cases}
+\]</span> Para un entero <span class="math inline">\(q\)</span> menor o igual que <span class="math inline">\(x,\)</span> identificaremos con <span class="math inline">\(C(x ; q, r)\)</span> al conjunto de los números, menores o iguales que <span class="math inline">\(x,\)</span> presentes en la progresión <span class="math inline">\(\{q k + r\}\)</span> con <span class="math inline">\(k = 0, 1, 2, \ldots.\)</span></p>
+<p>Escribiremos <span class="math inline">\(\beta(x)\)</span> para referirnos a la función <span class="math display">\[
+\beta(x) =
+\begin{cases}
+    0 \text{ si } x \text{ es primo},
+    \\
+    1 \text{ en otro caso,}
+\end{cases}
+\]</span> y escribiremos <span class="math inline">\(C^*{\left(x; q, r \right)}\)</span> para identificar al conjunto <span class="math display">\[
+C^*{\left(x; q, r \right)} =
+\begin{cases}
+    C{\left(x; q, r \right)} \setminus \{ r \} \text{ si } \beta{\left(  r \right)} = 0,
+    \\
+    C{\left(x; q, r \right)} \text{ si } \beta{\left( r \right)} = 1,   
+\end{cases}
+\]</span> Note que <span id="eq-cardinalC"><span class="math display">\[
+\big \vert  C^*{\left(x; q , r \right)} \big \vert  = \left \lfloor{\frac{x - r}{q}}\right \rfloor + \beta{(r)}.
+\tag{1}\]</span></span> Emplearemos la notación <span class="math inline">\(D \left(x; q \right)\)</span> para representar el conjunto de divisores primos de <span class="math inline">\(q\)</span> menores o iguales que <span class="math inline">\(x,\)</span> es decir <span class="math inline">\(D{ \left( x; q \right) } = \left\{ p \in P{ \left( x \right)} : p \vert q \right\}.\)</span></p>
+<p>Para un entero <span class="math inline">\(j\)</span> no negativo, representaremos con <span class="math inline">\(A_j(x ; q)\)</span> a los conjuntos <span class="math display">\[
+A_j(x ; q) =
+\begin{cases}
+    \{1\} \text{ si } j = 0,
+    \\
+    \\
+    \left\{ \prod_{i = 1}^{j}p_i : p_i \in P {\left( x \right)} \setminus D(x;q) \right\} \text{ si } j \geq 1.
+\end{cases}
+\]</span></p>
+<p>Identificaremos con la letra <span class="math inline">\(Q\)</span> a los elementos de <span class="math inline">\(A_j(x;q)\)</span>. Note en particular que si <span class="math inline">\(j = 1\)</span> entonces <span class="math inline">\(Q\)</span> es un número primo perteneciente al conjunto <span class="math inline">\(P(x) \setminus D(x;q).\)</span></p>
+<div id="lem-lema1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 1 </strong></span>Sean <span class="math inline">\(q,\)</span> <span class="math inline">\(r\)</span> y <span class="math inline">\(x\)</span> enteros no negativos tales que <span class="math inline">\(r &lt; q \leq x.\)</span> El número de primos presentes hasta <span class="math inline">\(x,\)</span> en la progresión <span class="math inline">\(\{ qk + r\}\)</span> con <span class="math inline">\((q,r) = 1\)</span> es <span id="eq-formula1"><span class="math display">\[  
+\pi(x ; q , r) =1 - \left \lfloor{\frac{1}{r}}\right \rfloor + \left \lfloor{\frac{x - r}{q}}\right \rfloor + \sum_{j = 1}^{\pi{ \left( \sqrt{x} \right)} - d}  (-1)^j  \sum_{Q \in  A_j(\sqrt{x} ; q)} \Big\vert C^*{\left(x ; qQ , \left[ rQ^{\varphi(q)} , qQ \right] \right)} \Big\vert
+\tag{2}\]</span></span> en donde <span class="math inline">\(d = \big \vert  D{\left( \sqrt{x} ; q \right)} \big \vert .\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Si para un cierto entero no negativo <span class="math inline">\(z\)</span> el número <span class="math inline">\(1 &lt; pz + r \leq x\)</span> es compuesto, entonces existe un primo <span class="math inline">\(Q \in A_1(\sqrt{x} ; q)\)</span> que le divide, y es claro que <span class="math inline">\(pz + r\)</span> es una solución del sistema de ecuaciones modulares, <span id="eq-sistema"><span class="math display">\[
+\begin{cases}
+x \equiv r \ (\mathrm{mod}\ q),
+\\
+x \equiv 0 \ (\mathrm{mod}\ Q).
+\end{cases}
+\tag{3}\]</span></span> De acuerdo con el Teorema chino del residuo este sistema admite solución siendo una de estás <span class="math inline">\(rQ^{\varphi(q)},\)</span> con lo que un conjunto de soluciones no negativas de <a href="#eq-sistema">3</a> hasta un cierto <span class="math inline">\(x,\)</span> esta dado por <span class="math inline">\(C{\left(x ; Q , \left[ r Q^{\varphi(q)} , qQ \right] \right)}.\)</span> Se sigue entonces que el conjunto de números primos, hasta un cierto <span class="math inline">\(x\)</span> presentes en la progresión <span class="math inline">\(\{qk + r\}\)</span> corresponde con <span id="eq-conjunto"><span class="math display">\[
+\pi{\left(x ; q, r \right)}  = \Big\vert    C(x ; q, r) \setminus \bigcup_{Q \in A_{1} (\sqrt{x} ; q)}  C^*{ \left( x;Q, \left[ r Q^{\varphi(q)} , qQ \right] \right)}\Big\vert - \left \lfloor{\frac{1}{r}}\right \rfloor
+\tag{4}\]</span></span> En donde se ha restado término <span class="math inline">\(\left \lfloor{1/r}\right \rfloor\)</span> contemplando la posibilidad de que <span class="math inline">\(r = 1.\)</span> También se ha empleado la notación <span class="math inline">\(C^*\)</span> pues es posible que $ rQ^{(q)} = $ sea un número primo, el cual no debe ser excluido del conjunto <span class="math inline">\(C(x ; q, r).\)</span></p>
+<p>De acuerdo con el principio de inclusión–exclusión, podemos reescribir el cardinal en <a href="#eq-conjunto">4</a> sumando y restando de forma alternada, al cardinal de <span class="math inline">\(C(x;q,r),\)</span> el cardinal de las intersecciones dos a dos, tres a tres y de esta forma sucesivamente hasta las <span class="math inline">\(\pi(\sqrt{x}) - d\)</span> con <span class="math inline">\(d = \vert D(\sqrt{x} ; q)\vert\)</span> intersecciones de los conjuntos <span class="math inline">\(C{\left( x;Q, \left[ r Q^{\varphi(q)} , qQ \right] \right)}.\)</span> De acuerdo con este propósito, note que para <span class="math inline">\(Q_i \in A_1{\left( \sqrt{x} , q \right)}\)</span> con <span class="math inline">\(i = 1, \ldots n,\)</span> se tiene como una consecuencia directa del Teorema chino del residuo, que el sistema de ecuaciones modulares <span id="eq-sistema2"><span class="math display">\[
+\begin{cases}
+        x \equiv &amp; \left[ rQ_1^{\varphi(q)} , qQ_1 \right] \ (\mathrm{mod}\ Q_1),
+        \\
+    &amp; \vdots
+        \\
+        x \equiv  &amp; \left[ rQ_n^{\varphi(q)} , qQ_n \right]  \ (\mathrm{mod}\ Q_n),
+\end{cases}
+\tag{5}\]</span></span> admite solución, siendo una de estás <span class="math inline">\(rQ^{\varphi(q)}\)</span> con <span class="math inline">\(Q = \prod_{i = 1}^{n} Q_i\)</span>. Note que en este caso <span class="math inline">\(\left[ rQ^{\varphi{(q)} } , pQ \right]\)</span> será un número compuesto. Esto sugiere que el conjunto de soluciones no negativas de <a href="#eq-sistema2">5</a> hasta un cierto <span class="math inline">\(x\)</span> corresponde con <span class="math inline">\(C{\left(x ; Q , \left[ r Q^{\varphi(q)} , qQ \right] \right)}\)</span> para <span class="math inline">\(Q = \prod_{i = 1}^{n} Q_i,\)</span> y en este caso , se sigue de <a href="#eq-cardinalC">1</a> que <span class="math display">\[
+\Big\vert C^*{\left(x; qQ , \left[ Q^{\varphi(q)} , qQ \right] \right) }\Big\vert = \left \lfloor{\frac{x - \left[ Q^{\varphi(q)} , qQ \right] }{qQ}}\right \rfloor + 1.
+\]</span></p>
+<p>Por lo tanto, si <span class="math inline">\(x &lt; \left[ Q^{\varphi(q)} , qQ \right]\)</span> entonces <span class="math inline">\(\Big\vert C^*{\left(x; qQ , \left[ Q^{\varphi(q)} , qQ \right] \right) }\Big\vert = 0.\)</span></p>
+<p>De acuerdo con lo anterior, <a href="#eq-conjunto">4</a> puede escribirse como</p>
+<p><span class="math display">\[
+\pi(x ; q, r) = \big \vert  C(x;q,r) \big \vert  - \left \lfloor{\frac{1}{r}}\right \rfloor + \sum_{j = 1}^{\pi \left( \sqrt{x} \right) - d} (-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)} \Big \vert C^*{\left( x; qQ, \left[  Q^{\varphi(q)} , qQ \right] \right)} \Big \vert,
+\]</span> lo que finaliza la prueba.</p>
+</div>
+<div id="thm-teorema1" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 1 </strong></span>Sean <span class="math inline">\(q,\)</span> <span class="math inline">\(r\)</span> enteros no negativos tales que <span class="math inline">\(r &lt; q \leq x\)</span> y <span class="math inline">\((q, r) = 1.\)</span> Entonces <span id="eq-formular2"><span class="math display">\[
+\sum_{j = 0}^{\pi\left( \sqrt{x}\right) - d }  (-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)} \left \lfloor{\frac{x - \left[ rQ^{\varphi(q)} , qQ \right]}{qQ}}\right \rfloor = \pi{\left(x; q, r \right)} - \pi \left( \sqrt{x}; q, r \right) + \left \lfloor{\frac{1}{r}}\right \rfloor,
+\tag{6}\]</span></span> en donde <span class="math inline">\(d = \big \vert  D{\left(\sqrt{x} ; q \right)} \big \vert .\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Para <span class="math inline">\(Q \in A_j(\sqrt{x} ; q)\)</span> con <span class="math inline">\(j \geq 2\)</span> se tiene que <span class="math inline">\(\beta \left(\left[ rQ^{\varphi{(q)}} , qQ \right] \right) = 1,\)</span> y por lo tanto <span id="eq-binomio"><span class="math display">\[
+\sum_{j = 2}^{\pi{ \left( \sqrt{x} \right) } - d}(-1)^j \sum_{Q \in A_j(\sqrt{x} ; q)}  \beta\left( \left[ rQ^{\varphi{(q)}} , qQ \right] \right)  =
+\sum_{j = 2}^{\pi{ \left( \sqrt{x} \right) } - d}(-1)^j  {\binom{\pi{ \left( \sqrt{x} \right) } - d}{j} }
+\tag{7}\]</span></span> Por otro lado, como <span class="math display">\[
+0 = (1 - 1)^{\pi{ \left( \sqrt{x} \right)} - d} = 1 -  \pi{  \left(  \sqrt{x} \right)} +  d  + \sum_{j = 2}^{\pi{\left( \sqrt{x}\right)} - d}(-1)^j  \binom{\pi{\left( \sqrt{x}\right)} - d}{j},
+\]</span> entonces <a href="#eq-binomio">7</a> puede escribirse de la forma</p>
+<p><span id="eq-formula2.2"><span class="math display">\[
+\sum_{j = 2}^{\pi {\left( \sqrt{x} \right)} - d}(-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}}\beta\left( \left[ rQ^{\varphi{(q)}} , qQ \right] \right) = -1 + \pi{\left( \sqrt{x} \right)} - d.
+\tag{8}\]</span></span></p>
+<p>Note que para <span class="math inline">\(Q \in A_{1}{\left(\sqrt{x} ; q \right)}\)</span> se tiene que <span class="math inline">\(\beta\left( \left[ rQ^{\varphi{(q)}} , qQ  \right] \right) = 0,\)</span> únicamente si <span class="math inline">\(Q \in \{qk + r\}.\)</span> De acuerdo con esto</p>
+<p><span id="eq-formula2.3"><span class="math display">\[
+        \sum_{Q \in A_{1}{\left( \sqrt{x}; q \right)}} \beta \left(  \left[ rQ^{\varphi{(q)}} , qQ  \right] \right)  = \pi{\left( \sqrt{x} \right)}  - \pi{\left( \sqrt{x}; q, r \right)} - d.
+\tag{9}\]</span></span></p>
+<p>De las ecuaciones <a href="#eq-formula2.2">8</a> y <a href="#eq-formula2.3">9</a> se concluye que <span id="eq-identidad2"><span class="math display">\[
+\sum_{j = 1}^{\pi{\left( \sqrt{x} \right)} - d} (-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}} \beta{\left(  \left[ rQ^{\varphi{(p)}} , pQ  \right] \right)} =   \pi{\left( \sqrt{x}; q, r \right)} -1.
+\tag{10}\]</span></span> Teniendo en cuenta <a href="#eq-cardinalC">1</a>, y al reemplazar <a href="#eq-identidad2">10</a>en <a href="#eq-formula1">2</a> obtenemos <span class="math display">\[
+\left \lfloor{\frac{x - r}{q}}\right \rfloor + \sum_{j = 1}^{\pi{\left( \sqrt{x} \right)} - d} (-1)^j \sum_{Q \in A_{j}{\left( \sqrt{x} ; q \right)}} \left \lfloor{\frac{x - \left[ rQ^{\varphi(q)} , qQ \right] }{qQ}}\right \rfloor = \pi{\left(x; q; r \right)} - \pi{\left( \sqrt{x} ; q , r \right)} +  \left \lfloor{\frac{1}{r}}\right \rfloor.
+\]</span> La prueba finaliza al iniciar la suma desde <span class="math inline">\(j = 0.\)</span></p>
+</div>
+</section>
+<section id="residuos-respecto-a-un-entero-común" class="level2">
+<h2 class="anchored" data-anchor-id="residuos-respecto-a-un-entero-común">Residuos respecto a un entero común</h2>
+<p>Para un entero <span class="math inline">\(x,\)</span> escribiremos <span class="math inline">\(N(x)\)</span> para identificar el conjunto <span class="math inline">\(N(x) = \{2, 3, \ldots , x\}.\)</span> Note que <span class="math inline">\(\big \vert  N(x) \big \vert  = x - 1.\)</span></p>
+<p>Se empleará la notación <span class="math inline">\(C(x;q)\)</span> para identificar el conjunto <span class="math inline">\(\{ q k + \left[ x , q \right]\}_{k = 0},\)</span> y con <span class="math inline">\(B(x)\)</span> identificaremos a la unión de estos conjuntos con <span class="math inline">\(q \in P{\left( \sqrt{x} \right)},\)</span> es decir <span class="math display">\[
+B(x) = \bigcup_{q \in P{\left(\sqrt{x} \right)}} C(x;q),
+\]</span></p>
+<p>A partir de este momento asumiremos que <span class="math inline">\(A_j(x) \equiv A_j(x; 1).\)</span></p>
+<div id="lem-lm1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 2 </strong></span>Sean <span class="math inline">\(p, q, x \in \mathbb{Z}\)</span> con <span class="math inline">\(p &gt; 0.\)</span> Entonces <span class="math inline">\(p \vert (x - q)\)</span> si y sólo si <span class="math inline">\(\left[ q , p \right] = \left[ x , p \right].\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Si <span class="math inline">\(p \vert (x - q)\)</span> entonces existe un entero <span class="math inline">\(k\)</span> tal que <span class="math inline">\(x - q = pk.\)</span> Por otro lado, existen enteros <span class="math inline">\(k_1\)</span> y <span class="math inline">\(k_2\)</span> tales que <span class="math inline">\(\left[ x , p \right] = x - pk_1\)</span> y <span class="math inline">\(\left[ q , p \right] = q - p k_2,\)</span> con lo que <span class="math display">\[
+\left[ x , p \right] -\left[ q , p \right] = p(k - k_1 + k_2).
+\]</span> Como <span class="math inline">\(0 \leq \left[ n , p \right] &lt; p\)</span> y <span class="math inline">\(- p &lt; - \left[ q , p \right] \leq 0,\)</span> entonces <span class="math display">\[
+-1 &lt; k - k_1 + k_2 &lt; 1,
+\]</span> y al ser <span class="math inline">\(k,\)</span> <span class="math inline">\(k_1\)</span> y <span class="math inline">\(k_2\)</span> enteros, la desigualdad estricta se cumple siempre que $ k - k_1 + k_2 = 0.$ Por lo tanto <span class="math inline">\(\left[ q , p \right] = \left[ x , p \right].\)</span></p>
+<p>Si <span class="math inline">\(\left[ q , p \right] = \left[ x , p \right]\)</span> entonces, para enteros <span class="math inline">\(k_1\)</span> y <span class="math inline">\(k_2\)</span> como en la primera parte de la prueba, se verifica que <span class="math display">\[
+\begin{align*}
+x - pk_1  &amp; = q - pk_2
+\\
+x - q &amp;= p (k_1 - k_2),
+\end{align*}
+\]</span> y en consecuencia <span class="math inline">\(p \vert (x - q).\)</span></p>
+</div>
+<div id="lem-lemaC2" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 3 </strong></span><span class="math inline">\(\big \vert  N(x) \setminus B(x) \big \vert  = \pi(x) - \pi(\sqrt{x}) + 1.\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Se desprende del lema <a href="#lem-lm1">2</a> que <span class="math inline">\(q \notin B(x)\)</span> si y sólo si <span class="math inline">\(x - q\)</span> es un número primo.</p>
+<p>Por otro lado, note que para todo primo <span class="math inline">\(p \leq \sqrt{x},\)</span> se tiene que <span class="math inline">\(x - p \in B(x),\)</span></p>
+</div>
+<div id="lem">
+<p>Sea <span class="math inline">\(x\)</span> un entero no negativo, entonces <span id="eq-lm2"><span class="math display">\[
+\big \vert  N(x) \setminus B(x ) \big \vert  =   \sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \left( \frac{x + \left[ x , Q \right]}{Q} \right)  + 1 - d_{Q}(x)\right).
+\tag{11}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Es claro que <span class="math display">\[
+\big \vert  N(x) \setminus B(x) \big \vert  = \Big\vert N(x)  \setminus  \bigcup_{Q \in P{\left( \sqrt{x} \right)}} C(x;Q) \Big\vert
+\]</span> De forma similar a la prueba del lema <a href="#lem-lema1">1</a>, note que si en el sistema <a href="#eq-sistema2">5</a> cambiamos <span class="math inline">\(\left[ rQ_{i}^{\varphi(q)} , qQ_i \right]\)</span> por <span class="math inline">\(\left[ x , Q_i \right]\)</span> para <span class="math inline">\(i = 1, \ldots , n\)</span> el sistema admite una solución elemental, siendo ésta <span class="math inline">\(x.\)</span> De acuerdo con lo anterior, para <span class="math inline">\(Q \in A_j{\left( \sqrt{x} \right)}\)</span> con <span class="math inline">\(j \geq 2,\)</span> se tiene que <span class="math display">\[
+\Big\vert C{\left(x; Q\right) }\Big\vert = \left( \frac{x - \left[ x , Q \right]}{Q}\right) + 1 - d_{Q}(x),
+\]</span> lo que finaliza la prueba.</p>
+</div>
+<div id="lem-lemaf1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 4 </strong></span>Si <span class="math inline">\(x\)</span> es un entero no negativo, entonces <span id="eq-lemaf"><span class="math display">\[
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right) } } (-1)^j \sum_{Q \in A_j(\sqrt{x})} \left( \frac{x - \left[ x , Q \right] }{Q} \right) =  \pi{(x)} - \pi{\left( \sqrt{x}\right)} + 1.
+\tag{12}\]</span></span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>Note que <span class="math display">\[
+\sum_{j = 0}^{\pi{\left( \sqrt{x}\right)}} (-1)^j \sum_{Q \in A_j{\left( \sqrt{x} \right)}} 1 = \sum_{j = 0}^{\pi{\left( \sqrt{x}\right)}}(-1)^j  \binom{\pi{\left( \sqrt{x}\right)}}{j} = 0,
+\]</span></p>
+<p>de acuerdo con esto y el resultado del lema <a href="#lem-lemaC2">3</a>, la ecuación <a href="#eq-lm2">11</a> puede escribirse en la forma <span class="math display">\[
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \left \lfloor{\frac{x}{Q}}\right \rfloor  - d_{Q}(x)\right) =  \pi{(x)} - \pi{\left( \sqrt{x}\right)} + 2- \beta(x-1).
+\]</span> Por otro lado, tenemos que <span class="math display">\[
+\sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})}  d_{Q}(x) = \sum_{j = 0}^{d} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})}  1 = 0,
+\]</span> en donde <span class="math inline">\(d = \vert D (\sqrt{x} ; x)\vert,\)</span> lo que finaliza la prueba.</p>
+</div>
+<p>Es conocido que <span class="math display">\[
+\sum_{j = 0}^{\pi(\sqrt{x})}(-1)^j\sum_{Q \in A_j(\sqrt{x})} \frac{1}{Q} = \prod_{p \leq \sqrt{n}} \left( 1 - \frac{1}{p}\right),
+\]</span> y si escribimos <span id="eq-residuo"><span class="math display">\[
+R(x) = \sum_{j = 0}^{\pi{\left( \sqrt{x} \right) } } (-1)^{j+1} \sum_{Q \in A_j(\sqrt{x})}  \left\{ \frac{x}{Q} \right\} ,
+\tag{13}\]</span></span></p>
+<p>entonces, una consecuencia inmediata del teorema anterior es</p>
+<div id="cor-corolariof" class="theorem corollary">
+<p><span class="theorem-title"><strong>Corolario 1 </strong></span>Para todo entero <span class="math inline">\(n \geq 2\)</span> se verifica</p>
+</div>
+<p><span id="eq-final0"><span class="math display">\[
+\label{eq::final0}
+n \prod_{p \leq \sqrt{n}} \left( 1 - \frac{1}{p}\right) - R(n)  =  \pi{(n)} - \pi{\left( \sqrt{n}\right)} + 1.
+\tag{14}\]</span></span></p>
+<p>Para algunos casos elementales, la ecuación <span class="math inline">\(\eqref{eq::final0}\)</span> permite encontrar el número de primos hasta un cierto <span class="math inline">\(n,\)</span> cuando se conoce de manera exacta el valor de <span class="math inline">\(R(n),\)</span> o un valor aproximado del mismo. Puede comprobarse esto tomando <span class="math inline">\(n = 6, 12, 18, 24, 30,\)</span> valores de <span class="math inline">\(n\)</span> para los cuales <span class="math inline">\(R(n) = 0,\)</span> y <span class="math inline">\(\phi(\sqrt{n})\)</span> es fácilmente computable.</p>
+<p>la siguiente figura es una representación del gráfico <span class="math inline">\(R(n)\)</span>, con <span class="math inline">\(n\)</span> desde 2 hasta 20000.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src=".\img/grafRN.png" class="img-fluid figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copiado");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copiado");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
