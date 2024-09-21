@@ -1064,6 +1064,63 @@ B_C = \dfrac{1}{3}(A + B + C).
 <div id="def-incentro" class="theorem definition">
 <p><span class="theorem-title"><strong>Definición 21 (Incentro) </strong></span>La bisectriz de un ángulo es el segmento con origen en el vértice del ángulo que lo divide en dos ángulos de igual medida. Las tres bisectrices de un triángulo se cortan en un punto llamado incentro, que a lo largo del documento denotaremos con <span class="math inline">\(I_C.\)</span></p>
 </div>
+<div id="thm-vec_incentro" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 5 </strong></span>Considere dos vectores <span class="math inline">\(P\)</span> y <span class="math inline">\(Q\)</span> no paralelos, y sea <span class="math inline">\(R\)</span> un vector tal que</p>
+<p><span id="eq-bisectriz"><span class="math display">\[
+\frac{P \cdot R}{(P - Q) \cdot R} = \frac{\vert \vert P \vert \vert}{\vert \vert P  - Q \vert \vert}
+\tag{3}\]</span></span></p>
+<p>entonces el vector</p>
+<p><span id="eq-vectu"><span class="math display">\[
+u = \vert \vert P  \vert \vert (P  - Q) - \vert \vert P  - Q \vert \vert P,
+\tag{4}\]</span></span></p>
+<p>es perpendicular a <span class="math inline">\(R.\)</span></p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Prueba</em>. </span>En efecto, note que</p>
+<p><span class="math display">\[
+\begin{align*}
+u \cdot R &amp; = \vert \vert P \vert \vert (P  - Q) \cdot C - \vert \vert P  - Q \vert \vert P  \cdot R
+\\
+&amp; = \vert \vert P \vert \vert (P - Q) \cdot R - \vert \vert P - Q \vert \vert \frac{\vert \vert P \vert \vert}{\vert \vert P - B \vert \vert} (P - Q) \cdot R
+\\
+&amp; = 0.
+\end{align*}
+\]</span></p>
+</div>
+<p>Es importante mencionar que el vector <span class="math inline">\(R\)</span> en este Teorema es la bisectriz del ángulo comprendido entre los vectores <span class="math inline">\(P\)</span> y <span class="math inline">\(P - Q\)</span>. Este vector <span class="math inline">\(R\)</span> se podría en la forma <span class="math inline">\(P - rQ\)</span> para alguna constante <span class="math inline">\(r\)</span> y por lo tanto <span class="math inline">\(u \cdot (P - rQ) = 0\)</span>, con lo que</p>
+<p><span class="math display">\[
+r = \frac{u \cdot P}{ u \cdot Q}
+\]</span></p>
+<p>De manera equivalente si <span class="math inline">\(R\)</span> fuese la bisectriz del ángulo comprendido entre <span class="math inline">\(Q\)</span> y <span class="math inline">\(Q - P\)</span> entonces <span class="math inline">\(R\)</span> se podría escribir en la forma <span class="math inline">\(Q - sP\)</span> para alguna constante <span class="math inline">\(s\)</span> en donde</p>
+<p><span class="math display">\[
+s = \frac{v \cdot Q}{v \cdot P}
+\]</span></p>
+<p>aquí</p>
+<p><span id="eq-vectv"><span class="math display">\[
+v = \vert \vert Q \vert \vert (Q - P) - \vert \vert Q - P \vert \vert Q,
+\tag{5}\]</span></span></p>
+<p>El punto de corte de estas dos bisectrices será el incentro <span class="math inline">\(Ic\)</span> del triángulo <span class="math inline">\(\triangle \mathcal{O} PQ\)</span>. Busquemos entonces constantes <span class="math inline">\(h\)</span> y <span class="math inline">\(k\)</span> ambas entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span> tales que</p>
+<p><span class="math display">\[
+(1 - h)sP + hQ = (1 - k)rQ + kP,
+\]</span></p>
+<p>es decir</p>
+<p><span class="math display">\[
+(1 - h)s = k \quad \text{ y } \quad h = (1 - k)r
+\]</span></p>
+<p>con lo que</p>
+<p><span class="math display">\[
+h = \frac{(1 - s)r}{1 - rs},
+\]</span></p>
+<p>y esto implica que el incentro del triángulo <span class="math inline">\(\triangle \mathcal{O} P Q\)</span> es</p>
+<p><span class="math display">\[
+I_C = \frac{(1 - r)s}{1 - rs}P + \frac{(1 - s)r}{1 - rs}Q.
+\]</span></p>
+<p>De acuerdo con estas observaciones obtenemos el siguiente Teorema</p>
+<div id="thm-incentro" class="theorem">
+<p><span class="theorem-title"><strong>Teorema 6 (Incentro de un triángulo) </strong></span>El incentro del triángulo <span class="math inline">\(\triangle ABC\)</span> es <span class="math display">\[
+I_C = \frac{1}{1 - s r} \left[ (1 - s)(1 - r) A + (1 - r)sB + (1 - s)rC \right]
+\]</span></p>
+</div>
 
 
 </section>
