@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Algunos comentarios sobre matemáticas</title>
+<title>Comentarios sobre matemáticas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -142,7 +142,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#un-divertimento-sobre-números-primos" id="toc-un-divertimento-sobre-números-primos" class="nav-link active" data-scroll-target="#un-divertimento-sobre-números-primos">Un divertimento sobre números primos</a>
+  <li><a href="#unas-lecturas-rápidas" id="toc-unas-lecturas-rápidas" class="nav-link active" data-scroll-target="#unas-lecturas-rápidas">Unas lecturas rápidas</a>
   <ul class="collapse">
   <li><a href="#esquivando-múltiplos-de-primos" id="toc-esquivando-múltiplos-de-primos" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</a></li>
   </ul></li>
@@ -154,7 +154,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Algunos comentarios sobre matemáticas</h1>
+<h1 class="title">Comentarios sobre matemáticas</h1>
 </div>
 
 
@@ -169,11 +169,12 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>En este espacio presento algunos resultados evidentes e interesantes sobre la matemática básica.</p>
-<section id="un-divertimento-sobre-números-primos" class="level2">
-<h2 class="anchored" data-anchor-id="un-divertimento-sobre-números-primos">Un divertimento sobre números primos</h2>
-<section id="esquivando-múltiplos-de-primos" class="level3">
-<h3 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h3>
+<p>La matemática es un lenguaje que permite describir de forma cuantitativa y cualitativa nuestro entorno. Este lenguaje que se construye a partir de la sintaxis de la lógica, cruza todo tipo de barreras idiológicas, económicas, étnicas, de género y cualquir otra estructurada simentada por el humano.</p>
+<section id="unas-lecturas-rápidas" class="level1">
+<h1>Unas lecturas rápidas</h1>
+<p>En este espacio presento algunos comentarios sobre matemática básica, son evidentes y tal vez el lector los pueda considerar interesantes como en algún instantes los consideré yo.</p>
+<section id="esquivando-múltiplos-de-primos" class="level2">
+<h2 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h2>
 <p>Note que todo número par <span class="math inline">\(2N\)</span> se puede escribir en la forma <span class="math display">\[
 2N = 6k, \quad 2N = 6k + 2, \quad 2N = 6k + 4   
 \]</span> con <span class="math inline">\(k = 0,1,\ldots\)</span></p>
@@ -203,20 +204,20 @@ A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb
 \]</span></p>
 <p>cuya solución se obtiene fáscilmente estudiando las situaciones de si <span class="math inline">\(p-1\)</span> o <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6\)</span>. En efecto:</p>
 <ul>
-<li><strong>S1.</strong> Si <span class="math inline">\(p-1\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
+<li><p><strong>S1.</strong> Si <span class="math inline">\(p-1\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
 x \equiv a \mod{p} \quad \text{ con } \quad a = \frac{p-1}{6}
 \]</span> y <span class="math display">\[
 y \equiv b \mod{p} \quad \text{ con } \quad b = 5a
-\]</span></li>
-<li><strong>S2.</strong> Si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
+\]</span></p></li>
+<li><p><strong>S2.</strong> Si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
 y   \equiv b \mod{p} \quad \text{ con } \quad b = \frac{p-5}{6}
 \]</span> y <span id="eq-modulo"><span class="math display">\[
 x \equiv a \mod{p} \quad \text{ con } a = \frac{5p - 1}{6}
-\tag{2}\]</span></span> En ambas situaciones <strong>S1.</strong> y <strong>S2.</strong> es claro que <span class="math inline">\(a + b = p-1\)</span></li>
+\tag{2}\]</span></span> En ambas situaciones <strong>S1.</strong> y <strong>S2.</strong> es claro que <span class="math inline">\(a + b = p-1\)</span></p></li>
 </ul>
-<p><strong>Ejemplo</strong></p>
-<p>Para <span class="math inline">\(p = 29\)</span> (situación <strong>S1.</strong>) tenemos que <span class="math inline">\(b = 4\)</span> y <span class="math inline">\(a = 28.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">Ecuación&nbsp;1</a> tomando <span class="math inline">\(x \equiv 28 \mod{29}\)</span> y <span class="math inline">\(y \equiv 4 \mod{29}\)</span> son todos múltiplos de 29 no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
-<p>Para <span class="math inline">\(p = 37\)</span> (situación <strong>S1</strong>) tenemos que <span class="math inline">\(a = 6\)</span> y <span class="math inline">\(b = 30.\)</span> De acuerdo con esto los elementos de los conjuntos <span class="math inline">\(\eqref{eq::conjuntos}\)</span> tomando <span class="math inline">\(x \equiv 6 \mod{37}\)</span> y <span class="math inline">\(y \equiv 30 \mod{37}\)</span> son todos múltiplos de <span class="math inline">\(37\)</span> no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
+<div id="exm-ejemplo1" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 1 </strong></span>Para <span class="math inline">\(p = 29\)</span> (situación <strong>S1.</strong>) tenemos que <span class="math inline">\(b = 4\)</span> y <span class="math inline">\(a = 28.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">Ecuación&nbsp;1</a> tomando <span class="math inline">\(x \equiv 28 \mod{29}\)</span> y <span class="math inline">\(y \equiv 4 \mod{29}\)</span> son todos múltiplos de 29 no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
+</div>
 <p>Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> dos números múltiplos de un primo <span class="math inline">\(p\)</span> y pertenecientes a cualquiera o ambos conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span> Es claro que <span class="math inline">\(\alpha + \beta = 2N\)</span> es un número par.</p>
 <p>Nuestro propósito ahora es encontrar una forma de reescribir la suma <span class="math inline">\(\alpha + \beta\)</span> por otra <span class="math inline">\(\alpha' + \beta'\)</span> en donde <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> sean elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> no múltiplos de <span class="math inline">\(p\)</span> y cuya suma sea igualmente <span class="math inline">\(2N.\)</span></p>
 
