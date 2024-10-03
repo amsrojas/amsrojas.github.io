@@ -134,7 +134,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src=".\img/logo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">superficie paramétrica</figcaption>
+<figcaption class="figure-caption">superficie paramétrica (OpenSCAD)</figcaption>
 </figure>
 </div>
 </div></div>
@@ -144,7 +144,10 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#unas-lecturas-rápidas" id="toc-unas-lecturas-rápidas" class="nav-link active" data-scroll-target="#unas-lecturas-rápidas">Unas lecturas rápidas</a>
   <ul class="collapse">
+  <li><a href="#múltiplos-de-primos" id="toc-múltiplos-de-primos" class="nav-link" data-scroll-target="#múltiplos-de-primos">Múltiplos de primos</a>
+  <ul class="collapse">
   <li><a href="#esquivando-múltiplos-de-primos" id="toc-esquivando-múltiplos-de-primos" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -172,27 +175,17 @@ ul.task-list li input[type="checkbox"] {
 <p>La matemática es un lenguaje que permite describir de forma cuantitativa y cualitativa nuestro entorno. Este lenguaje que se construye a partir de la sintaxis de la lógica, cruza barreras idiológicas, económicas, étnicas, de género y cualquir otra cimentada por el humano.</p>
 <section id="unas-lecturas-rápidas" class="level1">
 <h1>Unas lecturas rápidas</h1>
-<p>En este espacio presento algunos comentarios sobre matemática básica, son evidentes y tal vez el lector los pueda considerar interesantes como en algún instantes los consideré yo.</p>
-<section id="esquivando-múltiplos-de-primos" class="level2">
-<h2 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h2>
+<p>En este espacio presento algunos comentarios sobre matemática básica, son evidentes y tal vez el lector los pueda considerar interesantes como en algún instante yo los consideré.</p>
+<section id="múltiplos-de-primos" class="level2">
+<h2 class="anchored" data-anchor-id="múltiplos-de-primos">Múltiplos de primos</h2>
 <p>Note que todo número par <span class="math inline">\(2N\)</span> se puede escribir en la forma <span class="math display">\[
 2N = 6k, \quad 2N = 6k + 2, \quad 2N = 6k + 4   
 \]</span> con <span class="math inline">\(k = 0,1,\ldots\)</span></p>
 <p>Por otro lado los números <span class="math inline">\(6k,\)</span> <span class="math inline">\(6k + 2\)</span> y <span class="math inline">\(6k + 4\)</span> son el resultado de la suma de cantidades de la forma <span class="math display">\[
 6k + 1 \text{ y } 6k + 5,
 \]</span> siendo estos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span> De acuerdo con lo anterior es evidente que:</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Lema
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Todo número par <span class="math inline">\(2N &gt; 6\)</span> se puede escribir como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
-</div>
+<div id="lem-lema1" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 1 </strong></span>Todo número par <span class="math inline">\(2N &gt; 6\)</span> se puede escribir como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
 </div>
 <p>Ahora bien, en los conjuntos <span id="eq-conjuntos"><span class="math display">\[
 A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb{N}_0}
@@ -202,26 +195,116 @@ A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb
 \]</span> <span class="math display">\[
     6y \equiv (p - 5) \mod{p},
 \]</span></p>
-<p>cuya solución se obtiene fáscilmente estudiando las situaciones de si <span class="math inline">\(p-1\)</span> o <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6\)</span>. En efecto:</p>
+<p>cuya solución se obtiene estudiando las siguientes dos posibilidades: (<strong>S1</strong>) si <span class="math inline">\(p-1\)</span> es un múltiplo de <span class="math inline">\(6\)</span>, o (<strong>S2</strong>) si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6\)</span>. En efecto:</p>
 <ul>
-<li><p><strong>S1.</strong> Si <span class="math inline">\(p-1\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
+<li><p><strong>S1.</strong> Si <span class="math inline">\(p-1\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span id="eq-ap1d6"><span class="math display">\[
 x \equiv a \mod{p} \quad \text{ con } \quad a = \frac{p-1}{6}
-\]</span> y <span class="math display">\[
+\tag{2}\]</span></span> y <span id="eq-bp1d6"><span class="math display">\[
 y \equiv b \mod{p} \quad \text{ con } \quad b = 5a
-\]</span></p></li>
-<li><p><strong>S2.</strong> Si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6,\)</span> entonces <span class="math display">\[
+\tag{3}\]</span></span></p></li>
+<li><p><strong>S2.</strong> Si <span class="math inline">\(p-5\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span id="eq-bp5d6"><span class="math display">\[
 y   \equiv b \mod{p} \quad \text{ con } \quad b = \frac{p-5}{6}
-\]</span> y <span id="eq-modulo"><span class="math display">\[
+\tag{4}\]</span></span> y <span id="eq-ap5d6"><span class="math display">\[
 x \equiv a \mod{p} \quad \text{ con } a = \frac{5p - 1}{6}
-\tag{2}\]</span></span> En ambas situaciones <strong>S1.</strong> y <strong>S2.</strong> es claro que <span class="math inline">\(a + b = p-1\)</span></p></li>
+\tag{5}\]</span></span></p></li>
 </ul>
+<p>En ambas situaciones <strong>S1.</strong> y <strong>S2.</strong> es claro que <span class="math inline">\(a + b = p-1\)</span></p>
 <div id="exm-ejemplo1" class="theorem example">
-<p><span class="theorem-title"><strong>Ejemplo 1 </strong></span>Para <span class="math inline">\(p = 29\)</span> (situación <strong>S1.</strong>) tenemos que <span class="math inline">\(b = 4\)</span> y <span class="math inline">\(a = 28.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">Ecuación&nbsp;1</a> tomando <span class="math inline">\(x \equiv 28 \mod{29}\)</span> y <span class="math inline">\(y \equiv 4 \mod{29}\)</span> son todos múltiplos de 29 no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
+<p><span class="theorem-title"><strong>Ejemplo 1 </strong></span>Para <span class="math inline">\(p = 31\)</span> (situación <strong>S1.</strong>) tenemos que <span class="math inline">\(a = 5\)</span> y <span class="math inline">\(b = 25.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">1</a> tomando <span class="math inline">\(x \equiv 5 \mod{31}\)</span> y <span class="math inline">\(y \equiv 25 \mod{31}\)</span> son todos múltiplos de <span class="math inline">\(31\)</span> no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
 </div>
+<div id="exm-ejemplo1" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Para <span class="math inline">\(p = 29\)</span> (situación <strong>S2.</strong>) tenemos que <span class="math inline">\(b = 4\)</span> y <span class="math inline">\(a = 24.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">1</a> tomando <span class="math inline">\(y \equiv 4 \mod{29}\)</span> y <span class="math inline">\(x \equiv 24 \mod{29}\)</span> son todos múltiplos de <span class="math inline">\(29\)</span> no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
+</div>
+<section id="esquivando-múltiplos-de-primos" class="level3">
+<h3 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h3>
 <p>Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> dos números múltiplos de un primo <span class="math inline">\(p\)</span> y pertenecientes a cualquiera o ambos conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span> Es claro que <span class="math inline">\(\alpha + \beta = 2N\)</span> es un número par.</p>
 <p>Nuestro propósito ahora es encontrar una forma de reescribir la suma <span class="math inline">\(\alpha + \beta\)</span> por otra <span class="math inline">\(\alpha' + \beta'\)</span> en donde <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> sean elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> no múltiplos de <span class="math inline">\(p\)</span> y cuya suma sea igualmente <span class="math inline">\(2N.\)</span></p>
+<ul>
+<li><strong>C1</strong> Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> elementos del conjunto <span class="math inline">\(A,\)</span> véase ecuación <a href="#eq-conjuntos">1</a>, ambos múltiplos de un primo <span class="math inline">\(p\)</span> con <span class="math inline">\(p-1\)</span> múltiplo de <span class="math inline">\(6.\)</span> Es claro que <span class="math display">\[
+\begin{align*}
+2N &amp; = \alpha + \beta
+\\
+&amp; = 6(x_1 + x_2) + 2
+\end{align*}
+\]</span> en donde <span class="math inline">\(x_1 , x_2 \equiv a \mod{p},\)</span> con <span class="math inline">\(a\)</span> como en <a href="#eq-ap1d6">2</a>. Ahora bien, una de las tantas formas de escribir <span class="math inline">\(a\)</span> como un elemento de <span class="math inline">\(\mathbb{Z}_p\)</span> es por ejemplo <span class="math display">\[
+a = 6a + (a + 1) \text{ con } 6a, a, 1 \in \mathbb{Z}_p.
+\]</span> y en este caso <span class="math display">\[
+2a = p - 2 + (2a + 2).
+\]</span> Si tomamos <span id="eq-nwC1"><span class="math display">\[
+\begin{align*}
+&amp; x_1' = (p-2) \mod p
+\\
+&amp; x_2' = (2a + 2) \mod p
+\end{align*}
+\tag{6}\]</span></span> entonces nuestros nuevos candidatos para <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> serían <span class="math display">\[
+\alpha' = 6x_1' + 1 \quad \text{ y } \quad \beta' = 6x_2' + 1   
+\]</span></li>
+</ul>
+<div id="exm-ejemplo3" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 3 </strong></span>Considere los números <span class="math inline">\(\alpha = 247\)</span> y <span class="math inline">\(\beta = 589\)</span> ambos son elementos del conjunto <span class="math inline">\(A\)</span> y múltiplos de <span class="math inline">\(p = 19\)</span>. En este caso <span class="math inline">\(a = 3\)</span> y de acuerdo con <a href="#eq-nwC1">6</a> obtenemos <span class="math display">\[
+x_1' \equiv 17 \mod{19} \quad \text{ y } \quad  x_2' \equiv 8 \mod{19}
+\]</span> con lo que <span class="math display">\[
+\begin{align*}
+247 + 589 =  836  &amp; = (6x_1' + 1) + (6x_2' + 1)
+\\
+&amp; = (6(19s + 17) + 1) + (6(19t + 8) + 1)
+\end{align*}
+\]</span> con <span class="math inline">\(s\)</span> y <span class="math inline">\(t\)</span> números enteros. Al reducir obtenemos <span class="math display">\[
+6 = s + t.
+\]</span> y de acuerdo con esto las combinaciones <span class="math inline">\((1,5),\)</span> <span class="math inline">\((2,4),\)</span> <span class="math inline">\((3,3),\)</span> <span class="math inline">\((4,2)\)</span> y <span class="math inline">\((5,1)\)</span> para la pareja <span class="math inline">\((s, t)\)</span> permiten descomponer a <span class="math inline">\(836\)</span> como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3\)</span> ni <span class="math inline">\(19.\)</span> Estos son <span class="math display">\[
+836 = 217 + 619 = 331 + 505 = 445 + 391 = 559 + 277 = 673 + 163
+\]</span></p>
+</div>
+<ul>
+<li><strong>C2</strong> Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> elementos del conjunto <span class="math inline">\(B\)</span> de ambos múltiplos de un primo <span class="math inline">\(p\)</span> con <span class="math inline">\(p-5\)</span> múltiplo de <span class="math inline">\(6.\)</span> Es claro que <span class="math display">\[
+\begin{align*}
+2N &amp; = \alpha + \beta
+\\
+&amp; = 6(y_1 + y_2) + 2
+\end{align*}
+\]</span> en donde <span class="math inline">\(y_1 , y_2 \equiv b \mod{p},\)</span> con <span class="math inline">\(b\)</span> como <a href="#eq-bp5d6">4</a>. Una de las tantas formas de escribir <span class="math inline">\(b\)</span> como un elemento de <span class="math inline">\(\mathbb{Z}_p\)</span> es por ejemplo <span class="math display">\[
+b = 2b + (p-b) \text{ para } 2b, p-b \in \mathbb{Z}_p.
+\]</span> y en este caso <span class="math display">\[
+2b = 4b + (p - 2b)
+\]</span> Si tomamos <span id="eq-nwC2"><span class="math display">\[
+\begin{align*}
+&amp; y_1' = 4b \mod p
+\\
+&amp; y_2' = (p - 2b) \mod p
+\end{align*}
+\tag{7}\]</span></span> entonces nuestros candidatos para <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> serían <span class="math display">\[
+\alpha' = 6y_1' + 5 \quad \text{ y } \quad \beta' = 6y_2' + 5   
+\]</span></li>
+</ul>
+<div id="exm-ejemplo4" class="theorem example">
+<p><span class="theorem-title"><strong>Ejemplo 4 </strong></span>Considere los números <span class="math inline">\(\alpha = 893\)</span> y <span class="math inline">\(\beta = 2021\)</span> ambos elementos del conjunto <span class="math inline">\(B\)</span> múltiplos de <span class="math inline">\(p = 47\)</span>. En este caso <span class="math inline">\(b = 7\)</span> de acuerdo con <a href="#eq-nwC2">7</a> obtenemos</p>
+<p><span class="math display">\[
+y_1' \equiv 28 \mod{47} \quad \text{ y } \quad y_2' \equiv 33 \mod{47}
+\]</span></p>
+<p>como</p>
+<p><span class="math display">\[
+\begin{align*}
+893 + 2021 = 2914  &amp; = (6y_1' + 5) + (6y_2' + 5)
+\\
+&amp; = (6(47s + 28) + 5) + (6(47t + 33) + 5)
+\end{align*}
+\]</span></p>
+<p>con <span class="math inline">\(s\)</span> y <span class="math inline">\(t\)</span> números enteros. Al reducir obtenemos</p>
+<p><span class="math display">\[
+9 = s + t
+\]</span></p>
+<p>y de acuerdo con esto las combinaciones <span class="math inline">\((1,8),\)</span> <span class="math inline">\((2,7),\)</span> <span class="math inline">\((3,6),\)</span> <span class="math inline">\((4,5),\)</span> $(5,4), $ <span class="math inline">\((6, 3),\)</span> <span class="math inline">\((7,2)\)</span> y <span class="math inline">\((8,1)\)</span> para la pareja <span class="math inline">\((s, t)\)</span> permiten descomponer a <span class="math inline">\(2914\)</span> como la suma de dos números no divisibles por <span class="math inline">\(2,\)</span> <span class="math inline">\(3\)</span> y <span class="math inline">\(47.\)</span> Estos son</p>
+<p><span class="math display">\[
+\begin{align*}
+   &amp; 2914 = 455 + 2459 = 737 + 2177 = 1019 + 1895 = 1301 + 1613
+   \\
+   &amp; 2914 = 1583 + 1331 = 1865 + 1049 = 2147 + 767 = 1429 + 485
+\end{align*}
+\]</span></p>
+</div>
 
 
+</section>
 </section>
 </section>
 
