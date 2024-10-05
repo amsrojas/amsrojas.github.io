@@ -147,6 +147,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#múltiplos-de-primos" id="toc-múltiplos-de-primos" class="nav-link" data-scroll-target="#múltiplos-de-primos">Múltiplos de primos</a>
   <ul class="collapse">
   <li><a href="#esquivando-múltiplos-de-primos" id="toc-esquivando-múltiplos-de-primos" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</a></li>
+  <li><a href="#elimando-múltiplos-de-5" id="toc-elimando-múltiplos-de-5" class="nav-link" data-scroll-target="#elimando-múltiplos-de-5">Elimando múltiplos de 5</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -301,8 +302,45 @@ y_1' \equiv 28 \mod{47} \quad \text{ y } \quad y_2' \equiv 33 \mod{47}
 \end{align*}
 \]</span></p>
 </div>
+</section>
+<section id="elimando-múltiplos-de-5" class="level3">
+<h3 class="anchored" data-anchor-id="elimando-múltiplos-de-5">Elimando múltiplos de 5</h3>
+<p>Empleando las técnicas vistas en la sección anterior podemos determinar de cuántas formas es posible escribir un número par sin emplear múltiplos de <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span>.</p>
+<section id="par-2n-con-n-equiv-1-mod-3" class="level4">
+<h4 class="anchored" data-anchor-id="par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></h4>
+<p>Si <span class="math inline">\(2N\)</span> es un número par tal que <span class="math inline">\(N \equiv 1 \mod 3\)</span> entonces es claro que <span class="math inline">\(2N\)</span> se puede escribir como la suma de dos enteros <span class="math inline">\(\alpha_1\)</span> y <span class="math inline">\(\alpha_2\)</span> ambos pertenecientes al conjunto <span class="math inline">\(A\)</span>. Si <span class="math inline">\(\alpha_1\)</span> fuese un múltiplo de <span class="math inline">\(5\)</span> entonces <span class="math inline">\(\alpha_1 = 6 x_1 + 1\)</span> con <span class="math inline">\(x_1 \equiv 4 \mod 5.\)</span></p>
+<p>Si <span class="math inline">\(\alpha_2 = 6x_2 + 1\)</span> con <span class="math inline">\(x_2 \equiv r \mod 5\)</span> con <span class="math inline">\(r\)</span> no necesariamente distinto de <span class="math inline">\(4\)</span>. Entonces buscaremos encontrar soluciones de la ecuación</p>
+<p><span id="eq-sistem_eq"><span class="math display">\[
+u + v = 4 + r \text{ en } \mathbb{Z}_5.
+\tag{8}\]</span></span></p>
+<p>Cada pareja <span class="math inline">\((u, v)\)</span> solución de <a href="#eq-sistem_eq">8</a> son de la forma <span class="math inline">\((n , r - n )\)</span> con <span class="math inline">\(n = 0, \ldots , r\)</span> y <span class="math inline">\(( r + n, 5 - n )\)</span> con <span class="math inline">\(n = 1, \ldots , 4 - r\)</span>. Como debemos descartar el valor de <span class="math inline">\(4\)</span> de las soluciones y una de las repetidas entonces obtenemos dos soluciones de <a href="#eq-sistem_eq">8</a>. De acuerdo con esto si</p>
+<p><span class="math display">\[
+u_1 + v_1 = 4 + r \quad \text{ y } \quad u_2 + v_2 = 4 + r
+\]</span></p>
+<p>son soluciones de <a href="#eq-sistem_eq">8</a> entonces para <span class="math inline">\(x'_1 \equiv u_1 \mod 5\)</span>, <span class="math inline">\(x'_2 \equiv v_1 \mod 5\)</span>, <span class="math inline">\(x''_1 \equiv u_2 \mod 5\)</span> y <span class="math inline">\(x''_2 \equiv v_2 \mod 5\)</span> podemos encontrar números <span class="math inline">\(\alpha'_1\)</span>, <span class="math inline">\(\alpha'_2\)</span>, <span class="math inline">\(\alpha''_1\)</span> y <span class="math inline">\(\alpha''_2\)</span> en <span class="math inline">\(A\)</span> cuya suma es <span class="math inline">\(2N.\)</span></p>
+<p>De acuerdo con esto, para <span class="math inline">\(\alpha'_1\)</span> y <span class="math inline">\(\alpha'_2\)</span> obtenemos</p>
+<p><span class="math display">\[
+\begin{align*}
+2N &amp; = \alpha'_1  + \alpha'_2
+\\
+&amp; = 6 x'_1 + 1 +  6x'_2 + 1
+\\
+&amp; = 6(u_1 + 5 s) + 6(u_1 + 5 t) + 2
+\end{align*}
+\]</span> con <span class="math inline">\(s\)</span> y <span class="math inline">\(t\)</span> números enteros. Despues de reducir esta expresión obtenemos <span id="eq-sol-s_t"><span class="math display">\[
+s + t = \frac{2N - 6(u_1 + v_1) - 2}{30}
+\tag{9}\]</span></span></p>
+<p>Como <span class="math inline">\(\alpha'_1\)</span> y <span class="math inline">\(\alpha'_2\)</span> son elementos del mismo conjunto, entonces no nos interesan las parejas repetidas. De acuerdo con esto para <a href="#eq-sol-s_t">9</a> tenemos</p>
+<p><span class="math display">\[
+\Big\lfloor \frac{2N - 6(u_1 + v_1) - 2}{60} \Big\rfloor + 1
+\]</span></p>
+<p>soluciones. Este es el número de soluciones para la pareja <span class="math inline">\(u_2\)</span> y <span class="math inline">\(v_2\)</span> con lo que el número de parejas cuya suma es <span class="math inline">\(2N\)</span> y que no son múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> ni <span class="math inline">\(5\)</span> son</p>
+<p><span id="eq-sol_total_s_t"><span class="math display">\[
+2 \Big\lfloor \frac{2N - 6(u_1 + v_1) - 2}{60} \Big\rfloor + 2
+\tag{10}\]</span></span></p>
 
 
+</section>
 </section>
 </section>
 </section>
