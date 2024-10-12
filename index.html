@@ -338,6 +338,48 @@ s + t = \frac{2N - 6(u_1 + v_1) - 2}{30}
 <p><span id="eq-sol_total_s_t"><span class="math display">\[
 2 \Big\lfloor \frac{2N - 6(u_1 + v_1) - 2}{60} \Big\rfloor + 2
 \tag{10}\]</span></span></p>
+<p>Podemos ir un poco más lejos en la posibilidad de escribir un número par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span> como la suma de dos números no divisibles por múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span>. Si partimos del hecho de que</p>
+<p><span id="eq-suma_2n"><span class="math display">\[
+2N = ( 6(r_1 + 5s) + 1 ) + ( 6(r_2 + 5t) + 1 ),
+\tag{11}\]</span></span></p>
+<p>entonces es claro que si</p>
+<p><span class="math display">\[
+r_1 + 5s \equiv 1 \mod 7 \quad \text{ o } \quad r_2 + 5t \equiv 1 \mod 7
+\]</span></p>
+<p>entonces las cantidades</p>
+<p><span class="math display">\[
+6(r_1 + 5s) + 1  \quad \text{ o } \quad 6(r_2 + 5t) + 1
+\]</span></p>
+<p>son múltiplos de <span class="math inline">\(7\)</span>.</p>
+<p>Después de una cálculo directo <a href="#eq-suma_2n">11</a> puede escribirse como</p>
+<p><span id="eq-sum_2n_v2"><span class="math display">\[
+s + t = \frac{m - (r_1 + r_2)}{5} \quad \text{ con } r_1, r_2 = 0, 1, 2 \text{ o } 3.
+\tag{12}\]</span></span></p>
+<p>Vamos a probar que existen cantidades <span class="math inline">\(\sigma, \tau \not\equiv 0 \mod 7\)</span> tales que</p>
+<p><span id="eq-sum_2n_v3"><span class="math display">\[
+\begin{align}
+&amp; r_1 + 5s \equiv (1 + \sigma) \mod 7
+\\
+&amp; r_2 + 5t \equiv (1 + \tau) \mod 7
+\end{align}
+\tag{13}\]</span></span></p>
+<p>Tomando <span class="math inline">\(q = r_2 + 5t\)</span> en la última ecuación, y empleando <a href="#eq-sum_2n_v2">12</a> podemos escribir <a href="#eq-sum_2n_v3">13</a> como</p>
+<p><span id="eq-sum_2n_v4"><span class="math display">\[
+\begin{align}
+&amp; m - q \equiv (1 + \sigma) \mod 7
+\\
+&amp; q \equiv (1 + \tau) \mod 7
+\end{align}
+\tag{14}\]</span></span></p>
+<p>Siendo <span class="math inline">\(m\)</span> un entero fijo tal que <span class="math inline">\(m \geq 6\)</span> y <span class="math inline">\(0 \leq q \leq m\)</span>. Note que siempre es posible encontrar <span class="math inline">\(r_1\)</span> y <span class="math inline">\(t\)</span> tales que <span class="math inline">\(q \equiv (1 + \tau) \mod 7\)</span> con <span class="math inline">\(\tau \not \equiv 0 \mod 7.\)</span> Ahora bien si</p>
+<p><span class="math display">\[
+m - q \equiv 1 \mod 7
+\]</span></p>
+<p>entonces</p>
+<p><span class="math display">\[
+r - 1 - q \equiv 0 \mod 7
+\]</span></p>
+<p>en donde <span class="math inline">\(r\)</span> es tal que <span class="math inline">\(m \equiv r \mod 7.\)</span> Los anterior sugiere que si <span class="math inline">\(q_1\)</span> y <span class="math inline">\(q_2\)</span> pertenecen al conjunto de los <span class="math inline">\(q\)</span> tales que <span class="math inline">\(q \equiv (1 + \tau) \mod 7\)</span> con <span class="math inline">\(\tau\)</span> distintos para cada <span class="math inline">\(q,\)</span> digamos <span class="math inline">\(\tau_1\)</span> para <span class="math inline">\(q_1\)</span> y <span class="math inline">\(\tau_2\)</span> para <span class="math inline">\(q_2\)</span> entonces <span class="math inline">\(\tau_2 - \tau_1 \equiv 0 \mod 7\)</span> lo cual no es posible pues simplemente basta dejar un <span class="math inline">\(t\)</span> fijo y cambiar <span class="math inline">\(r_1\)</span> y <span class="math inline">\(r_2\)</span> en cada caso.</p>
 
 
 </section>
