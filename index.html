@@ -142,12 +142,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#unas-lecturas-rápidas" id="toc-unas-lecturas-rápidas" class="nav-link active" data-scroll-target="#unas-lecturas-rápidas">Unas lecturas rápidas</a>
-  <ul class="collapse">
-  <li><a href="#múltiplos-de-primos" id="toc-múltiplos-de-primos" class="nav-link" data-scroll-target="#múltiplos-de-primos">Múltiplos de primos</a>
+  <li><a href="#múltiplos-de-primos" id="toc-múltiplos-de-primos" class="nav-link active" data-scroll-target="#múltiplos-de-primos">Múltiplos de primos</a>
   <ul class="collapse">
   <li><a href="#esquivando-múltiplos-de-primos" id="toc-esquivando-múltiplos-de-primos" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</a></li>
-  <li><a href="#elimando-múltiplos-de-5" id="toc-elimando-múltiplos-de-5" class="nav-link" data-scroll-target="#elimando-múltiplos-de-5">Elimando múltiplos de 5</a></li>
+  <li><a href="#elimando-múltiplos-de-5" id="toc-elimando-múltiplos-de-5" class="nav-link" data-scroll-target="#elimando-múltiplos-de-5">Elimando múltiplos de 5</a>
+  <ul class="collapse">
+  <li><a href="#par-2n-con-n-equiv-1-mod-3" id="toc-par-2n-con-n-equiv-1-mod-3" class="nav-link" data-scroll-target="#par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -174,11 +174,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>La matemática es un lenguaje que permite describir de forma cuantitativa y cualitativa nuestro entorno. Este lenguaje que se construye a partir de la sintaxis de la lógica, cruza barreras idiológicas, económicas, étnicas, de género y cualquir otra cimentada por el humano.</p>
-<section id="unas-lecturas-rápidas" class="level1">
-<h1>Unas lecturas rápidas</h1>
-<p>En este espacio presento algunos comentarios sobre matemática básica, son evidentes y tal vez el lector los pueda considerar interesantes como en algún instante yo los consideré.</p>
-<section id="múltiplos-de-primos" class="level2">
-<h2 class="anchored" data-anchor-id="múltiplos-de-primos">Múltiplos de primos</h2>
+<section id="múltiplos-de-primos" class="level1">
+<h1>Múltiplos de primos</h1>
 <p>Todo número par <span class="math inline">\(2N\)</span> es de la forma <span class="math display">\[
 2N \equiv 0 \mod 6, \quad 2N \equiv 2 \mod 6, \quad \text{ ó } \quad 2N \equiv 4 \mod 6,  
 \]</span></p>
@@ -215,8 +212,8 @@ x \equiv a \mod{p} \quad \text{ con } a = \frac{5p - 1}{6}
 <div id="exm-ejemplo1" class="theorem example">
 <p><span class="theorem-title"><strong>Ejemplo 2 </strong></span>Para <span class="math inline">\(p = 29\)</span> (situación <strong>S2.</strong>) tenemos que <span class="math inline">\(b = 4\)</span> y <span class="math inline">\(a = 24.\)</span> De acuerdo con esto los elementos de los conjuntos <a href="#eq-conjuntos">1</a> tomando <span class="math inline">\(y \equiv 4 \mod{29}\)</span> y <span class="math inline">\(x \equiv 24 \mod{29}\)</span> son todos múltiplos de <span class="math inline">\(29\)</span> no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span> Por ejemplo, si <span class="math inline">\(x = 691\)</span> y <span class="math inline">\(y = 903\)</span> obtenemos en <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> respectivamente los números <span class="math inline">\(4147\)</span> y <span class="math inline">\(5423\)</span> ambos divisibles por <span class="math inline">\(29\)</span>.</p>
 </div>
-<section id="esquivando-múltiplos-de-primos" class="level3">
-<h3 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h3>
+<section id="esquivando-múltiplos-de-primos" class="level2">
+<h2 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h2>
 <p>Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> dos números múltiplos de un primo <span class="math inline">\(p\)</span>, pertenecientes a cualquiera o ambos conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span> Es claro que <span class="math inline">\(\alpha + \beta = 2N\)</span> es un número par.</p>
 <p>Nuestro propósito ahora es encontrar una forma de reescribir la suma <span class="math inline">\(\alpha + \beta\)</span> por otra <span class="math inline">\(\alpha' + \beta'\)</span> en donde <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> sean elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> no múltiplos de <span class="math inline">\(p\)</span> y cuya suma sea igualmente <span class="math inline">\(2N.\)</span></p>
 <ul>
@@ -309,11 +306,11 @@ s + t = 9
 \]</span> aquí todos estos sumandos no son divisibles por <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(47\)</span>.</p>
 </div>
 </section>
-<section id="elimando-múltiplos-de-5" class="level3">
-<h3 class="anchored" data-anchor-id="elimando-múltiplos-de-5">Elimando múltiplos de 5</h3>
+<section id="elimando-múltiplos-de-5" class="level2">
+<h2 class="anchored" data-anchor-id="elimando-múltiplos-de-5">Elimando múltiplos de 5</h2>
 <p>Empleando las técnicas vistas en la sección anterior podemos determinar de cuántas formas es posible escribir un número par sin emplear múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span>.</p>
-<section id="par-2n-con-n-equiv-1-mod-3" class="level4">
-<h4 class="anchored" data-anchor-id="par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></h4>
+<section id="par-2n-con-n-equiv-1-mod-3" class="level3">
+<h3 class="anchored" data-anchor-id="par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></h3>
 <p>Si <span class="math inline">\(2N\)</span> es un número par tal que <span class="math inline">\(N \equiv 1 \mod 3\)</span> entonces es claro que <span class="math inline">\(2N\)</span> se puede escribir como la suma de dos enteros <span class="math inline">\(\alpha_1\)</span> y <span class="math inline">\(\alpha_2\)</span> ambos pertenecientes al conjunto <span class="math inline">\(A\)</span>. Si <span class="math inline">\(\alpha_1\)</span> fuese un múltiplo de <span class="math inline">\(5\)</span> entonces <span class="math inline">\(\alpha_1 = 6 x_1 + 1\)</span> con <span class="math inline">\(x_1 \equiv 4 \mod 5\)</span> y <span class="math inline">\(\alpha_2 = 6x_2 + 1\)</span> con <span class="math inline">\(x_2 \equiv r \mod 5\)</span> con <span class="math inline">\(r\)</span> no necesariamente distinto de <span class="math inline">\(4\)</span>.</p>
 <p>Entonces buscaremos encontrar soluciones de la ecuación</p>
 <p><span id="eq-sistem_eq"><span class="math display">\[
@@ -388,7 +385,6 @@ r - 1 - q \equiv 0 \mod 7
 <p>en donde <span class="math inline">\(r\)</span> es tal que <span class="math inline">\(m \equiv r \mod 7.\)</span> Los anterior sugiere que si <span class="math inline">\(q_1\)</span> y <span class="math inline">\(q_2\)</span> pertenecen al conjunto de los <span class="math inline">\(q\)</span> tales que <span class="math inline">\(q \equiv (1 + \tau) \mod 7\)</span> con <span class="math inline">\(\tau\)</span> distintos para cada <span class="math inline">\(q,\)</span> digamos <span class="math inline">\(\tau_1\)</span> para <span class="math inline">\(q_1\)</span> y <span class="math inline">\(\tau_2\)</span> para <span class="math inline">\(q_2\)</span> entonces <span class="math inline">\(\tau_2 - \tau_1 \equiv 0 \mod 7\)</span> lo cual no es posible pues simplemente basta dejar un <span class="math inline">\(t\)</span> fijo y cambiar <span class="math inline">\(r_1\)</span> y <span class="math inline">\(r_2\)</span> en cada caso.</p>
 
 
-</section>
 </section>
 </section>
 </section>
