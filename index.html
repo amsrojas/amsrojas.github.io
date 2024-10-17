@@ -145,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#múltiplos-de-primos" id="toc-múltiplos-de-primos" class="nav-link active" data-scroll-target="#múltiplos-de-primos">Múltiplos de primos</a>
   <ul class="collapse">
   <li><a href="#esquivando-múltiplos-de-primos" id="toc-esquivando-múltiplos-de-primos" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</a></li>
-  <li><a href="#elimando-múltiplos-de-5" id="toc-elimando-múltiplos-de-5" class="nav-link" data-scroll-target="#elimando-múltiplos-de-5">Elimando múltiplos de 5</a>
+  <li><a href="#esquivando-múltiplos-de-5" id="toc-esquivando-múltiplos-de-5" class="nav-link" data-scroll-target="#esquivando-múltiplos-de-5">Esquivando múltiplos de 5</a>
   <ul class="collapse">
   <li><a href="#par-2n-con-n-equiv-1-mod-3" id="toc-par-2n-con-n-equiv-1-mod-3" class="nav-link" data-scroll-target="#par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></a></li>
   </ul></li>
@@ -177,22 +177,22 @@ ul.task-list li input[type="checkbox"] {
 <section id="múltiplos-de-primos" class="level1">
 <h1>Múltiplos de primos</h1>
 <p>Todo número par <span class="math inline">\(2N\)</span> es de la forma <span class="math display">\[
-2N \equiv 0 \mod 6, \quad 2N \equiv 2 \mod 6, \quad \text{ ó } \quad 2N \equiv 4 \mod 6,  
+2N \equiv 0 \mod 6, \quad 2N \equiv 2 \mod 6, \quad \text{ ó } \quad 2N \equiv 4 \mod 6,
 \]</span></p>
-<p>y note que <span class="math inline">\(0\)</span>, <span class="math inline">\(2\)</span> y <span class="math inline">\(4\)</span> se puede escribir en <span class="math inline">\(\mathbb{Z}_6\)</span> a partir de <span class="math inline">\(1\)</span> y <span class="math inline">\(5\)</span>, esto quiere decir que todo par <span class="math inline">\(2N,\)</span> y en particular <span class="math inline">\(2N\)</span> no negativo, se puede escribir como la suma de dos elementos pertenecientes a los conjuntos <span id="eq-conjuntos"><span class="math display">\[
+<p>y como <span class="math inline">\(0\)</span>, <span class="math inline">\(2\)</span> y <span class="math inline">\(4\)</span> se obtienen en <span class="math inline">\(\mathbb{Z}_6\)</span> a partir de la suma de <span class="math inline">\(1\)</span> y/o <span class="math inline">\(5\)</span>, <span class="math inline">\((1 + 5 = 0\)</span>, , <span class="math inline">\(1 + 1 = 2\)</span>, , <span class="math inline">\(5 + 5 = 4)\)</span>, entonces todo par <span class="math inline">\(2N,\)</span> y en particular <span class="math inline">\(2N\)</span> no negativo, se puede escribir como la suma de dos elementos pertenecientes a los conjuntos <span id="eq-conjuntos"><span class="math display">\[
 A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb{N}_0}.
 \tag{1}\]</span></span></p>
 <p>y ya que los elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> no son divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3\)</span> entonces:</p>
 <div id="lem-lema1" class="theorem lemma">
 <p><span class="theorem-title"><strong>Lema 1 </strong></span>Todo número par <span class="math inline">\(2N \geq 6\)</span> se puede escribir como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
 </div>
-<p>En los conjuntos <a href="#eq-conjuntos">1</a> es siempre posible encontrar para ciertos valores de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> múltiplos de algún primo <span class="math inline">\(p\)</span>. En este caso, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> deberían de satisfacer las siguientes ecuaciones modulares<br>
+<p>En los conjuntos <a href="#eq-conjuntos">1</a> siempre posible encontrar, para ciertos valores de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, múltiplos de algún primo <span class="math inline">\(p\)</span>. En este caso, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> deberían de satisfacer las siguientes ecuaciones modulares<br>
 <span class="math display">\[
     6x \equiv (p - 1) \mod{p},
 \]</span> <span class="math display">\[
     6y \equiv (p - 5) \mod{p},
 \]</span></p>
-<p>cuya solución se obtiene a partir de si <span class="math inline">\(p-1\)</span> es un múltiplo de <span class="math inline">\(6\)</span>, o si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6\)</span>.</p>
+<p>cuya solución se obtiene estudiando el caso de si <span class="math inline">\(p-1\)</span> es un múltiplo de <span class="math inline">\(6\)</span>, o si <span class="math inline">\(p-5\)</span> es un múltiplo de <span class="math inline">\(6\)</span>.</p>
 <ul>
 <li><p><strong>S1.</strong> Si <span class="math inline">\(p-1\)</span> es divisible por <span class="math inline">\(6,\)</span> entonces <span id="eq-ap1d6"><span class="math display">\[
 x \equiv a \mod{p} \quad \text{ con } \quad a = \frac{p-1}{6}
@@ -216,6 +216,7 @@ x \equiv a \mod{p} \quad \text{ con } a = \frac{5p - 1}{6}
 <h2 class="anchored" data-anchor-id="esquivando-múltiplos-de-primos">Esquivando múltiplos de primos</h2>
 <p>Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> dos números múltiplos de un primo <span class="math inline">\(p\)</span>, pertenecientes a cualquiera o ambos conjuntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B.\)</span> Es claro que <span class="math inline">\(\alpha + \beta = 2N\)</span> es un número par.</p>
 <p>Nuestro propósito ahora es encontrar una forma de reescribir la suma <span class="math inline">\(\alpha + \beta\)</span> por otra <span class="math inline">\(\alpha' + \beta'\)</span> en donde <span class="math inline">\(\alpha'\)</span> y <span class="math inline">\(\beta'\)</span> sean elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B,\)</span> no múltiplos de <span class="math inline">\(p\)</span> y cuya suma sea igualmente <span class="math inline">\(2N.\)</span></p>
+<p>Estudiaremos dos casos posibles, uno cuando queremos esquivar múltiplos de un mismo primo en el conjunto <span class="math inline">\(A\)</span> y otro caso en donde queremos esquivar múltiplos de un mismo primo en el conjunto <span class="math inline">\(B\)</span>.</p>
 <ul>
 <li><strong>C1</strong> Sean <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> elementos del conjunto <span class="math inline">\(A,\)</span> véase ecuación <a href="#eq-conjuntos">1</a>, ambos múltiplos de un primo <span class="math inline">\(p\)</span> siendo <span class="math inline">\(p-1\)</span> un múltiplo de <span class="math inline">\(6.\)</span> Es claro que <span class="math display">\[
 \begin{align*}
@@ -306,41 +307,50 @@ s + t = 9
 \]</span> aquí todos estos sumandos no son divisibles por <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(47\)</span>.</p>
 </div>
 </section>
-<section id="elimando-múltiplos-de-5" class="level2">
-<h2 class="anchored" data-anchor-id="elimando-múltiplos-de-5">Elimando múltiplos de 5</h2>
+<section id="esquivando-múltiplos-de-5" class="level2">
+<h2 class="anchored" data-anchor-id="esquivando-múltiplos-de-5">Esquivando múltiplos de 5</h2>
 <p>Empleando las técnicas vistas en la sección anterior podemos determinar de cuántas formas es posible escribir un número par sin emplear múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span>.</p>
 <section id="par-2n-con-n-equiv-1-mod-3" class="level3">
 <h3 class="anchored" data-anchor-id="par-2n-con-n-equiv-1-mod-3">Par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span></h3>
-<p>Si <span class="math inline">\(2N\)</span> es un número par tal que <span class="math inline">\(N \equiv 1 \mod 3\)</span> entonces es claro que <span class="math inline">\(2N\)</span> se puede escribir como la suma de dos enteros <span class="math inline">\(\alpha_1\)</span> y <span class="math inline">\(\alpha_2\)</span> ambos pertenecientes al conjunto <span class="math inline">\(A\)</span>. Si <span class="math inline">\(\alpha_1\)</span> fuese un múltiplo de <span class="math inline">\(5\)</span> entonces <span class="math inline">\(\alpha_1 = 6 x_1 + 1\)</span> con <span class="math inline">\(x_1 \equiv 4 \mod 5\)</span> y <span class="math inline">\(\alpha_2 = 6x_2 + 1\)</span> con <span class="math inline">\(x_2 \equiv r \mod 5\)</span> con <span class="math inline">\(r\)</span> no necesariamente distinto de <span class="math inline">\(4\)</span>.</p>
-<p>Entonces buscaremos encontrar soluciones de la ecuación</p>
-<p><span id="eq-sistem_eq"><span class="math display">\[
-u + v = 4 + r \text{ en } \mathbb{Z}_5.
+<p>Si <span class="math inline">\(2N\)</span> es un número par tal que <span class="math inline">\(N \equiv 1 \mod 3\)</span> entonces es claro que <span class="math inline">\(2N\)</span> se puede escribir como la suma de dos enteros <span class="math inline">\(\alpha_1\)</span> y <span class="math inline">\(\alpha_2\)</span> ambos pertenecientes al conjunto <span class="math inline">\(A\)</span>.</p>
+<p>Supongamos que <span class="math inline">\(\alpha_1 = 6x_1 + 1\)</span> con <span class="math inline">\(x_1 \equiv r_1 \mod 5\)</span> y que <span class="math inline">\(\alpha_2 = 6x_2 + 1\)</span> con <span class="math inline">\(x_2 \equiv r_2 \mod 5\)</span>.</p>
+<p>Note que</p>
+<p><span id="eq-eq_prin"><span class="math display">\[
+2N = (6(5s + r_1) + 1) + (6(5t + r_2) + 1 )
 \tag{10}\]</span></span></p>
-<p>Cada pareja <span class="math inline">\((u, v)\)</span> solución de <a href="#eq-sistem_eq">10</a> son de la forma <span class="math inline">\((n , r - n )\)</span> con <span class="math inline">\(n = 0, \ldots , r\)</span> y <span class="math inline">\(( r + n, 5 - n )\)</span> con <span class="math inline">\(n = 1, \ldots , 4 - r\)</span>. Como debemos descartar el valor de <span class="math inline">\(4\)</span> de las soluciones y una de las repetidas entonces obtenemos dos soluciones de <a href="#eq-sistem_eq">10</a>. De acuerdo con esto si</p>
-<p><span class="math display">\[
-u_1 + v_1 = 4 + r \quad \text{ y } \quad u_2 + v_2 = 4 + r
-\]</span></p>
-<p>son soluciones de <a href="#eq-sistem_eq">10</a> entonces para <span class="math inline">\(x'_1 \equiv u_1 \mod 5\)</span>, <span class="math inline">\(x'_2 \equiv v_1 \mod 5\)</span>, <span class="math inline">\(x''_1 \equiv u_2 \mod 5\)</span> y <span class="math inline">\(x''_2 \equiv v_2 \mod 5\)</span> podemos encontrar números <span class="math inline">\(\alpha'_1\)</span>, <span class="math inline">\(\alpha'_2\)</span>, <span class="math inline">\(\alpha''_1\)</span> y <span class="math inline">\(\alpha''_2\)</span> en <span class="math inline">\(A\)</span> cuya suma es <span class="math inline">\(2N.\)</span></p>
-<p>De acuerdo con esto, para <span class="math inline">\(\alpha'_1\)</span> y <span class="math inline">\(\alpha'_2\)</span> obtenemos</p>
-<p><span class="math display">\[
-\begin{align*}
-2N &amp; = \alpha'_1  + \alpha'_2
-\\
-&amp; = 6 x'_1 + 1 +  6x'_2 + 1
-\\
-&amp; = 6(u_1 + 5 s) + 6(u_1 + 5 t) + 2
-\end{align*}
-\]</span> con <span class="math inline">\(s\)</span> y <span class="math inline">\(t\)</span> números enteros. Despues de reducir esta expresión obtenemos <span id="eq-sol-s_t"><span class="math display">\[
-s + t = \frac{2N - 6(u_1 + v_1) - 2}{30}
+<p>siendo <span class="math inline">\(s\)</span>, <span class="math inline">\(t\)</span> son enteros positivos. Al reducir esta última expresión obtenemos</p>
+<p><span id="eq-eq_m5"><span class="math display">\[
+s + t = \frac{m - (r_1 + r_2)}{5}
 \tag{11}\]</span></span></p>
-<p>Como <span class="math inline">\(\alpha'_1\)</span> y <span class="math inline">\(\alpha'_2\)</span> son elementos del mismo conjunto, entonces no nos interesan las parejas repetidas. De acuerdo con esto para <a href="#eq-sol-s_t">11</a> tenemos</p>
-<p><span class="math display">\[
-\Big\lfloor \frac{2N - 6(u_1 + v_1) - 2}{60} \Big\rfloor + 1
-\]</span></p>
-<p>soluciones. Este es el número de soluciones para la pareja <span class="math inline">\(u_2\)</span> y <span class="math inline">\(v_2\)</span> con lo que el número de parejas cuya suma es <span class="math inline">\(2N\)</span> y que no son múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> ni <span class="math inline">\(5\)</span> son</p>
-<p><span id="eq-sol_total_s_t"><span class="math display">\[
-2 \Big\lfloor \frac{2N - 6(u_1 + v_1) - 2}{60} \Big\rfloor + 2
+<p>en donde <span class="math inline">\(m\)</span> es un entero tal que <span class="math inline">\(N = 3m + 1\)</span>, <span class="math inline">\(m \geq 2\)</span>.</p>
+<p>Si <span class="math inline">\(m \equiv j \mod 5\)</span> se sigue de <a href="#eq-eq_m5">11</a> que <span class="math inline">\(r_1 + r_2 \equiv j \mod 5\)</span>, y es necesario entonces encontrar soluciones de la ecuación</p>
+<p><span id="eq-r_1r_2"><span class="math display">\[
+r_1 + r_2 = j \quad \text{en} \quad \mathbb{Z}_5 \quad  \text{ con }
 \tag{12}\]</span></span></p>
+<p>Cada pareja <span class="math inline">\((r_1, r_2)\)</span> solución de <a href="#eq-r_1r_2">12</a> es de la forma <span class="math inline">\((n , r - n )\)</span> para <span class="math inline">\(n = 0, \ldots , r\)</span> y <span class="math inline">\(( r + n, 5 - n )\)</span> para <span class="math inline">\(n = 1, \ldots , 4 - r\)</span>, sin embargo como no queremos múltiplos de <span class="math inline">\(5\)</span> en los elementos del conjunto <span class="math inline">\(A\)</span> cuya suma sea <span class="math inline">\(2N\)</span>, entonces debemos descartar el valor de <span class="math inline">\(4\)</span> para <span class="math inline">\(r_1\)</span> y <span class="math inline">\(r_2\)</span> en nuestras soluciones.</p>
+<p>Si hacemos</p>
+<p><span class="math display">\[
+j = m - 5 \Big\lfloor \frac{m}{5} \Big\rfloor.
+\]</span></p>
+<p>entonces</p>
+<p><span class="math display">\[
+s + t = \Big\lfloor \frac{m}{5} \Big\rfloor.
+\]</span></p>
+<p>y el número total de soluciones para <span class="math inline">\(s,\)</span> <span class="math inline">\(t\)</span>, <span class="math inline">\(r_1\)</span> y <span class="math inline">\(r_2\)</span>, con <span class="math inline">\(j \neq 0, 4\)</span> es</p>
+<p><span class="math display">\[
+n_s = \left( 1 + m - 5 \Big\lfloor \frac{m}{5} \Big\rfloor \right) \left( 1 +  \Big\lfloor \frac{m}{5} \Big\rfloor \right)
+\]</span></p>
+<p>y debido a la simetría de la expresión <a href="#eq-eq_prin">10</a> debemos eleminar las soluciones repetidas, para ello consideremos la función</p>
+<p><span class="math display">\[
+f(n) =
+\begin{cases}
+\dfrac{n}{2} &amp; \text{ si } n \text{ es par,}
+\\
+\\
+\Big\lfloor \dfrac{n}{2} \Big\rfloor + 1 &amp; \text{ si } n \text{ es impar.}
+\end{cases}
+\]</span></p>
+<p>De acuerdo con esto el número de parejas no múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span> cuya suma es <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span> es <span class="math inline">\(f(n_s)\)</span>.</p>
 <p>Podemos ir un poco más lejos en la posibilidad de escribir un número par <span class="math inline">\(2N\)</span> con <span class="math inline">\(N \equiv 1 \mod 3\)</span> como la suma de dos números no divisibles por múltiplos de <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> y <span class="math inline">\(5\)</span>. Si partimos del hecho de que</p>
 <p><span id="eq-suma_2n"><span class="math display">\[
 2N = ( 6(r_1 + 5s) + 1 ) + ( 6(r_2 + 5t) + 1 ),
