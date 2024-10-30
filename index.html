@@ -176,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#resolviendo-una-ecuación" id="toc-resolviendo-una-ecuación" class="nav-link active" data-scroll-target="#resolviendo-una-ecuación">Resolviendo una ecuación</a></li>
+  <li><a href="#solución-de-5s-r-equiv-a-mod-p" id="toc-solución-de-5s-r-equiv-a-mod-p" class="nav-link active" data-scroll-target="#solución-de-5s-r-equiv-a-mod-p">Solución de <span class="math inline">\(5s + r \equiv a \mod p\)</span></a></li>
   <li><a href="#número-de-soluciones" id="toc-número-de-soluciones" class="nav-link" data-scroll-target="#número-de-soluciones">Número de soluciones</a>
   <ul class="collapse">
   <li><a href="#un-caso-de-simetría" id="toc-un-caso-de-simetría" class="nav-link" data-scroll-target="#un-caso-de-simetría">Un caso de simetría</a></li>
@@ -215,8 +215,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>La matemática es un lenguaje que permite describir de forma cuantitativa y cualitativa nuestro entorno. Este lenguaje que se construye a partir de la sintaxis de la lógica, cruza barreras idiológicas, económicas, étnicas, de género y cualquir otra cimentada por el humano.</p>
-<section id="resolviendo-una-ecuación" class="level1">
-<h1>Resolviendo una ecuación</h1>
+<section id="solución-de-5s-r-equiv-a-mod-p" class="level1">
+<h1>Solución de <span class="math inline">\(5s + r \equiv a \mod p\)</span></h1>
 <p>Vamos a encontrar un conjunto de valores enteros <span class="math inline">\(s\)</span> tales que</p>
 <p><span id="eq-eq_modular"><span class="math display">\[
 5s + r \equiv a \mod p
@@ -592,29 +592,29 @@ n_S = \Omega \left( \frac{2m - 4}{5} \right) +  \Omega \left( \frac{m - 7}{5} \r
 <p><span id="eq-eq_m5v3"><span class="math display">\[
 s + t = \frac{m - (r_1 + r_2 + 1)}{5}
 \tag{29}\]</span></span></p>
-<p>De forma similiar a los casos anterior y teniendo en cuenta que ahora los términos <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> pertenecen a conjuntos distintos, buscaremos soluciones de la ecuación</p>
+<p>Nuestro razonamiento ahora será de forma similiar a los casos anteriores, teniendo en cuenta que los términos <span class="math inline">\(\alpha\)</span> y <span class="math inline">\(\beta\)</span> pertenecen a conjuntos distintos, esto quiere decir que no tenemos simetría en las soluciones. De acuerdo con esto</p>
 <p><span id="eq-eq_casoN0"><span class="math display">\[
 r_1 + r_2 = j - 1 \text{ con } r_1 =  0,1,2,3 \text{ y } r_2 = 1,2,3,4
 \tag{30}\]</span></span></p>
-<p>Si <span class="math inline">\(j = 0\)</span> los valores que pueden tomar <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> son <span class="math inline">\(r_1 = 0\)</span> y <span class="math inline">\(r_2 = 4\)</span>, <span class="math inline">\(r_1 = 1,3\)</span> y <span class="math inline">\(r_2 = 3,1\)</span>, <span class="math inline">\(r_1 = 2\)</span> y <span class="math inline">\(r_2=2\)</span>. De acuerdo con esto</p>
+<p>Si <span class="math inline">\(j = 0\)</span> entonces <span class="math inline">\(r_1 + r_2 = 4\)</span> con <span class="math inline">\(r_1 \neq 4\)</span> y <span class="math inline">\(r_2 \neq 0\)</span>. De acuerdo con esto</p>
 <p><span class="math display">\[
-n_s = \frac{4m}{5}.
+n_S = \frac{4m}{5}.
 \]</span></p>
 <p>Si <span class="math inline">\(j = 1\)</span> los valores que pueden tomar <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> son <span class="math inline">\(r_1 = 1\)</span> y <span class="math inline">\(r_2 = 4\)</span>, <span class="math inline">\(r_1 = 2,3\)</span> y <span class="math inline">\(r_2 = 3,2\)</span>. De acuerdo con esto</p>
 <p><span class="math display">\[
-n_s = \frac{3m - 3}{5}.
+n_S = \frac{3m - 3}{5}.
 \]</span></p>
 <p>Si <span class="math inline">\(j = 2\)</span> los valores que pueden tomar <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> son <span class="math inline">\(r_1 = 0\)</span> y <span class="math inline">\(r_2 = 1\)</span>, <span class="math inline">\(r_1 = 2\)</span> y <span class="math inline">\(r_2 = 4\)</span>, <span class="math inline">\(r_1 = 3\)</span> y <span class="math inline">\(r_2 = 3\)</span>. De acuerdo con esto</p>
 <p><span class="math display">\[
-n_s = \frac{3m - 1}{5}.
+n_S = \frac{3m - 1}{5}.
 \]</span></p>
 <p>Si <span class="math inline">\(j = 3\)</span> los valores que pueden tomar <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> son <span class="math inline">\(r_1 = 0\)</span> y <span class="math inline">\(r_2 = 2\)</span>, <span class="math inline">\(r_1 = 1\)</span> y <span class="math inline">\(r_2 = 1\)</span>, <span class="math inline">\(r_1 = 3\)</span> y <span class="math inline">\(r_2 = 4\)</span>. De acuerdo con esto</p>
 <p><span class="math display">\[
-n_s = \frac{3m + 1}{5}.
+n_S = \frac{3m + 1}{5}.
 \]</span></p>
 <p>Si <span class="math inline">\(j = 4\)</span> los valores que pueden tomar <span class="math inline">\(r_1\)</span>, <span class="math inline">\(r_2\)</span> son <span class="math inline">\(r_1 = 0\)</span> y <span class="math inline">\(r_2 = 3\)</span>, <span class="math inline">\(r_1 = 1,2\)</span> y <span class="math inline">\(r_2 = 2,1\)</span>. De acuerdo con esto</p>
 <p><span class="math display">\[
-n_s = \frac{3m + 3}{5}.
+n_S = \frac{3m + 3}{5}.
 \]</span></p>
 <p>El siguiente programa encuentra el número de parejas no divisibles por <span class="math inline">\(2\)</span>, <span class="math inline">\(3\)</span> ni <span class="math inline">\(5\)</span> cuya suma en un número par <span class="math inline">\(2N\)</span>.</p>
 <div class="cell" data-execution_count="2">
@@ -640,8 +640,8 @@ n_s = \frac{3m + 3}{5}.
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">La función ng(n) calcula el número de parejas de números no divisibles</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">por 2, 3, y 5 cuya suma es n.</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co">La función ng(n) calcula el número de parejas de </span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co">números no divisibles por 2, 3, y 5 cuya suma es 2N.</span></span>
 <span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ng(x):</span>
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    lg <span class="op">=</span> []</span>
@@ -653,8 +653,8 @@ n_s = \frac{3m + 3}{5}.
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">Funciones para calcular el número de parejas no divisibles por 2, 3 y 5</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">cuya suma es 2N.</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co">Funciones para calcular el número de parejas no </span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co">divisibles por 2, 3 y 5 cuya suma es 2N.</span></span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> f(x):</span>
@@ -668,82 +668,84 @@ n_s = \frac{3m + 3}{5}.
 <span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nsa(x):</span>
 <span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> (x <span class="op">-</span> <span class="dv">2</span>)<span class="op">/</span><span class="dv">6</span></span>
 <span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f(<span class="dv">1</span> <span class="op">+</span> m<span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> np.floor(m<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((m <span class="op">+</span> <span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> f(<span class="dv">2</span><span class="op">*</span>m<span class="op">/</span><span class="dv">5</span>)</span>
 <span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (<span class="dv">1</span> <span class="op">+</span> np.floor(m<span class="op">/</span><span class="dv">5</span>)) <span class="op">+</span>  f( np.floor(m<span class="op">/</span><span class="dv">5</span>))</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span> <span class="kw">or</span> m <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">1</span> <span class="op">+</span> m <span class="op">-</span> <span class="dv">5</span><span class="op">*</span>np.floor(m<span class="op">/</span><span class="dv">5</span>))<span class="op">*</span>(<span class="dv">1</span> <span class="op">+</span> np.floor(m<span class="op">/</span><span class="dv">5</span>)))</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f( (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span> )</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="co"># En la caso en que N = 2 mod 3</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">2</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">8</span>)<span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> f((m<span class="op">-</span><span class="dv">1</span>)<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">9</span>)<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m <span class="op">%</span> <span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">4</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">8</span>)<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f( (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span> )</span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nsb(x):</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> (x <span class="op">-</span> <span class="dv">4</span>)<span class="op">/</span><span class="dv">6</span></span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (m <span class="op">-</span> <span class="dv">5</span>)<span class="op">/</span><span class="dv">5</span> <span class="op">+</span>  np.floor((m<span class="op">-</span><span class="dv">5</span>)<span class="op">/</span><span class="dv">10</span>) <span class="op">+</span> <span class="dv">2</span></span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">2</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">2</span>)<span class="op">/</span><span class="dv">5</span> </span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (m <span class="op">-</span> <span class="dv">7</span>)<span class="op">/</span><span class="dv">5</span> <span class="op">+</span>  np.floor((m<span class="op">-</span><span class="dv">7</span>)<span class="op">/</span><span class="dv">10</span>) <span class="op">+</span> <span class="dv">2</span></span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (m <span class="op">-</span> <span class="dv">8</span>)<span class="op">/</span><span class="dv">5</span> <span class="op">+</span>  np.floor((m<span class="op">-</span><span class="dv">2</span>)<span class="op">/</span><span class="dv">10</span>) <span class="op">+</span> <span class="dv">2</span></span>
-<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (m <span class="op">-</span> <span class="dv">4</span>)<span class="op">/</span><span class="dv">5</span> <span class="op">+</span>  np.floor((m<span class="op">-</span><span class="dv">9</span>)<span class="op">/</span><span class="dv">10</span>) <span class="op">+</span> <span class="dv">2</span></span>
-<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a><span class="co"># En la caso en que N = 0 mod 3</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="co"># En la caso en que N = 2 mod 3</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nsb(x):</span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> (x <span class="op">-</span> <span class="dv">4</span>)<span class="op">/</span><span class="dv">6</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">3</span><span class="op">*</span>m)<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> f((<span class="dv">4</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">4</span> )<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">3</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">9</span> )<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f(m<span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> f((<span class="dv">2</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">10</span> )<span class="op">/</span><span class="dv">5</span>)</span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> f((<span class="dv">2</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">4</span> )<span class="op">/</span><span class="dv">5</span>) <span class="op">+</span> f((m <span class="op">-</span> <span class="dv">7</span> )<span class="op">/</span><span class="dv">5</span>)</span>
 <span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nsc(x):</span>
-<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> x<span class="op">/</span><span class="dv">6</span></span>
-<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="dv">4</span><span class="op">*</span>m<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
-<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
-<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span></span>
-<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de la funcion ns (números de parejas</span></span>
-<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a><span class="co"># cuya suma es 2N)</span></span>
-<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ns(x):</span>
-<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">1</span>:</span>
-<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsa(x)</span>
-<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsb(x)</span>
-<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsc(x)</span>
-<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">500</span>)]</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a><span class="co"># En la caso en que N = 0 mod 3</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> nsc(x):</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  m <span class="op">=</span> x<span class="op">/</span><span class="dv">6</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> <span class="dv">4</span><span class="op">*</span>m<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">-</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">3</span>:</span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">1</span>)<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> m<span class="op">%</span><span class="dv">5</span> <span class="op">==</span> <span class="dv">4</span>:</span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>      <span class="cf">return</span> (<span class="dv">3</span><span class="op">*</span>m <span class="op">+</span> <span class="dv">3</span>)<span class="op">/</span><span class="dv">5</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a><span class="co"># Definición de la funcion ns (números de parejas</span></span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="co"># cuya suma es 2N)</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> ns(x):</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">1</span>:</span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsa(x)</span>
+<span id="cb2-97"><a href="#cb2-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb2-98"><a href="#cb2-98" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsb(x)</span>
+<span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsc(x)</span>
 <span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
-<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a>plt.scatter(valores, [ns(k) <span class="cf">for</span> k <span class="kw">in</span> valores], s <span class="op">=</span> <span class="dv">2</span>)</span>
-<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Gráfico de ns vs 2N'</span>)</span>
-<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'2N'</span>)</span>
-<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'ns'</span>)</span>
-<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
-<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a><span class="co">Un ejemplo numérico y analítico</span></span>
-<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="co">modifique el valor de k</span></span>
-<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'El siguiente es un ejemplo numérico '</span>)</span>
-<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">15024820</span></span>
-<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Número par </span><span class="sc">{</span>numero<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Cómputo numérico del número de parejas </span><span class="sc">{</span>ng(numero)<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Expresión analítica para calcular el número de parejas </span><span class="sc">{</span>ns(numero)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">250</span>)]</span>
+<span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
+<span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>plt.scatter(valores, [ns(k) <span class="cf">for</span> k <span class="kw">in</span> valores], s <span class="op">=</span> <span class="dv">2</span>)</span>
+<span id="cb2-106"><a href="#cb2-106" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Gráfico de ns vs 2N'</span>)</span>
+<span id="cb2-107"><a href="#cb2-107" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'2N'</span>)</span>
+<span id="cb2-108"><a href="#cb2-108" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'ns'</span>)</span>
+<span id="cb2-109"><a href="#cb2-109" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb2-110"><a href="#cb2-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-111"><a href="#cb2-111" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-112"><a href="#cb2-112" aria-hidden="true" tabindex="-1"></a><span class="co">Un ejemplo numérico y analítico</span></span>
+<span id="cb2-113"><a href="#cb2-113" aria-hidden="true" tabindex="-1"></a><span class="co">modifique el valor de k</span></span>
+<span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'El siguiente es un ejemplo numérico '</span>)</span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">99602042</span></span>
+<span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Número par </span><span class="sc">{</span>numero<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Cómputo numérico del número de parejas </span><span class="sc">{</span>ng(numero)<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Expresión analítica para calcular el número de parejas </span><span class="sc">{</span>ns(numero)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="index_files/figure-html/cell-3-output-1.png" width="445" height="376"></p>
+<p><img src="index_files/figure-html/cell-3-output-1.png" width="436" height="376"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>El siguiente es un ejemplo numérico 
-Número par 15024820
-Cómputo numérico del número de parejas 1001654
-Expresión analítica para calcular el número de parejas 1001654.0</code></pre>
+Número par 99602042
+Cómputo numérico del número de parejas 4980103
+Expresión analítica para calcular el número de parejas 4980103.0</code></pre>
 </div>
 </div>
 
