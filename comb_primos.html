@@ -307,20 +307,21 @@ x - q &amp;= p (k_1 - k_2),
 <p><span class="proof-title"><em>Prueba</em>. </span>Se desprende del lema <a href="#lem-lm1">2</a> que <span class="math inline">\(q \notin B(x)\)</span> si y sólo si <span class="math inline">\(x - q\)</span> es un número primo.</p>
 <p>Por otro lado, note que para todo primo <span class="math inline">\(p \leq \sqrt{x},\)</span> se tiene que <span class="math inline">\(x - p \in B(x),\)</span></p>
 </div>
-<div id="lem">
-<p>Sea <span class="math inline">\(x\)</span> un entero no negativo, entonces <span id="eq-lm2"><span class="math display">\[
-\big \vert  N(x) \setminus B(x ) \big \vert  =   \sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \left( \frac{x + \left[ x , Q \right]}{Q} \right)  + 1 - d_{Q}(x)\right).
+<div id="lem-lemaC22" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 4 </strong></span>Sea <span class="math inline">\(x\)</span> un entero no negativo, entonces <span id="eq-lm2"><span class="math display">\[
+\big \vert  N(x) \setminus B(x ) \big \vert  =   \sum_{j = 0}^{\pi{\left( \sqrt{x} \right)}} (-1)^j \sum_{Q \in A_{j}(\sqrt{x})} \left( \left( \frac{x - \left[ x , Q \right]}{Q} \right)  + 1 - d_{Q}(x)\right).
 \tag{11}\]</span></span></p>
 </div>
 <div class="proof">
 <p><span class="proof-title"><em>Prueba</em>. </span>Es claro que <span class="math display">\[
 \big \vert  N(x) \setminus B(x) \big \vert  = \Big\vert N(x)  \setminus  \bigcup_{Q \in P{\left( \sqrt{x} \right)}} C(x;Q) \Big\vert
-\]</span> De forma similar a la prueba del lema <a href="#lem-lema1">1</a>, note que si en el sistema <a href="#eq-sistema2">5</a> cambiamos <span class="math inline">\(\left[ rQ_{i}^{\varphi(q)} , qQ_i \right]\)</span> por <span class="math inline">\(\left[ x , Q_i \right]\)</span> para <span class="math inline">\(i = 1, \ldots , n\)</span> el sistema admite una solución elemental, siendo ésta <span class="math inline">\(x.\)</span> De acuerdo con lo anterior, para <span class="math inline">\(Q \in A_j{\left( \sqrt{x} \right)}\)</span> con <span class="math inline">\(j \geq 2,\)</span> se tiene que <span class="math display">\[
+\]</span></p>
+<p>De forma similar a la prueba del lema <a href="#lem-lema1">1</a>, note que si en el sistema <a href="#eq-sistema2">5</a> cambiamos <span class="math inline">\(\left[ rQ_{i}^{\varphi(q)} , qQ_i \right]\)</span> por <span class="math inline">\(\left[ x , Q_i \right]\)</span> para <span class="math inline">\(i = 1, \ldots , n\)</span> el sistema admite una solución elemental, siendo ésta <span class="math inline">\(x.\)</span> De acuerdo con lo anterior, para <span class="math inline">\(Q \in A_j{\left( \sqrt{x} \right)}\)</span> con <span class="math inline">\(j \geq 2,\)</span> se tiene que <span class="math display">\[
 \Big\vert C{\left(x; Q\right) }\Big\vert = \left( \frac{x - \left[ x , Q \right]}{Q}\right) + 1 - d_{Q}(x),
 \]</span> lo que finaliza la prueba.</p>
 </div>
 <div id="lem-lemaf1" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lema 4 </strong></span>Si <span class="math inline">\(x\)</span> es un entero no negativo, entonces <span id="eq-lemaf"><span class="math display">\[
+<p><span class="theorem-title"><strong>Lema 5 </strong></span>Si <span class="math inline">\(x\)</span> es un entero no negativo, entonces <span id="eq-lemaf"><span class="math display">\[
 \sum_{j = 0}^{\pi{\left( \sqrt{x} \right) } } (-1)^j \sum_{Q \in A_j(\sqrt{x})} \left( \frac{x - \left[ x , Q \right] }{Q} \right) =  \pi{(x)} - \pi{\left( \sqrt{x}\right)} + 1.
 \tag{12}\]</span></span></p>
 </div>
