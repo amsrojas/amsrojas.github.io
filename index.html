@@ -176,7 +176,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#solución-de-5s-r-equiv-a-mod-p" id="toc-solución-de-5s-r-equiv-a-mod-p" class="nav-link active" data-scroll-target="#solución-de-5s-r-equiv-a-mod-p">Solución de <span class="math inline">\(5s + r \equiv a \mod p\)</span></a></li>
+  <li><a href="#perturbaciones-sobre-conjuntos-de-números-enteros" id="toc-perturbaciones-sobre-conjuntos-de-números-enteros" class="nav-link active" data-scroll-target="#perturbaciones-sobre-conjuntos-de-números-enteros">Perturbaciones sobre conjuntos de números enteros</a></li>
+  <li><a href="#solución-de-5s-r-equiv-a-mod-p" id="toc-solución-de-5s-r-equiv-a-mod-p" class="nav-link" data-scroll-target="#solución-de-5s-r-equiv-a-mod-p">Solución de <span class="math inline">\(5s + r \equiv a \mod p\)</span></a></li>
   <li><a href="#número-de-soluciones-con-restricciones-de-una-ecuación-lineal" id="toc-número-de-soluciones-con-restricciones-de-una-ecuación-lineal" class="nav-link" data-scroll-target="#número-de-soluciones-con-restricciones-de-una-ecuación-lineal">Número de soluciones con restricciones de una ecuación lineal</a>
   <ul class="collapse">
   <li><a href="#un-caso-de-simetría" id="toc-un-caso-de-simetría" class="nav-link" data-scroll-target="#un-caso-de-simetría">Un caso de simetría</a></li>
@@ -215,6 +216,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p>La matemática es un lenguaje que permite describir de forma cuantitativa y cualitativa nuestro entorno. Este lenguaje que se construye a partir de la sintaxis de la lógica, cruza barreras idiológicas, económicas, étnicas, de género y cualquir otra cimentada por el humano.</p>
+<section id="perturbaciones-sobre-conjuntos-de-números-enteros" class="level1">
+<h1>Perturbaciones sobre conjuntos de números enteros</h1>
+<p>Consideremos el siguiente arreglo de números enteros no negativos</p>
+<p><span class="math display">\[
+\mathcal{O}^n =
+\begin{pmatrix}
+n &amp; n - 1 &amp; n - 2 &amp; \cdots &amp; 2 &amp; 1 &amp; 0
+\\
+0 &amp; 1 &amp; 2 &amp; \cdots &amp; n - 2 &amp; n-1 &amp; n
+\end{pmatrix}
+\]</span></p>
+<p>Entenderemos que <span class="math inline">\(\mathcal{O}^{n+1}\)</span> está dado por <span class="math display">\[
+\mathcal{O}^{n + 1} =
+\begin{pmatrix}
+n + 1 &amp; n &amp; n - 1 &amp; \cdots &amp; 2 &amp; 1 &amp; 0
+\\
+0 &amp; 1 &amp; 2 &amp; \cdots &amp; n - 1 &amp; n &amp; n + 1
+\end{pmatrix}
+\]</span></p>
+<p>Emplearemos la notación <span class="math inline">\(\mathcal{O}^n_{i,j}\)</span> y <span class="math inline">\(\mathcal{O}^n_{2,j}\)</span> para referirnos al elemento de la fila <span class="math inline">\(i\)</span> y columna <span class="math inline">\(j\)</span> de <span class="math inline">\(\mathcal{O}^n\)</span>. Note que <span class="math inline">\(i = 1,2\)</span> y <span class="math inline">\(j = 1, \ldots n + 1\)</span> en <span class="math inline">\(\mathcal{O}^n\)</span>.</p>
+<p>Para los arreglos <span class="math inline">\(\mathcal{O}^n\)</span> y <span class="math inline">\(\mathcal{O}^{n+1}\)</span> se cumple que</p>
+<ol type="1">
+<li><p><span class="math inline">\(\mathcal{O}^n_{2,j-1} = \mathcal{O}^{n+1}_{2,j}\)</span></p></li>
+<li><p><span class="math inline">\(\mathcal{O}^n_{1,j} = \mathcal{O}^{n+1}_{1,j}\)</span></p></li>
+</ol>
+<p>Consideremos el conjunto <span class="math inline">\(N(n) = \{ 0, 1, 2, \ldots , n\}\)</span> y sea <span class="math inline">\(A\)</span> un subconjunto no vacío de <span class="math inline">\(N(n).\)</span> Diremos que <span class="math inline">\(j\)</span> es una columna efectiva de <span class="math inline">\(A\)</span> si <span class="math inline">\(\mathcal{O}^n_{1,j}, \mathcal{O}^n_{2,j} \in A.\)</span></p>
+<p>Se sigue de las propiedades <span class="math inline">\(1.\)</span> y <span class="math inline">\(2.\)</span> el siguiente resultado</p>
+<div id="lem-lema_c_efectivo" class="theorem lemma">
+<p><span class="theorem-title"><strong>Lema 1 </strong></span>Si <span class="math inline">\(\mathcal{O}^n_{2,j-1} \in A\)</span> y <span class="math inline">\(\mathcal{O}^{n}_{1,j} \in A\)</span> entonces <span class="math inline">\(j\)</span> es una columna efectiva de <span class="math inline">\(\mathcal{O}^{n+1}.\)</span></p>
+</div>
+</section>
 <section id="solución-de-5s-r-equiv-a-mod-p" class="level1">
 <h1>Solución de <span class="math inline">\(5s + r \equiv a \mod p\)</span></h1>
 <p>Vamos a encontrar un conjunto de valores enteros <span class="math inline">\(s\)</span> tales que</p>
@@ -338,7 +370,7 @@ r_1 + r_2 = r \text{ con } r_1,r_2 \leq z
 <p>son <span class="math inline">\(n_S = 2z - r + 1.\)</span></p>
 <p>En el caso de que se quiera incluir una restricción de la forma <span class="math inline">\(r_1 \neq z_0\)</span> y <span class="math inline">\(r_2 \neq z'_0\)</span>. Entonces eliminamos dos soluciones si <span class="math inline">\(z_0 + z'_0 \neq r\)</span> y tres si <span class="math inline">\(z_0 + z'_0 = r\)</span>. El análisis anterior se resume en el siguiente resultado.</p>
 <div id="lem-lema" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lema 1 </strong></span>Sean <span class="math inline">\(n\)</span> y <span class="math inline">\(r\)</span> enteros no negativos, tales que <span class="math inline">\(n + r = k.\)</span> El número de soluciones <span class="math inline">\(n_S\)</span> del problema</p>
+<p><span class="theorem-title"><strong>Lema 2 </strong></span>Sean <span class="math inline">\(n\)</span> y <span class="math inline">\(r\)</span> enteros no negativos, tales que <span class="math inline">\(n + r = k.\)</span> El número de soluciones <span class="math inline">\(n_S\)</span> del problema</p>
 </div>
 <p><span id="eq-sol_combinatoria"><span class="math display">\[
 s + r_1 + t + r_2 = k
@@ -383,7 +415,7 @@ A = \{ 6x + 1 \}_{x \in \mathbb{N}_0} \text{ y } B = \{ 6y + 5 \}_{y \in \mathbb
 \tag{14}\]</span></span></p>
 <p>y ya que los elementos de <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> no son divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3\)</span> entonces:</p>
 <div id="lem-lema1" class="theorem lemma">
-<p><span class="theorem-title"><strong>Lema 2 </strong></span>Todo número par <span class="math inline">\(2N \geq 6\)</span> se puede escribir como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
+<p><span class="theorem-title"><strong>Lema 3 </strong></span>Todo número par <span class="math inline">\(2N \geq 6\)</span> se puede escribir como la suma de dos números no divisibles por <span class="math inline">\(2\)</span> ni por <span class="math inline">\(3.\)</span></p>
 </div>
 <p>En los conjuntos <a href="#eq-conjuntos">14</a> siempre es posible encontrar, para ciertos valores de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>, múltiplos de algún primo <span class="math inline">\(p\)</span>. En este caso, <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span> deben de satisfacer las siguientes ecuaciones modulares<br>
 <span class="math display">\[
@@ -719,7 +751,7 @@ n_S = \frac{3m + 3}{5}.
 <span id="cb2-99"><a href="#cb2-99" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (x<span class="op">/</span><span class="dv">2</span>)<span class="op">%</span><span class="dv">3</span> <span class="op">==</span> <span class="dv">0</span>:</span>
 <span id="cb2-100"><a href="#cb2-100" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> nsc(x)</span>
 <span id="cb2-101"><a href="#cb2-101" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">250</span>)]</span>
+<span id="cb2-102"><a href="#cb2-102" aria-hidden="true" tabindex="-1"></a>valores <span class="op">=</span> [<span class="dv">2</span><span class="op">*</span>k <span class="cf">for</span> k <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">20</span>,<span class="dv">200</span>)]</span>
 <span id="cb2-103"><a href="#cb2-103" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-104"><a href="#cb2-104" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">4</span>))</span>
 <span id="cb2-105"><a href="#cb2-105" aria-hidden="true" tabindex="-1"></a>plt.scatter(valores, [ns(k) <span class="cf">for</span> k <span class="kw">in</span> valores], s <span class="op">=</span> <span class="dv">2</span>)</span>
@@ -734,7 +766,7 @@ n_S = \frac{3m + 3}{5}.
 <span id="cb2-114"><a href="#cb2-114" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
 <span id="cb2-115"><a href="#cb2-115" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-116"><a href="#cb2-116" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'El siguiente es un ejemplo numérico '</span>)</span>
-<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">99602042</span></span>
+<span id="cb2-117"><a href="#cb2-117" aria-hidden="true" tabindex="-1"></a>numero <span class="op">=</span> <span class="dv">99602</span></span>
 <span id="cb2-118"><a href="#cb2-118" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Número par </span><span class="sc">{</span>numero<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb2-119"><a href="#cb2-119" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Cómputo numérico del número de parejas </span><span class="sc">{</span>ng(numero)<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb2-120"><a href="#cb2-120" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Expresión analítica para calcular el número de parejas </span><span class="sc">{</span>ns(numero)<span class="sc">}</span><span class="ss">'</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -743,9 +775,9 @@ n_S = \frac{3m + 3}{5}.
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>El siguiente es un ejemplo numérico 
-Número par 99602042
-Cómputo numérico del número de parejas 4980103
-Expresión analítica para calcular el número de parejas 4980103.0</code></pre>
+Número par 99602
+Cómputo numérico del número de parejas 4981
+Expresión analítica para calcular el número de parejas 4981.0</code></pre>
 </div>
 </div>
 
